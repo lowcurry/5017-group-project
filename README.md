@@ -2,6 +2,8 @@
 
 MSBD 5017 · Curve 3pool Evidence and Verification
 
+Public handoff updated on 10 November 2026.
+
 This project investigates two stablecoin stress events with historical Ethereum data, a model-based investigation workflow, and independently replayable evidence checks.
 
 | File | Use |
