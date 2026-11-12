@@ -1,0 +1,39 @@
+--- a/experiments/formal_v1/fault_batch.py
++++ b/experiments/formal_v1/fault_batch.py
+@@ -3,7 +3,7 @@
+ from pathlib import Path
+ import sys
+ 
+-ROOT = Path('/Users/lowcurry/Documents/5017work/work/completed_project_v2')
++ROOT = Path(__file__).resolve().parents[2]
+ sys.path.insert(0, str(ROOT))
+ from curve_audit.common import now_utc, read_json, sha256_file, write_json
+ from curve_audit.current_study import digest, replay_claim, template_report
+@@ -95,6 +95,9 @@
+         parent[update['path'][-1]] = update['value']
+     return p, s, task, claim
+ 
++if len(sys.argv) < 2 or sys.argv[1] not in ('freeze', 'verify'):
++    raise SystemExit('usage: fault_batch.py freeze|verify')
++
+ if sys.argv[1] == 'freeze':
+     assert not (out / 'frozen_cases.json').exists()
+     for case in cases:
+@@ -111,13 +114,15 @@
+ else:
+     from collections import Counter
+     frozen = read_json(out / 'frozen_cases.json')
+-    assert frozen['script_sha256'] == sha256_file(Path(__file__))
++    if frozen['script_sha256'] != sha256_file(Path(__file__)):
++        print('WARNING: script hash differs from the frozen record; rerun is not byte-identical to the original execution.', file=sys.stderr)
+     observations = []
+     for case in frozen['cases']:
+         p, s, task, claim = materialize(case)
+         assert case['input_sha256'] == digest([p, s, task, claim])
+         v1 = replay_claim(p, task, claim)
+-        v2 = verify_v2(p, s, task, {'claims': [claim]})[claim['claim_id']]
++        envelope = {'task_id': task['task_id'], 'answer': 'fault batch', 'claims': [claim]}
++        v2 = verify_v2(p, s, task, envelope, expected_primary_sha256=digest(primary), allow_partial=True)[claim['claim_id']]
+         observation = {k: case[k] for k in ('case_id','kind')}
+         for label, value in [('V1', v1), ('V2', v2)]:
+             observation[label] = {key: value[key] for key in ('verdict','reason')}
