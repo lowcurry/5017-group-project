@@ -41,11 +41,13 @@
 
 ## 4 效果图表与指标
 
+七张图均由 Matplotlib 读取归档数据生成。新增[逐题配对效果](audit/effect_metrics/figures/paired-effects.svg)、[核验故障判定](audit/effect_metrics/figures/verifier-faults.svg)和[模型用量](audit/effect_metrics/figures/efficiency.svg)。
+
 [图表说明](audit/effect_metrics/README.md) · [指标 CSV](audit/effect_metrics/figures/metrics.csv) · [指标 JSON](audit/effect_metrics/figures/metrics.json)
 
 ![两组正确覆盖率的比较](audit/effect_metrics/figures/coverage.svg)
 
-其余三张图展示[算术故障拦截](audit/effect_metrics/figures/arithmetic-faults.svg)、[研究决策转人工复核](audit/effect_metrics/figures/research-decisions.svg)和[历史报价误差](audit/effect_metrics/figures/quote-errors.svg)。[公开交接包](MSBD5017_Public_Handoff.zip)中包含浏览器报告。解压后可打开 `audit/effect_metrics/figures/index.html` 查看图表和完整指标。
+另有图表展示[算术故障拦截](audit/effect_metrics/figures/arithmetic-faults.svg)、[研究决策转人工复核](audit/effect_metrics/figures/research-decisions.svg)和[历史报价误差](audit/effect_metrics/figures/quote-errors.svg)。[公开交接包](MSBD5017_Public_Handoff.zip)中包含浏览器报告。解压后可打开 `audit/effect_metrics/figures/index.html` 查看图表和完整指标。
 
 ## 5 离线复现
 
@@ -60,10 +62,12 @@ python3 -B audit/arithmetic_faults/run_arithmetic_faults.py .
 python3 -B audit/arithmetic_faults/replay_publication_guard.py .
 python3 -B audit/decision_replay_20261112/replay.py .
 python3 -B docs/reproduce_current.py
-python3 -B audit/effect_metrics/build.py --output /tmp/5017-effect-metrics
+python3 -B audit/effect_metrics/build.py --metrics-only --output /tmp/5017-effect-metrics
 python3 -B -m unittest discover -s tests
 ```
 
-正式复现覆盖 36 次计划模型运行、6 份模板输出和 32 个冻结故障案例。当前公开包通过了 286 项 Python 测试。解压后的 README 提供各命令和结果文件的对应关系。
+绘图请先安装 `audit/effect_metrics/requirements.txt` 中的依赖，再移除 `--metrics-only` 并指定新的输出目录。
+
+正式复现覆盖 36 次计划模型运行、6 份模板输出和 32 个冻结故障案例。当前公开包通过了 287 项 Python 测试。解压后的 README 提供各命令和结果文件的对应关系。
 
 其他材料：[展示稿](MSBD5017_Project_Presentation.pptx) · [展示措辞修订说明](SLIDE_TEXT_PATCH.md) · [正文审阅 A](%E6%AD%A3%E6%96%87%E5%AE%A1%E9%98%85%E8%A1%A8-%E8%8D%89%E7%A8%BF-A.xlsx) · [正文审阅 B](%E6%AD%A3%E6%96%87%E5%AE%A1%E9%98%85%E8%A1%A8_%E5%B7%B2%E5%AE%8C%E6%88%90.xlsx)
