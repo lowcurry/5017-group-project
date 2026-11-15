@@ -14,10 +14,13 @@ summary{cursor:pointer;font-weight:700;margin:1rem 0}
 <h1>Curve 3pool investigation</h1>
 <p>Effect metrics from the frozen G/E study, controlled arithmetic tests and historical decision replay.</p>
 <p><a href="metrics.csv">Download CSV</a> · <a href="metrics.json">Download JSON with input hashes</a></p>
-<div class="figures"><figure><img src="coverage.svg" alt="Formal correct coverage"><figcaption>Formal correct coverage</figcaption></figure>
-<figure><img src="arithmetic-faults.svg" alt="Publication of arithmetic fault cases"><figcaption>Publication of arithmetic fault cases</figcaption></figure>
-<figure><img src="research-decisions.svg" alt="Research actions before and after verification"><figcaption>Research actions before and after verification</figcaption></figure>
-<figure><img src="quote-errors.svg" alt="Historical quote error by event"><figcaption>Historical quote error by event</figcaption></figure></div>
+<div class="figures"><figure><img src="coverage.svg" alt="Raw, reproducible and published correct coverage by cohort"><figcaption>Raw, reproducible and published correct coverage by cohort</figcaption></figure>
+<figure><img src="paired-effects.svg" alt="Evidence-guided minus ordinary prompting for each paired repetition"><figcaption>Evidence-guided minus ordinary prompting for each paired repetition</figcaption></figure>
+<figure><img src="verifier-faults.svg" alt="PASS, FAIL and UNKNOWN outcomes of the frozen verifier checks"><figcaption>PASS, FAIL and UNKNOWN outcomes of the frozen verifier checks</figcaption></figure>
+<figure><img src="arithmetic-faults.svg" alt="Publication outcomes of injected shared arithmetic faults"><figcaption>Publication outcomes of injected shared arithmetic faults</figcaption></figure>
+<figure><img src="research-decisions.svg" alt="Historical research actions and review referrals before and after verification"><figcaption>Historical research actions and review referrals before and after verification</figcaption></figure>
+<figure><img src="quote-errors.svg" alt="Cumulative distribution of historical quote errors by event"><figcaption>Cumulative distribution of historical quote errors by event</figcaption></figure>
+<figure><img src="efficiency.svg" alt="Observed model token use and tokens per correct result"><figcaption>Observed model token use and tokens per correct result</figcaption></figure></div>
 <details><summary>Show all metrics and denominators</summary>
 <div class="table"><table><thead><tr><th scope="col">Experiment</th><th scope="col">Cohort</th><th scope="col">Scope</th><th scope="col">Group or stage</th><th scope="col">Metric</th><th scope="col">Count</th><th scope="col">Denominator</th><th scope="col">Value</th><th scope="col">Unit</th></tr></thead><tbody><tr><td>formal</td><td>scheduled</td><td>ftx_2022</td><td>E</td><td>correct</td><td>23</td><td>24</td><td>95.833333</td><td>%</td></tr>
 <tr><td>formal</td><td>scheduled</td><td>ftx_2022</td><td>E</td><td>reproducible_correct</td><td>21</td><td>24</td><td>87.5</td><td>%</td></tr>
@@ -85,69 +88,549 @@ summary{cursor:pointer;font-weight:700;margin:1rem 0}
 <tr><td>formal</td><td>complete_pairs</td><td>usdc_2023</td><td>E minus G</td><td>correct_delta</td><td>–</td><td>–</td><td>4.761905</td><td>pp</td></tr>
 <tr><td>formal</td><td>complete_pairs</td><td>usdc_2023</td><td>E minus G</td><td>reproducible_correct_delta</td><td>–</td><td>–</td><td>19.047619</td><td>pp</td></tr>
 <tr><td>formal</td><td>complete_pairs</td><td>usdc_2023</td><td>E minus G</td><td>published_correct_delta</td><td>–</td><td>–</td><td>23.809524</td><td>pp</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>overall</td><td>E vs G</td><td>correct_e_win</td><td>4</td><td>18</td><td>22.222222</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>overall</td><td>E vs G</td><td>correct_tie</td><td>12</td><td>18</td><td>66.666667</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>overall</td><td>E vs G</td><td>correct_g_win</td><td>2</td><td>18</td><td>11.111111</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>overall</td><td>E minus G</td><td>correct_mean_gap</td><td>5</td><td>18</td><td>0.277778</td><td>components/pair</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>overall</td><td>E vs G</td><td>reproducible_correct_e_win</td><td>7</td><td>18</td><td>38.888889</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>overall</td><td>E vs G</td><td>reproducible_correct_tie</td><td>10</td><td>18</td><td>55.555556</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>overall</td><td>E vs G</td><td>reproducible_correct_g_win</td><td>1</td><td>18</td><td>5.555556</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>overall</td><td>E minus G</td><td>reproducible_correct_mean_gap</td><td>9</td><td>18</td><td>0.5</td><td>components/pair</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>overall</td><td>E vs G</td><td>published_correct_e_win</td><td>9</td><td>18</td><td>50.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>overall</td><td>E vs G</td><td>published_correct_tie</td><td>8</td><td>18</td><td>44.444444</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>overall</td><td>E vs G</td><td>published_correct_g_win</td><td>1</td><td>18</td><td>5.555556</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>overall</td><td>E minus G</td><td>published_correct_mean_gap</td><td>11</td><td>18</td><td>0.611111</td><td>components/pair</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>ftx_2022</td><td>E vs G</td><td>correct_e_win</td><td>1</td><td>9</td><td>11.111111</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>ftx_2022</td><td>E vs G</td><td>correct_tie</td><td>7</td><td>9</td><td>77.777778</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>ftx_2022</td><td>E vs G</td><td>correct_g_win</td><td>1</td><td>9</td><td>11.111111</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>ftx_2022</td><td>E minus G</td><td>correct_mean_gap</td><td>1</td><td>9</td><td>0.111111</td><td>components/pair</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>ftx_2022</td><td>E vs G</td><td>reproducible_correct_e_win</td><td>3</td><td>9</td><td>33.333333</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>ftx_2022</td><td>E vs G</td><td>reproducible_correct_tie</td><td>5</td><td>9</td><td>55.555556</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>ftx_2022</td><td>E vs G</td><td>reproducible_correct_g_win</td><td>1</td><td>9</td><td>11.111111</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>ftx_2022</td><td>E minus G</td><td>reproducible_correct_mean_gap</td><td>2</td><td>9</td><td>0.222222</td><td>components/pair</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>ftx_2022</td><td>E vs G</td><td>published_correct_e_win</td><td>4</td><td>9</td><td>44.444444</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>ftx_2022</td><td>E vs G</td><td>published_correct_tie</td><td>4</td><td>9</td><td>44.444444</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>ftx_2022</td><td>E vs G</td><td>published_correct_g_win</td><td>1</td><td>9</td><td>11.111111</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>ftx_2022</td><td>E minus G</td><td>published_correct_mean_gap</td><td>3</td><td>9</td><td>0.333333</td><td>components/pair</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>usdc_2023</td><td>E vs G</td><td>correct_e_win</td><td>3</td><td>9</td><td>33.333333</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>usdc_2023</td><td>E vs G</td><td>correct_tie</td><td>5</td><td>9</td><td>55.555556</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>usdc_2023</td><td>E vs G</td><td>correct_g_win</td><td>1</td><td>9</td><td>11.111111</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>usdc_2023</td><td>E minus G</td><td>correct_mean_gap</td><td>4</td><td>9</td><td>0.444444</td><td>components/pair</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>usdc_2023</td><td>E vs G</td><td>reproducible_correct_e_win</td><td>4</td><td>9</td><td>44.444444</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>usdc_2023</td><td>E vs G</td><td>reproducible_correct_tie</td><td>5</td><td>9</td><td>55.555556</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>usdc_2023</td><td>E vs G</td><td>reproducible_correct_g_win</td><td>0</td><td>9</td><td>0.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>usdc_2023</td><td>E minus G</td><td>reproducible_correct_mean_gap</td><td>7</td><td>9</td><td>0.777778</td><td>components/pair</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>usdc_2023</td><td>E vs G</td><td>published_correct_e_win</td><td>5</td><td>9</td><td>55.555556</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>usdc_2023</td><td>E vs G</td><td>published_correct_tie</td><td>4</td><td>9</td><td>44.444444</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>usdc_2023</td><td>E vs G</td><td>published_correct_g_win</td><td>0</td><td>9</td><td>0.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>usdc_2023</td><td>E minus G</td><td>published_correct_mean_gap</td><td>8</td><td>9</td><td>0.888889</td><td>components/pair</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R01</td><td>E vs G</td><td>correct_e_win</td><td>1</td><td>3</td><td>33.333333</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R01</td><td>E vs G</td><td>correct_tie</td><td>2</td><td>3</td><td>66.666667</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R01</td><td>E vs G</td><td>correct_g_win</td><td>0</td><td>3</td><td>0.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R01</td><td>E minus G</td><td>correct_mean_gap</td><td>3</td><td>3</td><td>1.0</td><td>components/pair</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R01</td><td>E vs G</td><td>reproducible_correct_e_win</td><td>1</td><td>3</td><td>33.333333</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R01</td><td>E vs G</td><td>reproducible_correct_tie</td><td>2</td><td>3</td><td>66.666667</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R01</td><td>E vs G</td><td>reproducible_correct_g_win</td><td>0</td><td>3</td><td>0.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R01</td><td>E minus G</td><td>reproducible_correct_mean_gap</td><td>3</td><td>3</td><td>1.0</td><td>components/pair</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R01</td><td>E vs G</td><td>published_correct_e_win</td><td>1</td><td>3</td><td>33.333333</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R01</td><td>E vs G</td><td>published_correct_tie</td><td>2</td><td>3</td><td>66.666667</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R01</td><td>E vs G</td><td>published_correct_g_win</td><td>0</td><td>3</td><td>0.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R01</td><td>E minus G</td><td>published_correct_mean_gap</td><td>3</td><td>3</td><td>1.0</td><td>components/pair</td></tr>
+<tr><td>formal</td><td>scheduled</td><td>R01</td><td>G</td><td>correct</td><td>6</td><td>9</td><td>66.666667</td><td>%</td></tr>
+<tr><td>formal</td><td>scheduled</td><td>R01</td><td>G</td><td>reproducible_correct</td><td>6</td><td>9</td><td>66.666667</td><td>%</td></tr>
+<tr><td>formal</td><td>scheduled</td><td>R01</td><td>G</td><td>published_correct</td><td>6</td><td>9</td><td>66.666667</td><td>%</td></tr>
+<tr><td>formal</td><td>scheduled</td><td>R01</td><td>E</td><td>correct</td><td>9</td><td>9</td><td>100.0</td><td>%</td></tr>
+<tr><td>formal</td><td>scheduled</td><td>R01</td><td>E</td><td>reproducible_correct</td><td>9</td><td>9</td><td>100.0</td><td>%</td></tr>
+<tr><td>formal</td><td>scheduled</td><td>R01</td><td>E</td><td>published_correct</td><td>9</td><td>9</td><td>100.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R02</td><td>E vs G</td><td>correct_e_win</td><td>2</td><td>3</td><td>66.666667</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R02</td><td>E vs G</td><td>correct_tie</td><td>0</td><td>3</td><td>0.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R02</td><td>E vs G</td><td>correct_g_win</td><td>1</td><td>3</td><td>33.333333</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R02</td><td>E minus G</td><td>correct_mean_gap</td><td>1</td><td>3</td><td>0.333333</td><td>components/pair</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R02</td><td>E vs G</td><td>reproducible_correct_e_win</td><td>2</td><td>3</td><td>66.666667</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R02</td><td>E vs G</td><td>reproducible_correct_tie</td><td>1</td><td>3</td><td>33.333333</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R02</td><td>E vs G</td><td>reproducible_correct_g_win</td><td>0</td><td>3</td><td>0.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R02</td><td>E minus G</td><td>reproducible_correct_mean_gap</td><td>3</td><td>3</td><td>1.0</td><td>components/pair</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R02</td><td>E vs G</td><td>published_correct_e_win</td><td>3</td><td>3</td><td>100.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R02</td><td>E vs G</td><td>published_correct_tie</td><td>0</td><td>3</td><td>0.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R02</td><td>E vs G</td><td>published_correct_g_win</td><td>0</td><td>3</td><td>0.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R02</td><td>E minus G</td><td>published_correct_mean_gap</td><td>4</td><td>3</td><td>1.333333</td><td>components/pair</td></tr>
+<tr><td>formal</td><td>scheduled</td><td>R02</td><td>G</td><td>correct</td><td>6</td><td>9</td><td>66.666667</td><td>%</td></tr>
+<tr><td>formal</td><td>scheduled</td><td>R02</td><td>G</td><td>reproducible_correct</td><td>4</td><td>9</td><td>44.444444</td><td>%</td></tr>
+<tr><td>formal</td><td>scheduled</td><td>R02</td><td>G</td><td>published_correct</td><td>3</td><td>9</td><td>33.333333</td><td>%</td></tr>
+<tr><td>formal</td><td>scheduled</td><td>R02</td><td>E</td><td>correct</td><td>7</td><td>9</td><td>77.777778</td><td>%</td></tr>
+<tr><td>formal</td><td>scheduled</td><td>R02</td><td>E</td><td>reproducible_correct</td><td>7</td><td>9</td><td>77.777778</td><td>%</td></tr>
+<tr><td>formal</td><td>scheduled</td><td>R02</td><td>E</td><td>published_correct</td><td>7</td><td>9</td><td>77.777778</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R03</td><td>E vs G</td><td>correct_e_win</td><td>0</td><td>3</td><td>0.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R03</td><td>E vs G</td><td>correct_tie</td><td>3</td><td>3</td><td>100.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R03</td><td>E vs G</td><td>correct_g_win</td><td>0</td><td>3</td><td>0.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R03</td><td>E minus G</td><td>correct_mean_gap</td><td>0</td><td>3</td><td>0.0</td><td>components/pair</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R03</td><td>E vs G</td><td>reproducible_correct_e_win</td><td>1</td><td>3</td><td>33.333333</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R03</td><td>E vs G</td><td>reproducible_correct_tie</td><td>2</td><td>3</td><td>66.666667</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R03</td><td>E vs G</td><td>reproducible_correct_g_win</td><td>0</td><td>3</td><td>0.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R03</td><td>E minus G</td><td>reproducible_correct_mean_gap</td><td>1</td><td>3</td><td>0.333333</td><td>components/pair</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R03</td><td>E vs G</td><td>published_correct_e_win</td><td>1</td><td>3</td><td>33.333333</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R03</td><td>E vs G</td><td>published_correct_tie</td><td>2</td><td>3</td><td>66.666667</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R03</td><td>E vs G</td><td>published_correct_g_win</td><td>0</td><td>3</td><td>0.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R03</td><td>E minus G</td><td>published_correct_mean_gap</td><td>1</td><td>3</td><td>0.333333</td><td>components/pair</td></tr>
+<tr><td>formal</td><td>scheduled</td><td>R03</td><td>G</td><td>correct</td><td>6</td><td>6</td><td>100.0</td><td>%</td></tr>
+<tr><td>formal</td><td>scheduled</td><td>R03</td><td>G</td><td>reproducible_correct</td><td>5</td><td>6</td><td>83.333333</td><td>%</td></tr>
+<tr><td>formal</td><td>scheduled</td><td>R03</td><td>G</td><td>published_correct</td><td>5</td><td>6</td><td>83.333333</td><td>%</td></tr>
+<tr><td>formal</td><td>scheduled</td><td>R03</td><td>E</td><td>correct</td><td>6</td><td>6</td><td>100.0</td><td>%</td></tr>
+<tr><td>formal</td><td>scheduled</td><td>R03</td><td>E</td><td>reproducible_correct</td><td>6</td><td>6</td><td>100.0</td><td>%</td></tr>
+<tr><td>formal</td><td>scheduled</td><td>R03</td><td>E</td><td>published_correct</td><td>6</td><td>6</td><td>100.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R04</td><td>E vs G</td><td>correct_e_win</td><td>0</td><td>3</td><td>0.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R04</td><td>E vs G</td><td>correct_tie</td><td>3</td><td>3</td><td>100.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R04</td><td>E vs G</td><td>correct_g_win</td><td>0</td><td>3</td><td>0.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R04</td><td>E minus G</td><td>correct_mean_gap</td><td>0</td><td>3</td><td>0.0</td><td>components/pair</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R04</td><td>E vs G</td><td>reproducible_correct_e_win</td><td>0</td><td>3</td><td>0.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R04</td><td>E vs G</td><td>reproducible_correct_tie</td><td>3</td><td>3</td><td>100.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R04</td><td>E vs G</td><td>reproducible_correct_g_win</td><td>0</td><td>3</td><td>0.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R04</td><td>E minus G</td><td>reproducible_correct_mean_gap</td><td>0</td><td>3</td><td>0.0</td><td>components/pair</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R04</td><td>E vs G</td><td>published_correct_e_win</td><td>0</td><td>3</td><td>0.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R04</td><td>E vs G</td><td>published_correct_tie</td><td>3</td><td>3</td><td>100.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R04</td><td>E vs G</td><td>published_correct_g_win</td><td>0</td><td>3</td><td>0.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R04</td><td>E minus G</td><td>published_correct_mean_gap</td><td>0</td><td>3</td><td>0.0</td><td>components/pair</td></tr>
+<tr><td>formal</td><td>scheduled</td><td>R04</td><td>G</td><td>correct</td><td>9</td><td>9</td><td>100.0</td><td>%</td></tr>
+<tr><td>formal</td><td>scheduled</td><td>R04</td><td>G</td><td>reproducible_correct</td><td>9</td><td>9</td><td>100.0</td><td>%</td></tr>
+<tr><td>formal</td><td>scheduled</td><td>R04</td><td>G</td><td>published_correct</td><td>9</td><td>9</td><td>100.0</td><td>%</td></tr>
+<tr><td>formal</td><td>scheduled</td><td>R04</td><td>E</td><td>correct</td><td>9</td><td>9</td><td>100.0</td><td>%</td></tr>
+<tr><td>formal</td><td>scheduled</td><td>R04</td><td>E</td><td>reproducible_correct</td><td>9</td><td>9</td><td>100.0</td><td>%</td></tr>
+<tr><td>formal</td><td>scheduled</td><td>R04</td><td>E</td><td>published_correct</td><td>9</td><td>9</td><td>100.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R05</td><td>E vs G</td><td>correct_e_win</td><td>0</td><td>3</td><td>0.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R05</td><td>E vs G</td><td>correct_tie</td><td>2</td><td>3</td><td>66.666667</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R05</td><td>E vs G</td><td>correct_g_win</td><td>1</td><td>3</td><td>33.333333</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R05</td><td>E minus G</td><td>correct_mean_gap</td><td>-1</td><td>3</td><td>-0.333333</td><td>components/pair</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R05</td><td>E vs G</td><td>reproducible_correct_e_win</td><td>1</td><td>3</td><td>33.333333</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R05</td><td>E vs G</td><td>reproducible_correct_tie</td><td>1</td><td>3</td><td>33.333333</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R05</td><td>E vs G</td><td>reproducible_correct_g_win</td><td>1</td><td>3</td><td>33.333333</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R05</td><td>E minus G</td><td>reproducible_correct_mean_gap</td><td>0</td><td>3</td><td>0.0</td><td>components/pair</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R05</td><td>E vs G</td><td>published_correct_e_win</td><td>2</td><td>3</td><td>66.666667</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R05</td><td>E vs G</td><td>published_correct_tie</td><td>0</td><td>3</td><td>0.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R05</td><td>E vs G</td><td>published_correct_g_win</td><td>1</td><td>3</td><td>33.333333</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R05</td><td>E minus G</td><td>published_correct_mean_gap</td><td>1</td><td>3</td><td>0.333333</td><td>components/pair</td></tr>
+<tr><td>formal</td><td>scheduled</td><td>R05</td><td>G</td><td>correct</td><td>9</td><td>9</td><td>100.0</td><td>%</td></tr>
+<tr><td>formal</td><td>scheduled</td><td>R05</td><td>G</td><td>reproducible_correct</td><td>7</td><td>9</td><td>77.777778</td><td>%</td></tr>
+<tr><td>formal</td><td>scheduled</td><td>R05</td><td>G</td><td>published_correct</td><td>5</td><td>9</td><td>55.555556</td><td>%</td></tr>
+<tr><td>formal</td><td>scheduled</td><td>R05</td><td>E</td><td>correct</td><td>8</td><td>9</td><td>88.888889</td><td>%</td></tr>
+<tr><td>formal</td><td>scheduled</td><td>R05</td><td>E</td><td>reproducible_correct</td><td>7</td><td>9</td><td>77.777778</td><td>%</td></tr>
+<tr><td>formal</td><td>scheduled</td><td>R05</td><td>E</td><td>published_correct</td><td>6</td><td>9</td><td>66.666667</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R06</td><td>E vs G</td><td>correct_e_win</td><td>1</td><td>3</td><td>33.333333</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R06</td><td>E vs G</td><td>correct_tie</td><td>2</td><td>3</td><td>66.666667</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R06</td><td>E vs G</td><td>correct_g_win</td><td>0</td><td>3</td><td>0.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R06</td><td>E minus G</td><td>correct_mean_gap</td><td>2</td><td>3</td><td>0.666667</td><td>components/pair</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R06</td><td>E vs G</td><td>reproducible_correct_e_win</td><td>2</td><td>3</td><td>66.666667</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R06</td><td>E vs G</td><td>reproducible_correct_tie</td><td>1</td><td>3</td><td>33.333333</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R06</td><td>E vs G</td><td>reproducible_correct_g_win</td><td>0</td><td>3</td><td>0.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R06</td><td>E minus G</td><td>reproducible_correct_mean_gap</td><td>2</td><td>3</td><td>0.666667</td><td>components/pair</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R06</td><td>E vs G</td><td>published_correct_e_win</td><td>2</td><td>3</td><td>66.666667</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R06</td><td>E vs G</td><td>published_correct_tie</td><td>1</td><td>3</td><td>33.333333</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R06</td><td>E vs G</td><td>published_correct_g_win</td><td>0</td><td>3</td><td>0.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>R06</td><td>E minus G</td><td>published_correct_mean_gap</td><td>2</td><td>3</td><td>0.666667</td><td>components/pair</td></tr>
+<tr><td>formal</td><td>scheduled</td><td>R06</td><td>G</td><td>correct</td><td>4</td><td>6</td><td>66.666667</td><td>%</td></tr>
+<tr><td>formal</td><td>scheduled</td><td>R06</td><td>G</td><td>reproducible_correct</td><td>3</td><td>6</td><td>50.0</td><td>%</td></tr>
+<tr><td>formal</td><td>scheduled</td><td>R06</td><td>G</td><td>published_correct</td><td>3</td><td>6</td><td>50.0</td><td>%</td></tr>
+<tr><td>formal</td><td>scheduled</td><td>R06</td><td>E</td><td>correct</td><td>6</td><td>6</td><td>100.0</td><td>%</td></tr>
+<tr><td>formal</td><td>scheduled</td><td>R06</td><td>E</td><td>reproducible_correct</td><td>5</td><td>6</td><td>83.333333</td><td>%</td></tr>
+<tr><td>formal</td><td>scheduled</td><td>R06</td><td>E</td><td>published_correct</td><td>5</td><td>6</td><td>83.333333</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>drop_R01</td><td>E minus G</td><td>reproducible_correct_delta</td><td>–</td><td>–</td><td>15.384615</td><td>pp</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>drop_R02</td><td>E minus G</td><td>reproducible_correct_delta</td><td>–</td><td>–</td><td>15.384615</td><td>pp</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>drop_R03</td><td>E minus G</td><td>reproducible_correct_delta</td><td>–</td><td>–</td><td>19.047619</td><td>pp</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>drop_R04</td><td>E minus G</td><td>reproducible_correct_delta</td><td>–</td><td>–</td><td>23.076923</td><td>pp</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>drop_R05</td><td>E minus G</td><td>reproducible_correct_delta</td><td>–</td><td>–</td><td>23.076923</td><td>pp</td></tr>
+<tr><td>paired_comparison</td><td>scheduled</td><td>drop_R06</td><td>E minus G</td><td>reproducible_correct_delta</td><td>–</td><td>–</td><td>16.666667</td><td>pp</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>overall</td><td>E vs G</td><td>correct_e_win</td><td>2</td><td>16</td><td>12.5</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>overall</td><td>E vs G</td><td>correct_tie</td><td>12</td><td>16</td><td>75.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>overall</td><td>E vs G</td><td>correct_g_win</td><td>2</td><td>16</td><td>12.5</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>overall</td><td>E minus G</td><td>correct_mean_gap</td><td>0</td><td>16</td><td>0.0</td><td>components/pair</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>overall</td><td>E vs G</td><td>reproducible_correct_e_win</td><td>5</td><td>16</td><td>31.25</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>overall</td><td>E vs G</td><td>reproducible_correct_tie</td><td>10</td><td>16</td><td>62.5</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>overall</td><td>E vs G</td><td>reproducible_correct_g_win</td><td>1</td><td>16</td><td>6.25</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>overall</td><td>E minus G</td><td>reproducible_correct_mean_gap</td><td>5</td><td>16</td><td>0.3125</td><td>components/pair</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>overall</td><td>E vs G</td><td>published_correct_e_win</td><td>7</td><td>16</td><td>43.75</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>overall</td><td>E vs G</td><td>published_correct_tie</td><td>8</td><td>16</td><td>50.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>overall</td><td>E vs G</td><td>published_correct_g_win</td><td>1</td><td>16</td><td>6.25</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>overall</td><td>E minus G</td><td>published_correct_mean_gap</td><td>7</td><td>16</td><td>0.4375</td><td>components/pair</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>ftx_2022</td><td>E vs G</td><td>correct_e_win</td><td>0</td><td>8</td><td>0.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>ftx_2022</td><td>E vs G</td><td>correct_tie</td><td>7</td><td>8</td><td>87.5</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>ftx_2022</td><td>E vs G</td><td>correct_g_win</td><td>1</td><td>8</td><td>12.5</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>ftx_2022</td><td>E minus G</td><td>correct_mean_gap</td><td>-1</td><td>8</td><td>-0.125</td><td>components/pair</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>ftx_2022</td><td>E vs G</td><td>reproducible_correct_e_win</td><td>2</td><td>8</td><td>25.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>ftx_2022</td><td>E vs G</td><td>reproducible_correct_tie</td><td>5</td><td>8</td><td>62.5</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>ftx_2022</td><td>E vs G</td><td>reproducible_correct_g_win</td><td>1</td><td>8</td><td>12.5</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>ftx_2022</td><td>E minus G</td><td>reproducible_correct_mean_gap</td><td>1</td><td>8</td><td>0.125</td><td>components/pair</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>ftx_2022</td><td>E vs G</td><td>published_correct_e_win</td><td>3</td><td>8</td><td>37.5</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>ftx_2022</td><td>E vs G</td><td>published_correct_tie</td><td>4</td><td>8</td><td>50.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>ftx_2022</td><td>E vs G</td><td>published_correct_g_win</td><td>1</td><td>8</td><td>12.5</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>ftx_2022</td><td>E minus G</td><td>published_correct_mean_gap</td><td>2</td><td>8</td><td>0.25</td><td>components/pair</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>usdc_2023</td><td>E vs G</td><td>correct_e_win</td><td>2</td><td>8</td><td>25.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>usdc_2023</td><td>E vs G</td><td>correct_tie</td><td>5</td><td>8</td><td>62.5</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>usdc_2023</td><td>E vs G</td><td>correct_g_win</td><td>1</td><td>8</td><td>12.5</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>usdc_2023</td><td>E minus G</td><td>correct_mean_gap</td><td>1</td><td>8</td><td>0.125</td><td>components/pair</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>usdc_2023</td><td>E vs G</td><td>reproducible_correct_e_win</td><td>3</td><td>8</td><td>37.5</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>usdc_2023</td><td>E vs G</td><td>reproducible_correct_tie</td><td>5</td><td>8</td><td>62.5</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>usdc_2023</td><td>E vs G</td><td>reproducible_correct_g_win</td><td>0</td><td>8</td><td>0.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>usdc_2023</td><td>E minus G</td><td>reproducible_correct_mean_gap</td><td>4</td><td>8</td><td>0.5</td><td>components/pair</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>usdc_2023</td><td>E vs G</td><td>published_correct_e_win</td><td>4</td><td>8</td><td>50.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>usdc_2023</td><td>E vs G</td><td>published_correct_tie</td><td>4</td><td>8</td><td>50.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>usdc_2023</td><td>E vs G</td><td>published_correct_g_win</td><td>0</td><td>8</td><td>0.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>usdc_2023</td><td>E minus G</td><td>published_correct_mean_gap</td><td>5</td><td>8</td><td>0.625</td><td>components/pair</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R01</td><td>E vs G</td><td>correct_e_win</td><td>0</td><td>2</td><td>0.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R01</td><td>E vs G</td><td>correct_tie</td><td>2</td><td>2</td><td>100.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R01</td><td>E vs G</td><td>correct_g_win</td><td>0</td><td>2</td><td>0.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R01</td><td>E minus G</td><td>correct_mean_gap</td><td>0</td><td>2</td><td>0.0</td><td>components/pair</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R01</td><td>E vs G</td><td>reproducible_correct_e_win</td><td>0</td><td>2</td><td>0.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R01</td><td>E vs G</td><td>reproducible_correct_tie</td><td>2</td><td>2</td><td>100.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R01</td><td>E vs G</td><td>reproducible_correct_g_win</td><td>0</td><td>2</td><td>0.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R01</td><td>E minus G</td><td>reproducible_correct_mean_gap</td><td>0</td><td>2</td><td>0.0</td><td>components/pair</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R01</td><td>E vs G</td><td>published_correct_e_win</td><td>0</td><td>2</td><td>0.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R01</td><td>E vs G</td><td>published_correct_tie</td><td>2</td><td>2</td><td>100.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R01</td><td>E vs G</td><td>published_correct_g_win</td><td>0</td><td>2</td><td>0.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R01</td><td>E minus G</td><td>published_correct_mean_gap</td><td>0</td><td>2</td><td>0.0</td><td>components/pair</td></tr>
+<tr><td>formal</td><td>complete_pairs</td><td>R01</td><td>G</td><td>correct</td><td>6</td><td>6</td><td>100.0</td><td>%</td></tr>
+<tr><td>formal</td><td>complete_pairs</td><td>R01</td><td>G</td><td>reproducible_correct</td><td>6</td><td>6</td><td>100.0</td><td>%</td></tr>
+<tr><td>formal</td><td>complete_pairs</td><td>R01</td><td>G</td><td>published_correct</td><td>6</td><td>6</td><td>100.0</td><td>%</td></tr>
+<tr><td>formal</td><td>complete_pairs</td><td>R01</td><td>E</td><td>correct</td><td>6</td><td>6</td><td>100.0</td><td>%</td></tr>
+<tr><td>formal</td><td>complete_pairs</td><td>R01</td><td>E</td><td>reproducible_correct</td><td>6</td><td>6</td><td>100.0</td><td>%</td></tr>
+<tr><td>formal</td><td>complete_pairs</td><td>R01</td><td>E</td><td>published_correct</td><td>6</td><td>6</td><td>100.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R02</td><td>E vs G</td><td>correct_e_win</td><td>2</td><td>3</td><td>66.666667</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R02</td><td>E vs G</td><td>correct_tie</td><td>0</td><td>3</td><td>0.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R02</td><td>E vs G</td><td>correct_g_win</td><td>1</td><td>3</td><td>33.333333</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R02</td><td>E minus G</td><td>correct_mean_gap</td><td>1</td><td>3</td><td>0.333333</td><td>components/pair</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R02</td><td>E vs G</td><td>reproducible_correct_e_win</td><td>2</td><td>3</td><td>66.666667</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R02</td><td>E vs G</td><td>reproducible_correct_tie</td><td>1</td><td>3</td><td>33.333333</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R02</td><td>E vs G</td><td>reproducible_correct_g_win</td><td>0</td><td>3</td><td>0.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R02</td><td>E minus G</td><td>reproducible_correct_mean_gap</td><td>3</td><td>3</td><td>1.0</td><td>components/pair</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R02</td><td>E vs G</td><td>published_correct_e_win</td><td>3</td><td>3</td><td>100.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R02</td><td>E vs G</td><td>published_correct_tie</td><td>0</td><td>3</td><td>0.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R02</td><td>E vs G</td><td>published_correct_g_win</td><td>0</td><td>3</td><td>0.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R02</td><td>E minus G</td><td>published_correct_mean_gap</td><td>4</td><td>3</td><td>1.333333</td><td>components/pair</td></tr>
+<tr><td>formal</td><td>complete_pairs</td><td>R02</td><td>G</td><td>correct</td><td>6</td><td>9</td><td>66.666667</td><td>%</td></tr>
+<tr><td>formal</td><td>complete_pairs</td><td>R02</td><td>G</td><td>reproducible_correct</td><td>4</td><td>9</td><td>44.444444</td><td>%</td></tr>
+<tr><td>formal</td><td>complete_pairs</td><td>R02</td><td>G</td><td>published_correct</td><td>3</td><td>9</td><td>33.333333</td><td>%</td></tr>
+<tr><td>formal</td><td>complete_pairs</td><td>R02</td><td>E</td><td>correct</td><td>7</td><td>9</td><td>77.777778</td><td>%</td></tr>
+<tr><td>formal</td><td>complete_pairs</td><td>R02</td><td>E</td><td>reproducible_correct</td><td>7</td><td>9</td><td>77.777778</td><td>%</td></tr>
+<tr><td>formal</td><td>complete_pairs</td><td>R02</td><td>E</td><td>published_correct</td><td>7</td><td>9</td><td>77.777778</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R03</td><td>E vs G</td><td>correct_e_win</td><td>0</td><td>3</td><td>0.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R03</td><td>E vs G</td><td>correct_tie</td><td>3</td><td>3</td><td>100.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R03</td><td>E vs G</td><td>correct_g_win</td><td>0</td><td>3</td><td>0.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R03</td><td>E minus G</td><td>correct_mean_gap</td><td>0</td><td>3</td><td>0.0</td><td>components/pair</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R03</td><td>E vs G</td><td>reproducible_correct_e_win</td><td>1</td><td>3</td><td>33.333333</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R03</td><td>E vs G</td><td>reproducible_correct_tie</td><td>2</td><td>3</td><td>66.666667</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R03</td><td>E vs G</td><td>reproducible_correct_g_win</td><td>0</td><td>3</td><td>0.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R03</td><td>E minus G</td><td>reproducible_correct_mean_gap</td><td>1</td><td>3</td><td>0.333333</td><td>components/pair</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R03</td><td>E vs G</td><td>published_correct_e_win</td><td>1</td><td>3</td><td>33.333333</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R03</td><td>E vs G</td><td>published_correct_tie</td><td>2</td><td>3</td><td>66.666667</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R03</td><td>E vs G</td><td>published_correct_g_win</td><td>0</td><td>3</td><td>0.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R03</td><td>E minus G</td><td>published_correct_mean_gap</td><td>1</td><td>3</td><td>0.333333</td><td>components/pair</td></tr>
+<tr><td>formal</td><td>complete_pairs</td><td>R03</td><td>G</td><td>correct</td><td>6</td><td>6</td><td>100.0</td><td>%</td></tr>
+<tr><td>formal</td><td>complete_pairs</td><td>R03</td><td>G</td><td>reproducible_correct</td><td>5</td><td>6</td><td>83.333333</td><td>%</td></tr>
+<tr><td>formal</td><td>complete_pairs</td><td>R03</td><td>G</td><td>published_correct</td><td>5</td><td>6</td><td>83.333333</td><td>%</td></tr>
+<tr><td>formal</td><td>complete_pairs</td><td>R03</td><td>E</td><td>correct</td><td>6</td><td>6</td><td>100.0</td><td>%</td></tr>
+<tr><td>formal</td><td>complete_pairs</td><td>R03</td><td>E</td><td>reproducible_correct</td><td>6</td><td>6</td><td>100.0</td><td>%</td></tr>
+<tr><td>formal</td><td>complete_pairs</td><td>R03</td><td>E</td><td>published_correct</td><td>6</td><td>6</td><td>100.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R04</td><td>E vs G</td><td>correct_e_win</td><td>0</td><td>3</td><td>0.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R04</td><td>E vs G</td><td>correct_tie</td><td>3</td><td>3</td><td>100.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R04</td><td>E vs G</td><td>correct_g_win</td><td>0</td><td>3</td><td>0.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R04</td><td>E minus G</td><td>correct_mean_gap</td><td>0</td><td>3</td><td>0.0</td><td>components/pair</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R04</td><td>E vs G</td><td>reproducible_correct_e_win</td><td>0</td><td>3</td><td>0.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R04</td><td>E vs G</td><td>reproducible_correct_tie</td><td>3</td><td>3</td><td>100.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R04</td><td>E vs G</td><td>reproducible_correct_g_win</td><td>0</td><td>3</td><td>0.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R04</td><td>E minus G</td><td>reproducible_correct_mean_gap</td><td>0</td><td>3</td><td>0.0</td><td>components/pair</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R04</td><td>E vs G</td><td>published_correct_e_win</td><td>0</td><td>3</td><td>0.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R04</td><td>E vs G</td><td>published_correct_tie</td><td>3</td><td>3</td><td>100.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R04</td><td>E vs G</td><td>published_correct_g_win</td><td>0</td><td>3</td><td>0.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R04</td><td>E minus G</td><td>published_correct_mean_gap</td><td>0</td><td>3</td><td>0.0</td><td>components/pair</td></tr>
+<tr><td>formal</td><td>complete_pairs</td><td>R04</td><td>G</td><td>correct</td><td>9</td><td>9</td><td>100.0</td><td>%</td></tr>
+<tr><td>formal</td><td>complete_pairs</td><td>R04</td><td>G</td><td>reproducible_correct</td><td>9</td><td>9</td><td>100.0</td><td>%</td></tr>
+<tr><td>formal</td><td>complete_pairs</td><td>R04</td><td>G</td><td>published_correct</td><td>9</td><td>9</td><td>100.0</td><td>%</td></tr>
+<tr><td>formal</td><td>complete_pairs</td><td>R04</td><td>E</td><td>correct</td><td>9</td><td>9</td><td>100.0</td><td>%</td></tr>
+<tr><td>formal</td><td>complete_pairs</td><td>R04</td><td>E</td><td>reproducible_correct</td><td>9</td><td>9</td><td>100.0</td><td>%</td></tr>
+<tr><td>formal</td><td>complete_pairs</td><td>R04</td><td>E</td><td>published_correct</td><td>9</td><td>9</td><td>100.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R05</td><td>E vs G</td><td>correct_e_win</td><td>0</td><td>3</td><td>0.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R05</td><td>E vs G</td><td>correct_tie</td><td>2</td><td>3</td><td>66.666667</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R05</td><td>E vs G</td><td>correct_g_win</td><td>1</td><td>3</td><td>33.333333</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R05</td><td>E minus G</td><td>correct_mean_gap</td><td>-1</td><td>3</td><td>-0.333333</td><td>components/pair</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R05</td><td>E vs G</td><td>reproducible_correct_e_win</td><td>1</td><td>3</td><td>33.333333</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R05</td><td>E vs G</td><td>reproducible_correct_tie</td><td>1</td><td>3</td><td>33.333333</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R05</td><td>E vs G</td><td>reproducible_correct_g_win</td><td>1</td><td>3</td><td>33.333333</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R05</td><td>E minus G</td><td>reproducible_correct_mean_gap</td><td>0</td><td>3</td><td>0.0</td><td>components/pair</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R05</td><td>E vs G</td><td>published_correct_e_win</td><td>2</td><td>3</td><td>66.666667</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R05</td><td>E vs G</td><td>published_correct_tie</td><td>0</td><td>3</td><td>0.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R05</td><td>E vs G</td><td>published_correct_g_win</td><td>1</td><td>3</td><td>33.333333</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R05</td><td>E minus G</td><td>published_correct_mean_gap</td><td>1</td><td>3</td><td>0.333333</td><td>components/pair</td></tr>
+<tr><td>formal</td><td>complete_pairs</td><td>R05</td><td>G</td><td>correct</td><td>9</td><td>9</td><td>100.0</td><td>%</td></tr>
+<tr><td>formal</td><td>complete_pairs</td><td>R05</td><td>G</td><td>reproducible_correct</td><td>7</td><td>9</td><td>77.777778</td><td>%</td></tr>
+<tr><td>formal</td><td>complete_pairs</td><td>R05</td><td>G</td><td>published_correct</td><td>5</td><td>9</td><td>55.555556</td><td>%</td></tr>
+<tr><td>formal</td><td>complete_pairs</td><td>R05</td><td>E</td><td>correct</td><td>8</td><td>9</td><td>88.888889</td><td>%</td></tr>
+<tr><td>formal</td><td>complete_pairs</td><td>R05</td><td>E</td><td>reproducible_correct</td><td>7</td><td>9</td><td>77.777778</td><td>%</td></tr>
+<tr><td>formal</td><td>complete_pairs</td><td>R05</td><td>E</td><td>published_correct</td><td>6</td><td>9</td><td>66.666667</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R06</td><td>E vs G</td><td>correct_e_win</td><td>0</td><td>2</td><td>0.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R06</td><td>E vs G</td><td>correct_tie</td><td>2</td><td>2</td><td>100.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R06</td><td>E vs G</td><td>correct_g_win</td><td>0</td><td>2</td><td>0.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R06</td><td>E minus G</td><td>correct_mean_gap</td><td>0</td><td>2</td><td>0.0</td><td>components/pair</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R06</td><td>E vs G</td><td>reproducible_correct_e_win</td><td>1</td><td>2</td><td>50.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R06</td><td>E vs G</td><td>reproducible_correct_tie</td><td>1</td><td>2</td><td>50.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R06</td><td>E vs G</td><td>reproducible_correct_g_win</td><td>0</td><td>2</td><td>0.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R06</td><td>E minus G</td><td>reproducible_correct_mean_gap</td><td>1</td><td>2</td><td>0.5</td><td>components/pair</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R06</td><td>E vs G</td><td>published_correct_e_win</td><td>1</td><td>2</td><td>50.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R06</td><td>E vs G</td><td>published_correct_tie</td><td>1</td><td>2</td><td>50.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R06</td><td>E vs G</td><td>published_correct_g_win</td><td>0</td><td>2</td><td>0.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>R06</td><td>E minus G</td><td>published_correct_mean_gap</td><td>1</td><td>2</td><td>0.5</td><td>components/pair</td></tr>
+<tr><td>formal</td><td>complete_pairs</td><td>R06</td><td>G</td><td>correct</td><td>4</td><td>4</td><td>100.0</td><td>%</td></tr>
+<tr><td>formal</td><td>complete_pairs</td><td>R06</td><td>G</td><td>reproducible_correct</td><td>3</td><td>4</td><td>75.0</td><td>%</td></tr>
+<tr><td>formal</td><td>complete_pairs</td><td>R06</td><td>G</td><td>published_correct</td><td>3</td><td>4</td><td>75.0</td><td>%</td></tr>
+<tr><td>formal</td><td>complete_pairs</td><td>R06</td><td>E</td><td>correct</td><td>4</td><td>4</td><td>100.0</td><td>%</td></tr>
+<tr><td>formal</td><td>complete_pairs</td><td>R06</td><td>E</td><td>reproducible_correct</td><td>4</td><td>4</td><td>100.0</td><td>%</td></tr>
+<tr><td>formal</td><td>complete_pairs</td><td>R06</td><td>E</td><td>published_correct</td><td>4</td><td>4</td><td>100.0</td><td>%</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>drop_R01</td><td>E minus G</td><td>reproducible_correct_delta</td><td>–</td><td>–</td><td>13.513514</td><td>pp</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>drop_R02</td><td>E minus G</td><td>reproducible_correct_delta</td><td>–</td><td>–</td><td>5.882353</td><td>pp</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>drop_R03</td><td>E minus G</td><td>reproducible_correct_delta</td><td>–</td><td>–</td><td>10.810811</td><td>pp</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>drop_R04</td><td>E minus G</td><td>reproducible_correct_delta</td><td>–</td><td>–</td><td>14.705882</td><td>pp</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>drop_R05</td><td>E minus G</td><td>reproducible_correct_delta</td><td>–</td><td>–</td><td>14.705882</td><td>pp</td></tr>
+<tr><td>paired_comparison</td><td>complete_pairs</td><td>drop_R06</td><td>E minus G</td><td>reproducible_correct_delta</td><td>–</td><td>–</td><td>10.25641</td><td>pp</td></tr>
 <tr><td>formal</td><td>scheduled</td><td>overall</td><td>E</td><td>completed_runs</td><td>18</td><td>18</td><td>100.0</td><td>%</td></tr>
 <tr><td>formal</td><td>scheduled</td><td>overall</td><td>E</td><td>wrong_numeric_filtered</td><td>3</td><td>3</td><td>100.0</td><td>%</td></tr>
 <tr><td>formal</td><td>scheduled</td><td>overall</td><td>E</td><td>model_tokens</td><td>–</td><td>–</td><td>129007</td><td>tokens</td></tr>
 <tr><td>formal</td><td>scheduled</td><td>overall</td><td>E</td><td>model_calls</td><td>–</td><td>–</td><td>70</td><td>calls</td></tr>
 <tr><td>formal</td><td>scheduled</td><td>overall</td><td>E</td><td>tokens_per_reproducible_correct</td><td>129007</td><td>43</td><td>3000.162791</td><td>tokens/component</td></tr>
 <tr><td>formal</td><td>scheduled</td><td>overall</td><td>E</td><td>tokens_per_published_correct</td><td>129007</td><td>42</td><td>3071.595238</td><td>tokens/component</td></tr>
+<tr><td>formal</td><td>scheduled</td><td>overall</td><td>E</td><td>model_input_tokens</td><td>–</td><td>–</td><td>106443</td><td>tokens</td></tr>
+<tr><td>formal</td><td>scheduled</td><td>overall</td><td>E</td><td>model_output_tokens</td><td>–</td><td>–</td><td>22564</td><td>tokens</td></tr>
+<tr><td>formal</td><td>scheduled</td><td>overall</td><td>E</td><td>cached_input_token_share</td><td>83317</td><td>106443</td><td>78.273818</td><td>%</td></tr>
+<tr><td>formal</td><td>scheduled</td><td>overall</td><td>E</td><td>tokens_per_scheduled_run</td><td>129007</td><td>18</td><td>7167.055556</td><td>tokens/run</td></tr>
+<tr><td>formal</td><td>scheduled</td><td>overall</td><td>E</td><td>cumulative_recorded_run_time</td><td>–</td><td>–</td><td>234.587</td><td>s</td></tr>
+<tr><td>formal</td><td>scheduled</td><td>overall</td><td>E</td><td>budget_stop_rate</td><td>0</td><td>18</td><td>0.0</td><td>%</td></tr>
+<tr><td>formal</td><td>scheduled</td><td>overall</td><td>E</td><td>correct_withdrawn</td><td>3</td><td>45</td><td>6.666667</td><td>%</td></tr>
 <tr><td>formal</td><td>scheduled</td><td>overall</td><td>G</td><td>completed_runs</td><td>16</td><td>18</td><td>88.888889</td><td>%</td></tr>
 <tr><td>formal</td><td>scheduled</td><td>overall</td><td>G</td><td>wrong_numeric_filtered</td><td>3</td><td>3</td><td>100.0</td><td>%</td></tr>
 <tr><td>formal</td><td>scheduled</td><td>overall</td><td>G</td><td>model_tokens</td><td>–</td><td>–</td><td>104166</td><td>tokens</td></tr>
 <tr><td>formal</td><td>scheduled</td><td>overall</td><td>G</td><td>model_calls</td><td>–</td><td>–</td><td>63</td><td>calls</td></tr>
 <tr><td>formal</td><td>scheduled</td><td>overall</td><td>G</td><td>tokens_per_reproducible_correct</td><td>104166</td><td>34</td><td>3063.705882</td><td>tokens/component</td></tr>
 <tr><td>formal</td><td>scheduled</td><td>overall</td><td>G</td><td>tokens_per_published_correct</td><td>104166</td><td>31</td><td>3360.193548</td><td>tokens/component</td></tr>
+<tr><td>formal</td><td>scheduled</td><td>overall</td><td>G</td><td>model_input_tokens</td><td>–</td><td>–</td><td>85883</td><td>tokens</td></tr>
+<tr><td>formal</td><td>scheduled</td><td>overall</td><td>G</td><td>model_output_tokens</td><td>–</td><td>–</td><td>18283</td><td>tokens</td></tr>
+<tr><td>formal</td><td>scheduled</td><td>overall</td><td>G</td><td>cached_input_token_share</td><td>66176</td><td>85883</td><td>77.053666</td><td>%</td></tr>
+<tr><td>formal</td><td>scheduled</td><td>overall</td><td>G</td><td>tokens_per_scheduled_run</td><td>104166</td><td>18</td><td>5787.0</td><td>tokens/run</td></tr>
+<tr><td>formal</td><td>scheduled</td><td>overall</td><td>G</td><td>cumulative_recorded_run_time</td><td>–</td><td>–</td><td>191.602</td><td>s</td></tr>
+<tr><td>formal</td><td>scheduled</td><td>overall</td><td>G</td><td>budget_stop_rate</td><td>2</td><td>18</td><td>11.111111</td><td>%</td></tr>
+<tr><td>formal</td><td>scheduled</td><td>overall</td><td>G</td><td>correct_withdrawn</td><td>9</td><td>40</td><td>22.5</td><td>%</td></tr>
+<tr><td>formal</td><td>scheduled</td><td>overall</td><td>E minus G</td><td>incremental_tokens_per_extra_reproducible_correct</td><td>24841</td><td>9</td><td>2760.111111</td><td>tokens/component</td></tr>
+<tr><td>formal</td><td>scheduled</td><td>overall</td><td>E minus G</td><td>incremental_tokens_per_extra_published_correct</td><td>24841</td><td>11</td><td>2258.272727</td><td>tokens/component</td></tr>
+<tr><td>verifier_faults</td><td>clean</td><td>overall</td><td>V1</td><td>pass</td><td>12</td><td>12</td><td>100.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>clean</td><td>overall</td><td>V1</td><td>fail</td><td>0</td><td>12</td><td>0.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>clean</td><td>overall</td><td>V1</td><td>unknown</td><td>0</td><td>12</td><td>0.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>fault</td><td>overall</td><td>V1</td><td>pass</td><td>5</td><td>12</td><td>41.666667</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>fault</td><td>overall</td><td>V1</td><td>fail</td><td>7</td><td>12</td><td>58.333333</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>fault</td><td>overall</td><td>V1</td><td>unknown</td><td>0</td><td>12</td><td>0.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>legal_refusal</td><td>overall</td><td>V1</td><td>pass</td><td>0</td><td>4</td><td>0.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>legal_refusal</td><td>overall</td><td>V1</td><td>fail</td><td>0</td><td>4</td><td>0.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>legal_refusal</td><td>overall</td><td>V1</td><td>unknown</td><td>4</td><td>4</td><td>100.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>source_conflict</td><td>overall</td><td>V1</td><td>pass</td><td>2</td><td>2</td><td>100.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>source_conflict</td><td>overall</td><td>V1</td><td>fail</td><td>0</td><td>2</td><td>0.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>source_conflict</td><td>overall</td><td>V1</td><td>unknown</td><td>0</td><td>2</td><td>0.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>source_unavailable</td><td>overall</td><td>V1</td><td>pass</td><td>2</td><td>2</td><td>100.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>source_unavailable</td><td>overall</td><td>V1</td><td>fail</td><td>0</td><td>2</td><td>0.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>source_unavailable</td><td>overall</td><td>V1</td><td>unknown</td><td>0</td><td>2</td><td>0.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>block</td><td>injected_fault_family</td><td>V1</td><td>pass</td><td>3</td><td>3</td><td>100.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>block</td><td>injected_fault_family</td><td>V1</td><td>fail</td><td>0</td><td>3</td><td>0.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>block</td><td>injected_fault_family</td><td>V1</td><td>unknown</td><td>0</td><td>3</td><td>0.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>direction</td><td>injected_fault_family</td><td>V1</td><td>pass</td><td>0</td><td>1</td><td>0.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>direction</td><td>injected_fault_family</td><td>V1</td><td>fail</td><td>1</td><td>1</td><td>100.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>direction</td><td>injected_fault_family</td><td>V1</td><td>unknown</td><td>0</td><td>1</td><td>0.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>missing_data</td><td>injected_fault_family</td><td>V1</td><td>pass</td><td>2</td><td>2</td><td>100.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>missing_data</td><td>injected_fault_family</td><td>V1</td><td>fail</td><td>0</td><td>2</td><td>0.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>missing_data</td><td>injected_fault_family</td><td>V1</td><td>unknown</td><td>0</td><td>2</td><td>0.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>unit</td><td>injected_fault_family</td><td>V1</td><td>pass</td><td>0</td><td>3</td><td>0.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>unit</td><td>injected_fault_family</td><td>V1</td><td>fail</td><td>3</td><td>3</td><td>100.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>unit</td><td>injected_fault_family</td><td>V1</td><td>unknown</td><td>0</td><td>3</td><td>0.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>window</td><td>injected_fault_family</td><td>V1</td><td>pass</td><td>0</td><td>2</td><td>0.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>window</td><td>injected_fault_family</td><td>V1</td><td>fail</td><td>2</td><td>2</td><td>100.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>window</td><td>injected_fault_family</td><td>V1</td><td>unknown</td><td>0</td><td>2</td><td>0.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>wrong_value</td><td>injected_fault_family</td><td>V1</td><td>pass</td><td>0</td><td>1</td><td>0.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>wrong_value</td><td>injected_fault_family</td><td>V1</td><td>fail</td><td>1</td><td>1</td><td>100.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>wrong_value</td><td>injected_fault_family</td><td>V1</td><td>unknown</td><td>0</td><td>1</td><td>0.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>fault_vs_clean</td><td>overall</td><td>V1</td><td>strict_fault_recall</td><td>7</td><td>12</td><td>58.333333</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>fault_vs_clean</td><td>overall</td><td>V1</td><td>strict_detection_precision</td><td>7</td><td>7</td><td>100.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>fault_vs_clean</td><td>overall</td><td>V1</td><td>strict_detection_f1</td><td>14</td><td>19</td><td>73.684211</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>fault_vs_clean</td><td>overall</td><td>V1</td><td>fault_nonacceptance</td><td>7</td><td>12</td><td>58.333333</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>fault_vs_clean</td><td>overall</td><td>V1</td><td>clean_acceptance</td><td>12</td><td>12</td><td>100.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>clean</td><td>overall</td><td>V2</td><td>pass</td><td>12</td><td>12</td><td>100.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>clean</td><td>overall</td><td>V2</td><td>fail</td><td>0</td><td>12</td><td>0.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>clean</td><td>overall</td><td>V2</td><td>unknown</td><td>0</td><td>12</td><td>0.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>fault</td><td>overall</td><td>V2</td><td>pass</td><td>0</td><td>12</td><td>0.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>fault</td><td>overall</td><td>V2</td><td>fail</td><td>10</td><td>12</td><td>83.333333</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>fault</td><td>overall</td><td>V2</td><td>unknown</td><td>2</td><td>12</td><td>16.666667</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>legal_refusal</td><td>overall</td><td>V2</td><td>pass</td><td>0</td><td>4</td><td>0.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>legal_refusal</td><td>overall</td><td>V2</td><td>fail</td><td>0</td><td>4</td><td>0.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>legal_refusal</td><td>overall</td><td>V2</td><td>unknown</td><td>4</td><td>4</td><td>100.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>source_conflict</td><td>overall</td><td>V2</td><td>pass</td><td>0</td><td>2</td><td>0.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>source_conflict</td><td>overall</td><td>V2</td><td>fail</td><td>0</td><td>2</td><td>0.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>source_conflict</td><td>overall</td><td>V2</td><td>unknown</td><td>2</td><td>2</td><td>100.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>source_unavailable</td><td>overall</td><td>V2</td><td>pass</td><td>0</td><td>2</td><td>0.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>source_unavailable</td><td>overall</td><td>V2</td><td>fail</td><td>0</td><td>2</td><td>0.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>source_unavailable</td><td>overall</td><td>V2</td><td>unknown</td><td>2</td><td>2</td><td>100.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>block</td><td>injected_fault_family</td><td>V2</td><td>pass</td><td>0</td><td>3</td><td>0.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>block</td><td>injected_fault_family</td><td>V2</td><td>fail</td><td>3</td><td>3</td><td>100.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>block</td><td>injected_fault_family</td><td>V2</td><td>unknown</td><td>0</td><td>3</td><td>0.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>direction</td><td>injected_fault_family</td><td>V2</td><td>pass</td><td>0</td><td>1</td><td>0.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>direction</td><td>injected_fault_family</td><td>V2</td><td>fail</td><td>1</td><td>1</td><td>100.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>direction</td><td>injected_fault_family</td><td>V2</td><td>unknown</td><td>0</td><td>1</td><td>0.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>missing_data</td><td>injected_fault_family</td><td>V2</td><td>pass</td><td>0</td><td>2</td><td>0.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>missing_data</td><td>injected_fault_family</td><td>V2</td><td>fail</td><td>0</td><td>2</td><td>0.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>missing_data</td><td>injected_fault_family</td><td>V2</td><td>unknown</td><td>2</td><td>2</td><td>100.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>unit</td><td>injected_fault_family</td><td>V2</td><td>pass</td><td>0</td><td>3</td><td>0.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>unit</td><td>injected_fault_family</td><td>V2</td><td>fail</td><td>3</td><td>3</td><td>100.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>unit</td><td>injected_fault_family</td><td>V2</td><td>unknown</td><td>0</td><td>3</td><td>0.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>window</td><td>injected_fault_family</td><td>V2</td><td>pass</td><td>0</td><td>2</td><td>0.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>window</td><td>injected_fault_family</td><td>V2</td><td>fail</td><td>2</td><td>2</td><td>100.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>window</td><td>injected_fault_family</td><td>V2</td><td>unknown</td><td>0</td><td>2</td><td>0.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>wrong_value</td><td>injected_fault_family</td><td>V2</td><td>pass</td><td>0</td><td>1</td><td>0.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>wrong_value</td><td>injected_fault_family</td><td>V2</td><td>fail</td><td>1</td><td>1</td><td>100.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>wrong_value</td><td>injected_fault_family</td><td>V2</td><td>unknown</td><td>0</td><td>1</td><td>0.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>fault_vs_clean</td><td>overall</td><td>V2</td><td>strict_fault_recall</td><td>10</td><td>12</td><td>83.333333</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>fault_vs_clean</td><td>overall</td><td>V2</td><td>strict_detection_precision</td><td>10</td><td>10</td><td>100.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>fault_vs_clean</td><td>overall</td><td>V2</td><td>strict_detection_f1</td><td>20</td><td>22</td><td>90.909091</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>fault_vs_clean</td><td>overall</td><td>V2</td><td>fault_nonacceptance</td><td>12</td><td>12</td><td>100.0</td><td>%</td></tr>
+<tr><td>verifier_faults</td><td>fault_vs_clean</td><td>overall</td><td>V2</td><td>clean_acceptance</td><td>12</td><td>12</td><td>100.0</td><td>%</td></tr>
 <tr><td>arithmetic_faults</td><td>clean</td><td>overall</td><td>before</td><td>published</td><td>6</td><td>6</td><td>100.0</td><td>%</td></tr>
+<tr><td>arithmetic_faults</td><td>clean</td><td>dai_6_instead_of_18_decimals</td><td>before</td><td>published</td><td>2</td><td>2</td><td>100.0</td><td>%</td></tr>
+<tr><td>arithmetic_faults</td><td>clean</td><td>minimum_instead_of_maximum</td><td>before</td><td>published</td><td>2</td><td>2</td><td>100.0</td><td>%</td></tr>
+<tr><td>arithmetic_faults</td><td>clean</td><td>omit_usdt_from_denominator</td><td>before</td><td>published</td><td>2</td><td>2</td><td>100.0</td><td>%</td></tr>
 <tr><td>arithmetic_faults</td><td>clean</td><td>overall</td><td>after</td><td>published</td><td>6</td><td>6</td><td>100.0</td><td>%</td></tr>
+<tr><td>arithmetic_faults</td><td>clean</td><td>dai_6_instead_of_18_decimals</td><td>after</td><td>published</td><td>2</td><td>2</td><td>100.0</td><td>%</td></tr>
+<tr><td>arithmetic_faults</td><td>clean</td><td>minimum_instead_of_maximum</td><td>after</td><td>published</td><td>2</td><td>2</td><td>100.0</td><td>%</td></tr>
+<tr><td>arithmetic_faults</td><td>clean</td><td>omit_usdt_from_denominator</td><td>after</td><td>published</td><td>2</td><td>2</td><td>100.0</td><td>%</td></tr>
 <tr><td>arithmetic_faults</td><td>faulty_report</td><td>overall</td><td>before</td><td>published</td><td>0</td><td>6</td><td>0.0</td><td>%</td></tr>
+<tr><td>arithmetic_faults</td><td>faulty_report</td><td>dai_6_instead_of_18_decimals</td><td>before</td><td>published</td><td>0</td><td>2</td><td>0.0</td><td>%</td></tr>
+<tr><td>arithmetic_faults</td><td>faulty_report</td><td>minimum_instead_of_maximum</td><td>before</td><td>published</td><td>0</td><td>2</td><td>0.0</td><td>%</td></tr>
+<tr><td>arithmetic_faults</td><td>faulty_report</td><td>omit_usdt_from_denominator</td><td>before</td><td>published</td><td>0</td><td>2</td><td>0.0</td><td>%</td></tr>
 <tr><td>arithmetic_faults</td><td>faulty_report</td><td>overall</td><td>after</td><td>published</td><td>0</td><td>6</td><td>0.0</td><td>%</td></tr>
+<tr><td>arithmetic_faults</td><td>faulty_report</td><td>dai_6_instead_of_18_decimals</td><td>after</td><td>published</td><td>0</td><td>2</td><td>0.0</td><td>%</td></tr>
+<tr><td>arithmetic_faults</td><td>faulty_report</td><td>minimum_instead_of_maximum</td><td>after</td><td>published</td><td>0</td><td>2</td><td>0.0</td><td>%</td></tr>
+<tr><td>arithmetic_faults</td><td>faulty_report</td><td>omit_usdt_from_denominator</td><td>after</td><td>published</td><td>0</td><td>2</td><td>0.0</td><td>%</td></tr>
 <tr><td>arithmetic_faults</td><td>shared_verifier_bug</td><td>overall</td><td>before</td><td>published</td><td>6</td><td>6</td><td>100.0</td><td>%</td></tr>
+<tr><td>arithmetic_faults</td><td>shared_verifier_bug</td><td>dai_6_instead_of_18_decimals</td><td>before</td><td>published</td><td>2</td><td>2</td><td>100.0</td><td>%</td></tr>
+<tr><td>arithmetic_faults</td><td>shared_verifier_bug</td><td>minimum_instead_of_maximum</td><td>before</td><td>published</td><td>2</td><td>2</td><td>100.0</td><td>%</td></tr>
+<tr><td>arithmetic_faults</td><td>shared_verifier_bug</td><td>omit_usdt_from_denominator</td><td>before</td><td>published</td><td>2</td><td>2</td><td>100.0</td><td>%</td></tr>
 <tr><td>arithmetic_faults</td><td>shared_verifier_bug</td><td>overall</td><td>after</td><td>published</td><td>0</td><td>6</td><td>0.0</td><td>%</td></tr>
+<tr><td>arithmetic_faults</td><td>shared_verifier_bug</td><td>dai_6_instead_of_18_decimals</td><td>after</td><td>published</td><td>0</td><td>2</td><td>0.0</td><td>%</td></tr>
+<tr><td>arithmetic_faults</td><td>shared_verifier_bug</td><td>minimum_instead_of_maximum</td><td>after</td><td>published</td><td>0</td><td>2</td><td>0.0</td><td>%</td></tr>
+<tr><td>arithmetic_faults</td><td>shared_verifier_bug</td><td>omit_usdt_from_denominator</td><td>after</td><td>published</td><td>0</td><td>2</td><td>0.0</td><td>%</td></tr>
 <tr><td>arithmetic_faults</td><td>shared_verifier_bug</td><td>overall</td><td>after</td><td>dependent_withdrawals</td><td>2</td><td>2</td><td>100.0</td><td>%</td></tr>
 <tr><td>research_decisions</td><td>scheduled</td><td>E</td><td>raw</td><td>correct</td><td>18</td><td>18</td><td>100.0</td><td>%</td></tr>
 <tr><td>research_decisions</td><td>scheduled</td><td>E</td><td>raw</td><td>wrong</td><td>0</td><td>18</td><td>0.0</td><td>%</td></tr>
 <tr><td>research_decisions</td><td>scheduled</td><td>E</td><td>raw</td><td>deferred</td><td>0</td><td>18</td><td>0.0</td><td>%</td></tr>
 <tr><td>research_decisions</td><td>scheduled</td><td>E</td><td>raw</td><td>automated_accuracy</td><td>18</td><td>18</td><td>100.0</td><td>%</td></tr>
+<tr><td>research_decisions</td><td>scheduled</td><td>E</td><td>raw</td><td>automation_coverage</td><td>18</td><td>18</td><td>100.0</td><td>%</td></tr>
 <tr><td>research_decisions</td><td>scheduled</td><td>E</td><td>verified</td><td>correct</td><td>16</td><td>18</td><td>88.888889</td><td>%</td></tr>
 <tr><td>research_decisions</td><td>scheduled</td><td>E</td><td>verified</td><td>wrong</td><td>0</td><td>18</td><td>0.0</td><td>%</td></tr>
 <tr><td>research_decisions</td><td>scheduled</td><td>E</td><td>verified</td><td>deferred</td><td>2</td><td>18</td><td>11.111111</td><td>%</td></tr>
 <tr><td>research_decisions</td><td>scheduled</td><td>E</td><td>verified</td><td>automated_accuracy</td><td>16</td><td>16</td><td>100.0</td><td>%</td></tr>
+<tr><td>research_decisions</td><td>scheduled</td><td>E</td><td>verified</td><td>automation_coverage</td><td>16</td><td>18</td><td>88.888889</td><td>%</td></tr>
 <tr><td>research_decisions</td><td>scheduled</td><td>E</td><td>verified</td><td>correct_sent_to_review</td><td>2</td><td>18</td><td>11.111111</td><td>%</td></tr>
 <tr><td>research_decisions</td><td>scheduled</td><td>E</td><td>verified</td><td>wrong_sent_to_review</td><td>0</td><td>0</td><td>–</td><td>%</td></tr>
+<tr><td>research_decisions</td><td>scheduled</td><td>E</td><td>verified</td><td>additional_review_yield</td><td>0</td><td>2</td><td>0.0</td><td>%</td></tr>
 <tr><td>research_decisions</td><td>scheduled</td><td>G</td><td>raw</td><td>correct</td><td>16</td><td>18</td><td>88.888889</td><td>%</td></tr>
 <tr><td>research_decisions</td><td>scheduled</td><td>G</td><td>raw</td><td>wrong</td><td>1</td><td>18</td><td>5.555556</td><td>%</td></tr>
 <tr><td>research_decisions</td><td>scheduled</td><td>G</td><td>raw</td><td>deferred</td><td>1</td><td>18</td><td>5.555556</td><td>%</td></tr>
 <tr><td>research_decisions</td><td>scheduled</td><td>G</td><td>raw</td><td>automated_accuracy</td><td>16</td><td>17</td><td>94.117647</td><td>%</td></tr>
+<tr><td>research_decisions</td><td>scheduled</td><td>G</td><td>raw</td><td>automation_coverage</td><td>17</td><td>18</td><td>94.444444</td><td>%</td></tr>
 <tr><td>research_decisions</td><td>scheduled</td><td>G</td><td>verified</td><td>correct</td><td>10</td><td>18</td><td>55.555556</td><td>%</td></tr>
 <tr><td>research_decisions</td><td>scheduled</td><td>G</td><td>verified</td><td>wrong</td><td>0</td><td>18</td><td>0.0</td><td>%</td></tr>
 <tr><td>research_decisions</td><td>scheduled</td><td>G</td><td>verified</td><td>deferred</td><td>8</td><td>18</td><td>44.444444</td><td>%</td></tr>
 <tr><td>research_decisions</td><td>scheduled</td><td>G</td><td>verified</td><td>automated_accuracy</td><td>10</td><td>10</td><td>100.0</td><td>%</td></tr>
+<tr><td>research_decisions</td><td>scheduled</td><td>G</td><td>verified</td><td>automation_coverage</td><td>10</td><td>18</td><td>55.555556</td><td>%</td></tr>
 <tr><td>research_decisions</td><td>scheduled</td><td>G</td><td>verified</td><td>correct_sent_to_review</td><td>6</td><td>16</td><td>37.5</td><td>%</td></tr>
 <tr><td>research_decisions</td><td>scheduled</td><td>G</td><td>verified</td><td>wrong_sent_to_review</td><td>1</td><td>1</td><td>100.0</td><td>%</td></tr>
+<tr><td>research_decisions</td><td>scheduled</td><td>G</td><td>verified</td><td>additional_review_yield</td><td>1</td><td>7</td><td>14.285714</td><td>%</td></tr>
+<tr><td>research_decisions</td><td>scheduled</td><td>concentration_alert</td><td>raw</td><td>correct</td><td>11</td><td>12</td><td>91.666667</td><td>%</td></tr>
+<tr><td>research_decisions</td><td>scheduled</td><td>concentration_alert</td><td>raw</td><td>wrong</td><td>0</td><td>12</td><td>0.0</td><td>%</td></tr>
+<tr><td>research_decisions</td><td>scheduled</td><td>concentration_alert</td><td>raw</td><td>deferred</td><td>1</td><td>12</td><td>8.333333</td><td>%</td></tr>
+<tr><td>research_decisions</td><td>scheduled</td><td>concentration_alert</td><td>raw</td><td>automated_accuracy</td><td>11</td><td>11</td><td>100.0</td><td>%</td></tr>
+<tr><td>research_decisions</td><td>scheduled</td><td>concentration_alert</td><td>raw</td><td>automation_coverage</td><td>11</td><td>12</td><td>91.666667</td><td>%</td></tr>
+<tr><td>research_decisions</td><td>scheduled</td><td>concentration_alert</td><td>verified</td><td>correct</td><td>8</td><td>12</td><td>66.666667</td><td>%</td></tr>
+<tr><td>research_decisions</td><td>scheduled</td><td>concentration_alert</td><td>verified</td><td>wrong</td><td>0</td><td>12</td><td>0.0</td><td>%</td></tr>
+<tr><td>research_decisions</td><td>scheduled</td><td>concentration_alert</td><td>verified</td><td>deferred</td><td>4</td><td>12</td><td>33.333333</td><td>%</td></tr>
+<tr><td>research_decisions</td><td>scheduled</td><td>concentration_alert</td><td>verified</td><td>automated_accuracy</td><td>8</td><td>8</td><td>100.0</td><td>%</td></tr>
+<tr><td>research_decisions</td><td>scheduled</td><td>concentration_alert</td><td>verified</td><td>automation_coverage</td><td>8</td><td>12</td><td>66.666667</td><td>%</td></tr>
+<tr><td>research_decisions</td><td>scheduled</td><td>concentration_alert</td><td>verified</td><td>correct_sent_to_review</td><td>3</td><td>11</td><td>27.272727</td><td>%</td></tr>
+<tr><td>research_decisions</td><td>scheduled</td><td>concentration_alert</td><td>verified</td><td>wrong_sent_to_review</td><td>0</td><td>0</td><td>–</td><td>%</td></tr>
+<tr><td>research_decisions</td><td>scheduled</td><td>concentration_alert</td><td>verified</td><td>additional_review_yield</td><td>0</td><td>3</td><td>0.0</td><td>%</td></tr>
 <tr><td>research_decisions</td><td>scheduled</td><td>overall</td><td>raw</td><td>correct</td><td>34</td><td>36</td><td>94.444444</td><td>%</td></tr>
 <tr><td>research_decisions</td><td>scheduled</td><td>overall</td><td>raw</td><td>wrong</td><td>1</td><td>36</td><td>2.777778</td><td>%</td></tr>
 <tr><td>research_decisions</td><td>scheduled</td><td>overall</td><td>raw</td><td>deferred</td><td>1</td><td>36</td><td>2.777778</td><td>%</td></tr>
 <tr><td>research_decisions</td><td>scheduled</td><td>overall</td><td>raw</td><td>automated_accuracy</td><td>34</td><td>35</td><td>97.142857</td><td>%</td></tr>
+<tr><td>research_decisions</td><td>scheduled</td><td>overall</td><td>raw</td><td>automation_coverage</td><td>35</td><td>36</td><td>97.222222</td><td>%</td></tr>
 <tr><td>research_decisions</td><td>scheduled</td><td>overall</td><td>verified</td><td>correct</td><td>26</td><td>36</td><td>72.222222</td><td>%</td></tr>
 <tr><td>research_decisions</td><td>scheduled</td><td>overall</td><td>verified</td><td>wrong</td><td>0</td><td>36</td><td>0.0</td><td>%</td></tr>
 <tr><td>research_decisions</td><td>scheduled</td><td>overall</td><td>verified</td><td>deferred</td><td>10</td><td>36</td><td>27.777778</td><td>%</td></tr>
 <tr><td>research_decisions</td><td>scheduled</td><td>overall</td><td>verified</td><td>automated_accuracy</td><td>26</td><td>26</td><td>100.0</td><td>%</td></tr>
+<tr><td>research_decisions</td><td>scheduled</td><td>overall</td><td>verified</td><td>automation_coverage</td><td>26</td><td>36</td><td>72.222222</td><td>%</td></tr>
 <tr><td>research_decisions</td><td>scheduled</td><td>overall</td><td>verified</td><td>correct_sent_to_review</td><td>8</td><td>34</td><td>23.529412</td><td>%</td></tr>
 <tr><td>research_decisions</td><td>scheduled</td><td>overall</td><td>verified</td><td>wrong_sent_to_review</td><td>1</td><td>1</td><td>100.0</td><td>%</td></tr>
+<tr><td>research_decisions</td><td>scheduled</td><td>overall</td><td>verified</td><td>additional_review_yield</td><td>1</td><td>9</td><td>11.111111</td><td>%</td></tr>
+<tr><td>research_decisions</td><td>scheduled</td><td>peak_follow_up_hour</td><td>raw</td><td>correct</td><td>12</td><td>12</td><td>100.0</td><td>%</td></tr>
+<tr><td>research_decisions</td><td>scheduled</td><td>peak_follow_up_hour</td><td>raw</td><td>wrong</td><td>0</td><td>12</td><td>0.0</td><td>%</td></tr>
+<tr><td>research_decisions</td><td>scheduled</td><td>peak_follow_up_hour</td><td>raw</td><td>deferred</td><td>0</td><td>12</td><td>0.0</td><td>%</td></tr>
+<tr><td>research_decisions</td><td>scheduled</td><td>peak_follow_up_hour</td><td>raw</td><td>automated_accuracy</td><td>12</td><td>12</td><td>100.0</td><td>%</td></tr>
+<tr><td>research_decisions</td><td>scheduled</td><td>peak_follow_up_hour</td><td>raw</td><td>automation_coverage</td><td>12</td><td>12</td><td>100.0</td><td>%</td></tr>
+<tr><td>research_decisions</td><td>scheduled</td><td>peak_follow_up_hour</td><td>verified</td><td>correct</td><td>7</td><td>12</td><td>58.333333</td><td>%</td></tr>
+<tr><td>research_decisions</td><td>scheduled</td><td>peak_follow_up_hour</td><td>verified</td><td>wrong</td><td>0</td><td>12</td><td>0.0</td><td>%</td></tr>
+<tr><td>research_decisions</td><td>scheduled</td><td>peak_follow_up_hour</td><td>verified</td><td>deferred</td><td>5</td><td>12</td><td>41.666667</td><td>%</td></tr>
+<tr><td>research_decisions</td><td>scheduled</td><td>peak_follow_up_hour</td><td>verified</td><td>automated_accuracy</td><td>7</td><td>7</td><td>100.0</td><td>%</td></tr>
+<tr><td>research_decisions</td><td>scheduled</td><td>peak_follow_up_hour</td><td>verified</td><td>automation_coverage</td><td>7</td><td>12</td><td>58.333333</td><td>%</td></tr>
+<tr><td>research_decisions</td><td>scheduled</td><td>peak_follow_up_hour</td><td>verified</td><td>correct_sent_to_review</td><td>5</td><td>12</td><td>41.666667</td><td>%</td></tr>
+<tr><td>research_decisions</td><td>scheduled</td><td>peak_follow_up_hour</td><td>verified</td><td>wrong_sent_to_review</td><td>0</td><td>0</td><td>–</td><td>%</td></tr>
+<tr><td>research_decisions</td><td>scheduled</td><td>peak_follow_up_hour</td><td>verified</td><td>additional_review_yield</td><td>0</td><td>5</td><td>0.0</td><td>%</td></tr>
+<tr><td>research_decisions</td><td>scheduled</td><td>share_direction</td><td>raw</td><td>correct</td><td>11</td><td>12</td><td>91.666667</td><td>%</td></tr>
+<tr><td>research_decisions</td><td>scheduled</td><td>share_direction</td><td>raw</td><td>wrong</td><td>1</td><td>12</td><td>8.333333</td><td>%</td></tr>
+<tr><td>research_decisions</td><td>scheduled</td><td>share_direction</td><td>raw</td><td>deferred</td><td>0</td><td>12</td><td>0.0</td><td>%</td></tr>
+<tr><td>research_decisions</td><td>scheduled</td><td>share_direction</td><td>raw</td><td>automated_accuracy</td><td>11</td><td>12</td><td>91.666667</td><td>%</td></tr>
+<tr><td>research_decisions</td><td>scheduled</td><td>share_direction</td><td>raw</td><td>automation_coverage</td><td>12</td><td>12</td><td>100.0</td><td>%</td></tr>
+<tr><td>research_decisions</td><td>scheduled</td><td>share_direction</td><td>verified</td><td>correct</td><td>11</td><td>12</td><td>91.666667</td><td>%</td></tr>
+<tr><td>research_decisions</td><td>scheduled</td><td>share_direction</td><td>verified</td><td>wrong</td><td>0</td><td>12</td><td>0.0</td><td>%</td></tr>
+<tr><td>research_decisions</td><td>scheduled</td><td>share_direction</td><td>verified</td><td>deferred</td><td>1</td><td>12</td><td>8.333333</td><td>%</td></tr>
+<tr><td>research_decisions</td><td>scheduled</td><td>share_direction</td><td>verified</td><td>automated_accuracy</td><td>11</td><td>11</td><td>100.0</td><td>%</td></tr>
+<tr><td>research_decisions</td><td>scheduled</td><td>share_direction</td><td>verified</td><td>automation_coverage</td><td>11</td><td>12</td><td>91.666667</td><td>%</td></tr>
+<tr><td>research_decisions</td><td>scheduled</td><td>share_direction</td><td>verified</td><td>correct_sent_to_review</td><td>0</td><td>11</td><td>0.0</td><td>%</td></tr>
+<tr><td>research_decisions</td><td>scheduled</td><td>share_direction</td><td>verified</td><td>wrong_sent_to_review</td><td>1</td><td>1</td><td>100.0</td><td>%</td></tr>
+<tr><td>research_decisions</td><td>scheduled</td><td>share_direction</td><td>verified</td><td>additional_review_yield</td><td>1</td><td>1</td><td>100.0</td><td>%</td></tr>
 <tr><td>quote_screen</td><td>historical</td><td>ftx_2022</td><td>proxy</td><td>overestimated</td><td>25</td><td>25</td><td>100.0</td><td>%</td></tr>
+<tr><td>quote_screen</td><td>historical</td><td>ftx_2022</td><td>proxy</td><td>mean_signed_error</td><td>–</td><td>–</td><td>0.07590164</td><td>USDT</td></tr>
+<tr><td>quote_screen</td><td>historical</td><td>ftx_2022</td><td>proxy</td><td>mean_absolute_error</td><td>–</td><td>–</td><td>0.07590164</td><td>USDT</td></tr>
 <tr><td>quote_screen</td><td>historical</td><td>ftx_2022</td><td>proxy</td><td>median_absolute_error</td><td>–</td><td>–</td><td>0.094388</td><td>USDT</td></tr>
+<tr><td>quote_screen</td><td>historical</td><td>ftx_2022</td><td>proxy</td><td>p90_absolute_error</td><td>–</td><td>–</td><td>0.135832</td><td>USDT</td></tr>
 <tr><td>quote_screen</td><td>historical</td><td>ftx_2022</td><td>proxy</td><td>max_absolute_error</td><td>–</td><td>–</td><td>0.150936</td><td>USDT</td></tr>
+<tr><td>quote_screen</td><td>historical</td><td>ftx_2022</td><td>proxy</td><td>p90_relative_absolute_error</td><td>–</td><td>–</td><td>0.013563</td><td>bps</td></tr>
 <tr><td>quote_screen</td><td>historical</td><td>overall</td><td>proxy</td><td>overestimated</td><td>50</td><td>50</td><td>100.0</td><td>%</td></tr>
+<tr><td>quote_screen</td><td>historical</td><td>overall</td><td>proxy</td><td>mean_signed_error</td><td>–</td><td>–</td><td>0.14491582</td><td>USDT</td></tr>
+<tr><td>quote_screen</td><td>historical</td><td>overall</td><td>proxy</td><td>mean_absolute_error</td><td>–</td><td>–</td><td>0.14491582</td><td>USDT</td></tr>
 <tr><td>quote_screen</td><td>historical</td><td>overall</td><td>proxy</td><td>median_absolute_error</td><td>–</td><td>–</td><td>0.029438</td><td>USDT</td></tr>
+<tr><td>quote_screen</td><td>historical</td><td>overall</td><td>proxy</td><td>p90_absolute_error</td><td>–</td><td>–</td><td>0.1373766</td><td>USDT</td></tr>
 <tr><td>quote_screen</td><td>historical</td><td>overall</td><td>proxy</td><td>max_absolute_error</td><td>–</td><td>–</td><td>2.872343</td><td>USDT</td></tr>
+<tr><td>quote_screen</td><td>historical</td><td>overall</td><td>proxy</td><td>p90_relative_absolute_error</td><td>–</td><td>–</td><td>0.013717</td><td>bps</td></tr>
 <tr><td>quote_screen</td><td>historical</td><td>usdc_2023</td><td>proxy</td><td>overestimated</td><td>25</td><td>25</td><td>100.0</td><td>%</td></tr>
+<tr><td>quote_screen</td><td>historical</td><td>usdc_2023</td><td>proxy</td><td>mean_signed_error</td><td>–</td><td>–</td><td>0.21393</td><td>USDT</td></tr>
+<tr><td>quote_screen</td><td>historical</td><td>usdc_2023</td><td>proxy</td><td>mean_absolute_error</td><td>–</td><td>–</td><td>0.21393</td><td>USDT</td></tr>
 <tr><td>quote_screen</td><td>historical</td><td>usdc_2023</td><td>proxy</td><td>median_absolute_error</td><td>–</td><td>–</td><td>0.029238</td><td>USDT</td></tr>
+<tr><td>quote_screen</td><td>historical</td><td>usdc_2023</td><td>proxy</td><td>p90_absolute_error</td><td>–</td><td>–</td><td>0.2615192</td><td>USDT</td></tr>
 <tr><td>quote_screen</td><td>historical</td><td>usdc_2023</td><td>proxy</td><td>max_absolute_error</td><td>–</td><td>–</td><td>2.872343</td><td>USDT</td></tr>
+<tr><td>quote_screen</td><td>historical</td><td>usdc_2023</td><td>proxy</td><td>p90_relative_absolute_error</td><td>–</td><td>–</td><td>0.026206</td><td>bps</td></tr>
 <tr><td>quote_screen</td><td>historical</td><td>1 bps</td><td>proxy vs size-matched</td><td>decision_disagreement</td><td>0</td><td>50</td><td>0.0</td><td>%</td></tr>
+<tr><td>quote_screen</td><td>historical</td><td>1 bps</td><td>proxy vs size-matched</td><td>false_eligibility</td><td>0</td><td>50</td><td>0.0</td><td>%</td></tr>
+<tr><td>quote_screen</td><td>historical</td><td>1 bps</td><td>proxy vs size-matched</td><td>missed_eligibility</td><td>0</td><td>50</td><td>0.0</td><td>%</td></tr>
 <tr><td>quote_screen</td><td>historical</td><td>5 bps</td><td>proxy vs size-matched</td><td>decision_disagreement</td><td>0</td><td>50</td><td>0.0</td><td>%</td></tr>
+<tr><td>quote_screen</td><td>historical</td><td>5 bps</td><td>proxy vs size-matched</td><td>false_eligibility</td><td>0</td><td>50</td><td>0.0</td><td>%</td></tr>
+<tr><td>quote_screen</td><td>historical</td><td>5 bps</td><td>proxy vs size-matched</td><td>missed_eligibility</td><td>0</td><td>50</td><td>0.0</td><td>%</td></tr>
 <tr><td>quote_screen</td><td>historical</td><td>10 bps</td><td>proxy vs size-matched</td><td>decision_disagreement</td><td>0</td><td>50</td><td>0.0</td><td>%</td></tr>
+<tr><td>quote_screen</td><td>historical</td><td>10 bps</td><td>proxy vs size-matched</td><td>false_eligibility</td><td>0</td><td>50</td><td>0.0</td><td>%</td></tr>
+<tr><td>quote_screen</td><td>historical</td><td>10 bps</td><td>proxy vs size-matched</td><td>missed_eligibility</td><td>0</td><td>50</td><td>0.0</td><td>%</td></tr>
 <tr><td>quote_screen</td><td>historical</td><td>25 bps</td><td>proxy vs size-matched</td><td>decision_disagreement</td><td>0</td><td>50</td><td>0.0</td><td>%</td></tr>
-<tr><td>quote_screen</td><td>historical</td><td>50 bps</td><td>proxy vs size-matched</td><td>decision_disagreement</td><td>0</td><td>50</td><td>0.0</td><td>%</td></tr></tbody></table></div>
+<tr><td>quote_screen</td><td>historical</td><td>25 bps</td><td>proxy vs size-matched</td><td>false_eligibility</td><td>0</td><td>50</td><td>0.0</td><td>%</td></tr>
+<tr><td>quote_screen</td><td>historical</td><td>25 bps</td><td>proxy vs size-matched</td><td>missed_eligibility</td><td>0</td><td>50</td><td>0.0</td><td>%</td></tr>
+<tr><td>quote_screen</td><td>historical</td><td>50 bps</td><td>proxy vs size-matched</td><td>decision_disagreement</td><td>0</td><td>50</td><td>0.0</td><td>%</td></tr>
+<tr><td>quote_screen</td><td>historical</td><td>50 bps</td><td>proxy vs size-matched</td><td>false_eligibility</td><td>0</td><td>50</td><td>0.0</td><td>%</td></tr>
+<tr><td>quote_screen</td><td>historical</td><td>50 bps</td><td>proxy vs size-matched</td><td>missed_eligibility</td><td>0</td><td>50</td><td>0.0</td><td>%</td></tr></tbody></table></div>
 </details>
 <p>A dash indicates an unavailable value or an inapplicable denominator. Counts and sample units vary by experiment.</p>
 </main></html>
