@@ -13,7 +13,7 @@ def load(path):
     return json.loads(path.read_text(encoding='utf-8'))
 
 
-def compare(root):
+def compare(root, *, include_pairs=False):
     formal = root / 'experiments/formal_v1'
     events = {task['task_id']: task['event_id']
               for task in load(root / 'results/current_preparation/tasks.json')}
@@ -48,6 +48,7 @@ def compare(root):
     results = {name: defaultdict(lambda: {'G': Counter(), 'E': Counter()})
                for name in ('scheduled', 'complete_pairs')}
     excluded = []
+    details = []
     for (task_id, repetition), pair in sorted(pairs.items()):
         if set(pair) != {'G', 'E'}:
             raise ValueError(f'Incomplete scheduled pair: {task_id}, repetition {repetition}')
@@ -56,6 +57,9 @@ def compare(root):
             excluded.append({'task_id': task_id, 'repetition': repetition,
                              'excluded_runs': [r['run_id'] for r, _ in pair.values()],
                              'stop_reasons': {r['run_id']: r['error'] for r in stopped}})
+        if include_pairs:
+            details.append({'task_id': task_id, 'repetition': repetition, 'event_id': events[task_id],
+                            'completed': not stopped, 'groups': {group: counts for group, (_, counts) in sorted(pair.items())}})
         for group, (_, counts) in pair.items():
             for scope in ('overall', events[task_id]):
                 results['scheduled'][scope][group].update(counts)
@@ -67,8 +71,11 @@ def compare(root):
             expected = summary['by_group'][group] if scope == 'overall' else summary['by_event'][group][scope]
             if any(counts[group][metric] != expected[metric] for metric in METRICS):
                 raise ValueError(f'Computed totals disagree with the frozen summary: {group}, {scope}')
-    return {'scheduled_pairs': len(pairs), 'completed_pairs': len(pairs) - len(excluded),
-            'excluded_pairs': excluded, 'counts': results}
+    result = {'scheduled_pairs': len(pairs), 'completed_pairs': len(pairs) - len(excluded),
+              'excluded_pairs': excluded, 'counts': results}
+    if include_pairs:
+        result['pairs'] = details
+    return result
 
 
 def main():
