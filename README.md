@@ -8,7 +8,7 @@
 | 发布前独立算术核验 | 6 个故意注入的共享错误和 6 个正确对照 | 新核验拦下 **6/6** 个同时通过 V1、V2 的错误，保留 **6/6** 个正确对照，并撤回 2 条依赖错误峰值时点的报价 |
 | 历史决策回放 | 36 次研究判断、50 个小时取样点的报价筛查 | 核验拦下 1 次错误判断，同时将 8 次原本正确的判断转人工；五档最低输出门槛下，两种报价方法的筛查结果一致 |
 
-[公开交接包](MSBD5017_Public_Handoff.zip) · [技术报告](MSBD5017_Final_Project_Report.pdf) · [组内交接](5017_GROUP_PROJECT_HANDOFF.md) · [范围与证据来源](LIMITATIONS.md)
+[公开交接包](MSBD5017_Public_Handoff.zip) · [技术报告](MSBD5017_Final_Project_Report.pdf) · [组内交接](5017_GROUP_PROJECT_HANDOFF.md) · [效果图表与指标](audit/effect_metrics/README.md) · [范围与证据来源](LIMITATIONS.md)
 
 ## 1 数据与核验流程
 
@@ -39,7 +39,15 @@
 
 详见[技术报告](MSBD5017_Final_Project_Report.pdf)第 4、6 页，以及包内 `audit/decision_replay_20261112/`。[报告勘误](REPORT_ERRATA.md)补充了 [PR #1](https://github.com/lowcurry/5017-group-project/pull/1) 提出的复现与证据说明。
 
-## 4 离线复现
+## 4 效果图表与指标
+
+[图表说明](audit/effect_metrics/README.md) · [指标 CSV](audit/effect_metrics/figures/metrics.csv) · [指标 JSON](audit/effect_metrics/figures/metrics.json)
+
+![两组正确覆盖率的比较](audit/effect_metrics/figures/coverage.svg)
+
+其余三张图展示[算术故障拦截](audit/effect_metrics/figures/arithmetic-faults.svg)、[研究决策转人工复核](audit/effect_metrics/figures/research-decisions.svg)和[历史报价误差](audit/effect_metrics/figures/quote-errors.svg)。[公开交接包](MSBD5017_Public_Handoff.zip)中包含浏览器报告。解压后可打开 `audit/effect_metrics/figures/index.html` 查看图表和完整指标。
+
+## 5 离线复现
 
 下载 [公开交接包 ZIP](MSBD5017_Public_Handoff.zip) 和 [SHA-256 校验值](SHA256SUMS.txt)。解压后进入 `MSBD5017_Public_Handoff` 目录；以下命令使用 Python 3.10 或更新版本，无需 API key 或网络。
 
@@ -52,9 +60,10 @@ python3 -B audit/arithmetic_faults/run_arithmetic_faults.py .
 python3 -B audit/arithmetic_faults/replay_publication_guard.py .
 python3 -B audit/decision_replay_20261112/replay.py .
 python3 -B docs/reproduce_current.py
+python3 -B audit/effect_metrics/build.py --output /tmp/5017-effect-metrics
 python3 -B -m unittest discover -s tests
 ```
 
-正式复现覆盖 36 次计划模型运行、6 份模板输出和 32 个冻结故障案例。当前公开包通过了 285 项 Python 测试。解压后的 README 提供各命令和结果文件的对应关系。
+正式复现覆盖 36 次计划模型运行、6 份模板输出和 32 个冻结故障案例。当前公开包通过了 286 项 Python 测试。解压后的 README 提供各命令和结果文件的对应关系。
 
 其他材料：[展示稿](MSBD5017_Project_Presentation.pptx) · [展示措辞修订说明](SLIDE_TEXT_PATCH.md) · [正文审阅 A](%E6%AD%A3%E6%96%87%E5%AE%A1%E9%98%85%E8%A1%A8-%E8%8D%89%E7%A8%BF-A.xlsx) · [正文审阅 B](%E6%AD%A3%E6%96%87%E5%AE%A1%E9%98%85%E8%A1%A8_%E5%B7%B2%E5%AE%8C%E6%88%90.xlsx)

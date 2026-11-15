@@ -12,3 +12,5 @@
 | 历史应用 | 36 次研究判断中核验拦下 1 次错误并将 8 次正确判断转复核。50 个历史区块报价筛查的五档门槛下无决策差异。 |
 
 从公开 ZIP 解压后按 README 复现。正式重放使用 `python3 -B -m curve_audit replay`，单独重跑冻结故障使用 `python3 -B docs/replay_formal_faults.py .`，核对新发布规则使用 `python3 -B audit/arithmetic_faults/replay_publication_guard.py .`。课程提交使用组内保管的课程包。公开仓库中的两份原始正文审核表单独保留。
+
+11 月 15 日新增效果图表与指标。解压后打开 `audit/effect_metrics/figures/index.html` 查看四张图，或下载同目录下的 CSV 和 JSON。
