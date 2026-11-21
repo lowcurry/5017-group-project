@@ -1,0 +1,197 @@
+{
+  "report": {
+    "task_id": "R04",
+    "claims": [
+      {
+        "value": "33.712746344371832328033843439919310765356377547356387423159872900326130669920849",
+        "unit": "percent",
+        "evidence_ids": [
+          "E_UTC_20221109T020000Z"
+        ],
+        "calculation_id": "C_e5818bfa6a423539",
+        "query": {
+          "metric": "share_pct",
+          "operation": "last",
+          "start": "2022-11-09T02:00:00Z",
+          "end": "2022-11-09T02:00:00Z",
+          "coin": "DAI"
+        },
+        "metrics_version": "1.0",
+        "sample_count": 1,
+        "snapshot_id": "UTC_20221109T020000Z",
+        "target_timestamp_utc": "2022-11-09T02:00:00Z",
+        "observed_at": "2022-11-09T01:59:59Z",
+        "block_number": 15929351,
+        "block_hash": "0x857ca0990f469db3f882c24a8fe0e517913a1e6dcde4386a82773c19ad7feb2e",
+        "status": "supported",
+        "formula_version": "3pool-erc20-balanceOf-20261102",
+        "dataset_sha256": "79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055",
+        "claim_id": "R04_S1",
+        "slot_id": "S1",
+        "depends_on": []
+      },
+      {
+        "value": "0.999897263",
+        "unit": "USDT/USDC",
+        "evidence_ids": [
+          "E_UTC_20221109T020000Z"
+        ],
+        "calculation_id": "C_c59884c5d9d22cde",
+        "query": {
+          "metric": "quote_rate",
+          "operation": "last",
+          "start": "2022-11-09T02:00:00Z",
+          "end": "2022-11-09T02:00:00Z",
+          "direction": "USDC_USDT",
+          "size": 1000
+        },
+        "metrics_version": "1.0",
+        "sample_count": 1,
+        "snapshot_id": "UTC_20221109T020000Z",
+        "target_timestamp_utc": "2022-11-09T02:00:00Z",
+        "observed_at": "2022-11-09T01:59:59Z",
+        "block_number": 15929351,
+        "block_hash": "0x857ca0990f469db3f882c24a8fe0e517913a1e6dcde4386a82773c19ad7feb2e",
+        "status": "supported",
+        "formula_version": "3pool-erc20-balanceOf-20261102",
+        "dataset_sha256": "79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055",
+        "claim_id": "R04_S2",
+        "slot_id": "S2",
+        "depends_on": []
+      },
+      {
+        "value": "0.0019283981178374322642785351838691851684766537859800102283108259693276108107518642",
+        "unit": "basis_points",
+        "evidence_ids": [
+          "E_UTC_20221109T020000Z"
+        ],
+        "calculation_id": "C_93af8c120e59c554",
+        "query": {
+          "metric": "size_sensitivity_bps",
+          "operation": "last",
+          "start": "2022-11-09T02:00:00Z",
+          "end": "2022-11-09T02:00:00Z",
+          "direction": "USDC_USDT",
+          "size": 100000
+        },
+        "metrics_version": "1.0",
+        "sample_count": 1,
+        "snapshot_id": "UTC_20221109T020000Z",
+        "target_timestamp_utc": "2022-11-09T02:00:00Z",
+        "observed_at": "2022-11-09T01:59:59Z",
+        "block_number": 15929351,
+        "block_hash": "0x857ca0990f469db3f882c24a8fe0e517913a1e6dcde4386a82773c19ad7feb2e",
+        "status": "supported",
+        "formula_version": "3pool-erc20-balanceOf-20261102",
+        "dataset_sha256": "79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055",
+        "claim_id": "R04_S3",
+        "slot_id": "S3",
+        "depends_on": []
+      }
+    ],
+    "answer": "确定性模板输出；不属于模型实验。"
+  },
+  "trace": [
+    {
+      "slot_id": "S1",
+      "query": {
+        "metric": "share_pct",
+        "operation": "last",
+        "start": "2022-11-09T02:00:00Z",
+        "end": "2022-11-09T02:00:00Z",
+        "coin": "DAI"
+      },
+      "result": {
+        "value": "33.712746344371832328033843439919310765356377547356387423159872900326130669920849",
+        "unit": "percent",
+        "evidence_ids": [
+          "E_UTC_20221109T020000Z"
+        ],
+        "calculation_id": "C_e5818bfa6a423539",
+        "query": {
+          "metric": "share_pct",
+          "operation": "last",
+          "start": "2022-11-09T02:00:00Z",
+          "end": "2022-11-09T02:00:00Z",
+          "coin": "DAI"
+        },
+        "metrics_version": "1.0",
+        "sample_count": 1,
+        "snapshot_id": "UTC_20221109T020000Z",
+        "target_timestamp_utc": "2022-11-09T02:00:00Z",
+        "observed_at": "2022-11-09T01:59:59Z",
+        "block_number": 15929351,
+        "block_hash": "0x857ca0990f469db3f882c24a8fe0e517913a1e6dcde4386a82773c19ad7feb2e"
+      }
+    },
+    {
+      "slot_id": "S2",
+      "query": {
+        "metric": "quote_rate",
+        "operation": "last",
+        "start": "2022-11-09T02:00:00Z",
+        "end": "2022-11-09T02:00:00Z",
+        "direction": "USDC_USDT",
+        "size": 1000
+      },
+      "result": {
+        "value": "0.999897263",
+        "unit": "USDT/USDC",
+        "evidence_ids": [
+          "E_UTC_20221109T020000Z"
+        ],
+        "calculation_id": "C_c59884c5d9d22cde",
+        "query": {
+          "metric": "quote_rate",
+          "operation": "last",
+          "start": "2022-11-09T02:00:00Z",
+          "end": "2022-11-09T02:00:00Z",
+          "direction": "USDC_USDT",
+          "size": 1000
+        },
+        "metrics_version": "1.0",
+        "sample_count": 1,
+        "snapshot_id": "UTC_20221109T020000Z",
+        "target_timestamp_utc": "2022-11-09T02:00:00Z",
+        "observed_at": "2022-11-09T01:59:59Z",
+        "block_number": 15929351,
+        "block_hash": "0x857ca0990f469db3f882c24a8fe0e517913a1e6dcde4386a82773c19ad7feb2e"
+      }
+    },
+    {
+      "slot_id": "S3",
+      "query": {
+        "metric": "size_sensitivity_bps",
+        "operation": "last",
+        "start": "2022-11-09T02:00:00Z",
+        "end": "2022-11-09T02:00:00Z",
+        "direction": "USDC_USDT",
+        "size": 100000
+      },
+      "result": {
+        "value": "0.0019283981178374322642785351838691851684766537859800102283108259693276108107518642",
+        "unit": "basis_points",
+        "evidence_ids": [
+          "E_UTC_20221109T020000Z"
+        ],
+        "calculation_id": "C_93af8c120e59c554",
+        "query": {
+          "metric": "size_sensitivity_bps",
+          "operation": "last",
+          "start": "2022-11-09T02:00:00Z",
+          "end": "2022-11-09T02:00:00Z",
+          "direction": "USDC_USDT",
+          "size": 100000
+        },
+        "metrics_version": "1.0",
+        "sample_count": 1,
+        "snapshot_id": "UTC_20221109T020000Z",
+        "target_timestamp_utc": "2022-11-09T02:00:00Z",
+        "observed_at": "2022-11-09T01:59:59Z",
+        "block_number": 15929351,
+        "block_hash": "0x857ca0990f469db3f882c24a8fe0e517913a1e6dcde4386a82773c19ad7feb2e"
+      }
+    }
+  ],
+  "model_inference_performed": false
+}

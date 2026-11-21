@@ -1,0 +1,229 @@
+{
+  "report": {
+    "task_id": "R05",
+    "claims": [
+      {
+        "query": {
+          "metric": "share_pct",
+          "operation": "change",
+          "start": "2022-11-09T00:00:00Z",
+          "end": "2022-11-10T00:00:00Z",
+          "coin": "USDC"
+        },
+        "value": "-18.3838963275728161995907012028447201796890808800132331450046",
+        "unit": "percentage_points",
+        "evidence_ids": [
+          "E_UTC_20221109T000000Z",
+          "E_UTC_20221110T000000Z"
+        ],
+        "status": "supported",
+        "formula_version": "3pool-erc20-balanceOf-20261102",
+        "dataset_sha256": "79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055",
+        "claim_id": "R05_S1",
+        "slot_id": "S1",
+        "depends_on": []
+      },
+      {
+        "value": "0.34786479754237962650930991503084061319118647538394050755239845154939455664675356",
+        "unit": "dimensionless",
+        "evidence_ids": [
+          "E_UTC_20221109T000000Z",
+          "E_UTC_20221109T010000Z",
+          "E_UTC_20221109T020000Z",
+          "E_UTC_20221109T030000Z",
+          "E_UTC_20221109T040000Z",
+          "E_UTC_20221109T050000Z",
+          "E_UTC_20221109T060000Z",
+          "E_UTC_20221109T070000Z",
+          "E_UTC_20221109T080000Z",
+          "E_UTC_20221109T090000Z",
+          "E_UTC_20221109T100000Z",
+          "E_UTC_20221109T110000Z",
+          "E_UTC_20221109T120000Z",
+          "E_UTC_20221109T130000Z",
+          "E_UTC_20221109T140000Z",
+          "E_UTC_20221109T150000Z",
+          "E_UTC_20221109T160000Z",
+          "E_UTC_20221109T170000Z",
+          "E_UTC_20221109T180000Z",
+          "E_UTC_20221109T190000Z",
+          "E_UTC_20221109T200000Z",
+          "E_UTC_20221109T210000Z",
+          "E_UTC_20221109T220000Z",
+          "E_UTC_20221109T230000Z",
+          "E_UTC_20221110T000000Z"
+        ],
+        "calculation_id": "C_6cde71af23be9dca",
+        "query": {
+          "metric": "imbalance_l1",
+          "operation": "maximum",
+          "start": "2022-11-09T00:00:00Z",
+          "end": "2022-11-10T00:00:00Z"
+        },
+        "metrics_version": "1.0",
+        "sample_count": 25,
+        "snapshot_id": "UTC_20221109T150000Z",
+        "target_timestamp_utc": "2022-11-09T15:00:00Z",
+        "observed_at": "2022-11-09T14:59:59Z",
+        "block_number": 15933220,
+        "block_hash": "0x2cb6fc089876256989d86d5a2528f7c1d3d006b1d28993ff4df3e273955cf4a4",
+        "scope": "maximum among collected target observations, not a continuous-time maximum",
+        "status": "supported",
+        "formula_version": "3pool-erc20-balanceOf-20261102",
+        "dataset_sha256": "79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055",
+        "claim_id": "R05_S2",
+        "slot_id": "S2",
+        "depends_on": []
+      },
+      {
+        "value": "1.0012227852",
+        "unit": "USDT/USDC",
+        "evidence_ids": [
+          "E_UTC_20221109T160000Z"
+        ],
+        "calculation_id": "C_b8f1554949fdfb33",
+        "query": {
+          "metric": "quote_rate",
+          "operation": "last",
+          "start": "2022-11-09T16:00:00Z",
+          "end": "2022-11-09T16:00:00Z",
+          "direction": "USDC_USDT",
+          "size": 100000
+        },
+        "metrics_version": "1.0",
+        "sample_count": 1,
+        "snapshot_id": "UTC_20221109T160000Z",
+        "target_timestamp_utc": "2022-11-09T16:00:00Z",
+        "observed_at": "2022-11-09T15:59:59Z",
+        "block_number": 15933518,
+        "block_hash": "0xb0e8f2725717591a407610174f641c1a05b21977227432e22d9e03d1c629af21",
+        "status": "supported",
+        "formula_version": "3pool-erc20-balanceOf-20261102",
+        "dataset_sha256": "79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055",
+        "claim_id": "R05_S3",
+        "slot_id": "S3",
+        "depends_on": [
+          "S2"
+        ]
+      }
+    ],
+    "answer": "确定性模板输出；不属于模型实验。"
+  },
+  "trace": [
+    {
+      "slot_id": "S1",
+      "query": {
+        "metric": "share_pct",
+        "operation": "change",
+        "start": "2022-11-09T00:00:00Z",
+        "end": "2022-11-10T00:00:00Z",
+        "coin": "USDC"
+      },
+      "result": {
+        "query": {
+          "metric": "share_pct",
+          "operation": "change",
+          "start": "2022-11-09T00:00:00Z",
+          "end": "2022-11-10T00:00:00Z",
+          "coin": "USDC"
+        },
+        "value": "-18.3838963275728161995907012028447201796890808800132331450046",
+        "unit": "percentage_points",
+        "evidence_ids": [
+          "E_UTC_20221109T000000Z",
+          "E_UTC_20221110T000000Z"
+        ]
+      }
+    },
+    {
+      "slot_id": "S2",
+      "query": {
+        "metric": "imbalance_l1",
+        "operation": "maximum",
+        "start": "2022-11-09T00:00:00Z",
+        "end": "2022-11-10T00:00:00Z"
+      },
+      "result": {
+        "value": "0.34786479754237962650930991503084061319118647538394050755239845154939455664675356",
+        "unit": "dimensionless",
+        "evidence_ids": [
+          "E_UTC_20221109T000000Z",
+          "E_UTC_20221109T010000Z",
+          "E_UTC_20221109T020000Z",
+          "E_UTC_20221109T030000Z",
+          "E_UTC_20221109T040000Z",
+          "E_UTC_20221109T050000Z",
+          "E_UTC_20221109T060000Z",
+          "E_UTC_20221109T070000Z",
+          "E_UTC_20221109T080000Z",
+          "E_UTC_20221109T090000Z",
+          "E_UTC_20221109T100000Z",
+          "E_UTC_20221109T110000Z",
+          "E_UTC_20221109T120000Z",
+          "E_UTC_20221109T130000Z",
+          "E_UTC_20221109T140000Z",
+          "E_UTC_20221109T150000Z",
+          "E_UTC_20221109T160000Z",
+          "E_UTC_20221109T170000Z",
+          "E_UTC_20221109T180000Z",
+          "E_UTC_20221109T190000Z",
+          "E_UTC_20221109T200000Z",
+          "E_UTC_20221109T210000Z",
+          "E_UTC_20221109T220000Z",
+          "E_UTC_20221109T230000Z",
+          "E_UTC_20221110T000000Z"
+        ],
+        "calculation_id": "C_6cde71af23be9dca",
+        "query": {
+          "metric": "imbalance_l1",
+          "operation": "maximum",
+          "start": "2022-11-09T00:00:00Z",
+          "end": "2022-11-10T00:00:00Z"
+        },
+        "metrics_version": "1.0",
+        "sample_count": 25,
+        "snapshot_id": "UTC_20221109T150000Z",
+        "target_timestamp_utc": "2022-11-09T15:00:00Z",
+        "observed_at": "2022-11-09T14:59:59Z",
+        "block_number": 15933220,
+        "block_hash": "0x2cb6fc089876256989d86d5a2528f7c1d3d006b1d28993ff4df3e273955cf4a4",
+        "scope": "maximum among collected target observations, not a continuous-time maximum"
+      }
+    },
+    {
+      "slot_id": "S3",
+      "query": {
+        "metric": "quote_rate",
+        "operation": "last",
+        "direction": "USDC_USDT",
+        "size": 100000,
+        "start": "2022-11-09T16:00:00Z",
+        "end": "2022-11-09T16:00:00Z"
+      },
+      "result": {
+        "value": "1.0012227852",
+        "unit": "USDT/USDC",
+        "evidence_ids": [
+          "E_UTC_20221109T160000Z"
+        ],
+        "calculation_id": "C_b8f1554949fdfb33",
+        "query": {
+          "metric": "quote_rate",
+          "operation": "last",
+          "start": "2022-11-09T16:00:00Z",
+          "end": "2022-11-09T16:00:00Z",
+          "direction": "USDC_USDT",
+          "size": 100000
+        },
+        "metrics_version": "1.0",
+        "sample_count": 1,
+        "snapshot_id": "UTC_20221109T160000Z",
+        "target_timestamp_utc": "2022-11-09T16:00:00Z",
+        "observed_at": "2022-11-09T15:59:59Z",
+        "block_number": 15933518,
+        "block_hash": "0xb0e8f2725717591a407610174f641c1a05b21977227432e22d9e03d1c629af21"
+      }
+    }
+  ],
+  "model_inference_performed": false
+}

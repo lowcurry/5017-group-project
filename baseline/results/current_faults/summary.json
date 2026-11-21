@@ -1,0 +1,9 @@
+{
+  "pass": true,
+  "scenarios": 32,
+  "actual_faults": 12,
+  "clean_pairs": 12,
+  "refusals": 4,
+  "source_unknowns": 4,
+  "scope": "32 new current-path regression scenarios, separate from existing 32 engineering scenarios; not a formal held-out benchmark"
+}

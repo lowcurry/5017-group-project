@@ -1,0 +1,18 @@
+[
+  {
+    "provider": "alchemy",
+    "path": "data/current_study/holdout_20230615_alchemy.json",
+    "status": "available",
+    "snapshots": 26,
+    "replay": true,
+    "seconds": 216.77
+  },
+  {
+    "provider": "drpc",
+    "path": "data/current_study/holdout_20230615_drpc.json",
+    "status": "available",
+    "snapshots": 26,
+    "replay": true,
+    "seconds": 314.4
+  }
+]

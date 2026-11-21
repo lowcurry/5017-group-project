@@ -16,13 +16,13 @@
 
 ## 复现
 
-按[仓库首页的目录布局](../README.md#离线复现)把基线包和成本包放在同一级，然后运行：
+从仓库根目录运行以下命令。
 
 ```sh
 python3 -m pip install -r decision_cost/requirements.txt
 python3 -B decision_cost/evaluation.py --output /tmp/5017-cost-replayed
 ```
 
-可更改情景参数并用 `--scenario /path/to/scenario.json` 重跑。存在实测人工记录时，可以用 `--reviews /path/to/timing.csv` 载入，生成的空白模板在本地回放的输出目录。风险评分计时与其货币折算可随机器和负载变化。独立窗口的实测流程见下载包内的 `CONFIRMATION.md`。
+可更改情景参数并用 `--scenario /path/to/scenario.json` 重跑。存在实测人工记录时，可以用 `--reviews /path/to/timing.csv` 载入，生成的空白模板在本地回放的输出目录。风险评分计时与其货币折算可随机器和负载变化。独立窗口的实测流程见仓库根目录的 `CONFIRMATION.md`。
 
 [成本分解](results/cost.svg) · [人工介入与错误](results/workload.svg) · [敏感性矩阵](results/sensitivity.svg) · [主结果 CSV](results/policy-summary.csv)

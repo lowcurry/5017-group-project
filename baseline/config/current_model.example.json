@@ -1,0 +1,16 @@
+{
+  "model": "deepseek-flash",
+  "input_tokens": 48000,
+  "output_tokens": 12000,
+  "total_tokens": 60000,
+  "model_calls": 10,
+  "per_call_output": 2048,
+  "calibration_record": null,
+  "status": "example_only_not_frozen_or_run",
+  "weak_model": null,
+  "provider": "deepseek",
+  "comparison_model": null,
+  "comparison_role": "stronger_exploratory_control",
+  "budget_claim": "empirically_checked_client_upper_bound",
+  "available_stronger_comparison": "deepseek-v4-pro"
+}

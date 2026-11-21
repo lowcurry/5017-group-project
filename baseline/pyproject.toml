@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "curve-audit"
+version = "3.0.0"
+description = "Evidence-grounded historical Curve liquidity investigation"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+curve-audit = "curve_audit.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["curve_audit*"]

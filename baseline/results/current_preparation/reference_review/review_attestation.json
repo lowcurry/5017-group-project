@@ -1,0 +1,213 @@
+{
+  "source_file": "程序复核.xlsx",
+  "source_sha256": "f0d3829ec2e85a07b4af00b893b95b97151829c4c2c066785d3d0e30742e1738",
+  "attestation_date_local": "2026-11-05",
+  "attestation": "User confirmed in the project conversation that the supplied workbook was produced by a human and authorized using it as human annotation.",
+  "record_identity_scope": "user_attested_consolidated_human_review",
+  "independent_dual_review_verified": false,
+  "dataset_sha256": "79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055",
+  "tasks_sha256": "d0d35bed97fd34c2f63c241411a3c0bd662a904beb2673ac17e2ec8bb1f3d097",
+  "references_sha256": "4cd770fb6418f938ec638cd59fecea3d9b7370179c7fd4035775aef046779c00",
+  "raw_snapshots_matched": 51,
+  "max_absolute_numeric_error": "3.1789927626383277634838163662834216821621406E-15",
+  "components": [
+    {
+      "task_id": "R01",
+      "slot_id": "S1",
+      "answerable": true,
+      "value": "30.878165451717635",
+      "unit": "percent",
+      "target_utc": "2023-03-10T02:00:00Z",
+      "end_utc": null,
+      "blocks": "16794649",
+      "calculation_or_refusal_basis": "换算三币原始余额后，目标币余额除以总余额，再乘 100。"
+    },
+    {
+      "task_id": "R01",
+      "slot_id": "S2",
+      "answerable": true,
+      "value": "1.000036999",
+      "unit": "USDT/USDC",
+      "target_utc": "2023-03-10T02:00:00Z",
+      "end_utc": null,
+      "blocks": "16794649",
+      "calculation_or_refusal_basis": "将同向报价原始输出按代币精度换算，再除以输入。"
+    },
+    {
+      "task_id": "R01",
+      "slot_id": "S3",
+      "answerable": true,
+      "value": "0.002924291804127539",
+      "unit": "basis_points",
+      "target_utc": "2023-03-10T02:00:00Z",
+      "end_utc": null,
+      "blocks": "16794649",
+      "calculation_or_refusal_basis": "用 1,000 和 100,000 输入的同向报价率，按 (小单率－大单率) ÷ 小单率 × 10,000。"
+    },
+    {
+      "task_id": "R02",
+      "slot_id": "S1",
+      "answerable": true,
+      "value": "18.42049050066259",
+      "unit": "percentage_points",
+      "target_utc": "2023-03-10T00:00:00Z",
+      "end_utc": "2023-03-11T00:00:00Z",
+      "blocks": "16794061 / 16801143",
+      "calculation_or_refusal_basis": "窗口末点 USDC 占比减首点。"
+    },
+    {
+      "task_id": "R02",
+      "slot_id": "S2",
+      "answerable": true,
+      "value": "0.27769611460247756",
+      "unit": "dimensionless",
+      "target_utc": "2023-03-11T00:00:00Z",
+      "end_utc": null,
+      "blocks": "16801143",
+      "calculation_or_refusal_basis": "在 25 个允许小时点计算失衡，取最大值。"
+    },
+    {
+      "task_id": "R02",
+      "slot_id": "S3",
+      "answerable": true,
+      "value": "0.9897830738",
+      "unit": "USDT/USDC",
+      "target_utc": "2023-03-11T01:00:00Z",
+      "end_utc": null,
+      "blocks": "16801441",
+      "calculation_or_refusal_basis": "使用 S2 所得峰值时点后一小时的报价输出，换算后除以输入。"
+    },
+    {
+      "task_id": "R03",
+      "slot_id": "S1",
+      "answerable": true,
+      "value": "29.67964770039234",
+      "unit": "percent",
+      "target_utc": "2023-03-10T00:00:00Z",
+      "end_utc": null,
+      "blocks": "16794061",
+      "calculation_or_refusal_basis": "换算三币原始余额后，目标币余额除以总余额，再乘 100。"
+    },
+    {
+      "task_id": "R03",
+      "slot_id": "S2",
+      "answerable": true,
+      "value": "2.579202362334304",
+      "unit": "percentage_points",
+      "target_utc": "2023-03-10T20:00:00Z",
+      "end_utc": "2023-03-10T21:00:00Z",
+      "blocks": "16799956 / 16800254",
+      "calculation_or_refusal_basis": "比较 4 个允许的一小时区间，跳过被禁点及跨缺口区间。"
+    },
+    {
+      "task_id": "R03",
+      "slot_id": "S3",
+      "answerable": false,
+      "value": null,
+      "unit": null,
+      "target_utc": null,
+      "end_utc": null,
+      "blocks": null,
+      "calculation_or_refusal_basis": "小时采样无法确定两次观测之间的真实失衡峰值。"
+    },
+    {
+      "task_id": "R04",
+      "slot_id": "S1",
+      "answerable": true,
+      "value": "33.71274634437183",
+      "unit": "percent",
+      "target_utc": "2022-11-09T02:00:00Z",
+      "end_utc": null,
+      "blocks": "15929351",
+      "calculation_or_refusal_basis": "换算三币原始余额后，目标币余额除以总余额，再乘 100。"
+    },
+    {
+      "task_id": "R04",
+      "slot_id": "S2",
+      "answerable": true,
+      "value": "0.999897263",
+      "unit": "USDT/USDC",
+      "target_utc": "2022-11-09T02:00:00Z",
+      "end_utc": null,
+      "blocks": "15929351",
+      "calculation_or_refusal_basis": "将同向报价原始输出按代币精度换算，再除以输入。"
+    },
+    {
+      "task_id": "R04",
+      "slot_id": "S3",
+      "answerable": true,
+      "value": "0.0019283981178374323",
+      "unit": "basis_points",
+      "target_utc": "2022-11-09T02:00:00Z",
+      "end_utc": null,
+      "blocks": "15929351",
+      "calculation_or_refusal_basis": "用 1,000 和 100,000 输入的同向报价率，按 (小单率－大单率) ÷ 小单率 × 10,000。"
+    },
+    {
+      "task_id": "R05",
+      "slot_id": "S1",
+      "answerable": true,
+      "value": "-18.383896327572817",
+      "unit": "percentage_points",
+      "target_utc": "2022-11-09T00:00:00Z",
+      "end_utc": "2022-11-10T00:00:00Z",
+      "blocks": "15928753 / 15935899",
+      "calculation_or_refusal_basis": "窗口末点 USDC 占比减首点。"
+    },
+    {
+      "task_id": "R05",
+      "slot_id": "S2",
+      "answerable": true,
+      "value": "0.34786479754237964",
+      "unit": "dimensionless",
+      "target_utc": "2022-11-09T15:00:00Z",
+      "end_utc": null,
+      "blocks": "15933220",
+      "calculation_or_refusal_basis": "在 25 个允许小时点计算失衡，取最大值。"
+    },
+    {
+      "task_id": "R05",
+      "slot_id": "S3",
+      "answerable": true,
+      "value": "1.0012227852",
+      "unit": "USDT/USDC",
+      "target_utc": "2022-11-09T16:00:00Z",
+      "end_utc": null,
+      "blocks": "15933518",
+      "calculation_or_refusal_basis": "使用 S2 所得峰值时点后一小时的报价输出，换算后除以输入。"
+    },
+    {
+      "task_id": "R06",
+      "slot_id": "S1",
+      "answerable": true,
+      "value": "34.51091129825686",
+      "unit": "percent",
+      "target_utc": "2022-11-09T00:00:00Z",
+      "end_utc": null,
+      "blocks": "15928753",
+      "calculation_or_refusal_basis": "换算三币原始余额后，目标币余额除以总余额，再乘 100。"
+    },
+    {
+      "task_id": "R06",
+      "slot_id": "S2",
+      "answerable": true,
+      "value": "1.169260895695533",
+      "unit": "percentage_points",
+      "target_utc": "2022-11-09T19:00:00Z",
+      "end_utc": "2022-11-09T20:00:00Z",
+      "blocks": "15934412 / 15934707",
+      "calculation_or_refusal_basis": "比较 4 个允许的一小时区间，跳过被禁点及跨缺口区间。"
+    },
+    {
+      "task_id": "R06",
+      "slot_id": "S3",
+      "answerable": false,
+      "value": null,
+      "unit": null,
+      "target_utc": null,
+      "end_utc": null,
+      "blocks": null,
+      "calculation_or_refusal_basis": "小时采样无法确定两次观测之间的真实失衡峰值。"
+    }
+  ]
+}

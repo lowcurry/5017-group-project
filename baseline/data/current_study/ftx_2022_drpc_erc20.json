@@ -1,0 +1,1466 @@
+{
+  "schema_version": "erc20-supplement-1",
+  "status": "available",
+  "pool": "0xbebc44782c7db0a1a60cb6fe97d0b483032ff1c7",
+  "token_contracts": {
+    "DAI": "0x6b175474e89094c44da98b954eedeac495271d0f",
+    "USDC": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+    "USDT": "0xdac17f958d2ee523a2206206994597c13d831ec7"
+  },
+  "base_source_file": "ftx_2022_drpc.json",
+  "base_source_sha256": "ab8f1b0df2402c6c83d03026add7d694012a193cef0e852b2ee2c36347adcde6",
+  "observations": [
+    {
+      "target_utc": "2022-11-09T00:00:00Z",
+      "requests": [
+        {
+          "jsonrpc": "2.0",
+          "id": 1,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0x6b175474e89094c44da98b954eedeac495271d0f",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf30db1"
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": 2,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf30db1"
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": 3,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf30db1"
+          ]
+        }
+      ],
+      "responses": [
+        {
+          "id": 1,
+          "jsonrpc": "2.0",
+          "result": "0x000000000000000000000000000000000000000000e10c905f2cb82b7ad65c8f"
+        },
+        {
+          "id": 2,
+          "jsonrpc": "2.0",
+          "result": "0x0000000000000000000000000000000000000000000000000000f617898009dd"
+        },
+        {
+          "id": 3,
+          "jsonrpc": "2.0",
+          "result": "0x0000000000000000000000000000000000000000000000000000db8c65e215eb"
+        }
+      ]
+    },
+    {
+      "target_utc": "2022-11-09T01:00:00Z",
+      "requests": [
+        {
+          "jsonrpc": "2.0",
+          "id": 1,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0x6b175474e89094c44da98b954eedeac495271d0f",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf30edc"
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": 2,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf30edc"
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": 3,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf30edc"
+          ]
+        }
+      ],
+      "responses": [
+        {
+          "id": 1,
+          "jsonrpc": "2.0",
+          "result": "0x000000000000000000000000000000000000000000e0d93d7eb8f67281de7cda"
+        },
+        {
+          "id": 2,
+          "jsonrpc": "2.0",
+          "result": "0x0000000000000000000000000000000000000000000000000000f38a903342f7"
+        },
+        {
+          "id": 3,
+          "jsonrpc": "2.0",
+          "result": "0x0000000000000000000000000000000000000000000000000000de1e943debc3"
+        }
+      ]
+    },
+    {
+      "target_utc": "2022-11-09T02:00:00Z",
+      "requests": [
+        {
+          "jsonrpc": "2.0",
+          "id": 1,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0x6b175474e89094c44da98b954eedeac495271d0f",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf31007"
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": 2,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf31007"
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": 3,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf31007"
+          ]
+        }
+      ],
+      "responses": [
+        {
+          "id": 1,
+          "jsonrpc": "2.0",
+          "result": "0x000000000000000000000000000000000000000000d9c78c1606369c0865d1aa"
+        },
+        {
+          "id": 2,
+          "jsonrpc": "2.0",
+          "result": "0x0000000000000000000000000000000000000000000000000000ec0c30f1bf7c"
+        },
+        {
+          "id": 3,
+          "jsonrpc": "2.0",
+          "result": "0x0000000000000000000000000000000000000000000000000000eac51c8e4c07"
+        }
+      ]
+    },
+    {
+      "target_utc": "2022-11-09T03:00:00Z",
+      "requests": [
+        {
+          "jsonrpc": "2.0",
+          "id": 1,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0x6b175474e89094c44da98b954eedeac495271d0f",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf31132"
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": 2,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf31132"
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": 3,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf31132"
+          ]
+        }
+      ],
+      "responses": [
+        {
+          "id": 1,
+          "jsonrpc": "2.0",
+          "result": "0x000000000000000000000000000000000000000000c7d1a715bed5221b51440b"
+        },
+        {
+          "id": 2,
+          "jsonrpc": "2.0",
+          "result": "0x0000000000000000000000000000000000000000000000000000d4ee86fb8323"
+        },
+        {
+          "id": 3,
+          "jsonrpc": "2.0",
+          "result": "0x000000000000000000000000000000000000000000000000000115a35a9f0ec8"
+        }
+      ]
+    },
+    {
+      "target_utc": "2022-11-09T04:00:00Z",
+      "requests": [
+        {
+          "jsonrpc": "2.0",
+          "id": 1,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0x6b175474e89094c44da98b954eedeac495271d0f",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf3125b"
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": 2,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf3125b"
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": 3,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf3125b"
+          ]
+        }
+      ],
+      "responses": [
+        {
+          "id": 1,
+          "jsonrpc": "2.0",
+          "result": "0x000000000000000000000000000000000000000000b77ff88d2837552ef73c04"
+        },
+        {
+          "id": 2,
+          "jsonrpc": "2.0",
+          "result": "0x0000000000000000000000000000000000000000000000000000cd9e17e3a2de"
+        },
+        {
+          "id": 3,
+          "jsonrpc": "2.0",
+          "result": "0x00000000000000000000000000000000000000000000000000012db89736ff64"
+        }
+      ]
+    },
+    {
+      "target_utc": "2022-11-09T05:00:00Z",
+      "requests": [
+        {
+          "jsonrpc": "2.0",
+          "id": 1,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0x6b175474e89094c44da98b954eedeac495271d0f",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf31387"
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": 2,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf31387"
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": 3,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf31387"
+          ]
+        }
+      ],
+      "responses": [
+        {
+          "id": 1,
+          "jsonrpc": "2.0",
+          "result": "0x000000000000000000000000000000000000000000a9510ced0f9bf7e7b0ffac"
+        },
+        {
+          "id": 2,
+          "jsonrpc": "2.0",
+          "result": "0x0000000000000000000000000000000000000000000000000000b960c7e089be"
+        },
+        {
+          "id": 3,
+          "jsonrpc": "2.0",
+          "result": "0x000000000000000000000000000000000000000000000000000150e4928c1c48"
+        }
+      ]
+    },
+    {
+      "target_utc": "2022-11-09T06:00:00Z",
+      "requests": [
+        {
+          "jsonrpc": "2.0",
+          "id": 1,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0x6b175474e89094c44da98b954eedeac495271d0f",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf314b3"
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": 2,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf314b3"
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": 3,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf314b3"
+          ]
+        }
+      ],
+      "responses": [
+        {
+          "id": 1,
+          "jsonrpc": "2.0",
+          "result": "0x000000000000000000000000000000000000000000a31fe40f4f68107f24cff6"
+        },
+        {
+          "id": 2,
+          "jsonrpc": "2.0",
+          "result": "0x0000000000000000000000000000000000000000000000000000b2d7f11ad7b1"
+        },
+        {
+          "id": 3,
+          "jsonrpc": "2.0",
+          "result": "0x000000000000000000000000000000000000000000000000000160e39f76479a"
+        }
+      ]
+    },
+    {
+      "target_utc": "2022-11-09T07:00:00Z",
+      "requests": [
+        {
+          "jsonrpc": "2.0",
+          "id": 1,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0x6b175474e89094c44da98b954eedeac495271d0f",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf315de"
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": 2,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf315de"
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": 3,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf315de"
+          ]
+        }
+      ],
+      "responses": [
+        {
+          "id": 1,
+          "jsonrpc": "2.0",
+          "result": "0x000000000000000000000000000000000000000000a31dfe61493bf4ebb466ba"
+        },
+        {
+          "id": 2,
+          "jsonrpc": "2.0",
+          "result": "0x0000000000000000000000000000000000000000000000000000b6253030b0e7"
+        },
+        {
+          "id": 3,
+          "jsonrpc": "2.0",
+          "result": "0x00000000000000000000000000000000000000000000000000015d15a410d718"
+        }
+      ]
+    },
+    {
+      "target_utc": "2022-11-09T08:00:00Z",
+      "requests": [
+        {
+          "jsonrpc": "2.0",
+          "id": 1,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0x6b175474e89094c44da98b954eedeac495271d0f",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf31707"
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": 2,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf31707"
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": 3,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf31707"
+          ]
+        }
+      ],
+      "responses": [
+        {
+          "id": 1,
+          "jsonrpc": "2.0",
+          "result": "0x000000000000000000000000000000000000000000a057257e8f656f7e0d1f6b"
+        },
+        {
+          "id": 2,
+          "jsonrpc": "2.0",
+          "result": "0x0000000000000000000000000000000000000000000000000000ae7840d60bbb"
+        },
+        {
+          "id": 3,
+          "jsonrpc": "2.0",
+          "result": "0x000000000000000000000000000000000000000000000000000165adef33d603"
+        }
+      ]
+    },
+    {
+      "target_utc": "2022-11-09T09:00:00Z",
+      "requests": [
+        {
+          "jsonrpc": "2.0",
+          "id": 1,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0x6b175474e89094c44da98b954eedeac495271d0f",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf31830"
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": 2,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf31830"
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": 3,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf31830"
+          ]
+        }
+      ],
+      "responses": [
+        {
+          "id": 1,
+          "jsonrpc": "2.0",
+          "result": "0x0000000000000000000000000000000000000000009ec53bdbe447859aef5719"
+        },
+        {
+          "id": 2,
+          "jsonrpc": "2.0",
+          "result": "0x0000000000000000000000000000000000000000000000000000ac77c98262aa"
+        },
+        {
+          "id": 3,
+          "jsonrpc": "2.0",
+          "result": "0x000000000000000000000000000000000000000000000000000169dd209d9a3a"
+        }
+      ]
+    },
+    {
+      "target_utc": "2022-11-09T10:00:00Z",
+      "requests": [
+        {
+          "jsonrpc": "2.0",
+          "id": 1,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0x6b175474e89094c44da98b954eedeac495271d0f",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf31959"
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": 2,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf31959"
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": 3,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf31959"
+          ]
+        }
+      ],
+      "responses": [
+        {
+          "id": 1,
+          "jsonrpc": "2.0",
+          "result": "0x000000000000000000000000000000000000000000960e309645c0c721d3027a"
+        },
+        {
+          "id": 2,
+          "jsonrpc": "2.0",
+          "result": "0x0000000000000000000000000000000000000000000000000000a3aa00431072"
+        },
+        {
+          "id": 3,
+          "jsonrpc": "2.0",
+          "result": "0x00000000000000000000000000000000000000000000000000017ad4fccc4853"
+        }
+      ]
+    },
+    {
+      "target_utc": "2022-11-09T11:00:00Z",
+      "requests": [
+        {
+          "jsonrpc": "2.0",
+          "id": 1,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0x6b175474e89094c44da98b954eedeac495271d0f",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf31a83"
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": 2,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf31a83"
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": 3,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf31a83"
+          ]
+        }
+      ],
+      "responses": [
+        {
+          "id": 1,
+          "jsonrpc": "2.0",
+          "result": "0x0000000000000000000000000000000000000000008709bb4edd741c31b0648a"
+        },
+        {
+          "id": 2,
+          "jsonrpc": "2.0",
+          "result": "0x00000000000000000000000000000000000000000000000000009497ddc1def7"
+        },
+        {
+          "id": 3,
+          "jsonrpc": "2.0",
+          "result": "0x00000000000000000000000000000000000000000000000000019cc3a45af8ed"
+        }
+      ]
+    },
+    {
+      "target_utc": "2022-11-09T12:00:00Z",
+      "requests": [
+        {
+          "jsonrpc": "2.0",
+          "id": 1,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0x6b175474e89094c44da98b954eedeac495271d0f",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf31baa"
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": 2,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf31baa"
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": 3,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf31baa"
+          ]
+        }
+      ],
+      "responses": [
+        {
+          "id": 1,
+          "jsonrpc": "2.0",
+          "result": "0x0000000000000000000000000000000000000000006bbaf65a51ca6b5d7dd0ec"
+        },
+        {
+          "id": 2,
+          "jsonrpc": "2.0",
+          "result": "0x000000000000000000000000000000000000000000000000000075f2b29b214b"
+        },
+        {
+          "id": 3,
+          "jsonrpc": "2.0",
+          "result": "0x0000000000000000000000000000000000000000000000000001d5865aff3608"
+        }
+      ]
+    },
+    {
+      "target_utc": "2022-11-09T13:00:00Z",
+      "requests": [
+        {
+          "jsonrpc": "2.0",
+          "id": 1,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0x6b175474e89094c44da98b954eedeac495271d0f",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf31cd3"
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": 2,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf31cd3"
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": 3,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf31cd3"
+          ]
+        }
+      ],
+      "responses": [
+        {
+          "id": 1,
+          "jsonrpc": "2.0",
+          "result": "0x0000000000000000000000000000000000000000006c88491ce96cbdf74d027f"
+        },
+        {
+          "id": 2,
+          "jsonrpc": "2.0",
+          "result": "0x00000000000000000000000000000000000000000000000000007199f041f451"
+        },
+        {
+          "id": 3,
+          "jsonrpc": "2.0",
+          "result": "0x0000000000000000000000000000000000000000000000000001d4295c895d08"
+        }
+      ]
+    },
+    {
+      "target_utc": "2022-11-09T14:00:00Z",
+      "requests": [
+        {
+          "jsonrpc": "2.0",
+          "id": 1,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0x6b175474e89094c44da98b954eedeac495271d0f",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf31dfb"
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": 2,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf31dfb"
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": 3,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf31dfb"
+          ]
+        }
+      ],
+      "responses": [
+        {
+          "id": 1,
+          "jsonrpc": "2.0",
+          "result": "0x0000000000000000000000000000000000000000006dddf598fcc6099fddd685"
+        },
+        {
+          "id": 2,
+          "jsonrpc": "2.0",
+          "result": "0x000000000000000000000000000000000000000000000000000074ee6788b8b1"
+        },
+        {
+          "id": 3,
+          "jsonrpc": "2.0",
+          "result": "0x0000000000000000000000000000000000000000000000000001d1f95dff37f9"
+        }
+      ]
+    },
+    {
+      "target_utc": "2022-11-09T15:00:00Z",
+      "requests": [
+        {
+          "jsonrpc": "2.0",
+          "id": 1,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0x6b175474e89094c44da98b954eedeac495271d0f",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf31f24"
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": 2,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf31f24"
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": 3,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf31f24"
+          ]
+        }
+      ],
+      "responses": [
+        {
+          "id": 1,
+          "jsonrpc": "2.0",
+          "result": "0x00000000000000000000000000000000000000000067eee73c08a69ace49ee0c"
+        },
+        {
+          "id": 2,
+          "jsonrpc": "2.0",
+          "result": "0x00000000000000000000000000000000000000000000000000006f18490d8302"
+        },
+        {
+          "id": 3,
+          "jsonrpc": "2.0",
+          "result": "0x0000000000000000000000000000000000000000000000000001e18f39e894cd"
+        }
+      ]
+    },
+    {
+      "target_utc": "2022-11-09T16:00:00Z",
+      "requests": [
+        {
+          "jsonrpc": "2.0",
+          "id": 1,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0x6b175474e89094c44da98b954eedeac495271d0f",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf3204e"
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": 2,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf3204e"
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": 3,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf3204e"
+          ]
+        }
+      ],
+      "responses": [
+        {
+          "id": 1,
+          "jsonrpc": "2.0",
+          "result": "0x0000000000000000000000000000000000000000006ecc5a6ad248023edc0906"
+        },
+        {
+          "id": 2,
+          "jsonrpc": "2.0",
+          "result": "0x00000000000000000000000000000000000000000000000000007cd1882195f1"
+        },
+        {
+          "id": 3,
+          "jsonrpc": "2.0",
+          "result": "0x0000000000000000000000000000000000000000000000000001d353b88f8238"
+        }
+      ]
+    },
+    {
+      "target_utc": "2022-11-09T17:00:00Z",
+      "requests": [
+        {
+          "jsonrpc": "2.0",
+          "id": 1,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0x6b175474e89094c44da98b954eedeac495271d0f",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf32178"
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": 2,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf32178"
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": 3,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf32178"
+          ]
+        }
+      ],
+      "responses": [
+        {
+          "id": 1,
+          "jsonrpc": "2.0",
+          "result": "0x0000000000000000000000000000000000000000006a892f920e56d7194ea1be"
+        },
+        {
+          "id": 2,
+          "jsonrpc": "2.0",
+          "result": "0x00000000000000000000000000000000000000000000000000007314031ad4c6"
+        },
+        {
+          "id": 3,
+          "jsonrpc": "2.0",
+          "result": "0x0000000000000000000000000000000000000000000000000001e25a8deed309"
+        }
+      ]
+    },
+    {
+      "target_utc": "2022-11-09T18:00:00Z",
+      "requests": [
+        {
+          "jsonrpc": "2.0",
+          "id": 1,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0x6b175474e89094c44da98b954eedeac495271d0f",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf322a0"
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": 2,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf322a0"
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": 3,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf322a0"
+          ]
+        }
+      ],
+      "responses": [
+        {
+          "id": 1,
+          "jsonrpc": "2.0",
+          "result": "0x0000000000000000000000000000000000000000006cbd54d57fe6104df968a7"
+        },
+        {
+          "id": 2,
+          "jsonrpc": "2.0",
+          "result": "0x00000000000000000000000000000000000000000000000000007fb4121d7d67"
+        },
+        {
+          "id": 3,
+          "jsonrpc": "2.0",
+          "result": "0x0000000000000000000000000000000000000000000000000001d1a02ee3bb89"
+        }
+      ]
+    },
+    {
+      "target_utc": "2022-11-09T19:00:00Z",
+      "requests": [
+        {
+          "jsonrpc": "2.0",
+          "id": 1,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0x6b175474e89094c44da98b954eedeac495271d0f",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf323cc"
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": 2,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf323cc"
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": 3,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf323cc"
+          ]
+        }
+      ],
+      "responses": [
+        {
+          "id": 1,
+          "jsonrpc": "2.0",
+          "result": "0x0000000000000000000000000000000000000000006ea0a5ac8d3025c858b8f7"
+        },
+        {
+          "id": 2,
+          "jsonrpc": "2.0",
+          "result": "0x000000000000000000000000000000000000000000000000000078e726bcb9ae"
+        },
+        {
+          "id": 3,
+          "jsonrpc": "2.0",
+          "result": "0x0000000000000000000000000000000000000000000000000001da4f66a18144"
+        }
+      ]
+    },
+    {
+      "target_utc": "2022-11-09T20:00:00Z",
+      "requests": [
+        {
+          "jsonrpc": "2.0",
+          "id": 1,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0x6b175474e89094c44da98b954eedeac495271d0f",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf324f3"
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": 2,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf324f3"
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": 3,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf324f3"
+          ]
+        }
+      ],
+      "responses": [
+        {
+          "id": 1,
+          "jsonrpc": "2.0",
+          "result": "0x0000000000000000000000000000000000000000007080ae37eb14b53d80a4b3"
+        },
+        {
+          "id": 2,
+          "jsonrpc": "2.0",
+          "result": "0x00000000000000000000000000000000000000000000000000008173d3c9ea4b"
+        },
+        {
+          "id": 3,
+          "jsonrpc": "2.0",
+          "result": "0x0000000000000000000000000000000000000000000000000001d0a0ee6225de"
+        }
+      ]
+    },
+    {
+      "target_utc": "2022-11-09T21:00:00Z",
+      "requests": [
+        {
+          "jsonrpc": "2.0",
+          "id": 1,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0x6b175474e89094c44da98b954eedeac495271d0f",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf3261b"
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": 2,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf3261b"
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": 3,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf3261b"
+          ]
+        }
+      ],
+      "responses": [
+        {
+          "id": 1,
+          "jsonrpc": "2.0",
+          "result": "0x00000000000000000000000000000000000000000073b97b38c0592a178e3d89"
+        },
+        {
+          "id": 2,
+          "jsonrpc": "2.0",
+          "result": "0x00000000000000000000000000000000000000000000000000007b3ecbed030f"
+        },
+        {
+          "id": 3,
+          "jsonrpc": "2.0",
+          "result": "0x0000000000000000000000000000000000000000000000000001d235f143a481"
+        }
+      ]
+    },
+    {
+      "target_utc": "2022-11-09T22:00:00Z",
+      "requests": [
+        {
+          "jsonrpc": "2.0",
+          "id": 1,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0x6b175474e89094c44da98b954eedeac495271d0f",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf32746"
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": 2,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf32746"
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": 3,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf32746"
+          ]
+        }
+      ],
+      "responses": [
+        {
+          "id": 1,
+          "jsonrpc": "2.0",
+          "result": "0x0000000000000000000000000000000000000000007169db76b409b7dd86416a"
+        },
+        {
+          "id": 2,
+          "jsonrpc": "2.0",
+          "result": "0x00000000000000000000000000000000000000000000000000007b06dc23b617"
+        },
+        {
+          "id": 3,
+          "jsonrpc": "2.0",
+          "result": "0x0000000000000000000000000000000000000000000000000001d0e1cacb7447"
+        }
+      ]
+    },
+    {
+      "target_utc": "2022-11-09T23:00:00Z",
+      "requests": [
+        {
+          "jsonrpc": "2.0",
+          "id": 1,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0x6b175474e89094c44da98b954eedeac495271d0f",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf32871"
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": 2,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf32871"
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": 3,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf32871"
+          ]
+        }
+      ],
+      "responses": [
+        {
+          "id": 1,
+          "jsonrpc": "2.0",
+          "result": "0x0000000000000000000000000000000000000000006ad86e9f18d88946db89d8"
+        },
+        {
+          "id": 2,
+          "jsonrpc": "2.0",
+          "result": "0x000000000000000000000000000000000000000000000000000075951daa8645"
+        },
+        {
+          "id": 3,
+          "jsonrpc": "2.0",
+          "result": "0x0000000000000000000000000000000000000000000000000001da56efb82357"
+        }
+      ]
+    },
+    {
+      "target_utc": "2022-11-10T00:00:00Z",
+      "requests": [
+        {
+          "jsonrpc": "2.0",
+          "id": 1,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0x6b175474e89094c44da98b954eedeac495271d0f",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf3299b"
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": 2,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf3299b"
+          ]
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": 3,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+              "data": "0x70a08231000000000000000000000000bebc44782c7db0a1a60cb6fe97d0b483032ff1c7"
+            },
+            "0xf3299b"
+          ]
+        }
+      ],
+      "responses": [
+        {
+          "id": 1,
+          "jsonrpc": "2.0",
+          "result": "0x0000000000000000000000000000000000000000006a30ea1b7d725b38a7bb2b"
+        },
+        {
+          "id": 2,
+          "jsonrpc": "2.0",
+          "result": "0x00000000000000000000000000000000000000000000000000007209fe2a7985"
+        },
+        {
+          "id": 3,
+          "jsonrpc": "2.0",
+          "result": "0x0000000000000000000000000000000000000000000000000001dc55463ba470"
+        }
+      ]
+    }
+  ],
+  "scope": "Token balanceOf(pool), not pool balances(index); real HTTPS requests; source credential redacted",
+  "content_sha256": "94b8d135cc6797d761b205d34ac67068b962ccc1aa550a332d29b0060bc2699a"
+}

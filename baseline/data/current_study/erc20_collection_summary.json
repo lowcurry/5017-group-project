@@ -1,0 +1,18 @@
+[
+  {
+    "file": "data/current_study/usdc_2023_drpc_erc20.json",
+    "points": 26
+  },
+  {
+    "file": "data/current_study/usdc_2023_alchemy_erc20.json",
+    "points": 26
+  },
+  {
+    "file": "data/current_study/ftx_2022_drpc_erc20.json",
+    "points": 25
+  },
+  {
+    "file": "data/current_study/ftx_2022_alchemy_erc20.json",
+    "points": 25
+  }
+]

@@ -1,0 +1,13 @@
+{
+  "pass": true,
+  "network_used": false,
+  "model_calls": 0,
+  "source_record_replays": 6,
+  "source_points_per_successful_endpoint": 51,
+  "demo_matches_saved": true,
+  "reproducible_correct_components": 16,
+  "V2_pass_components": 16,
+  "new_fault_scenarios": 32,
+  "human_references_validated": false,
+  "formal_model_outputs": 0
+}

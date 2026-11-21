@@ -75,15 +75,10 @@ Curve 3pool 是以太坊上用于交换 DAI、USDC 和 USDT 的稳定币流动�
 
 ## 4. 离线复现
 
-在仓库根目录执行以下命令。使用 Python 3.10 或以上版本，首次安装绘图依赖需要网络。存档回放不需要 API 凭证。
+在仓库根目录执行。基线代码和归档数据位于 `baseline/`，成本实验的代码和结果位于 `decision_cost/`。使用 Python 3.10 或以上版本。安装依赖后，存档回放在本地运行。
 
 ```sh
-repo_dir="$PWD"
 run_dir="$(mktemp -d)"
-unzip -q "$repo_dir/MSBD5017_Public_Handoff.zip" -d "$run_dir"
-mv "$run_dir/MSBD5017_Public_Handoff" "$run_dir/baseline"
-unzip -q "$repo_dir/MSBD5017_Decision_Cost.zip" -d "$run_dir"
-cd "$run_dir"
 python3 -B baseline/docs/verify_delivery.py baseline
 python3 -m pip install -r decision_cost/requirements.txt
 python3 -B decision_cost/evaluation.py --output "$run_dir/cost-replayed"
@@ -94,6 +89,6 @@ python3 -B decision_cost/evaluation.py --output "$run_dir/cost-replayed"
 | 成本汇总与三张图 | 查看 `cost-replayed/policy-summary.csv`、`cost-replayed/policy-trace.csv` 和同目录的 SVG 文件。 |
 | 核对正式存档 | 在 `baseline/` 中运行 `python3 -B -m curve_audit replay`。 |
 | 重建效果指标表 | 在 `baseline/` 中运行 `python3 -B audit/effect_metrics/build.py --metrics-only --output "$run_dir/effect-metrics"`。 |
-| 准备额外确认窗口 | 按成本实验包内的 `CONFIRMATION.md` 生成题目、参考表和运行计划。 |
+| 准备额外确认窗口 | 按仓库根目录的 `CONFIRMATION.md` 生成题目、参考表和运行计划。 |
 
-仓库中的基线技术报告为 `MSBD5017_Final_Project_Report.pdf`，报告勘误为 `REPORT_ERRATA.md`。效果图和指标存放在 `audit/effect_metrics/`，成本模型和逐条决策数据存放在 `decision_cost/`。两个公开包的 SHA-256 校验值分别记录在 `SHA256SUMS.txt` 和 `DECISION_COST_SHA256SUMS.txt`。
+技术报告和勘误位于仓库根目录。历史效果图表集中在 `baseline/audit/effect_metrics/`。新窗口的采集回执位于 `decision_cost/holdout/raw/`。组内人工审核材料沿用原有保管流程。

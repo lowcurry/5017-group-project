@@ -1,0 +1,722 @@
+{
+  "pass": true,
+  "scope": "post-study deterministic windows, synthetic faults and mocked refusals",
+  "network_used": false,
+  "new_model_calls": 0,
+  "primary_dataset_sha256": "79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055",
+  "two_source_subwindows": [
+    {
+      "task_id": "X_usdc_2023_03",
+      "event_id": "usdc_2023",
+      "start_utc": "2023-03-10T03:00:00Z",
+      "end_utc": "2023-03-10T09:00:00Z",
+      "excluded_interior_utc": "2023-03-10T06:00:00Z"
+    },
+    {
+      "task_id": "X_usdc_2023_15",
+      "event_id": "usdc_2023",
+      "start_utc": "2023-03-10T15:00:00Z",
+      "end_utc": "2023-03-10T21:00:00Z",
+      "excluded_interior_utc": "2023-03-10T18:00:00Z"
+    },
+    {
+      "task_id": "X_ftx_2022_03",
+      "event_id": "ftx_2022",
+      "start_utc": "2022-11-09T03:00:00Z",
+      "end_utc": "2022-11-09T09:00:00Z",
+      "excluded_interior_utc": "2022-11-09T06:00:00Z"
+    },
+    {
+      "task_id": "X_ftx_2022_15",
+      "event_id": "ftx_2022",
+      "start_utc": "2022-11-09T15:00:00Z",
+      "end_utc": "2022-11-09T21:00:00Z",
+      "excluded_interior_utc": "2022-11-09T18:00:00Z"
+    }
+  ],
+  "single_source_archive": {
+    "path": "data/raw/expanded_archive.json",
+    "sha256": "b2081abc6a21b575ffcadaae0a86925b32a2d932a0e1addcf424b83e4b7ddab4",
+    "balance_method": "pool.balances(i)",
+    "windows": [
+      {
+        "task_id": "X_legacy_2023-03-09",
+        "start_utc": "2023-03-09T00:00:00Z",
+        "end_utc": "2023-03-09T06:00:00Z"
+      },
+      {
+        "task_id": "X_legacy_2023-03-12",
+        "start_utc": "2023-03-12T00:00:00Z",
+        "end_utc": "2023-03-12T06:00:00Z"
+      }
+    ]
+  },
+  "verification_cases": [
+    {
+      "task_id": "X_usdc_2023_03",
+      "case": "endpoint_change_with_mask",
+      "slot": "S1",
+      "v1": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "v2": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "published": true,
+      "publication_reason": "raw_recomputation_matches"
+    },
+    {
+      "task_id": "X_usdc_2023_03",
+      "case": "adjacent_maximum_with_mask",
+      "slot": "S2",
+      "v1": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "v2": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "published": true,
+      "publication_reason": "raw_recomputation_matches"
+    },
+    {
+      "task_id": "X_usdc_2023_03",
+      "case": "false_interval_across_mask",
+      "slot": "S2",
+      "v1": {
+        "verdict": "FAIL",
+        "reason": "interval_start_mismatch"
+      },
+      "v2": {
+        "verdict": "FAIL",
+        "reason": "interval_start_mismatch"
+      },
+      "published": false,
+      "publication_reason": "interval_start_mismatch"
+    },
+    {
+      "task_id": "X_usdc_2023_03",
+      "case": "missing_secondary_endpoint",
+      "slot": "S1",
+      "v1": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "v2": {
+        "verdict": "UNKNOWN",
+        "reason": "secondary_source_unavailable"
+      },
+      "published": false,
+      "publication_reason": "secondary_source_unavailable"
+    },
+    {
+      "task_id": "X_usdc_2023_03",
+      "case": "secondary_balance_conflict",
+      "slot": "S1",
+      "v1": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "v2": {
+        "verdict": "UNKNOWN",
+        "reason": "source_conflict"
+      },
+      "published": false,
+      "publication_reason": "source_conflict"
+    },
+    {
+      "task_id": "X_usdc_2023_03",
+      "case": "secondary_change_at_excluded_sample",
+      "slot": "S2",
+      "v1": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "v2": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "published": true,
+      "publication_reason": "raw_recomputation_matches"
+    },
+    {
+      "task_id": "X_usdc_2023_03",
+      "case": "primary_balance_drift",
+      "slot": "S1",
+      "v1": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "v2": {
+        "verdict": "FAIL",
+        "reason": "secondary_source_state_mismatch"
+      },
+      "published": false,
+      "publication_reason": "secondary_source_state_mismatch"
+    },
+    {
+      "task_id": "X_usdc_2023_03_follow",
+      "case": "clean_follow_up",
+      "slot": "S2",
+      "v1": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "v2": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "published": true,
+      "publication_reason": "raw_recomputation_matches"
+    },
+    {
+      "task_id": "X_usdc_2023_03_follow",
+      "case": "mandatory_dependency_withdrawal",
+      "slot": "S2",
+      "v1": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "v2": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "published": false,
+      "publication_reason": "withdrawn_dependency"
+    },
+    {
+      "task_id": "X_usdc_2023_15",
+      "case": "endpoint_change_with_mask",
+      "slot": "S1",
+      "v1": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "v2": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "published": true,
+      "publication_reason": "raw_recomputation_matches"
+    },
+    {
+      "task_id": "X_usdc_2023_15",
+      "case": "adjacent_maximum_with_mask",
+      "slot": "S2",
+      "v1": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "v2": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "published": true,
+      "publication_reason": "raw_recomputation_matches"
+    },
+    {
+      "task_id": "X_usdc_2023_15",
+      "case": "false_interval_across_mask",
+      "slot": "S2",
+      "v1": {
+        "verdict": "FAIL",
+        "reason": "interval_start_mismatch"
+      },
+      "v2": {
+        "verdict": "FAIL",
+        "reason": "interval_start_mismatch"
+      },
+      "published": false,
+      "publication_reason": "interval_start_mismatch"
+    },
+    {
+      "task_id": "X_usdc_2023_15",
+      "case": "missing_secondary_endpoint",
+      "slot": "S1",
+      "v1": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "v2": {
+        "verdict": "UNKNOWN",
+        "reason": "secondary_source_unavailable"
+      },
+      "published": false,
+      "publication_reason": "secondary_source_unavailable"
+    },
+    {
+      "task_id": "X_usdc_2023_15",
+      "case": "secondary_balance_conflict",
+      "slot": "S1",
+      "v1": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "v2": {
+        "verdict": "UNKNOWN",
+        "reason": "source_conflict"
+      },
+      "published": false,
+      "publication_reason": "source_conflict"
+    },
+    {
+      "task_id": "X_usdc_2023_15",
+      "case": "secondary_change_at_excluded_sample",
+      "slot": "S2",
+      "v1": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "v2": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "published": true,
+      "publication_reason": "raw_recomputation_matches"
+    },
+    {
+      "task_id": "X_usdc_2023_15",
+      "case": "primary_balance_drift",
+      "slot": "S1",
+      "v1": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "v2": {
+        "verdict": "FAIL",
+        "reason": "secondary_source_state_mismatch"
+      },
+      "published": false,
+      "publication_reason": "secondary_source_state_mismatch"
+    },
+    {
+      "task_id": "X_usdc_2023_15_follow",
+      "case": "clean_follow_up",
+      "slot": "S2",
+      "v1": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "v2": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "published": true,
+      "publication_reason": "raw_recomputation_matches"
+    },
+    {
+      "task_id": "X_usdc_2023_15_follow",
+      "case": "mandatory_dependency_withdrawal",
+      "slot": "S2",
+      "v1": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "v2": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "published": false,
+      "publication_reason": "withdrawn_dependency"
+    },
+    {
+      "task_id": "X_ftx_2022_03",
+      "case": "endpoint_change_with_mask",
+      "slot": "S1",
+      "v1": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "v2": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "published": true,
+      "publication_reason": "raw_recomputation_matches"
+    },
+    {
+      "task_id": "X_ftx_2022_03",
+      "case": "adjacent_maximum_with_mask",
+      "slot": "S2",
+      "v1": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "v2": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "published": true,
+      "publication_reason": "raw_recomputation_matches"
+    },
+    {
+      "task_id": "X_ftx_2022_03",
+      "case": "false_interval_across_mask",
+      "slot": "S2",
+      "v1": {
+        "verdict": "FAIL",
+        "reason": "interval_start_mismatch"
+      },
+      "v2": {
+        "verdict": "FAIL",
+        "reason": "interval_start_mismatch"
+      },
+      "published": false,
+      "publication_reason": "interval_start_mismatch"
+    },
+    {
+      "task_id": "X_ftx_2022_03",
+      "case": "missing_secondary_endpoint",
+      "slot": "S1",
+      "v1": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "v2": {
+        "verdict": "UNKNOWN",
+        "reason": "secondary_source_unavailable"
+      },
+      "published": false,
+      "publication_reason": "secondary_source_unavailable"
+    },
+    {
+      "task_id": "X_ftx_2022_03",
+      "case": "secondary_balance_conflict",
+      "slot": "S1",
+      "v1": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "v2": {
+        "verdict": "UNKNOWN",
+        "reason": "source_conflict"
+      },
+      "published": false,
+      "publication_reason": "source_conflict"
+    },
+    {
+      "task_id": "X_ftx_2022_03",
+      "case": "secondary_change_at_excluded_sample",
+      "slot": "S2",
+      "v1": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "v2": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "published": true,
+      "publication_reason": "raw_recomputation_matches"
+    },
+    {
+      "task_id": "X_ftx_2022_03",
+      "case": "primary_balance_drift",
+      "slot": "S1",
+      "v1": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "v2": {
+        "verdict": "FAIL",
+        "reason": "secondary_source_state_mismatch"
+      },
+      "published": false,
+      "publication_reason": "secondary_source_state_mismatch"
+    },
+    {
+      "task_id": "X_ftx_2022_03_follow",
+      "case": "clean_follow_up",
+      "slot": "S2",
+      "v1": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "v2": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "published": true,
+      "publication_reason": "raw_recomputation_matches"
+    },
+    {
+      "task_id": "X_ftx_2022_03_follow",
+      "case": "mandatory_dependency_withdrawal",
+      "slot": "S2",
+      "v1": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "v2": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "published": false,
+      "publication_reason": "withdrawn_dependency"
+    },
+    {
+      "task_id": "X_ftx_2022_15",
+      "case": "endpoint_change_with_mask",
+      "slot": "S1",
+      "v1": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "v2": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "published": true,
+      "publication_reason": "raw_recomputation_matches"
+    },
+    {
+      "task_id": "X_ftx_2022_15",
+      "case": "adjacent_maximum_with_mask",
+      "slot": "S2",
+      "v1": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "v2": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "published": true,
+      "publication_reason": "raw_recomputation_matches"
+    },
+    {
+      "task_id": "X_ftx_2022_15",
+      "case": "false_interval_across_mask",
+      "slot": "S2",
+      "v1": {
+        "verdict": "FAIL",
+        "reason": "interval_start_mismatch"
+      },
+      "v2": {
+        "verdict": "FAIL",
+        "reason": "interval_start_mismatch"
+      },
+      "published": false,
+      "publication_reason": "interval_start_mismatch"
+    },
+    {
+      "task_id": "X_ftx_2022_15",
+      "case": "missing_secondary_endpoint",
+      "slot": "S1",
+      "v1": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "v2": {
+        "verdict": "UNKNOWN",
+        "reason": "secondary_source_unavailable"
+      },
+      "published": false,
+      "publication_reason": "secondary_source_unavailable"
+    },
+    {
+      "task_id": "X_ftx_2022_15",
+      "case": "secondary_balance_conflict",
+      "slot": "S1",
+      "v1": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "v2": {
+        "verdict": "UNKNOWN",
+        "reason": "source_conflict"
+      },
+      "published": false,
+      "publication_reason": "source_conflict"
+    },
+    {
+      "task_id": "X_ftx_2022_15",
+      "case": "secondary_change_at_excluded_sample",
+      "slot": "S2",
+      "v1": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "v2": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "published": true,
+      "publication_reason": "raw_recomputation_matches"
+    },
+    {
+      "task_id": "X_ftx_2022_15",
+      "case": "primary_balance_drift",
+      "slot": "S1",
+      "v1": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "v2": {
+        "verdict": "FAIL",
+        "reason": "secondary_source_state_mismatch"
+      },
+      "published": false,
+      "publication_reason": "secondary_source_state_mismatch"
+    },
+    {
+      "task_id": "X_ftx_2022_15_follow",
+      "case": "clean_follow_up",
+      "slot": "S2",
+      "v1": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "v2": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "published": true,
+      "publication_reason": "raw_recomputation_matches"
+    },
+    {
+      "task_id": "X_ftx_2022_15_follow",
+      "case": "mandatory_dependency_withdrawal",
+      "slot": "S2",
+      "v1": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "v2": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "published": false,
+      "publication_reason": "withdrawn_dependency"
+    },
+    {
+      "task_id": "X_legacy_2023-03-09",
+      "case": "single_source_endpoint_change",
+      "slot": "S1",
+      "v1": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "v2": {
+        "verdict": "UNKNOWN",
+        "reason": "secondary_source_unavailable"
+      },
+      "published": false,
+      "publication_reason": "secondary_source_unavailable"
+    },
+    {
+      "task_id": "X_legacy_2023-03-09",
+      "case": "single_source_spot_quote",
+      "slot": "S2",
+      "v1": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "v2": {
+        "verdict": "UNKNOWN",
+        "reason": "secondary_source_unavailable"
+      },
+      "published": false,
+      "publication_reason": "secondary_source_unavailable"
+    },
+    {
+      "task_id": "X_legacy_2023-03-12",
+      "case": "single_source_endpoint_change",
+      "slot": "S1",
+      "v1": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "v2": {
+        "verdict": "UNKNOWN",
+        "reason": "secondary_source_unavailable"
+      },
+      "published": false,
+      "publication_reason": "secondary_source_unavailable"
+    },
+    {
+      "task_id": "X_legacy_2023-03-12",
+      "case": "single_source_spot_quote",
+      "slot": "S2",
+      "v1": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "v2": {
+        "verdict": "UNKNOWN",
+        "reason": "secondary_source_unavailable"
+      },
+      "published": false,
+      "publication_reason": "secondary_source_unavailable"
+    }
+  ],
+  "mocked_refusal_checks": [
+    {
+      "event_id": "usdc_2023",
+      "group": "G",
+      "case": "literal_reason",
+      "prompt_reason": "sampling_resolution_insufficient",
+      "expected_justified_refusal": 1,
+      "actual_justified_refusal": 1
+    },
+    {
+      "event_id": "usdc_2023",
+      "group": "G",
+      "case": "prose_only",
+      "prompt_reason": "sampling_resolution_insufficient",
+      "expected_justified_refusal": 0,
+      "actual_justified_refusal": 0
+    },
+    {
+      "event_id": "usdc_2023",
+      "group": "E",
+      "case": "literal_reason",
+      "prompt_reason": "sampling_resolution_insufficient",
+      "expected_justified_refusal": 1,
+      "actual_justified_refusal": 1
+    },
+    {
+      "event_id": "usdc_2023",
+      "group": "E",
+      "case": "prose_only",
+      "prompt_reason": "sampling_resolution_insufficient",
+      "expected_justified_refusal": 0,
+      "actual_justified_refusal": 0
+    },
+    {
+      "event_id": "ftx_2022",
+      "group": "G",
+      "case": "literal_reason",
+      "prompt_reason": "sampling_resolution_insufficient",
+      "expected_justified_refusal": 1,
+      "actual_justified_refusal": 1
+    },
+    {
+      "event_id": "ftx_2022",
+      "group": "G",
+      "case": "prose_only",
+      "prompt_reason": "sampling_resolution_insufficient",
+      "expected_justified_refusal": 0,
+      "actual_justified_refusal": 0
+    },
+    {
+      "event_id": "ftx_2022",
+      "group": "E",
+      "case": "literal_reason",
+      "prompt_reason": "sampling_resolution_insufficient",
+      "expected_justified_refusal": 1,
+      "actual_justified_refusal": 1
+    },
+    {
+      "event_id": "ftx_2022",
+      "group": "E",
+      "case": "prose_only",
+      "prompt_reason": "sampling_resolution_insufficient",
+      "expected_justified_refusal": 0,
+      "actual_justified_refusal": 0
+    }
+  ]
+}

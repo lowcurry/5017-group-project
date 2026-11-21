@@ -1,0 +1,475 @@
+{
+  "observations": [
+    {
+      "clean": {
+        "V1": "PASS",
+        "V2": "PASS",
+        "dependent_claims": {},
+        "final_reason": "raw_recomputation_matches",
+        "independent_arithmetic": {
+          "expected": {
+            "evidence_ids": [
+              "E_UTC_20230310T020000Z"
+            ],
+            "exact_value": "16342681307449324278374215300/529263350602982242783742153",
+            "target_timestamp_utc": "2023-03-10T02:00:00Z",
+            "unit": "percent"
+          },
+          "reason": "independent_arithmetic_matches",
+          "verdict": "PASS"
+        },
+        "published_after": true,
+        "published_before": true
+      },
+      "fault": "omit_usdt_from_denominator",
+      "faulty_report": {
+        "V1": "FAIL",
+        "V2": "FAIL",
+        "dependent_claims": {},
+        "final_reason": "value_or_unit_mismatch",
+        "independent_arithmetic": null,
+        "published_after": false,
+        "published_before": false
+      },
+      "shared_verifier_bug": {
+        "V1": "PASS",
+        "V2": "PASS",
+        "dependent_claims": {},
+        "final_reason": "independent_arithmetic_value_or_unit_mismatch",
+        "independent_arithmetic": {
+          "expected": {
+            "evidence_ids": [
+              "E_UTC_20230310T020000Z"
+            ],
+            "exact_value": "16342681307449324278374215300/529263350602982242783742153",
+            "target_timestamp_utc": "2023-03-10T02:00:00Z",
+            "unit": "percent"
+          },
+          "reason": "independent_arithmetic_value_or_unit_mismatch",
+          "verdict": "FAIL"
+        },
+        "published_after": false,
+        "published_before": true
+      },
+      "slot": "S1",
+      "task": "R01"
+    },
+    {
+      "clean": {
+        "V1": "PASS",
+        "V2": "PASS",
+        "dependent_claims": {},
+        "final_reason": "raw_recomputation_matches",
+        "independent_arithmetic": {
+          "expected": {
+            "evidence_ids": [
+              "E_UTC_20230310T020000Z"
+            ],
+            "exact_value": "16342681307449324278374215300/529263350602982242783742153",
+            "target_timestamp_utc": "2023-03-10T02:00:00Z",
+            "unit": "percent"
+          },
+          "reason": "independent_arithmetic_matches",
+          "verdict": "PASS"
+        },
+        "published_after": true,
+        "published_before": true
+      },
+      "fault": "dai_6_instead_of_18_decimals",
+      "faulty_report": {
+        "V1": "FAIL",
+        "V2": "FAIL",
+        "dependent_claims": {},
+        "final_reason": "value_or_unit_mismatch",
+        "independent_arithmetic": null,
+        "published_after": false,
+        "published_before": false
+      },
+      "shared_verifier_bug": {
+        "V1": "PASS",
+        "V2": "PASS",
+        "dependent_claims": {},
+        "final_reason": "independent_arithmetic_value_or_unit_mismatch",
+        "independent_arithmetic": {
+          "expected": {
+            "evidence_ids": [
+              "E_UTC_20230310T020000Z"
+            ],
+            "exact_value": "16342681307449324278374215300/529263350602982242783742153",
+            "target_timestamp_utc": "2023-03-10T02:00:00Z",
+            "unit": "percent"
+          },
+          "reason": "independent_arithmetic_value_or_unit_mismatch",
+          "verdict": "FAIL"
+        },
+        "published_after": false,
+        "published_before": true
+      },
+      "slot": "S1",
+      "task": "R01"
+    },
+    {
+      "clean": {
+        "V1": "PASS",
+        "V2": "PASS",
+        "dependent_claims": {
+          "R02_S3": {
+            "V2": "PASS",
+            "final_reason": "raw_recomputation_matches",
+            "published": true
+          }
+        },
+        "final_reason": "raw_recomputation_matches",
+        "independent_arithmetic": {
+          "expected": {
+            "evidence_ids": [
+              "E_UTC_20230310T000000Z",
+              "E_UTC_20230310T010000Z",
+              "E_UTC_20230310T020000Z",
+              "E_UTC_20230310T030000Z",
+              "E_UTC_20230310T040000Z",
+              "E_UTC_20230310T050000Z",
+              "E_UTC_20230310T060000Z",
+              "E_UTC_20230310T070000Z",
+              "E_UTC_20230310T080000Z",
+              "E_UTC_20230310T090000Z",
+              "E_UTC_20230310T100000Z",
+              "E_UTC_20230310T110000Z",
+              "E_UTC_20230310T120000Z",
+              "E_UTC_20230310T130000Z",
+              "E_UTC_20230310T140000Z",
+              "E_UTC_20230310T150000Z",
+              "E_UTC_20230310T160000Z",
+              "E_UTC_20230310T170000Z",
+              "E_UTC_20230310T180000Z",
+              "E_UTC_20230310T190000Z",
+              "E_UTC_20230310T200000Z",
+              "E_UTC_20230310T210000Z",
+              "E_UTC_20230310T220000Z",
+              "E_UTC_20230310T230000Z",
+              "E_UTC_20230311T000000Z"
+            ],
+            "exact_value": "101556781430895232800863041/365711927861410448402589123",
+            "target_timestamp_utc": "2023-03-11T00:00:00Z",
+            "unit": "dimensionless"
+          },
+          "reason": "independent_arithmetic_matches",
+          "verdict": "PASS"
+        },
+        "published_after": true,
+        "published_before": true
+      },
+      "fault": "minimum_instead_of_maximum",
+      "faulty_report": {
+        "V1": "FAIL",
+        "V2": "FAIL",
+        "dependent_claims": {
+          "R02_S3": {
+            "V2": "FAIL",
+            "final_reason": "task_query_mismatch",
+            "published": false
+          }
+        },
+        "final_reason": "value_or_unit_mismatch",
+        "independent_arithmetic": null,
+        "published_after": false,
+        "published_before": false
+      },
+      "shared_verifier_bug": {
+        "V1": "PASS",
+        "V2": "PASS",
+        "dependent_claims": {
+          "R02_S3": {
+            "V2": "PASS",
+            "final_reason": "withdrawn_dependency",
+            "published": false
+          }
+        },
+        "final_reason": "independent_arithmetic_value_or_unit_mismatch",
+        "independent_arithmetic": {
+          "expected": {
+            "evidence_ids": [
+              "E_UTC_20230310T000000Z",
+              "E_UTC_20230310T010000Z",
+              "E_UTC_20230310T020000Z",
+              "E_UTC_20230310T030000Z",
+              "E_UTC_20230310T040000Z",
+              "E_UTC_20230310T050000Z",
+              "E_UTC_20230310T060000Z",
+              "E_UTC_20230310T070000Z",
+              "E_UTC_20230310T080000Z",
+              "E_UTC_20230310T090000Z",
+              "E_UTC_20230310T100000Z",
+              "E_UTC_20230310T110000Z",
+              "E_UTC_20230310T120000Z",
+              "E_UTC_20230310T130000Z",
+              "E_UTC_20230310T140000Z",
+              "E_UTC_20230310T150000Z",
+              "E_UTC_20230310T160000Z",
+              "E_UTC_20230310T170000Z",
+              "E_UTC_20230310T180000Z",
+              "E_UTC_20230310T190000Z",
+              "E_UTC_20230310T200000Z",
+              "E_UTC_20230310T210000Z",
+              "E_UTC_20230310T220000Z",
+              "E_UTC_20230310T230000Z",
+              "E_UTC_20230311T000000Z"
+            ],
+            "exact_value": "101556781430895232800863041/365711927861410448402589123",
+            "target_timestamp_utc": "2023-03-11T00:00:00Z",
+            "unit": "dimensionless"
+          },
+          "reason": "independent_arithmetic_value_or_unit_mismatch",
+          "verdict": "FAIL"
+        },
+        "published_after": false,
+        "published_before": true
+      },
+      "slot": "S2",
+      "task": "R02"
+    },
+    {
+      "clean": {
+        "V1": "PASS",
+        "V2": "PASS",
+        "dependent_claims": {},
+        "final_reason": "raw_recomputation_matches",
+        "independent_arithmetic": {
+          "expected": {
+            "evidence_ids": [
+              "E_UTC_20221109T020000Z"
+            ],
+            "exact_value": "13163961895882593606217954100/390474325687211436062179541",
+            "target_timestamp_utc": "2022-11-09T02:00:00Z",
+            "unit": "percent"
+          },
+          "reason": "independent_arithmetic_matches",
+          "verdict": "PASS"
+        },
+        "published_after": true,
+        "published_before": true
+      },
+      "fault": "omit_usdt_from_denominator",
+      "faulty_report": {
+        "V1": "FAIL",
+        "V2": "FAIL",
+        "dependent_claims": {},
+        "final_reason": "value_or_unit_mismatch",
+        "independent_arithmetic": null,
+        "published_after": false,
+        "published_before": false
+      },
+      "shared_verifier_bug": {
+        "V1": "PASS",
+        "V2": "PASS",
+        "dependent_claims": {},
+        "final_reason": "independent_arithmetic_value_or_unit_mismatch",
+        "independent_arithmetic": {
+          "expected": {
+            "evidence_ids": [
+              "E_UTC_20221109T020000Z"
+            ],
+            "exact_value": "13163961895882593606217954100/390474325687211436062179541",
+            "target_timestamp_utc": "2022-11-09T02:00:00Z",
+            "unit": "percent"
+          },
+          "reason": "independent_arithmetic_value_or_unit_mismatch",
+          "verdict": "FAIL"
+        },
+        "published_after": false,
+        "published_before": true
+      },
+      "slot": "S1",
+      "task": "R04"
+    },
+    {
+      "clean": {
+        "V1": "PASS",
+        "V2": "PASS",
+        "dependent_claims": {},
+        "final_reason": "raw_recomputation_matches",
+        "independent_arithmetic": {
+          "expected": {
+            "evidence_ids": [
+              "E_UTC_20221109T020000Z"
+            ],
+            "exact_value": "13163961895882593606217954100/390474325687211436062179541",
+            "target_timestamp_utc": "2022-11-09T02:00:00Z",
+            "unit": "percent"
+          },
+          "reason": "independent_arithmetic_matches",
+          "verdict": "PASS"
+        },
+        "published_after": true,
+        "published_before": true
+      },
+      "fault": "dai_6_instead_of_18_decimals",
+      "faulty_report": {
+        "V1": "FAIL",
+        "V2": "FAIL",
+        "dependent_claims": {},
+        "final_reason": "value_or_unit_mismatch",
+        "independent_arithmetic": null,
+        "published_after": false,
+        "published_before": false
+      },
+      "shared_verifier_bug": {
+        "V1": "PASS",
+        "V2": "PASS",
+        "dependent_claims": {},
+        "final_reason": "independent_arithmetic_value_or_unit_mismatch",
+        "independent_arithmetic": {
+          "expected": {
+            "evidence_ids": [
+              "E_UTC_20221109T020000Z"
+            ],
+            "exact_value": "13163961895882593606217954100/390474325687211436062179541",
+            "target_timestamp_utc": "2022-11-09T02:00:00Z",
+            "unit": "percent"
+          },
+          "reason": "independent_arithmetic_value_or_unit_mismatch",
+          "verdict": "FAIL"
+        },
+        "published_after": false,
+        "published_before": true
+      },
+      "slot": "S1",
+      "task": "R04"
+    },
+    {
+      "clean": {
+        "V1": "PASS",
+        "V2": "PASS",
+        "dependent_claims": {
+          "R05_S3": {
+            "V2": "PASS",
+            "final_reason": "raw_recomputation_matches",
+            "published": true
+          }
+        },
+        "final_reason": "raw_recomputation_matches",
+        "independent_arithmetic": {
+          "expected": {
+            "evidence_ids": [
+              "E_UTC_20221109T000000Z",
+              "E_UTC_20221109T010000Z",
+              "E_UTC_20221109T020000Z",
+              "E_UTC_20221109T030000Z",
+              "E_UTC_20221109T040000Z",
+              "E_UTC_20221109T050000Z",
+              "E_UTC_20221109T060000Z",
+              "E_UTC_20221109T070000Z",
+              "E_UTC_20221109T080000Z",
+              "E_UTC_20221109T090000Z",
+              "E_UTC_20221109T100000Z",
+              "E_UTC_20221109T110000Z",
+              "E_UTC_20221109T120000Z",
+              "E_UTC_20221109T130000Z",
+              "E_UTC_20221109T140000Z",
+              "E_UTC_20221109T150000Z",
+              "E_UTC_20221109T160000Z",
+              "E_UTC_20221109T170000Z",
+              "E_UTC_20221109T180000Z",
+              "E_UTC_20221109T190000Z",
+              "E_UTC_20221109T200000Z",
+              "E_UTC_20221109T210000Z",
+              "E_UTC_20221109T220000Z",
+              "E_UTC_20221109T230000Z",
+              "E_UTC_20221110T000000Z"
+            ],
+            "exact_value": "202790711491791641658123389/582958416386142325025629833",
+            "target_timestamp_utc": "2022-11-09T15:00:00Z",
+            "unit": "dimensionless"
+          },
+          "reason": "independent_arithmetic_matches",
+          "verdict": "PASS"
+        },
+        "published_after": true,
+        "published_before": true
+      },
+      "fault": "minimum_instead_of_maximum",
+      "faulty_report": {
+        "V1": "FAIL",
+        "V2": "FAIL",
+        "dependent_claims": {
+          "R05_S3": {
+            "V2": "FAIL",
+            "final_reason": "task_query_mismatch",
+            "published": false
+          }
+        },
+        "final_reason": "value_or_unit_mismatch",
+        "independent_arithmetic": null,
+        "published_after": false,
+        "published_before": false
+      },
+      "shared_verifier_bug": {
+        "V1": "PASS",
+        "V2": "PASS",
+        "dependent_claims": {
+          "R05_S3": {
+            "V2": "PASS",
+            "final_reason": "withdrawn_dependency",
+            "published": false
+          }
+        },
+        "final_reason": "independent_arithmetic_value_or_unit_mismatch",
+        "independent_arithmetic": {
+          "expected": {
+            "evidence_ids": [
+              "E_UTC_20221109T000000Z",
+              "E_UTC_20221109T010000Z",
+              "E_UTC_20221109T020000Z",
+              "E_UTC_20221109T030000Z",
+              "E_UTC_20221109T040000Z",
+              "E_UTC_20221109T050000Z",
+              "E_UTC_20221109T060000Z",
+              "E_UTC_20221109T070000Z",
+              "E_UTC_20221109T080000Z",
+              "E_UTC_20221109T090000Z",
+              "E_UTC_20221109T100000Z",
+              "E_UTC_20221109T110000Z",
+              "E_UTC_20221109T120000Z",
+              "E_UTC_20221109T130000Z",
+              "E_UTC_20221109T140000Z",
+              "E_UTC_20221109T150000Z",
+              "E_UTC_20221109T160000Z",
+              "E_UTC_20221109T170000Z",
+              "E_UTC_20221109T180000Z",
+              "E_UTC_20221109T190000Z",
+              "E_UTC_20221109T200000Z",
+              "E_UTC_20221109T210000Z",
+              "E_UTC_20221109T220000Z",
+              "E_UTC_20221109T230000Z",
+              "E_UTC_20221110T000000Z"
+            ],
+            "exact_value": "202790711491791641658123389/582958416386142325025629833",
+            "target_timestamp_utc": "2022-11-09T15:00:00Z",
+            "unit": "dimensionless"
+          },
+          "reason": "independent_arithmetic_value_or_unit_mismatch",
+          "verdict": "FAIL"
+        },
+        "published_after": false,
+        "published_before": true
+      },
+      "slot": "S2",
+      "task": "R05"
+    }
+  ],
+  "pairs": 6,
+  "totals": {
+    "clean": {
+      "published_after": 6,
+      "published_before": 6
+    },
+    "faulty_report": {
+      "published_after": 0,
+      "published_before": 0
+    },
+    "shared_verifier_bug": {
+      "published_after": 0,
+      "published_before": 6
+    }
+  }
+}

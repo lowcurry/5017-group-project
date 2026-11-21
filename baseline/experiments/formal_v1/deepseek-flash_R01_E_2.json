@@ -1,0 +1,957 @@
+{
+  "task_id": "R01",
+  "group": "E",
+  "status": "completed",
+  "error": null,
+  "report": {
+    "task_id": "R01",
+    "answer": "2023-03-10T02:00:00Z 单点快照显示：DAI 名义占比约 30.878%（30.878165451717635%），说明池中 DAI 份额明显偏低；1000 USDC→USDT 报价率约 1.000037 USDT/USDC，接近 1:1，但略高于平价，反映当时 USDC 相对 USDT 的轻微折价；10 万相对 1000 输入的规模敏感度仅约 0.002924 bps，同一采样点上规模差异带来的额外价格冲击很小，但这只是单点观测，不能据此外推连续时间趋势或峰值。",
+    "claims": [
+      {
+        "claim_id": "C1",
+        "slot_id": "S1",
+        "query": {
+          "coin": "DAI",
+          "end": "2023-03-10T02:00:00Z",
+          "metric": "share_pct",
+          "operation": "last",
+          "start": "2023-03-10T02:00:00Z"
+        },
+        "value": "30.878165451717635126728599379737588325727294918739276732216972310798954081766651",
+        "unit": "percent",
+        "status": "supported",
+        "explanation": "单点快照 DAI 名义占比，来自 block 16794649 的 erc20_balanceOf 计算。",
+        "depends_on": [],
+        "evidence_ids": [
+          "E_UTC_20230310T020000Z"
+        ],
+        "formula_version": "3pool-erc20-balanceOf-20261102",
+        "dataset_sha256": "79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055",
+        "target_timestamp_utc": "2023-03-10T02:00:00Z"
+      },
+      {
+        "claim_id": "C2",
+        "slot_id": "S2",
+        "query": {
+          "direction": "USDC_USDT",
+          "end": "2023-03-10T02:00:00Z",
+          "metric": "quote_rate",
+          "operation": "last",
+          "size": 1000,
+          "start": "2023-03-10T02:00:00Z"
+        },
+        "value": "1.000036999",
+        "unit": "USDT/USDC",
+        "status": "supported",
+        "explanation": "1000 USDC→USDT 单点报价率，来自同一快照的计算结果。",
+        "depends_on": [],
+        "evidence_ids": [
+          "E_UTC_20230310T020000Z"
+        ],
+        "formula_version": "3pool-erc20-balanceOf-20261102",
+        "dataset_sha256": "79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055",
+        "target_timestamp_utc": "2023-03-10T02:00:00Z"
+      },
+      {
+        "claim_id": "C3",
+        "slot_id": "S3",
+        "query": {
+          "direction": "USDC_USDT",
+          "end": "2023-03-10T02:00:00Z",
+          "metric": "size_sensitivity_bps",
+          "operation": "last",
+          "size": 100000,
+          "start": "2023-03-10T02:00:00Z"
+        },
+        "value": "0.0029242918041275390851813873738485549773143943447236395700595473668069755087131531",
+        "unit": "basis_points",
+        "status": "supported",
+        "explanation": "100000 相对 1000 输入的规模敏感度，单点快照计算，单位 basis_points。",
+        "depends_on": [],
+        "evidence_ids": [
+          "E_UTC_20230310T020000Z"
+        ],
+        "formula_version": "3pool-erc20-balanceOf-20261102",
+        "dataset_sha256": "79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055",
+        "target_timestamp_utc": "2023-03-10T02:00:00Z"
+      }
+    ]
+  },
+  "trace": [
+    {
+      "request_messages": [
+        {
+          "role": "system",
+          "content": "You are a Curve 3pool investigation agent. Use only this task's permitted data and supplied tools. Return exactly one JSON action each turn, with no markdown. Actions:\n{\"action\":\"read_window\",\"start\":\"UTC ISO\",\"end\":\"UTC ISO\"}\n{\"action\":\"calculate\",\"query\":{\"metric\":\"share_pct|quote_rate|size_sensitivity_bps|imbalance_l1\",\"operation\":\"first|last|change|maximum|max_hourly_change\",\"start\":\"UTC ISO\",\"end\":\"UTC ISO\",\"coin\":\"DAI|USDC|USDT\",\"direction\":\"USDC_USDT|USDT_USDC\",\"size\":1000}}\nOmit irrelevant query keys. A calculate request returns raw-evidence labels and calculation metadata. max_hourly_change compares only adjacent permitted hourly points, never across a gap. Read/calculation permissions are identical in G and E.\n{\"action\":\"submit\",\"report_json\":\"JSON STRING containing the final report\"}\nReport object: task_id, answer (150–250 Chinese characters of investigation text), claims array. Each claim: unique claim_id, slot_id, query, value (decimal string, or null if refused), unit, status (supported/refused/unsupported), explanation, depends_on (slot IDs), optional evidence_ids, formula_version, dataset_sha256, target_timestamp_utc (for a focused observation), interval_start/interval_end (for an hourly change). Evidence fields are available to all groups. Provide exactly one claim per required slot. Refuse only when the allowed evidence cannot support the requested component; give a specific reason. Continuous-time peaks cannot be determined by hourly sampling. Preserve units, directions and exact target windows. Raw numerical values and reference answers are not given before tool use. You have no independent verifier during generation.\nFor every numerical claim, attach exact evidence_ids, the complete resolved query, formula_version and dataset_sha256 from the public context. Check its units, target times and permitted evidence. Do not fill unsupported gaps. Separate observation from interpretation, and qualify interpretation that is not established by the data."
+        },
+        {
+          "role": "user",
+          "content": "{\"balance_source\":\"erc20_balance_of_pool\",\"dataset_sha256\":\"79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055\",\"decimals\":{\"DAI\":18,\"USDC\":6,\"USDT\":6},\"formula_version\":\"3pool-erc20-balanceOf-20261102\",\"task\":{\"allowed_evidence\":{\"excluded_targets\":[]},\"event_id\":\"usdc_2023\",\"question\":\"单点与单位\",\"required_components\":[{\"label\":\"DAI 名义占比\",\"request\":{\"coin\":\"DAI\",\"end\":\"2023-03-10T02:00:00Z\",\"metric\":\"share_pct\",\"operation\":\"last\",\"start\":\"2023-03-10T02:00:00Z\"},\"slot_id\":\"S1\"},{\"label\":\"1000 USDC→USDT 报价率\",\"request\":{\"direction\":\"USDC_USDT\",\"end\":\"2023-03-10T02:00:00Z\",\"metric\":\"quote_rate\",\"operation\":\"last\",\"size\":1000,\"start\":\"2023-03-10T02:00:00Z\"},\"slot_id\":\"S2\"},{\"label\":\"100000 相对 1000 输入的规模敏感度\",\"request\":{\"direction\":\"USDC_USDT\",\"end\":\"2023-03-10T02:00:00Z\",\"metric\":\"size_sensitivity_bps\",\"operation\":\"last\",\"size\":100000,\"start\":\"2023-03-10T02:00:00Z\"},\"slot_id\":\"S3\"}],\"task_id\":\"R01\",\"window\":{\"end\":\"2023-03-11T00:00:00Z\",\"start\":\"2023-03-10T00:00:00Z\"}},\"token_contracts\":{\"DAI\":\"0x6b175474e89094c44da98b954eedeac495271d0f\",\"USDC\":\"0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\",\"USDT\":\"0xdac17f958d2ee523a2206206994597c13d831ec7\"},\"units\":{\"imbalance_l1\":\"dimensionless\",\"quote_rate\":\"destination/source\",\"share_change\":\"percentage_points\",\"share_pct\":\"percent\",\"size_sensitivity_bps\":\"basis_points\"}}"
+        }
+      ],
+      "raw_response": "{\"action\":\"calculate\",\"query\":{\"metric\":\"share_pct\",\"operation\":\"last\",\"coin\":\"DAI\",\"start\":\"2023-03-10T02:00:00Z\",\"end\":\"2023-03-10T02:00:00Z\"}}",
+      "metadata": {
+        "model": "deepseek-flash",
+        "status": "stop",
+        "usage": {
+          "prompt_tokens": 974,
+          "completion_tokens": 55,
+          "total_tokens": 1029,
+          "prompt_tokens_details": {
+            "cached_tokens": 384
+          },
+          "prompt_cache_hit_tokens": 384,
+          "prompt_cache_miss_tokens": 590
+        },
+        "response_id": "bde20131-6118-455e-8e56-40999f944da3",
+        "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+        "input_upper_bound": 5728
+      }
+    },
+    {
+      "request_messages": [
+        {
+          "role": "system",
+          "content": "You are a Curve 3pool investigation agent. Use only this task's permitted data and supplied tools. Return exactly one JSON action each turn, with no markdown. Actions:\n{\"action\":\"read_window\",\"start\":\"UTC ISO\",\"end\":\"UTC ISO\"}\n{\"action\":\"calculate\",\"query\":{\"metric\":\"share_pct|quote_rate|size_sensitivity_bps|imbalance_l1\",\"operation\":\"first|last|change|maximum|max_hourly_change\",\"start\":\"UTC ISO\",\"end\":\"UTC ISO\",\"coin\":\"DAI|USDC|USDT\",\"direction\":\"USDC_USDT|USDT_USDC\",\"size\":1000}}\nOmit irrelevant query keys. A calculate request returns raw-evidence labels and calculation metadata. max_hourly_change compares only adjacent permitted hourly points, never across a gap. Read/calculation permissions are identical in G and E.\n{\"action\":\"submit\",\"report_json\":\"JSON STRING containing the final report\"}\nReport object: task_id, answer (150–250 Chinese characters of investigation text), claims array. Each claim: unique claim_id, slot_id, query, value (decimal string, or null if refused), unit, status (supported/refused/unsupported), explanation, depends_on (slot IDs), optional evidence_ids, formula_version, dataset_sha256, target_timestamp_utc (for a focused observation), interval_start/interval_end (for an hourly change). Evidence fields are available to all groups. Provide exactly one claim per required slot. Refuse only when the allowed evidence cannot support the requested component; give a specific reason. Continuous-time peaks cannot be determined by hourly sampling. Preserve units, directions and exact target windows. Raw numerical values and reference answers are not given before tool use. You have no independent verifier during generation.\nFor every numerical claim, attach exact evidence_ids, the complete resolved query, formula_version and dataset_sha256 from the public context. Check its units, target times and permitted evidence. Do not fill unsupported gaps. Separate observation from interpretation, and qualify interpretation that is not established by the data."
+        },
+        {
+          "role": "user",
+          "content": "{\"balance_source\":\"erc20_balance_of_pool\",\"dataset_sha256\":\"79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055\",\"decimals\":{\"DAI\":18,\"USDC\":6,\"USDT\":6},\"formula_version\":\"3pool-erc20-balanceOf-20261102\",\"task\":{\"allowed_evidence\":{\"excluded_targets\":[]},\"event_id\":\"usdc_2023\",\"question\":\"单点与单位\",\"required_components\":[{\"label\":\"DAI 名义占比\",\"request\":{\"coin\":\"DAI\",\"end\":\"2023-03-10T02:00:00Z\",\"metric\":\"share_pct\",\"operation\":\"last\",\"start\":\"2023-03-10T02:00:00Z\"},\"slot_id\":\"S1\"},{\"label\":\"1000 USDC→USDT 报价率\",\"request\":{\"direction\":\"USDC_USDT\",\"end\":\"2023-03-10T02:00:00Z\",\"metric\":\"quote_rate\",\"operation\":\"last\",\"size\":1000,\"start\":\"2023-03-10T02:00:00Z\"},\"slot_id\":\"S2\"},{\"label\":\"100000 相对 1000 输入的规模敏感度\",\"request\":{\"direction\":\"USDC_USDT\",\"end\":\"2023-03-10T02:00:00Z\",\"metric\":\"size_sensitivity_bps\",\"operation\":\"last\",\"size\":100000,\"start\":\"2023-03-10T02:00:00Z\"},\"slot_id\":\"S3\"}],\"task_id\":\"R01\",\"window\":{\"end\":\"2023-03-11T00:00:00Z\",\"start\":\"2023-03-10T00:00:00Z\"}},\"token_contracts\":{\"DAI\":\"0x6b175474e89094c44da98b954eedeac495271d0f\",\"USDC\":\"0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\",\"USDT\":\"0xdac17f958d2ee523a2206206994597c13d831ec7\"},\"units\":{\"imbalance_l1\":\"dimensionless\",\"quote_rate\":\"destination/source\",\"share_change\":\"percentage_points\",\"share_pct\":\"percent\",\"size_sensitivity_bps\":\"basis_points\"}}"
+        },
+        {
+          "role": "assistant",
+          "content": "{\"action\":\"calculate\",\"query\":{\"metric\":\"share_pct\",\"operation\":\"last\",\"coin\":\"DAI\",\"start\":\"2023-03-10T02:00:00Z\",\"end\":\"2023-03-10T02:00:00Z\"}}"
+        },
+        {
+          "role": "user",
+          "content": "{\"tool_result\":{\"block_hash\":\"0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e\",\"block_number\":16794649,\"calculation_id\":\"C_77755134b840f9ab\",\"evidence_ids\":[\"E_UTC_20230310T020000Z\"],\"metrics_version\":\"1.0\",\"observed_at\":\"2023-03-10T01:59:59Z\",\"query\":{\"coin\":\"DAI\",\"end\":\"2023-03-10T02:00:00Z\",\"metric\":\"share_pct\",\"operation\":\"last\",\"start\":\"2023-03-10T02:00:00Z\"},\"sample_count\":1,\"snapshot_id\":\"UTC_20230310T020000Z\",\"target_timestamp_utc\":\"2023-03-10T02:00:00Z\",\"unit\":\"percent\",\"value\":\"30.878165451717635126728599379737588325727294918739276732216972310798954081766651\"}}"
+        }
+      ],
+      "raw_response": "{\"action\":\"calculate\",\"query\":{\"metric\":\"quote_rate\",\"operation\":\"last\",\"direction\":\"USDC_USDT\",\"size\":1000,\"start\":\"2023-03-10T02:00:00Z\",\"end\":\"2023-03-10T02:00:00Z\"}}",
+      "metadata": {
+        "model": "deepseek-flash",
+        "status": "stop",
+        "usage": {
+          "prompt_tokens": 1267,
+          "completion_tokens": 61,
+          "total_tokens": 1328,
+          "prompt_tokens_details": {
+            "cached_tokens": 1024
+          },
+          "prompt_cache_hit_tokens": 1024,
+          "prompt_cache_miss_tokens": 243
+        },
+        "response_id": "271d4e2d-7fd3-4248-8e1e-bf6663f6f373",
+        "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+        "input_upper_bound": 7646
+      }
+    },
+    {
+      "request_messages": [
+        {
+          "role": "system",
+          "content": "You are a Curve 3pool investigation agent. Use only this task's permitted data and supplied tools. Return exactly one JSON action each turn, with no markdown. Actions:\n{\"action\":\"read_window\",\"start\":\"UTC ISO\",\"end\":\"UTC ISO\"}\n{\"action\":\"calculate\",\"query\":{\"metric\":\"share_pct|quote_rate|size_sensitivity_bps|imbalance_l1\",\"operation\":\"first|last|change|maximum|max_hourly_change\",\"start\":\"UTC ISO\",\"end\":\"UTC ISO\",\"coin\":\"DAI|USDC|USDT\",\"direction\":\"USDC_USDT|USDT_USDC\",\"size\":1000}}\nOmit irrelevant query keys. A calculate request returns raw-evidence labels and calculation metadata. max_hourly_change compares only adjacent permitted hourly points, never across a gap. Read/calculation permissions are identical in G and E.\n{\"action\":\"submit\",\"report_json\":\"JSON STRING containing the final report\"}\nReport object: task_id, answer (150–250 Chinese characters of investigation text), claims array. Each claim: unique claim_id, slot_id, query, value (decimal string, or null if refused), unit, status (supported/refused/unsupported), explanation, depends_on (slot IDs), optional evidence_ids, formula_version, dataset_sha256, target_timestamp_utc (for a focused observation), interval_start/interval_end (for an hourly change). Evidence fields are available to all groups. Provide exactly one claim per required slot. Refuse only when the allowed evidence cannot support the requested component; give a specific reason. Continuous-time peaks cannot be determined by hourly sampling. Preserve units, directions and exact target windows. Raw numerical values and reference answers are not given before tool use. You have no independent verifier during generation.\nFor every numerical claim, attach exact evidence_ids, the complete resolved query, formula_version and dataset_sha256 from the public context. Check its units, target times and permitted evidence. Do not fill unsupported gaps. Separate observation from interpretation, and qualify interpretation that is not established by the data."
+        },
+        {
+          "role": "user",
+          "content": "{\"balance_source\":\"erc20_balance_of_pool\",\"dataset_sha256\":\"79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055\",\"decimals\":{\"DAI\":18,\"USDC\":6,\"USDT\":6},\"formula_version\":\"3pool-erc20-balanceOf-20261102\",\"task\":{\"allowed_evidence\":{\"excluded_targets\":[]},\"event_id\":\"usdc_2023\",\"question\":\"单点与单位\",\"required_components\":[{\"label\":\"DAI 名义占比\",\"request\":{\"coin\":\"DAI\",\"end\":\"2023-03-10T02:00:00Z\",\"metric\":\"share_pct\",\"operation\":\"last\",\"start\":\"2023-03-10T02:00:00Z\"},\"slot_id\":\"S1\"},{\"label\":\"1000 USDC→USDT 报价率\",\"request\":{\"direction\":\"USDC_USDT\",\"end\":\"2023-03-10T02:00:00Z\",\"metric\":\"quote_rate\",\"operation\":\"last\",\"size\":1000,\"start\":\"2023-03-10T02:00:00Z\"},\"slot_id\":\"S2\"},{\"label\":\"100000 相对 1000 输入的规模敏感度\",\"request\":{\"direction\":\"USDC_USDT\",\"end\":\"2023-03-10T02:00:00Z\",\"metric\":\"size_sensitivity_bps\",\"operation\":\"last\",\"size\":100000,\"start\":\"2023-03-10T02:00:00Z\"},\"slot_id\":\"S3\"}],\"task_id\":\"R01\",\"window\":{\"end\":\"2023-03-11T00:00:00Z\",\"start\":\"2023-03-10T00:00:00Z\"}},\"token_contracts\":{\"DAI\":\"0x6b175474e89094c44da98b954eedeac495271d0f\",\"USDC\":\"0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\",\"USDT\":\"0xdac17f958d2ee523a2206206994597c13d831ec7\"},\"units\":{\"imbalance_l1\":\"dimensionless\",\"quote_rate\":\"destination/source\",\"share_change\":\"percentage_points\",\"share_pct\":\"percent\",\"size_sensitivity_bps\":\"basis_points\"}}"
+        },
+        {
+          "role": "assistant",
+          "content": "{\"action\":\"calculate\",\"query\":{\"metric\":\"share_pct\",\"operation\":\"last\",\"coin\":\"DAI\",\"start\":\"2023-03-10T02:00:00Z\",\"end\":\"2023-03-10T02:00:00Z\"}}"
+        },
+        {
+          "role": "user",
+          "content": "{\"tool_result\":{\"block_hash\":\"0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e\",\"block_number\":16794649,\"calculation_id\":\"C_77755134b840f9ab\",\"evidence_ids\":[\"E_UTC_20230310T020000Z\"],\"metrics_version\":\"1.0\",\"observed_at\":\"2023-03-10T01:59:59Z\",\"query\":{\"coin\":\"DAI\",\"end\":\"2023-03-10T02:00:00Z\",\"metric\":\"share_pct\",\"operation\":\"last\",\"start\":\"2023-03-10T02:00:00Z\"},\"sample_count\":1,\"snapshot_id\":\"UTC_20230310T020000Z\",\"target_timestamp_utc\":\"2023-03-10T02:00:00Z\",\"unit\":\"percent\",\"value\":\"30.878165451717635126728599379737588325727294918739276732216972310798954081766651\"}}"
+        },
+        {
+          "role": "assistant",
+          "content": "{\"action\":\"calculate\",\"query\":{\"metric\":\"quote_rate\",\"operation\":\"last\",\"direction\":\"USDC_USDT\",\"size\":1000,\"start\":\"2023-03-10T02:00:00Z\",\"end\":\"2023-03-10T02:00:00Z\"}}"
+        },
+        {
+          "role": "user",
+          "content": "{\"tool_result\":{\"block_hash\":\"0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e\",\"block_number\":16794649,\"calculation_id\":\"C_691ed4807dc05871\",\"evidence_ids\":[\"E_UTC_20230310T020000Z\"],\"metrics_version\":\"1.0\",\"observed_at\":\"2023-03-10T01:59:59Z\",\"query\":{\"direction\":\"USDC_USDT\",\"end\":\"2023-03-10T02:00:00Z\",\"metric\":\"quote_rate\",\"operation\":\"last\",\"size\":1000,\"start\":\"2023-03-10T02:00:00Z\"},\"sample_count\":1,\"snapshot_id\":\"UTC_20230310T020000Z\",\"target_timestamp_utc\":\"2023-03-10T02:00:00Z\",\"unit\":\"USDT/USDC\",\"value\":\"1.000036999\"}}"
+        }
+      ],
+      "raw_response": "{\"action\":\"calculate\",\"query\":{\"metric\":\"size_sensitivity_bps\",\"operation\":\"last\",\"direction\":\"USDC_USDT\",\"size\":100000,\"start\":\"2023-03-10T02:00:00Z\",\"end\":\"2023-03-10T02:00:00Z\"}}",
+      "metadata": {
+        "model": "deepseek-flash",
+        "status": "stop",
+        "usage": {
+          "prompt_tokens": 1551,
+          "completion_tokens": 64,
+          "total_tokens": 1615,
+          "prompt_tokens_details": {
+            "cached_tokens": 1280
+          },
+          "prompt_cache_hit_tokens": 1280,
+          "prompt_cache_miss_tokens": 271
+        },
+        "response_id": "cc756cc9-edb6-4abf-8b26-57259ac07e3d",
+        "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+        "input_upper_bound": 9548
+      }
+    },
+    {
+      "request_messages": [
+        {
+          "role": "system",
+          "content": "You are a Curve 3pool investigation agent. Use only this task's permitted data and supplied tools. Return exactly one JSON action each turn, with no markdown. Actions:\n{\"action\":\"read_window\",\"start\":\"UTC ISO\",\"end\":\"UTC ISO\"}\n{\"action\":\"calculate\",\"query\":{\"metric\":\"share_pct|quote_rate|size_sensitivity_bps|imbalance_l1\",\"operation\":\"first|last|change|maximum|max_hourly_change\",\"start\":\"UTC ISO\",\"end\":\"UTC ISO\",\"coin\":\"DAI|USDC|USDT\",\"direction\":\"USDC_USDT|USDT_USDC\",\"size\":1000}}\nOmit irrelevant query keys. A calculate request returns raw-evidence labels and calculation metadata. max_hourly_change compares only adjacent permitted hourly points, never across a gap. Read/calculation permissions are identical in G and E.\n{\"action\":\"submit\",\"report_json\":\"JSON STRING containing the final report\"}\nReport object: task_id, answer (150–250 Chinese characters of investigation text), claims array. Each claim: unique claim_id, slot_id, query, value (decimal string, or null if refused), unit, status (supported/refused/unsupported), explanation, depends_on (slot IDs), optional evidence_ids, formula_version, dataset_sha256, target_timestamp_utc (for a focused observation), interval_start/interval_end (for an hourly change). Evidence fields are available to all groups. Provide exactly one claim per required slot. Refuse only when the allowed evidence cannot support the requested component; give a specific reason. Continuous-time peaks cannot be determined by hourly sampling. Preserve units, directions and exact target windows. Raw numerical values and reference answers are not given before tool use. You have no independent verifier during generation.\nFor every numerical claim, attach exact evidence_ids, the complete resolved query, formula_version and dataset_sha256 from the public context. Check its units, target times and permitted evidence. Do not fill unsupported gaps. Separate observation from interpretation, and qualify interpretation that is not established by the data."
+        },
+        {
+          "role": "user",
+          "content": "{\"balance_source\":\"erc20_balance_of_pool\",\"dataset_sha256\":\"79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055\",\"decimals\":{\"DAI\":18,\"USDC\":6,\"USDT\":6},\"formula_version\":\"3pool-erc20-balanceOf-20261102\",\"task\":{\"allowed_evidence\":{\"excluded_targets\":[]},\"event_id\":\"usdc_2023\",\"question\":\"单点与单位\",\"required_components\":[{\"label\":\"DAI 名义占比\",\"request\":{\"coin\":\"DAI\",\"end\":\"2023-03-10T02:00:00Z\",\"metric\":\"share_pct\",\"operation\":\"last\",\"start\":\"2023-03-10T02:00:00Z\"},\"slot_id\":\"S1\"},{\"label\":\"1000 USDC→USDT 报价率\",\"request\":{\"direction\":\"USDC_USDT\",\"end\":\"2023-03-10T02:00:00Z\",\"metric\":\"quote_rate\",\"operation\":\"last\",\"size\":1000,\"start\":\"2023-03-10T02:00:00Z\"},\"slot_id\":\"S2\"},{\"label\":\"100000 相对 1000 输入的规模敏感度\",\"request\":{\"direction\":\"USDC_USDT\",\"end\":\"2023-03-10T02:00:00Z\",\"metric\":\"size_sensitivity_bps\",\"operation\":\"last\",\"size\":100000,\"start\":\"2023-03-10T02:00:00Z\"},\"slot_id\":\"S3\"}],\"task_id\":\"R01\",\"window\":{\"end\":\"2023-03-11T00:00:00Z\",\"start\":\"2023-03-10T00:00:00Z\"}},\"token_contracts\":{\"DAI\":\"0x6b175474e89094c44da98b954eedeac495271d0f\",\"USDC\":\"0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\",\"USDT\":\"0xdac17f958d2ee523a2206206994597c13d831ec7\"},\"units\":{\"imbalance_l1\":\"dimensionless\",\"quote_rate\":\"destination/source\",\"share_change\":\"percentage_points\",\"share_pct\":\"percent\",\"size_sensitivity_bps\":\"basis_points\"}}"
+        },
+        {
+          "role": "assistant",
+          "content": "{\"action\":\"calculate\",\"query\":{\"metric\":\"share_pct\",\"operation\":\"last\",\"coin\":\"DAI\",\"start\":\"2023-03-10T02:00:00Z\",\"end\":\"2023-03-10T02:00:00Z\"}}"
+        },
+        {
+          "role": "user",
+          "content": "{\"tool_result\":{\"block_hash\":\"0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e\",\"block_number\":16794649,\"calculation_id\":\"C_77755134b840f9ab\",\"evidence_ids\":[\"E_UTC_20230310T020000Z\"],\"metrics_version\":\"1.0\",\"observed_at\":\"2023-03-10T01:59:59Z\",\"query\":{\"coin\":\"DAI\",\"end\":\"2023-03-10T02:00:00Z\",\"metric\":\"share_pct\",\"operation\":\"last\",\"start\":\"2023-03-10T02:00:00Z\"},\"sample_count\":1,\"snapshot_id\":\"UTC_20230310T020000Z\",\"target_timestamp_utc\":\"2023-03-10T02:00:00Z\",\"unit\":\"percent\",\"value\":\"30.878165451717635126728599379737588325727294918739276732216972310798954081766651\"}}"
+        },
+        {
+          "role": "assistant",
+          "content": "{\"action\":\"calculate\",\"query\":{\"metric\":\"quote_rate\",\"operation\":\"last\",\"direction\":\"USDC_USDT\",\"size\":1000,\"start\":\"2023-03-10T02:00:00Z\",\"end\":\"2023-03-10T02:00:00Z\"}}"
+        },
+        {
+          "role": "user",
+          "content": "{\"tool_result\":{\"block_hash\":\"0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e\",\"block_number\":16794649,\"calculation_id\":\"C_691ed4807dc05871\",\"evidence_ids\":[\"E_UTC_20230310T020000Z\"],\"metrics_version\":\"1.0\",\"observed_at\":\"2023-03-10T01:59:59Z\",\"query\":{\"direction\":\"USDC_USDT\",\"end\":\"2023-03-10T02:00:00Z\",\"metric\":\"quote_rate\",\"operation\":\"last\",\"size\":1000,\"start\":\"2023-03-10T02:00:00Z\"},\"sample_count\":1,\"snapshot_id\":\"UTC_20230310T020000Z\",\"target_timestamp_utc\":\"2023-03-10T02:00:00Z\",\"unit\":\"USDT/USDC\",\"value\":\"1.000036999\"}}"
+        },
+        {
+          "role": "assistant",
+          "content": "{\"action\":\"calculate\",\"query\":{\"metric\":\"size_sensitivity_bps\",\"operation\":\"last\",\"direction\":\"USDC_USDT\",\"size\":100000,\"start\":\"2023-03-10T02:00:00Z\",\"end\":\"2023-03-10T02:00:00Z\"}}"
+        },
+        {
+          "role": "user",
+          "content": "{\"tool_result\":{\"block_hash\":\"0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e\",\"block_number\":16794649,\"calculation_id\":\"C_0a866597ec78c508\",\"evidence_ids\":[\"E_UTC_20230310T020000Z\"],\"metrics_version\":\"1.0\",\"observed_at\":\"2023-03-10T01:59:59Z\",\"query\":{\"direction\":\"USDC_USDT\",\"end\":\"2023-03-10T02:00:00Z\",\"metric\":\"size_sensitivity_bps\",\"operation\":\"last\",\"size\":100000,\"start\":\"2023-03-10T02:00:00Z\"},\"sample_count\":1,\"snapshot_id\":\"UTC_20230310T020000Z\",\"target_timestamp_utc\":\"2023-03-10T02:00:00Z\",\"unit\":\"basis_points\",\"value\":\"0.0029242918041275390851813873738485549773143943447236395700595473668069755087131531\"}}"
+        }
+      ],
+      "raw_response": "{\"action\":\"submit\",\"report_json\":\"{\\\"task_id\\\":\\\"R01\\\",\\\"answer\\\":\\\"2023-03-10T02:00:00Z 单点快照显示：DAI 名义占比约 30.878%（30.878165451717635%），说明池中 DAI 份额明显偏低；1000 USDC→USDT 报价率约 1.000037 USDT/USDC，接近 1:1，但略高于平价，反映当时 USDC 相对 USDT 的轻微折价；10 万相对 1000 输入的规模敏感度仅约 0.002924 bps，同一采样点上规模差异带来的额外价格冲击很小，但这只是单点观测，不能据此外推连续时间趋势或峰值。\\\",\\\"claims\\\":[{\\\"claim_id\\\":\\\"C1\\\",\\\"slot_id\\\":\\\"S1\\\",\\\"query\\\":{\\\"coin\\\":\\\"DAI\\\",\\\"end\\\":\\\"2023-03-10T02:00:00Z\\\",\\\"metric\\\":\\\"share_pct\\\",\\\"operation\\\":\\\"last\\\",\\\"start\\\":\\\"2023-03-10T02:00:00Z\\\"},\\\"value\\\":\\\"30.878165451717635126728599379737588325727294918739276732216972310798954081766651\\\",\\\"unit\\\":\\\"percent\\\",\\\"status\\\":\\\"supported\\\",\\\"explanation\\\":\\\"单点快照 DAI 名义占比，来自 block 16794649 的 erc20_balanceOf 计算。\\\",\\\"depends_on\\\":[],\\\"evidence_ids\\\":[\\\"E_UTC_20230310T020000Z\\\"],\\\"formula_version\\\":\\\"3pool-erc20-balanceOf-20261102\\\",\\\"dataset_sha256\\\":\\\"79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055\\\",\\\"target_timestamp_utc\\\":\\\"2023-03-10T02:00:00Z\\\"},{\\\"claim_id\\\":\\\"C2\\\",\\\"slot_id\\\":\\\"S2\\\",\\\"query\\\":{\\\"direction\\\":\\\"USDC_USDT\\\",\\\"end\\\":\\\"2023-03-10T02:00:00Z\\\",\\\"metric\\\":\\\"quote_rate\\\",\\\"operation\\\":\\\"last\\\",\\\"size\\\":1000,\\\"start\\\":\\\"2023-03-10T02:00:00Z\\\"},\\\"value\\\":\\\"1.000036999\\\",\\\"unit\\\":\\\"USDT/USDC\\\",\\\"status\\\":\\\"supported\\\",\\\"explanation\\\":\\\"1000 USDC→USDT 单点报价率，来自同一快照的计算结果。\\\",\\\"depends_on\\\":[],\\\"evidence_ids\\\":[\\\"E_UTC_20230310T020000Z\\\"],\\\"formula_version\\\":\\\"3pool-erc20-balanceOf-20261102\\\",\\\"dataset_sha256\\\":\\\"79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055\\\",\\\"target_timestamp_utc\\\":\\\"2023-03-10T02:00:00Z\\\"},{\\\"claim_id\\\":\\\"C3\\\",\\\"slot_id\\\":\\\"S3\\\",\\\"query\\\":{\\\"direction\\\":\\\"USDC_USDT\\\",\\\"end\\\":\\\"2023-03-10T02:00:00Z\\\",\\\"metric\\\":\\\"size_sensitivity_bps\\\",\\\"operation\\\":\\\"last\\\",\\\"size\\\":100000,\\\"start\\\":\\\"2023-03-10T02:00:00Z\\\"},\\\"value\\\":\\\"0.0029242918041275390851813873738485549773143943447236395700595473668069755087131531\\\",\\\"unit\\\":\\\"basis_points\\\",\\\"status\\\":\\\"supported\\\",\\\"explanation\\\":\\\"100000 相对 1000 输入的规模敏感度，单点快照计算，单位 basis_points。\\\",\\\"depends_on\\\":[],\\\"evidence_ids\\\":[\\\"E_UTC_20230310T020000Z\\\"],\\\"formula_version\\\":\\\"3pool-erc20-balanceOf-20261102\\\",\\\"dataset_sha256\\\":\\\"79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055\\\",\\\"target_timestamp_utc\\\":\\\"2023-03-10T02:00:00Z\\\"}]}\"}",
+      "metadata": {
+        "model": "deepseek-flash",
+        "status": "stop",
+        "usage": {
+          "prompt_tokens": 1865,
+          "completion_tokens": 966,
+          "total_tokens": 2831,
+          "prompt_tokens_details": {
+            "cached_tokens": 1536
+          },
+          "prompt_cache_hit_tokens": 1536,
+          "prompt_cache_miss_tokens": 329
+        },
+        "response_id": "d1693d47-91f4-4451-a334-c34570a5cc40",
+        "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+        "input_upper_bound": 11550
+      }
+    }
+  ],
+  "ledger": {
+    "enforcement": "client_prepaid_upper_bound_assumption",
+    "input_bound": "UTF-8 bytes of serialized messages + 512 bytes per message + 1024 fixed overhead; requires empirical validation",
+    "per_arm_limits": {
+      "input_tokens": 48000,
+      "output_tokens": 12000,
+      "total_tokens": 60000,
+      "model_calls": 10
+    },
+    "actual_usage": {
+      "input_tokens": 5657,
+      "output_tokens": 1146,
+      "total_tokens": 6803
+    },
+    "charged_or_reserved_usage": {
+      "input_tokens": 5657,
+      "output_tokens": 1146,
+      "total_tokens": 6803
+    },
+    "dispatched_model_calls": 4,
+    "complete_usage": true,
+    "unknown_usage_calls": 0,
+    "enforcement_violations": 0,
+    "general_hard_bound_proven": false,
+    "calls": [
+      {
+        "input_upper_bound": 5728,
+        "output_cap": 2048,
+        "state": "settled",
+        "usage": {
+          "input_tokens": 974,
+          "output_tokens": 55,
+          "cached_input_tokens": 384,
+          "reasoning_tokens": null,
+          "total_tokens": 1029
+        }
+      },
+      {
+        "input_upper_bound": 7646,
+        "output_cap": 2048,
+        "state": "settled",
+        "usage": {
+          "input_tokens": 1267,
+          "output_tokens": 61,
+          "cached_input_tokens": 1024,
+          "reasoning_tokens": null,
+          "total_tokens": 1328
+        }
+      },
+      {
+        "input_upper_bound": 9548,
+        "output_cap": 2048,
+        "state": "settled",
+        "usage": {
+          "input_tokens": 1551,
+          "output_tokens": 64,
+          "cached_input_tokens": 1280,
+          "reasoning_tokens": null,
+          "total_tokens": 1615
+        }
+      },
+      {
+        "input_upper_bound": 11550,
+        "output_cap": 2048,
+        "state": "settled",
+        "usage": {
+          "input_tokens": 1865,
+          "output_tokens": 966,
+          "cached_input_tokens": 1536,
+          "reasoning_tokens": null,
+          "total_tokens": 2831
+        }
+      }
+    ]
+  },
+  "wall_seconds": 15.277180250000004,
+  "model_inference_attempted": true,
+  "model_inference_performed": true,
+  "run_id": "deepseek-flash_R01_E_2",
+  "repetition": 2,
+  "model": "deepseek-flash",
+  "score": {
+    "counts": {
+      "answerable": 3,
+      "correct": 3,
+      "reproducible_correct": 3,
+      "over_refusal": 0,
+      "omission": 0,
+      "unanswerable": 0,
+      "justified_refusal": 0,
+      "incorrect": 0
+    },
+    "primary_rate": 1.0,
+    "slots": [
+      {
+        "slot_id": "S1",
+        "state": "correct",
+        "replay": {
+          "verdict": "PASS",
+          "reason": "raw_recomputation_matches",
+          "expected": {
+            "query": {
+              "metric": "share_pct",
+              "operation": "last",
+              "start": "2023-03-10T02:00:00Z",
+              "end": "2023-03-10T02:00:00Z",
+              "coin": "DAI"
+            },
+            "value": "30.878165451717635126728599379737588325727294918739276732216972310798954081766651",
+            "unit": "percent",
+            "sample_count": 1,
+            "evidence_ids": [
+              "E_UTC_20230310T020000Z"
+            ],
+            "blocks": [
+              {
+                "snapshot_id": "UTC_20230310T020000Z",
+                "block_number": 16794649,
+                "block_hash": "0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e"
+              }
+            ],
+            "observed_at": "2023-03-10T01:59:59Z",
+            "target_timestamp_utc": "2023-03-10T02:00:00Z",
+            "snapshot_id": "UTC_20230310T020000Z",
+            "block_number": 16794649,
+            "block_hash": "0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e"
+          }
+        }
+      },
+      {
+        "slot_id": "S2",
+        "state": "correct",
+        "replay": {
+          "verdict": "PASS",
+          "reason": "raw_recomputation_matches",
+          "expected": {
+            "query": {
+              "metric": "quote_rate",
+              "operation": "last",
+              "start": "2023-03-10T02:00:00Z",
+              "end": "2023-03-10T02:00:00Z",
+              "direction": "USDC_USDT",
+              "size": 1000
+            },
+            "value": "1.000036999",
+            "unit": "USDT/USDC",
+            "sample_count": 1,
+            "evidence_ids": [
+              "E_UTC_20230310T020000Z"
+            ],
+            "blocks": [
+              {
+                "snapshot_id": "UTC_20230310T020000Z",
+                "block_number": 16794649,
+                "block_hash": "0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e"
+              }
+            ],
+            "observed_at": "2023-03-10T01:59:59Z",
+            "target_timestamp_utc": "2023-03-10T02:00:00Z",
+            "snapshot_id": "UTC_20230310T020000Z",
+            "block_number": 16794649,
+            "block_hash": "0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e"
+          }
+        }
+      },
+      {
+        "slot_id": "S3",
+        "state": "correct",
+        "replay": {
+          "verdict": "PASS",
+          "reason": "raw_recomputation_matches",
+          "expected": {
+            "query": {
+              "metric": "size_sensitivity_bps",
+              "operation": "last",
+              "start": "2023-03-10T02:00:00Z",
+              "end": "2023-03-10T02:00:00Z",
+              "direction": "USDC_USDT",
+              "size": 100000
+            },
+            "value": "0.0029242918041275390851813873738485549773143943447236395700595473668069755087131531",
+            "unit": "basis_points",
+            "sample_count": 1,
+            "evidence_ids": [
+              "E_UTC_20230310T020000Z"
+            ],
+            "blocks": [
+              {
+                "snapshot_id": "UTC_20230310T020000Z",
+                "block_number": 16794649,
+                "block_hash": "0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e"
+              }
+            ],
+            "observed_at": "2023-03-10T01:59:59Z",
+            "target_timestamp_utc": "2023-03-10T02:00:00Z",
+            "snapshot_id": "UTC_20230310T020000Z",
+            "block_number": 16794649,
+            "block_hash": "0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e"
+          }
+        }
+      }
+    ],
+    "human_validation": true,
+    "extra_prose_status": "requires_independent_human_review"
+  },
+  "V1": {
+    "C1": {
+      "verdict": "PASS",
+      "reason": "raw_recomputation_matches",
+      "expected": {
+        "query": {
+          "metric": "share_pct",
+          "operation": "last",
+          "start": "2023-03-10T02:00:00Z",
+          "end": "2023-03-10T02:00:00Z",
+          "coin": "DAI"
+        },
+        "value": "30.878165451717635126728599379737588325727294918739276732216972310798954081766651",
+        "unit": "percent",
+        "sample_count": 1,
+        "evidence_ids": [
+          "E_UTC_20230310T020000Z"
+        ],
+        "blocks": [
+          {
+            "snapshot_id": "UTC_20230310T020000Z",
+            "block_number": 16794649,
+            "block_hash": "0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e"
+          }
+        ],
+        "observed_at": "2023-03-10T01:59:59Z",
+        "target_timestamp_utc": "2023-03-10T02:00:00Z",
+        "snapshot_id": "UTC_20230310T020000Z",
+        "block_number": 16794649,
+        "block_hash": "0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e"
+      }
+    },
+    "C2": {
+      "verdict": "PASS",
+      "reason": "raw_recomputation_matches",
+      "expected": {
+        "query": {
+          "metric": "quote_rate",
+          "operation": "last",
+          "start": "2023-03-10T02:00:00Z",
+          "end": "2023-03-10T02:00:00Z",
+          "direction": "USDC_USDT",
+          "size": 1000
+        },
+        "value": "1.000036999",
+        "unit": "USDT/USDC",
+        "sample_count": 1,
+        "evidence_ids": [
+          "E_UTC_20230310T020000Z"
+        ],
+        "blocks": [
+          {
+            "snapshot_id": "UTC_20230310T020000Z",
+            "block_number": 16794649,
+            "block_hash": "0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e"
+          }
+        ],
+        "observed_at": "2023-03-10T01:59:59Z",
+        "target_timestamp_utc": "2023-03-10T02:00:00Z",
+        "snapshot_id": "UTC_20230310T020000Z",
+        "block_number": 16794649,
+        "block_hash": "0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e"
+      }
+    },
+    "C3": {
+      "verdict": "PASS",
+      "reason": "raw_recomputation_matches",
+      "expected": {
+        "query": {
+          "metric": "size_sensitivity_bps",
+          "operation": "last",
+          "start": "2023-03-10T02:00:00Z",
+          "end": "2023-03-10T02:00:00Z",
+          "direction": "USDC_USDT",
+          "size": 100000
+        },
+        "value": "0.0029242918041275390851813873738485549773143943447236395700595473668069755087131531",
+        "unit": "basis_points",
+        "sample_count": 1,
+        "evidence_ids": [
+          "E_UTC_20230310T020000Z"
+        ],
+        "blocks": [
+          {
+            "snapshot_id": "UTC_20230310T020000Z",
+            "block_number": 16794649,
+            "block_hash": "0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e"
+          }
+        ],
+        "observed_at": "2023-03-10T01:59:59Z",
+        "target_timestamp_utc": "2023-03-10T02:00:00Z",
+        "snapshot_id": "UTC_20230310T020000Z",
+        "block_number": 16794649,
+        "block_hash": "0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e"
+      }
+    }
+  },
+  "V2": {
+    "C1": {
+      "verdict": "PASS",
+      "reason": "raw_recomputation_matches",
+      "expected": {
+        "query": {
+          "metric": "share_pct",
+          "operation": "last",
+          "start": "2023-03-10T02:00:00Z",
+          "end": "2023-03-10T02:00:00Z",
+          "coin": "DAI"
+        },
+        "value": "30.878165451717635126728599379737588325727294918739276732216972310798954081766651",
+        "unit": "percent",
+        "sample_count": 1,
+        "evidence_ids": [
+          "E_UTC_20230310T020000Z"
+        ],
+        "blocks": [
+          {
+            "snapshot_id": "UTC_20230310T020000Z",
+            "block_number": 16794649,
+            "block_hash": "0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e"
+          }
+        ],
+        "observed_at": "2023-03-10T01:59:59Z",
+        "target_timestamp_utc": "2023-03-10T02:00:00Z",
+        "snapshot_id": "UTC_20230310T020000Z",
+        "block_number": 16794649,
+        "block_hash": "0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e"
+      },
+      "source_recomputed": true,
+      "secondary_value": "30.878165451717635126728599379737588325727294918739276732216972310798954081766651"
+    },
+    "C2": {
+      "verdict": "PASS",
+      "reason": "raw_recomputation_matches",
+      "expected": {
+        "query": {
+          "metric": "quote_rate",
+          "operation": "last",
+          "start": "2023-03-10T02:00:00Z",
+          "end": "2023-03-10T02:00:00Z",
+          "direction": "USDC_USDT",
+          "size": 1000
+        },
+        "value": "1.000036999",
+        "unit": "USDT/USDC",
+        "sample_count": 1,
+        "evidence_ids": [
+          "E_UTC_20230310T020000Z"
+        ],
+        "blocks": [
+          {
+            "snapshot_id": "UTC_20230310T020000Z",
+            "block_number": 16794649,
+            "block_hash": "0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e"
+          }
+        ],
+        "observed_at": "2023-03-10T01:59:59Z",
+        "target_timestamp_utc": "2023-03-10T02:00:00Z",
+        "snapshot_id": "UTC_20230310T020000Z",
+        "block_number": 16794649,
+        "block_hash": "0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e"
+      },
+      "source_recomputed": true,
+      "secondary_value": "1.000036999"
+    },
+    "C3": {
+      "verdict": "PASS",
+      "reason": "raw_recomputation_matches",
+      "expected": {
+        "query": {
+          "metric": "size_sensitivity_bps",
+          "operation": "last",
+          "start": "2023-03-10T02:00:00Z",
+          "end": "2023-03-10T02:00:00Z",
+          "direction": "USDC_USDT",
+          "size": 100000
+        },
+        "value": "0.0029242918041275390851813873738485549773143943447236395700595473668069755087131531",
+        "unit": "basis_points",
+        "sample_count": 1,
+        "evidence_ids": [
+          "E_UTC_20230310T020000Z"
+        ],
+        "blocks": [
+          {
+            "snapshot_id": "UTC_20230310T020000Z",
+            "block_number": 16794649,
+            "block_hash": "0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e"
+          }
+        ],
+        "observed_at": "2023-03-10T01:59:59Z",
+        "target_timestamp_utc": "2023-03-10T02:00:00Z",
+        "snapshot_id": "UTC_20230310T020000Z",
+        "block_number": 16794649,
+        "block_hash": "0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e"
+      },
+      "source_recomputed": true,
+      "secondary_value": "0.0029242918041275390851813873738485549773143943447236395700595473668069755087131531"
+    }
+  },
+  "published": {
+    "task_id": "R01",
+    "answer": "C1: 30.878165451717635126728599379737588325727294918739276732216972310798954081766651 percent\nC2: 1.000036999 USDT/USDC\nC3: 0.0029242918041275390851813873738485549773143943447236395700595473668069755087131531 basis_points",
+    "claims": [
+      {
+        "claim_id": "C1",
+        "slot_id": "S1",
+        "query": {
+          "coin": "DAI",
+          "end": "2023-03-10T02:00:00Z",
+          "metric": "share_pct",
+          "operation": "last",
+          "start": "2023-03-10T02:00:00Z"
+        },
+        "value": "30.878165451717635126728599379737588325727294918739276732216972310798954081766651",
+        "unit": "percent",
+        "status": "supported",
+        "explanation": "单点快照 DAI 名义占比，来自 block 16794649 的 erc20_balanceOf 计算。",
+        "depends_on": [],
+        "evidence_ids": [
+          "E_UTC_20230310T020000Z"
+        ],
+        "formula_version": "3pool-erc20-balanceOf-20261102",
+        "dataset_sha256": "79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055",
+        "target_timestamp_utc": "2023-03-10T02:00:00Z"
+      },
+      {
+        "claim_id": "C2",
+        "slot_id": "S2",
+        "query": {
+          "direction": "USDC_USDT",
+          "end": "2023-03-10T02:00:00Z",
+          "metric": "quote_rate",
+          "operation": "last",
+          "size": 1000,
+          "start": "2023-03-10T02:00:00Z"
+        },
+        "value": "1.000036999",
+        "unit": "USDT/USDC",
+        "status": "supported",
+        "explanation": "1000 USDC→USDT 单点报价率，来自同一快照的计算结果。",
+        "depends_on": [],
+        "evidence_ids": [
+          "E_UTC_20230310T020000Z"
+        ],
+        "formula_version": "3pool-erc20-balanceOf-20261102",
+        "dataset_sha256": "79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055",
+        "target_timestamp_utc": "2023-03-10T02:00:00Z"
+      },
+      {
+        "claim_id": "C3",
+        "slot_id": "S3",
+        "query": {
+          "direction": "USDC_USDT",
+          "end": "2023-03-10T02:00:00Z",
+          "metric": "size_sensitivity_bps",
+          "operation": "last",
+          "size": 100000,
+          "start": "2023-03-10T02:00:00Z"
+        },
+        "value": "0.0029242918041275390851813873738485549773143943447236395700595473668069755087131531",
+        "unit": "basis_points",
+        "status": "supported",
+        "explanation": "100000 相对 1000 输入的规模敏感度，单点快照计算，单位 basis_points。",
+        "depends_on": [],
+        "evidence_ids": [
+          "E_UTC_20230310T020000Z"
+        ],
+        "formula_version": "3pool-erc20-balanceOf-20261102",
+        "dataset_sha256": "79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055",
+        "target_timestamp_utc": "2023-03-10T02:00:00Z"
+      }
+    ],
+    "withdrawals": []
+  },
+  "verification": {
+    "C1": {
+      "verdict": "PASS",
+      "reason": "raw_recomputation_matches",
+      "expected": {
+        "query": {
+          "metric": "share_pct",
+          "operation": "last",
+          "start": "2023-03-10T02:00:00Z",
+          "end": "2023-03-10T02:00:00Z",
+          "coin": "DAI"
+        },
+        "value": "30.878165451717635126728599379737588325727294918739276732216972310798954081766651",
+        "unit": "percent",
+        "sample_count": 1,
+        "evidence_ids": [
+          "E_UTC_20230310T020000Z"
+        ],
+        "blocks": [
+          {
+            "snapshot_id": "UTC_20230310T020000Z",
+            "block_number": 16794649,
+            "block_hash": "0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e"
+          }
+        ],
+        "observed_at": "2023-03-10T01:59:59Z",
+        "target_timestamp_utc": "2023-03-10T02:00:00Z",
+        "snapshot_id": "UTC_20230310T020000Z",
+        "block_number": 16794649,
+        "block_hash": "0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e"
+      },
+      "source_recomputed": true,
+      "secondary_value": "30.878165451717635126728599379737588325727294918739276732216972310798954081766651"
+    },
+    "C2": {
+      "verdict": "PASS",
+      "reason": "raw_recomputation_matches",
+      "expected": {
+        "query": {
+          "metric": "quote_rate",
+          "operation": "last",
+          "start": "2023-03-10T02:00:00Z",
+          "end": "2023-03-10T02:00:00Z",
+          "direction": "USDC_USDT",
+          "size": 1000
+        },
+        "value": "1.000036999",
+        "unit": "USDT/USDC",
+        "sample_count": 1,
+        "evidence_ids": [
+          "E_UTC_20230310T020000Z"
+        ],
+        "blocks": [
+          {
+            "snapshot_id": "UTC_20230310T020000Z",
+            "block_number": 16794649,
+            "block_hash": "0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e"
+          }
+        ],
+        "observed_at": "2023-03-10T01:59:59Z",
+        "target_timestamp_utc": "2023-03-10T02:00:00Z",
+        "snapshot_id": "UTC_20230310T020000Z",
+        "block_number": 16794649,
+        "block_hash": "0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e"
+      },
+      "source_recomputed": true,
+      "secondary_value": "1.000036999"
+    },
+    "C3": {
+      "verdict": "PASS",
+      "reason": "raw_recomputation_matches",
+      "expected": {
+        "query": {
+          "metric": "size_sensitivity_bps",
+          "operation": "last",
+          "start": "2023-03-10T02:00:00Z",
+          "end": "2023-03-10T02:00:00Z",
+          "direction": "USDC_USDT",
+          "size": 100000
+        },
+        "value": "0.0029242918041275390851813873738485549773143943447236395700595473668069755087131531",
+        "unit": "basis_points",
+        "sample_count": 1,
+        "evidence_ids": [
+          "E_UTC_20230310T020000Z"
+        ],
+        "blocks": [
+          {
+            "snapshot_id": "UTC_20230310T020000Z",
+            "block_number": 16794649,
+            "block_hash": "0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e"
+          }
+        ],
+        "observed_at": "2023-03-10T01:59:59Z",
+        "target_timestamp_utc": "2023-03-10T02:00:00Z",
+        "snapshot_id": "UTC_20230310T020000Z",
+        "block_number": 16794649,
+        "block_hash": "0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e"
+      },
+      "source_recomputed": true,
+      "secondary_value": "0.0029242918041275390851813873738485549773143943447236395700595473668069755087131531"
+    }
+  },
+  "published_score": {
+    "counts": {
+      "answerable": 3,
+      "correct": 3,
+      "reproducible_correct": 3,
+      "over_refusal": 0,
+      "omission": 0,
+      "unanswerable": 0,
+      "justified_refusal": 0,
+      "incorrect": 0
+    },
+    "primary_rate": 1.0,
+    "slots": [
+      {
+        "slot_id": "S1",
+        "state": "correct",
+        "replay": {
+          "verdict": "PASS",
+          "reason": "raw_recomputation_matches",
+          "expected": {
+            "query": {
+              "metric": "share_pct",
+              "operation": "last",
+              "start": "2023-03-10T02:00:00Z",
+              "end": "2023-03-10T02:00:00Z",
+              "coin": "DAI"
+            },
+            "value": "30.878165451717635126728599379737588325727294918739276732216972310798954081766651",
+            "unit": "percent",
+            "sample_count": 1,
+            "evidence_ids": [
+              "E_UTC_20230310T020000Z"
+            ],
+            "blocks": [
+              {
+                "snapshot_id": "UTC_20230310T020000Z",
+                "block_number": 16794649,
+                "block_hash": "0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e"
+              }
+            ],
+            "observed_at": "2023-03-10T01:59:59Z",
+            "target_timestamp_utc": "2023-03-10T02:00:00Z",
+            "snapshot_id": "UTC_20230310T020000Z",
+            "block_number": 16794649,
+            "block_hash": "0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e"
+          }
+        }
+      },
+      {
+        "slot_id": "S2",
+        "state": "correct",
+        "replay": {
+          "verdict": "PASS",
+          "reason": "raw_recomputation_matches",
+          "expected": {
+            "query": {
+              "metric": "quote_rate",
+              "operation": "last",
+              "start": "2023-03-10T02:00:00Z",
+              "end": "2023-03-10T02:00:00Z",
+              "direction": "USDC_USDT",
+              "size": 1000
+            },
+            "value": "1.000036999",
+            "unit": "USDT/USDC",
+            "sample_count": 1,
+            "evidence_ids": [
+              "E_UTC_20230310T020000Z"
+            ],
+            "blocks": [
+              {
+                "snapshot_id": "UTC_20230310T020000Z",
+                "block_number": 16794649,
+                "block_hash": "0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e"
+              }
+            ],
+            "observed_at": "2023-03-10T01:59:59Z",
+            "target_timestamp_utc": "2023-03-10T02:00:00Z",
+            "snapshot_id": "UTC_20230310T020000Z",
+            "block_number": 16794649,
+            "block_hash": "0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e"
+          }
+        }
+      },
+      {
+        "slot_id": "S3",
+        "state": "correct",
+        "replay": {
+          "verdict": "PASS",
+          "reason": "raw_recomputation_matches",
+          "expected": {
+            "query": {
+              "metric": "size_sensitivity_bps",
+              "operation": "last",
+              "start": "2023-03-10T02:00:00Z",
+              "end": "2023-03-10T02:00:00Z",
+              "direction": "USDC_USDT",
+              "size": 100000
+            },
+            "value": "0.0029242918041275390851813873738485549773143943447236395700595473668069755087131531",
+            "unit": "basis_points",
+            "sample_count": 1,
+            "evidence_ids": [
+              "E_UTC_20230310T020000Z"
+            ],
+            "blocks": [
+              {
+                "snapshot_id": "UTC_20230310T020000Z",
+                "block_number": 16794649,
+                "block_hash": "0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e"
+              }
+            ],
+            "observed_at": "2023-03-10T01:59:59Z",
+            "target_timestamp_utc": "2023-03-10T02:00:00Z",
+            "snapshot_id": "UTC_20230310T020000Z",
+            "block_number": 16794649,
+            "block_hash": "0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e"
+          }
+        }
+      }
+    ],
+    "human_validation": false,
+    "extra_prose_status": "requires_independent_human_review"
+  }
+}

@@ -1,0 +1,322 @@
+{
+  "P01_clean": {
+    "V1": [
+      "PASS",
+      null
+    ],
+    "V2": [
+      "PASS",
+      null
+    ]
+  },
+  "P01_fault": {
+    "V1": [
+      "FAIL",
+      "value_or_unit_mismatch"
+    ],
+    "V2": [
+      "FAIL",
+      "value_or_unit_mismatch"
+    ]
+  },
+  "P02_clean": {
+    "V1": [
+      "PASS",
+      null
+    ],
+    "V2": [
+      "PASS",
+      null
+    ]
+  },
+  "P02_fault": {
+    "V1": [
+      "FAIL",
+      "value_or_unit_mismatch"
+    ],
+    "V2": [
+      "FAIL",
+      "value_or_unit_mismatch"
+    ]
+  },
+  "P03_clean": {
+    "V1": [
+      "PASS",
+      null
+    ],
+    "V2": [
+      "PASS",
+      null
+    ]
+  },
+  "P03_fault": {
+    "V1": [
+      "FAIL",
+      "value_or_unit_mismatch"
+    ],
+    "V2": [
+      "FAIL",
+      "value_or_unit_mismatch"
+    ]
+  },
+  "P04_clean": {
+    "V1": [
+      "PASS",
+      null
+    ],
+    "V2": [
+      "PASS",
+      null
+    ]
+  },
+  "P04_fault": {
+    "V1": [
+      "PASS",
+      null
+    ],
+    "V2": [
+      "FAIL",
+      "secondary_source_state_mismatch"
+    ]
+  },
+  "P05_clean": {
+    "V1": [
+      "PASS",
+      null
+    ],
+    "V2": [
+      "PASS",
+      null
+    ]
+  },
+  "P05_fault": {
+    "V1": [
+      "PASS",
+      null
+    ],
+    "V2": [
+      "FAIL",
+      "secondary_source_state_mismatch"
+    ]
+  },
+  "P06_clean": {
+    "V1": [
+      "PASS",
+      null
+    ],
+    "V2": [
+      "PASS",
+      null
+    ]
+  },
+  "P06_fault": {
+    "V1": [
+      "PASS",
+      null
+    ],
+    "V2": [
+      "FAIL",
+      "secondary_source_state_mismatch"
+    ]
+  },
+  "P07_clean": {
+    "V1": [
+      "PASS",
+      null
+    ],
+    "V2": [
+      "PASS",
+      null
+    ]
+  },
+  "P07_fault": {
+    "V1": [
+      "FAIL",
+      "task_query_mismatch"
+    ],
+    "V2": [
+      "FAIL",
+      "task_query_mismatch"
+    ]
+  },
+  "P08_clean": {
+    "V1": [
+      "PASS",
+      null
+    ],
+    "V2": [
+      "PASS",
+      null
+    ]
+  },
+  "P08_fault": {
+    "V1": [
+      "FAIL",
+      "task_query_mismatch"
+    ],
+    "V2": [
+      "FAIL",
+      "task_query_mismatch"
+    ]
+  },
+  "P09_clean": {
+    "V1": [
+      "PASS",
+      null
+    ],
+    "V2": [
+      "PASS",
+      null
+    ]
+  },
+  "P09_fault": {
+    "V1": [
+      "PASS",
+      null
+    ],
+    "V2": [
+      "UNKNOWN",
+      "secondary_source_unavailable"
+    ]
+  },
+  "P10_clean": {
+    "V1": [
+      "PASS",
+      null
+    ],
+    "V2": [
+      "PASS",
+      null
+    ]
+  },
+  "P10_fault": {
+    "V1": [
+      "PASS",
+      null
+    ],
+    "V2": [
+      "UNKNOWN",
+      "secondary_source_unavailable"
+    ]
+  },
+  "P11_clean": {
+    "V1": [
+      "PASS",
+      null
+    ],
+    "V2": [
+      "PASS",
+      null
+    ]
+  },
+  "P11_fault": {
+    "V1": [
+      "FAIL",
+      "value_or_unit_mismatch"
+    ],
+    "V2": [
+      "FAIL",
+      "value_or_unit_mismatch"
+    ]
+  },
+  "P12_clean": {
+    "V1": [
+      "PASS",
+      null
+    ],
+    "V2": [
+      "PASS",
+      null
+    ]
+  },
+  "P12_fault": {
+    "V1": [
+      "FAIL",
+      "task_query_mismatch"
+    ],
+    "V2": [
+      "FAIL",
+      "task_query_mismatch"
+    ]
+  },
+  "R1": {
+    "V1": [
+      "UNKNOWN",
+      "refusal_or_omission"
+    ],
+    "V2": [
+      "UNKNOWN",
+      "refusal_or_omission"
+    ]
+  },
+  "R2": {
+    "V1": [
+      "UNKNOWN",
+      "refusal_or_omission"
+    ],
+    "V2": [
+      "UNKNOWN",
+      "refusal_or_omission"
+    ]
+  },
+  "R3": {
+    "V1": [
+      "UNKNOWN",
+      "refusal_or_omission"
+    ],
+    "V2": [
+      "UNKNOWN",
+      "refusal_or_omission"
+    ]
+  },
+  "R4": {
+    "V1": [
+      "UNKNOWN",
+      "refusal_or_omission"
+    ],
+    "V2": [
+      "UNKNOWN",
+      "refusal_or_omission"
+    ]
+  },
+  "U1": {
+    "V1": [
+      "PASS",
+      null
+    ],
+    "V2": [
+      "UNKNOWN",
+      "secondary_source_unavailable"
+    ]
+  },
+  "U2": {
+    "V1": [
+      "PASS",
+      null
+    ],
+    "V2": [
+      "UNKNOWN",
+      "secondary_source_unavailable"
+    ]
+  },
+  "U3": {
+    "V1": [
+      "PASS",
+      null
+    ],
+    "V2": [
+      "UNKNOWN",
+      null
+    ]
+  },
+  "U4": {
+    "V1": [
+      "PASS",
+      null
+    ],
+    "V2": [
+      "UNKNOWN",
+      null
+    ]
+  }
+}

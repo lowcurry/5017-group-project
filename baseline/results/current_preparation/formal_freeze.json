@@ -1,0 +1,101 @@
+{
+  "binding": {
+    "version": "3pool-erc20-balanceOf-20261102",
+    "tasks_sha256": "d0d35bed97fd34c2f63c241411a3c0bd662a904beb2673ac17e2ec8bb1f3d097",
+    "dataset_sha256": "79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055",
+    "references_sha256": "4cd770fb6418f938ec638cd59fecea3d9b7370179c7fd4035775aef046779c00",
+    "runs_sha256": "26cbf4b1c6205df41f2ad4e9d50c3d7f61a79f90855ae9ef0cec9ee26f20b960",
+    "source_hashes": [
+      "9a8e3392bc314c7560bfd85824637afa217719072512fd936b76565229171ee6",
+      "210fd641ad6d7abf2b21d03e46427447413830237eff766600ec63e3cf887ac3"
+    ],
+    "tolerances": {
+      "share_pct": {
+        "atol": "0.00000001",
+        "rtol": "0"
+      },
+      "quote_rate": {
+        "atol": "0.00000001",
+        "rtol": "0"
+      },
+      "size_sensitivity_bps": {
+        "atol": "0.00000001",
+        "rtol": "0"
+      },
+      "imbalance_l1": {
+        "atol": "0.00000001",
+        "rtol": "0"
+      }
+    },
+    "seed": 20261102,
+    "primary_metric": "reproducible_correct_fixed_component_coverage",
+    "human_references_validated": false,
+    "formal_outputs": 0,
+    "secondary_dataset_sha256": "79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055",
+    "secondary_source_hashes": [
+      "d9f838b2f7b087243fbd73318b0681b84e7c874f828314e96db9a2de54e5ae28",
+      "94b8d135cc6797d761b205d34ac67068b962ccc1aa550a332d29b0060bc2699a"
+    ]
+  },
+  "config": {
+    "model": "deepseek-flash",
+    "input_tokens": 48000,
+    "output_tokens": 12000,
+    "total_tokens": 60000,
+    "model_calls": 10,
+    "per_call_output": 2048,
+    "calibration_record": "development_flash/summary.json",
+    "status": "prepared_pending_human_review",
+    "weak_model": null,
+    "provider": "deepseek",
+    "comparison_model": null,
+    "comparison_role": "stronger_exploratory_control",
+    "budget_claim": "empirically_checked_client_upper_bound",
+    "available_stronger_comparison": "deepseek-v4-pro"
+  },
+  "human_review": {
+    "pass": true,
+    "record_identity_scope": "user_attested_consolidated_human_review",
+    "independent_dual_review_verified": false,
+    "review_record": "reference_review/review_attestation.json",
+    "review_record_sha256": "043e9fb80fb432c4fcc229de5e9dd7180521c4ea358fc4271567631e9ee3db70",
+    "source_file": "reference_review/程序复核.xlsx",
+    "source_sha256": "f0d3829ec2e85a07b4af00b893b95b97151829c4c2c066785d3d0e30742e1738",
+    "components_checked": 18
+  },
+  "calibration_sha256": "b5f89d276420a2f866223ae69caad53f1d94f77589f21690617b8289c1df53f6",
+  "code": {
+    "budget_guard.py": "0d16cb0472a0491e0e5852d29e1a5600f5f11e364393e757d8e4446c1ed07b60",
+    "metrics.py": "f91264641af9374216cd4fe0ba20a1ecf663307773b2b7fa261ed8dc30f29798",
+    "verification.py": "c47bad1a9a487e0a9d220090d40a92e7737d2fe7e03442d2587a49deb13e8f34",
+    "independent_source.py": "b83e57e9f16497d7f03cadd6b652a0dfce08d648620e6c1dd5053e677040a487",
+    "provider.py": "99fe50d0a6c69991632bdfd61f796085ec722a2897bbedda042728f14a298338",
+    "investigation_scoring.py": "acfe843785d9d0682416f08c5d96f5a4833a9460a683cc8ef74aad13a9dd186b",
+    "current_faults.py": "f56b1f9ebc8dc9743a4a807c0cc3c9414fa02f1f3e4687cfda862e86e408ba0d",
+    "scoring.py": "389e8b3ca074009703658372cc17fabef61589d3e82f036bfba879524a33abf0",
+    "__init__.py": "2f882651f0c181766bef600a60903c226e9eaf873db6901999e9f1eea98d5cad",
+    "trajectory.py": "9a9f9bb90ec0644fdf6209c4154b0f667179ba965fea69741ec267315ddb5dc5",
+    "current_verify.py": "aeb3e9fd8aa63146c79c64977cc727b762358224246d2d93f1217564856b0dc0",
+    "balance_sources.py": "40f8346fa3399bdf8ffa6c2535f82f2f6acd83e85737b267b6b3cd5c24c7adcd",
+    "experiment.py": "539eb768e3f6088cdad8ef4d4b83d0dafca16bcdc9d5d61a55689509c41411bd",
+    "confirmation.py": "3bc772f0bd0c64d7cf7c3eff1b97da60afc6a27ddeda0cec865266f3d52f0ddf",
+    "cli.py": "b72cebcc9eff4c743932505011fe8faecf56abec7deedee5eb52d3198f616ef0",
+    "common.py": "3e808d8efd47e6c427bd417534721515b5b1c98f01883b7fc966bdff85aa189f",
+    "offline_workflow.py": "cc1d4ee3c8dbbcc40ed15c3670a6aabe6389bbbe5513940bb7045c5bb25eb2ae",
+    "current_runner.py": "cb08b9b5387a8f50d6c0485a7bdf2b02ef1f39e27cb1830566435d5ffce39cad",
+    "investigation_experiment.py": "5318432d9c85739fd71ffc960f1f4612a15a46ea888e4779ecfb53a40d5d9548",
+    "agent.py": "f3ae961b86118e96f4e8da31ce50ef3eb85d418de3e0abe52e56066273f49efa",
+    "investigation_tasks.py": "ad1fdee15942fbf62ab58b36638db66df85e1275e26e9837272da4c3b5670d25",
+    "investigation.py": "442c7f228cad7a0c97f1afa66092ea82fc804cc2f603b8b4c66d011007426244",
+    "confirmation_faults.py": "242eda1b0b234d4da54aa73020df326b1507c516b956f1a416910023da3c214e",
+    "evidence.py": "6da6f66950459e22fcfba784d7ac08dad51b3de7a29c9f4cac998964df811050",
+    "deepseek_adapter.py": "d676786ff5e5506b2c5729b75650e914a3d3a9e7dcefee892907431234a7c9c8",
+    "__main__.py": "b0e37dace32661ede32c4c4042c7d875eb37294f74fbece5581757876e19b536",
+    "current_study.py": "ceb7d42d2e57597ef9c1027f38d02292c8201889799a7bf7eea63627137b72d7",
+    "data.py": "b1ce169aa2845e01e0382116f1e408bc9dbcca29c19b72f309dd5b90bd9193f2",
+    "confirmation_cli.py": "82e7104b480e183e5a8a264d607f3f93820f918ce14057831a04366da4160d8b",
+    "faults.py": "9bd867d9ad7d5087106562a27e7eb461e2779eac04301d5c8d75d4219b31d05b",
+    "source_check_v2.py": "36f5378bed61d2edab8a69913584fb7eaa89091225957496d6a17ad0d1e08aad"
+  },
+  "freeze_sha256": "ec66a6aaf06a0a37eeff5e74bbda6e68a866be00617a00a9413087679e7cd220"
+}

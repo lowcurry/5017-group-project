@@ -1,0 +1,38 @@
+{
+  "version": "3pool-erc20-balanceOf-20261102",
+  "tasks_sha256": "d0d35bed97fd34c2f63c241411a3c0bd662a904beb2673ac17e2ec8bb1f3d097",
+  "dataset_sha256": "79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055",
+  "references_sha256": "4cd770fb6418f938ec638cd59fecea3d9b7370179c7fd4035775aef046779c00",
+  "runs_sha256": "26cbf4b1c6205df41f2ad4e9d50c3d7f61a79f90855ae9ef0cec9ee26f20b960",
+  "source_hashes": [
+    "9a8e3392bc314c7560bfd85824637afa217719072512fd936b76565229171ee6",
+    "210fd641ad6d7abf2b21d03e46427447413830237eff766600ec63e3cf887ac3"
+  ],
+  "tolerances": {
+    "share_pct": {
+      "atol": "0.00000001",
+      "rtol": "0"
+    },
+    "quote_rate": {
+      "atol": "0.00000001",
+      "rtol": "0"
+    },
+    "size_sensitivity_bps": {
+      "atol": "0.00000001",
+      "rtol": "0"
+    },
+    "imbalance_l1": {
+      "atol": "0.00000001",
+      "rtol": "0"
+    }
+  },
+  "seed": 20261102,
+  "primary_metric": "reproducible_correct_fixed_component_coverage",
+  "human_references_validated": false,
+  "formal_outputs": 0,
+  "secondary_dataset_sha256": "79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055",
+  "secondary_source_hashes": [
+    "d9f838b2f7b087243fbd73318b0681b84e7c874f828314e96db9a2de54e5ae28",
+    "94b8d135cc6797d761b205d34ac67068b962ccc1aa550a332d29b0060bc2699a"
+  ]
+}

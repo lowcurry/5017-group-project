@@ -1,0 +1,23 @@
+{
+  "tampered_package_hash": "fc682b89ab211928b027dfdccb8dd579bd74492add1938179483f18e790da137",
+  "tampered_registered": false,
+  "tamper_detected": true,
+  "schema_version": "2.1",
+  "chain_kind": "local_ephemeral",
+  "chain_id": 1337,
+  "package_hash": "ce33b183235d2d235d7df866146a24d45f34206825afb7a0e697c6c85a77580a",
+  "registered_hash": "ce33b183235d2d235d7df866146a24d45f34206825afb7a0e697c6c85a77580a",
+  "read_back_hash": "ce33b183235d2d235d7df866146a24d45f34206825afb7a0e697c6c85a77580a",
+  "contract_address": "0xe78A0F7E598Cc8b0Bb87894B0F60dD2a88d6a8Ab",
+  "transaction_hash": "0x969e8aed513d3532d0b5f0e2dc43d694a6348dbb07b0738a4b722e546f37d8db",
+  "block_hash": "0x24d14cce42ad0fa0d609b159efef2295b357b642356ed228b4800d27a8563ee1",
+  "block_number": 2,
+  "submitter": "0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1",
+  "timestamp": 1793707108,
+  "duplicate_rejected": true,
+  "compiler": "0.8.30+commit.73712a01.Emscripten.clang",
+  "source_sha256": "7db931f31dc21868b61f0b5e65c90e39b8cde9ee50251bae39643942e0fa7f5e",
+  "bytecode_sha256": "6fb807f0f0f6d89ddb97a25d2c7062cf78ae12af425e2867234b81d7aa3aa4d9",
+  "trust_limit": "Saved local in-memory chain record; no public-chain timestamp or data-truth guarantee",
+  "status": "PASS"
+}

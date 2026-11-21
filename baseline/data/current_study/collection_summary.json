@@ -1,0 +1,30 @@
+[
+  {
+    "path": "data/current_study/usdc_2023_drpc.json",
+    "status": "available",
+    "snapshots": 26,
+    "replay": true,
+    "seconds": 499.54
+  },
+  {
+    "path": "data/current_study/usdc_2023_publicnode.json",
+    "status": "unknown",
+    "snapshots": 0,
+    "replay": true,
+    "seconds": 247.3
+  },
+  {
+    "path": "data/current_study/ftx_2022_drpc.json",
+    "status": "available",
+    "snapshots": 25,
+    "replay": true,
+    "seconds": 419.37
+  },
+  {
+    "path": "data/current_study/ftx_2022_publicnode.json",
+    "status": "unknown",
+    "snapshots": 0,
+    "replay": true,
+    "seconds": 229.98
+  }
+]

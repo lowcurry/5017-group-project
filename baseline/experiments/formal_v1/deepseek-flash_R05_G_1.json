@@ -1,0 +1,1578 @@
+{
+  "task_id": "R05",
+  "group": "G",
+  "status": "completed",
+  "error": null,
+  "report": {
+    "task_id": "R05",
+    "answer": "2022-11-09 00:00 至 11-10 00:00 的 UTC 小时网格上，USDC 在 3pool 的占比由初始降至末日，变化为 -18.38 个百分点，反映 FTX 事件期间资金撤离 USDC 的显著失衡。允许小时采样中，L1 失衡最大值出现在 11-09 15:00 UTC，为 0.3479，但该值仅为采样点最大值，非连续时间真实峰值。其后一小时（16:00 UTC）10 万 USDC→USDT 报价率为 1.001223 USDT/USDC。",
+    "claims": [
+      {
+        "claim_id": "C1",
+        "slot_id": "S1",
+        "query": {
+          "metric": "share_pct",
+          "operation": "change",
+          "coin": "USDC",
+          "start": "2022-11-09T00:00:00Z",
+          "end": "2022-11-10T00:00:00Z"
+        },
+        "value": "-18.383896327572816",
+        "unit": "percentage_points",
+        "status": "supported",
+        "explanation": "USDC 占比在窗口内末减初为 -18.38 个百分点。",
+        "depends_on": [],
+        "evidence_ids": [
+          "E_UTC_20221109T000000Z",
+          "E_UTC_20221110T000000Z"
+        ],
+        "formula_version": "3pool-erc20-balanceOf-20261102",
+        "dataset_sha256": "79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055"
+      },
+      {
+        "claim_id": "C2",
+        "slot_id": "S2",
+        "query": {
+          "metric": "imbalance_l1",
+          "operation": "maximum",
+          "start": "2022-11-09T00:00:00Z",
+          "end": "2022-11-10T00:00:00Z"
+        },
+        "value": "0.34786479754237963",
+        "unit": "dimensionless",
+        "status": "supported",
+        "explanation": "允许小时网格采样的 L1 失衡最大值出现在 2022-11-09T15:00:00Z；仅为采样最大值，非连续时间峰值。",
+        "depends_on": [],
+        "evidence_ids": [
+          "E_UTC_20221109T000000Z",
+          "E_UTC_20221109T010000Z",
+          "E_UTC_20221109T020000Z",
+          "E_UTC_20221109T030000Z",
+          "E_UTC_20221109T040000Z",
+          "E_UTC_20221109T050000Z",
+          "E_UTC_20221109T060000Z",
+          "E_UTC_20221109T070000Z",
+          "E_UTC_20221109T080000Z",
+          "E_UTC_20221109T090000Z",
+          "E_UTC_20221109T100000Z",
+          "E_UTC_20221109T110000Z",
+          "E_UTC_20221109T120000Z",
+          "E_UTC_20221109T130000Z",
+          "E_UTC_20221109T140000Z",
+          "E_UTC_20221109T150000Z",
+          "E_UTC_20221109T160000Z",
+          "E_UTC_20221109T170000Z",
+          "E_UTC_20221109T180000Z",
+          "E_UTC_20221109T190000Z",
+          "E_UTC_20221109T200000Z",
+          "E_UTC_20221109T210000Z",
+          "E_UTC_20221109T220000Z",
+          "E_UTC_20221109T230000Z",
+          "E_UTC_20221110T000000Z"
+        ],
+        "formula_version": "3pool-erc20-balanceOf-20261102",
+        "dataset_sha256": "79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055",
+        "target_timestamp_utc": "2022-11-09T15:00:00Z"
+      },
+      {
+        "claim_id": "C3",
+        "slot_id": "S3",
+        "query": {
+          "metric": "quote_rate",
+          "operation": "last",
+          "direction": "USDC_USDT",
+          "size": 100000,
+          "start": "2022-11-09T16:00:00Z",
+          "end": "2022-11-09T16:00:00Z"
+        },
+        "value": "1.0012227852",
+        "unit": "USDT/USDC",
+        "status": "supported",
+        "explanation": "S2 时点(15:00 UTC)后一小时即 16:00 UTC，10 万 USDC→USDT 报价率为 1.001223 USDT/USDC。",
+        "depends_on": [
+          "S2"
+        ],
+        "evidence_ids": [
+          "E_UTC_20221109T160000Z"
+        ],
+        "formula_version": "3pool-erc20-balanceOf-20261102",
+        "dataset_sha256": "79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055",
+        "target_timestamp_utc": "2022-11-09T16:00:00Z"
+      }
+    ]
+  },
+  "trace": [
+    {
+      "request_messages": [
+        {
+          "role": "system",
+          "content": "You are a Curve 3pool investigation agent. Use only this task's permitted data and supplied tools. Return exactly one JSON action each turn, with no markdown. Actions:\n{\"action\":\"read_window\",\"start\":\"UTC ISO\",\"end\":\"UTC ISO\"}\n{\"action\":\"calculate\",\"query\":{\"metric\":\"share_pct|quote_rate|size_sensitivity_bps|imbalance_l1\",\"operation\":\"first|last|change|maximum|max_hourly_change\",\"start\":\"UTC ISO\",\"end\":\"UTC ISO\",\"coin\":\"DAI|USDC|USDT\",\"direction\":\"USDC_USDT|USDT_USDC\",\"size\":1000}}\nOmit irrelevant query keys. A calculate request returns raw-evidence labels and calculation metadata. max_hourly_change compares only adjacent permitted hourly points, never across a gap. Read/calculation permissions are identical in G and E.\n{\"action\":\"submit\",\"report_json\":\"JSON STRING containing the final report\"}\nReport object: task_id, answer (150–250 Chinese characters of investigation text), claims array. Each claim: unique claim_id, slot_id, query, value (decimal string, or null if refused), unit, status (supported/refused/unsupported), explanation, depends_on (slot IDs), optional evidence_ids, formula_version, dataset_sha256, target_timestamp_utc (for a focused observation), interval_start/interval_end (for an hourly change). Evidence fields are available to all groups. Provide exactly one claim per required slot. Refuse only when the allowed evidence cannot support the requested component; give a specific reason. Continuous-time peaks cannot be determined by hourly sampling. Preserve units, directions and exact target windows. Raw numerical values and reference answers are not given before tool use. You have no independent verifier during generation."
+        },
+        {
+          "role": "user",
+          "content": "{\"balance_source\":\"erc20_balance_of_pool\",\"dataset_sha256\":\"79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055\",\"decimals\":{\"DAI\":18,\"USDC\":6,\"USDT\":6},\"formula_version\":\"3pool-erc20-balanceOf-20261102\",\"task\":{\"allowed_evidence\":{\"excluded_targets\":[]},\"event_id\":\"ftx_2022\",\"question\":\"窗口与追问\",\"required_components\":[{\"label\":\"USDC 占比末减初\",\"request\":{\"coin\":\"USDC\",\"end\":\"2022-11-10T00:00:00Z\",\"metric\":\"share_pct\",\"operation\":\"change\",\"start\":\"2022-11-09T00:00:00Z\"},\"slot_id\":\"S1\"},{\"label\":\"允许小时网格的采样失衡最大值及目标时点\",\"request\":{\"end\":\"2022-11-10T00:00:00Z\",\"metric\":\"imbalance_l1\",\"operation\":\"maximum\",\"start\":\"2022-11-09T00:00:00Z\"},\"slot_id\":\"S2\"},{\"label\":\"S2 返回时点后一小时的 100000 USDC→USDT 报价率\",\"request\":{\"direction\":\"USDC_USDT\",\"metric\":\"quote_rate\",\"offset_hours\":1,\"operation\":\"last\",\"size\":100000,\"time_from_slot\":\"S2\"},\"slot_id\":\"S3\"}],\"task_id\":\"R05\",\"window\":{\"end\":\"2022-11-10T00:00:00Z\",\"start\":\"2022-11-09T00:00:00Z\"}},\"token_contracts\":{\"DAI\":\"0x6b175474e89094c44da98b954eedeac495271d0f\",\"USDC\":\"0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\",\"USDT\":\"0xdac17f958d2ee523a2206206994597c13d831ec7\"},\"units\":{\"imbalance_l1\":\"dimensionless\",\"quote_rate\":\"destination/source\",\"share_change\":\"percentage_points\",\"share_pct\":\"percent\",\"size_sensitivity_bps\":\"basis_points\"}}"
+        }
+      ],
+      "raw_response": "{\"action\":\"calculate\",\"query\":{\"metric\":\"share_pct\",\"operation\":\"change\",\"coin\":\"USDC\",\"start\":\"2022-11-09T00:00:00Z\",\"end\":\"2022-11-10T00:00:00Z\"}}",
+      "metadata": {
+        "model": "deepseek-flash",
+        "status": "stop",
+        "usage": {
+          "prompt_tokens": 893,
+          "completion_tokens": 55,
+          "total_tokens": 948,
+          "prompt_tokens_details": {
+            "cached_tokens": 640
+          },
+          "prompt_cache_hit_tokens": 640,
+          "prompt_cache_miss_tokens": 253
+        },
+        "response_id": "f86503ac-58ce-4825-9548-10d0f8fc93f4",
+        "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+        "input_upper_bound": 5377
+      }
+    },
+    {
+      "request_messages": [
+        {
+          "role": "system",
+          "content": "You are a Curve 3pool investigation agent. Use only this task's permitted data and supplied tools. Return exactly one JSON action each turn, with no markdown. Actions:\n{\"action\":\"read_window\",\"start\":\"UTC ISO\",\"end\":\"UTC ISO\"}\n{\"action\":\"calculate\",\"query\":{\"metric\":\"share_pct|quote_rate|size_sensitivity_bps|imbalance_l1\",\"operation\":\"first|last|change|maximum|max_hourly_change\",\"start\":\"UTC ISO\",\"end\":\"UTC ISO\",\"coin\":\"DAI|USDC|USDT\",\"direction\":\"USDC_USDT|USDT_USDC\",\"size\":1000}}\nOmit irrelevant query keys. A calculate request returns raw-evidence labels and calculation metadata. max_hourly_change compares only adjacent permitted hourly points, never across a gap. Read/calculation permissions are identical in G and E.\n{\"action\":\"submit\",\"report_json\":\"JSON STRING containing the final report\"}\nReport object: task_id, answer (150–250 Chinese characters of investigation text), claims array. Each claim: unique claim_id, slot_id, query, value (decimal string, or null if refused), unit, status (supported/refused/unsupported), explanation, depends_on (slot IDs), optional evidence_ids, formula_version, dataset_sha256, target_timestamp_utc (for a focused observation), interval_start/interval_end (for an hourly change). Evidence fields are available to all groups. Provide exactly one claim per required slot. Refuse only when the allowed evidence cannot support the requested component; give a specific reason. Continuous-time peaks cannot be determined by hourly sampling. Preserve units, directions and exact target windows. Raw numerical values and reference answers are not given before tool use. You have no independent verifier during generation."
+        },
+        {
+          "role": "user",
+          "content": "{\"balance_source\":\"erc20_balance_of_pool\",\"dataset_sha256\":\"79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055\",\"decimals\":{\"DAI\":18,\"USDC\":6,\"USDT\":6},\"formula_version\":\"3pool-erc20-balanceOf-20261102\",\"task\":{\"allowed_evidence\":{\"excluded_targets\":[]},\"event_id\":\"ftx_2022\",\"question\":\"窗口与追问\",\"required_components\":[{\"label\":\"USDC 占比末减初\",\"request\":{\"coin\":\"USDC\",\"end\":\"2022-11-10T00:00:00Z\",\"metric\":\"share_pct\",\"operation\":\"change\",\"start\":\"2022-11-09T00:00:00Z\"},\"slot_id\":\"S1\"},{\"label\":\"允许小时网格的采样失衡最大值及目标时点\",\"request\":{\"end\":\"2022-11-10T00:00:00Z\",\"metric\":\"imbalance_l1\",\"operation\":\"maximum\",\"start\":\"2022-11-09T00:00:00Z\"},\"slot_id\":\"S2\"},{\"label\":\"S2 返回时点后一小时的 100000 USDC→USDT 报价率\",\"request\":{\"direction\":\"USDC_USDT\",\"metric\":\"quote_rate\",\"offset_hours\":1,\"operation\":\"last\",\"size\":100000,\"time_from_slot\":\"S2\"},\"slot_id\":\"S3\"}],\"task_id\":\"R05\",\"window\":{\"end\":\"2022-11-10T00:00:00Z\",\"start\":\"2022-11-09T00:00:00Z\"}},\"token_contracts\":{\"DAI\":\"0x6b175474e89094c44da98b954eedeac495271d0f\",\"USDC\":\"0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\",\"USDT\":\"0xdac17f958d2ee523a2206206994597c13d831ec7\"},\"units\":{\"imbalance_l1\":\"dimensionless\",\"quote_rate\":\"destination/source\",\"share_change\":\"percentage_points\",\"share_pct\":\"percent\",\"size_sensitivity_bps\":\"basis_points\"}}"
+        },
+        {
+          "role": "assistant",
+          "content": "{\"action\":\"calculate\",\"query\":{\"metric\":\"share_pct\",\"operation\":\"change\",\"coin\":\"USDC\",\"start\":\"2022-11-09T00:00:00Z\",\"end\":\"2022-11-10T00:00:00Z\"}}"
+        },
+        {
+          "role": "user",
+          "content": "{\"tool_result\":{\"evidence_ids\":[\"E_UTC_20221109T000000Z\",\"E_UTC_20221110T000000Z\"],\"query\":{\"coin\":\"USDC\",\"end\":\"2022-11-10T00:00:00Z\",\"metric\":\"share_pct\",\"operation\":\"change\",\"start\":\"2022-11-09T00:00:00Z\"},\"unit\":\"percentage_points\",\"value\":\"-18.3838963275728161995907012028447201796890808800132331450046\"}}"
+        }
+      ],
+      "raw_response": "{\"action\":\"calculate\",\"query\":{\"metric\":\"imbalance_l1\",\"operation\":\"maximum\",\"start\":\"2022-11-09T00:00:00Z\",\"end\":\"2022-11-10T00:00:00Z\"}}",
+      "metadata": {
+        "model": "deepseek-flash",
+        "status": "stop",
+        "usage": {
+          "prompt_tokens": 1067,
+          "completion_tokens": 51,
+          "total_tokens": 1118,
+          "prompt_tokens_details": {
+            "cached_tokens": 896
+          },
+          "prompt_cache_hit_tokens": 896,
+          "prompt_cache_miss_tokens": 171
+        },
+        "response_id": "16c97c6e-4204-44ab-928a-90153cb600bd",
+        "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+        "input_upper_bound": 6986
+      }
+    },
+    {
+      "request_messages": [
+        {
+          "role": "system",
+          "content": "You are a Curve 3pool investigation agent. Use only this task's permitted data and supplied tools. Return exactly one JSON action each turn, with no markdown. Actions:\n{\"action\":\"read_window\",\"start\":\"UTC ISO\",\"end\":\"UTC ISO\"}\n{\"action\":\"calculate\",\"query\":{\"metric\":\"share_pct|quote_rate|size_sensitivity_bps|imbalance_l1\",\"operation\":\"first|last|change|maximum|max_hourly_change\",\"start\":\"UTC ISO\",\"end\":\"UTC ISO\",\"coin\":\"DAI|USDC|USDT\",\"direction\":\"USDC_USDT|USDT_USDC\",\"size\":1000}}\nOmit irrelevant query keys. A calculate request returns raw-evidence labels and calculation metadata. max_hourly_change compares only adjacent permitted hourly points, never across a gap. Read/calculation permissions are identical in G and E.\n{\"action\":\"submit\",\"report_json\":\"JSON STRING containing the final report\"}\nReport object: task_id, answer (150–250 Chinese characters of investigation text), claims array. Each claim: unique claim_id, slot_id, query, value (decimal string, or null if refused), unit, status (supported/refused/unsupported), explanation, depends_on (slot IDs), optional evidence_ids, formula_version, dataset_sha256, target_timestamp_utc (for a focused observation), interval_start/interval_end (for an hourly change). Evidence fields are available to all groups. Provide exactly one claim per required slot. Refuse only when the allowed evidence cannot support the requested component; give a specific reason. Continuous-time peaks cannot be determined by hourly sampling. Preserve units, directions and exact target windows. Raw numerical values and reference answers are not given before tool use. You have no independent verifier during generation."
+        },
+        {
+          "role": "user",
+          "content": "{\"balance_source\":\"erc20_balance_of_pool\",\"dataset_sha256\":\"79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055\",\"decimals\":{\"DAI\":18,\"USDC\":6,\"USDT\":6},\"formula_version\":\"3pool-erc20-balanceOf-20261102\",\"task\":{\"allowed_evidence\":{\"excluded_targets\":[]},\"event_id\":\"ftx_2022\",\"question\":\"窗口与追问\",\"required_components\":[{\"label\":\"USDC 占比末减初\",\"request\":{\"coin\":\"USDC\",\"end\":\"2022-11-10T00:00:00Z\",\"metric\":\"share_pct\",\"operation\":\"change\",\"start\":\"2022-11-09T00:00:00Z\"},\"slot_id\":\"S1\"},{\"label\":\"允许小时网格的采样失衡最大值及目标时点\",\"request\":{\"end\":\"2022-11-10T00:00:00Z\",\"metric\":\"imbalance_l1\",\"operation\":\"maximum\",\"start\":\"2022-11-09T00:00:00Z\"},\"slot_id\":\"S2\"},{\"label\":\"S2 返回时点后一小时的 100000 USDC→USDT 报价率\",\"request\":{\"direction\":\"USDC_USDT\",\"metric\":\"quote_rate\",\"offset_hours\":1,\"operation\":\"last\",\"size\":100000,\"time_from_slot\":\"S2\"},\"slot_id\":\"S3\"}],\"task_id\":\"R05\",\"window\":{\"end\":\"2022-11-10T00:00:00Z\",\"start\":\"2022-11-09T00:00:00Z\"}},\"token_contracts\":{\"DAI\":\"0x6b175474e89094c44da98b954eedeac495271d0f\",\"USDC\":\"0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\",\"USDT\":\"0xdac17f958d2ee523a2206206994597c13d831ec7\"},\"units\":{\"imbalance_l1\":\"dimensionless\",\"quote_rate\":\"destination/source\",\"share_change\":\"percentage_points\",\"share_pct\":\"percent\",\"size_sensitivity_bps\":\"basis_points\"}}"
+        },
+        {
+          "role": "assistant",
+          "content": "{\"action\":\"calculate\",\"query\":{\"metric\":\"share_pct\",\"operation\":\"change\",\"coin\":\"USDC\",\"start\":\"2022-11-09T00:00:00Z\",\"end\":\"2022-11-10T00:00:00Z\"}}"
+        },
+        {
+          "role": "user",
+          "content": "{\"tool_result\":{\"evidence_ids\":[\"E_UTC_20221109T000000Z\",\"E_UTC_20221110T000000Z\"],\"query\":{\"coin\":\"USDC\",\"end\":\"2022-11-10T00:00:00Z\",\"metric\":\"share_pct\",\"operation\":\"change\",\"start\":\"2022-11-09T00:00:00Z\"},\"unit\":\"percentage_points\",\"value\":\"-18.3838963275728161995907012028447201796890808800132331450046\"}}"
+        },
+        {
+          "role": "assistant",
+          "content": "{\"action\":\"calculate\",\"query\":{\"metric\":\"imbalance_l1\",\"operation\":\"maximum\",\"start\":\"2022-11-09T00:00:00Z\",\"end\":\"2022-11-10T00:00:00Z\"}}"
+        },
+        {
+          "role": "user",
+          "content": "{\"tool_result\":{\"block_hash\":\"0x2cb6fc089876256989d86d5a2528f7c1d3d006b1d28993ff4df3e273955cf4a4\",\"block_number\":15933220,\"calculation_id\":\"C_6cde71af23be9dca\",\"evidence_ids\":[\"E_UTC_20221109T000000Z\",\"E_UTC_20221109T010000Z\",\"E_UTC_20221109T020000Z\",\"E_UTC_20221109T030000Z\",\"E_UTC_20221109T040000Z\",\"E_UTC_20221109T050000Z\",\"E_UTC_20221109T060000Z\",\"E_UTC_20221109T070000Z\",\"E_UTC_20221109T080000Z\",\"E_UTC_20221109T090000Z\",\"E_UTC_20221109T100000Z\",\"E_UTC_20221109T110000Z\",\"E_UTC_20221109T120000Z\",\"E_UTC_20221109T130000Z\",\"E_UTC_20221109T140000Z\",\"E_UTC_20221109T150000Z\",\"E_UTC_20221109T160000Z\",\"E_UTC_20221109T170000Z\",\"E_UTC_20221109T180000Z\",\"E_UTC_20221109T190000Z\",\"E_UTC_20221109T200000Z\",\"E_UTC_20221109T210000Z\",\"E_UTC_20221109T220000Z\",\"E_UTC_20221109T230000Z\",\"E_UTC_20221110T000000Z\"],\"metrics_version\":\"1.0\",\"observed_at\":\"2022-11-09T14:59:59Z\",\"query\":{\"end\":\"2022-11-10T00:00:00Z\",\"metric\":\"imbalance_l1\",\"operation\":\"maximum\",\"start\":\"2022-11-09T00:00:00Z\"},\"sample_count\":25,\"scope\":\"maximum among collected target observations, not a continuous-time maximum\",\"snapshot_id\":\"UTC_20221109T150000Z\",\"target_timestamp_utc\":\"2022-11-09T15:00:00Z\",\"unit\":\"dimensionless\",\"value\":\"0.34786479754237962650930991503084061319118647538394050755239845154939455664675356\"}}"
+        }
+      ],
+      "raw_response": "{\"action\":\"calculate\",\"query\":{\"metric\":\"quote_rate\",\"operation\":\"last\",\"direction\":\"USDC_USDT\",\"size\":100000,\"start\":\"2022-11-09T16:00:00Z\",\"end\":\"2022-11-09T16:00:00Z\"}}",
+      "metadata": {
+        "model": "deepseek-flash",
+        "status": "stop",
+        "usage": {
+          "prompt_tokens": 1662,
+          "completion_tokens": 61,
+          "total_tokens": 1723,
+          "prompt_tokens_details": {
+            "cached_tokens": 1408
+          },
+          "prompt_cache_hit_tokens": 1408,
+          "prompt_cache_miss_tokens": 254
+        },
+        "response_id": "e2dde81b-c85c-4159-b69d-2bf4af2238df",
+        "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+        "input_upper_bound": 9627
+      }
+    },
+    {
+      "request_messages": [
+        {
+          "role": "system",
+          "content": "You are a Curve 3pool investigation agent. Use only this task's permitted data and supplied tools. Return exactly one JSON action each turn, with no markdown. Actions:\n{\"action\":\"read_window\",\"start\":\"UTC ISO\",\"end\":\"UTC ISO\"}\n{\"action\":\"calculate\",\"query\":{\"metric\":\"share_pct|quote_rate|size_sensitivity_bps|imbalance_l1\",\"operation\":\"first|last|change|maximum|max_hourly_change\",\"start\":\"UTC ISO\",\"end\":\"UTC ISO\",\"coin\":\"DAI|USDC|USDT\",\"direction\":\"USDC_USDT|USDT_USDC\",\"size\":1000}}\nOmit irrelevant query keys. A calculate request returns raw-evidence labels and calculation metadata. max_hourly_change compares only adjacent permitted hourly points, never across a gap. Read/calculation permissions are identical in G and E.\n{\"action\":\"submit\",\"report_json\":\"JSON STRING containing the final report\"}\nReport object: task_id, answer (150–250 Chinese characters of investigation text), claims array. Each claim: unique claim_id, slot_id, query, value (decimal string, or null if refused), unit, status (supported/refused/unsupported), explanation, depends_on (slot IDs), optional evidence_ids, formula_version, dataset_sha256, target_timestamp_utc (for a focused observation), interval_start/interval_end (for an hourly change). Evidence fields are available to all groups. Provide exactly one claim per required slot. Refuse only when the allowed evidence cannot support the requested component; give a specific reason. Continuous-time peaks cannot be determined by hourly sampling. Preserve units, directions and exact target windows. Raw numerical values and reference answers are not given before tool use. You have no independent verifier during generation."
+        },
+        {
+          "role": "user",
+          "content": "{\"balance_source\":\"erc20_balance_of_pool\",\"dataset_sha256\":\"79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055\",\"decimals\":{\"DAI\":18,\"USDC\":6,\"USDT\":6},\"formula_version\":\"3pool-erc20-balanceOf-20261102\",\"task\":{\"allowed_evidence\":{\"excluded_targets\":[]},\"event_id\":\"ftx_2022\",\"question\":\"窗口与追问\",\"required_components\":[{\"label\":\"USDC 占比末减初\",\"request\":{\"coin\":\"USDC\",\"end\":\"2022-11-10T00:00:00Z\",\"metric\":\"share_pct\",\"operation\":\"change\",\"start\":\"2022-11-09T00:00:00Z\"},\"slot_id\":\"S1\"},{\"label\":\"允许小时网格的采样失衡最大值及目标时点\",\"request\":{\"end\":\"2022-11-10T00:00:00Z\",\"metric\":\"imbalance_l1\",\"operation\":\"maximum\",\"start\":\"2022-11-09T00:00:00Z\"},\"slot_id\":\"S2\"},{\"label\":\"S2 返回时点后一小时的 100000 USDC→USDT 报价率\",\"request\":{\"direction\":\"USDC_USDT\",\"metric\":\"quote_rate\",\"offset_hours\":1,\"operation\":\"last\",\"size\":100000,\"time_from_slot\":\"S2\"},\"slot_id\":\"S3\"}],\"task_id\":\"R05\",\"window\":{\"end\":\"2022-11-10T00:00:00Z\",\"start\":\"2022-11-09T00:00:00Z\"}},\"token_contracts\":{\"DAI\":\"0x6b175474e89094c44da98b954eedeac495271d0f\",\"USDC\":\"0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\",\"USDT\":\"0xdac17f958d2ee523a2206206994597c13d831ec7\"},\"units\":{\"imbalance_l1\":\"dimensionless\",\"quote_rate\":\"destination/source\",\"share_change\":\"percentage_points\",\"share_pct\":\"percent\",\"size_sensitivity_bps\":\"basis_points\"}}"
+        },
+        {
+          "role": "assistant",
+          "content": "{\"action\":\"calculate\",\"query\":{\"metric\":\"share_pct\",\"operation\":\"change\",\"coin\":\"USDC\",\"start\":\"2022-11-09T00:00:00Z\",\"end\":\"2022-11-10T00:00:00Z\"}}"
+        },
+        {
+          "role": "user",
+          "content": "{\"tool_result\":{\"evidence_ids\":[\"E_UTC_20221109T000000Z\",\"E_UTC_20221110T000000Z\"],\"query\":{\"coin\":\"USDC\",\"end\":\"2022-11-10T00:00:00Z\",\"metric\":\"share_pct\",\"operation\":\"change\",\"start\":\"2022-11-09T00:00:00Z\"},\"unit\":\"percentage_points\",\"value\":\"-18.3838963275728161995907012028447201796890808800132331450046\"}}"
+        },
+        {
+          "role": "assistant",
+          "content": "{\"action\":\"calculate\",\"query\":{\"metric\":\"imbalance_l1\",\"operation\":\"maximum\",\"start\":\"2022-11-09T00:00:00Z\",\"end\":\"2022-11-10T00:00:00Z\"}}"
+        },
+        {
+          "role": "user",
+          "content": "{\"tool_result\":{\"block_hash\":\"0x2cb6fc089876256989d86d5a2528f7c1d3d006b1d28993ff4df3e273955cf4a4\",\"block_number\":15933220,\"calculation_id\":\"C_6cde71af23be9dca\",\"evidence_ids\":[\"E_UTC_20221109T000000Z\",\"E_UTC_20221109T010000Z\",\"E_UTC_20221109T020000Z\",\"E_UTC_20221109T030000Z\",\"E_UTC_20221109T040000Z\",\"E_UTC_20221109T050000Z\",\"E_UTC_20221109T060000Z\",\"E_UTC_20221109T070000Z\",\"E_UTC_20221109T080000Z\",\"E_UTC_20221109T090000Z\",\"E_UTC_20221109T100000Z\",\"E_UTC_20221109T110000Z\",\"E_UTC_20221109T120000Z\",\"E_UTC_20221109T130000Z\",\"E_UTC_20221109T140000Z\",\"E_UTC_20221109T150000Z\",\"E_UTC_20221109T160000Z\",\"E_UTC_20221109T170000Z\",\"E_UTC_20221109T180000Z\",\"E_UTC_20221109T190000Z\",\"E_UTC_20221109T200000Z\",\"E_UTC_20221109T210000Z\",\"E_UTC_20221109T220000Z\",\"E_UTC_20221109T230000Z\",\"E_UTC_20221110T000000Z\"],\"metrics_version\":\"1.0\",\"observed_at\":\"2022-11-09T14:59:59Z\",\"query\":{\"end\":\"2022-11-10T00:00:00Z\",\"metric\":\"imbalance_l1\",\"operation\":\"maximum\",\"start\":\"2022-11-09T00:00:00Z\"},\"sample_count\":25,\"scope\":\"maximum among collected target observations, not a continuous-time maximum\",\"snapshot_id\":\"UTC_20221109T150000Z\",\"target_timestamp_utc\":\"2022-11-09T15:00:00Z\",\"unit\":\"dimensionless\",\"value\":\"0.34786479754237962650930991503084061319118647538394050755239845154939455664675356\"}}"
+        },
+        {
+          "role": "assistant",
+          "content": "{\"action\":\"calculate\",\"query\":{\"metric\":\"quote_rate\",\"operation\":\"last\",\"direction\":\"USDC_USDT\",\"size\":100000,\"start\":\"2022-11-09T16:00:00Z\",\"end\":\"2022-11-09T16:00:00Z\"}}"
+        },
+        {
+          "role": "user",
+          "content": "{\"tool_result\":{\"block_hash\":\"0xb0e8f2725717591a407610174f641c1a05b21977227432e22d9e03d1c629af21\",\"block_number\":15933518,\"calculation_id\":\"C_b8f1554949fdfb33\",\"evidence_ids\":[\"E_UTC_20221109T160000Z\"],\"metrics_version\":\"1.0\",\"observed_at\":\"2022-11-09T15:59:59Z\",\"query\":{\"direction\":\"USDC_USDT\",\"end\":\"2022-11-09T16:00:00Z\",\"metric\":\"quote_rate\",\"operation\":\"last\",\"size\":100000,\"start\":\"2022-11-09T16:00:00Z\"},\"sample_count\":1,\"snapshot_id\":\"UTC_20221109T160000Z\",\"target_timestamp_utc\":\"2022-11-09T16:00:00Z\",\"unit\":\"USDT/USDC\",\"value\":\"1.0012227852\"}}"
+        }
+      ],
+      "raw_response": "{\"action\":\"submit\",\"report_json\":\"{\\\"task_id\\\":\\\"R05\\\",\\\"answer\\\":\\\"2022-11-09 00:00 至 11-10 00:00 的 UTC 小时网格上，USDC 在 3pool 的占比由初始降至末日，变化为 -18.38 个百分点，反映 FTX 事件期间资金撤离 USDC 的显著失衡。允许小时采样中，L1 失衡最大值出现在 11-09 15:00 UTC，为 0.3479，但该值仅为采样点最大值，非连续时间真实峰值。其后一小时（16:00 UTC）10 万 USDC→USDT 报价率为 1.001223 USDT/USDC。\\\",\\\"claims\\\":[{\\\"claim_id\\\":\\\"C1\\\",\\\"slot_id\\\":\\\"S1\\\",\\\"query\\\":{\\\"metric\\\":\\\"share_pct\\\",\\\"operation\\\":\\\"change\\\",\\\"coin\\\":\\\"USDC\\\",\\\"start\\\":\\\"2022-11-09T00:00:00Z\\\",\\\"end\\\":\\\"2022-11-10T00:00:00Z\\\"},\\\"value\\\":\\\"-18.383896327572816\\\",\\\"unit\\\":\\\"percentage_points\\\",\\\"status\\\":\\\"supported\\\",\\\"explanation\\\":\\\"USDC 占比在窗口内末减初为 -18.38 个百分点。\\\",\\\"depends_on\\\":[],\\\"evidence_ids\\\":[\\\"E_UTC_20221109T000000Z\\\",\\\"E_UTC_20221110T000000Z\\\"],\\\"formula_version\\\":\\\"3pool-erc20-balanceOf-20261102\\\",\\\"dataset_sha256\\\":\\\"79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055\\\"},{\\\"claim_id\\\":\\\"C2\\\",\\\"slot_id\\\":\\\"S2\\\",\\\"query\\\":{\\\"metric\\\":\\\"imbalance_l1\\\",\\\"operation\\\":\\\"maximum\\\",\\\"start\\\":\\\"2022-11-09T00:00:00Z\\\",\\\"end\\\":\\\"2022-11-10T00:00:00Z\\\"},\\\"value\\\":\\\"0.34786479754237963\\\",\\\"unit\\\":\\\"dimensionless\\\",\\\"status\\\":\\\"supported\\\",\\\"explanation\\\":\\\"允许小时网格采样的 L1 失衡最大值出现在 2022-11-09T15:00:00Z；仅为采样最大值，非连续时间峰值。\\\",\\\"depends_on\\\":[],\\\"evidence_ids\\\":[\\\"E_UTC_20221109T000000Z\\\",\\\"E_UTC_20221109T010000Z\\\",\\\"E_UTC_20221109T020000Z\\\",\\\"E_UTC_20221109T030000Z\\\",\\\"E_UTC_20221109T040000Z\\\",\\\"E_UTC_20221109T050000Z\\\",\\\"E_UTC_20221109T060000Z\\\",\\\"E_UTC_20221109T070000Z\\\",\\\"E_UTC_20221109T080000Z\\\",\\\"E_UTC_20221109T090000Z\\\",\\\"E_UTC_20221109T100000Z\\\",\\\"E_UTC_20221109T110000Z\\\",\\\"E_UTC_20221109T120000Z\\\",\\\"E_UTC_20221109T130000Z\\\",\\\"E_UTC_20221109T140000Z\\\",\\\"E_UTC_20221109T150000Z\\\",\\\"E_UTC_20221109T160000Z\\\",\\\"E_UTC_20221109T170000Z\\\",\\\"E_UTC_20221109T180000Z\\\",\\\"E_UTC_20221109T190000Z\\\",\\\"E_UTC_20221109T200000Z\\\",\\\"E_UTC_20221109T210000Z\\\",\\\"E_UTC_20221109T220000Z\\\",\\\"E_UTC_20221109T230000Z\\\",\\\"E_UTC_20221110T000000Z\\\"],\\\"formula_version\\\":\\\"3pool-erc20-balanceOf-20261102\\\",\\\"dataset_sha256\\\":\\\"79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055\\\",\\\"target_timestamp_utc\\\":\\\"2022-11-09T15:00:00Z\\\"},{\\\"claim_id\\\":\\\"C3\\\",\\\"slot_id\\\":\\\"S3\\\",\\\"query\\\":{\\\"metric\\\":\\\"quote_rate\\\",\\\"operation\\\":\\\"last\\\",\\\"direction\\\":\\\"USDC_USDT\\\",\\\"size\\\":100000,\\\"start\\\":\\\"2022-11-09T16:00:00Z\\\",\\\"end\\\":\\\"2022-11-09T16:00:00Z\\\"},\\\"value\\\":\\\"1.0012227852\\\",\\\"unit\\\":\\\"USDT/USDC\\\",\\\"status\\\":\\\"supported\\\",\\\"explanation\\\":\\\"S2 时点(15:00 UTC)后一小时即 16:00 UTC，10 万 USDC→USDT 报价率为 1.001223 USDT/USDC。\\\",\\\"depends_on\\\":[\\\"S2\\\"],\\\"evidence_ids\\\":[\\\"E_UTC_20221109T160000Z\\\"],\\\"formula_version\\\":\\\"3pool-erc20-balanceOf-20261102\\\",\\\"dataset_sha256\\\":\\\"79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055\\\",\\\"target_timestamp_utc\\\":\\\"2022-11-09T16:00:00Z\\\"}]}\"}",
+      "metadata": {
+        "model": "deepseek-flash",
+        "status": "stop",
+        "usage": {
+          "prompt_tokens": 1948,
+          "completion_tokens": 1235,
+          "total_tokens": 3183,
+          "prompt_tokens_details": {
+            "cached_tokens": 1792
+          },
+          "prompt_cache_hit_tokens": 1792,
+          "prompt_cache_miss_tokens": 156
+        },
+        "response_id": "c4b9e7c7-c7bb-4795-9e36-0364bc4abc03",
+        "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+        "input_upper_bound": 11534
+      }
+    }
+  ],
+  "ledger": {
+    "enforcement": "client_prepaid_upper_bound_assumption",
+    "input_bound": "UTF-8 bytes of serialized messages + 512 bytes per message + 1024 fixed overhead; requires empirical validation",
+    "per_arm_limits": {
+      "input_tokens": 48000,
+      "output_tokens": 12000,
+      "total_tokens": 60000,
+      "model_calls": 10
+    },
+    "actual_usage": {
+      "input_tokens": 5570,
+      "output_tokens": 1402,
+      "total_tokens": 6972
+    },
+    "charged_or_reserved_usage": {
+      "input_tokens": 5570,
+      "output_tokens": 1402,
+      "total_tokens": 6972
+    },
+    "dispatched_model_calls": 4,
+    "complete_usage": true,
+    "unknown_usage_calls": 0,
+    "enforcement_violations": 0,
+    "general_hard_bound_proven": false,
+    "calls": [
+      {
+        "input_upper_bound": 5377,
+        "output_cap": 2048,
+        "state": "settled",
+        "usage": {
+          "input_tokens": 893,
+          "output_tokens": 55,
+          "cached_input_tokens": 640,
+          "reasoning_tokens": null,
+          "total_tokens": 948
+        }
+      },
+      {
+        "input_upper_bound": 6986,
+        "output_cap": 2048,
+        "state": "settled",
+        "usage": {
+          "input_tokens": 1067,
+          "output_tokens": 51,
+          "cached_input_tokens": 896,
+          "reasoning_tokens": null,
+          "total_tokens": 1118
+        }
+      },
+      {
+        "input_upper_bound": 9627,
+        "output_cap": 2048,
+        "state": "settled",
+        "usage": {
+          "input_tokens": 1662,
+          "output_tokens": 61,
+          "cached_input_tokens": 1408,
+          "reasoning_tokens": null,
+          "total_tokens": 1723
+        }
+      },
+      {
+        "input_upper_bound": 11534,
+        "output_cap": 2048,
+        "state": "settled",
+        "usage": {
+          "input_tokens": 1948,
+          "output_tokens": 1235,
+          "cached_input_tokens": 1792,
+          "reasoning_tokens": null,
+          "total_tokens": 3183
+        }
+      }
+    ]
+  },
+  "wall_seconds": 12.339988583999968,
+  "model_inference_attempted": true,
+  "model_inference_performed": true,
+  "run_id": "deepseek-flash_R05_G_1",
+  "repetition": 1,
+  "model": "deepseek-flash",
+  "score": {
+    "counts": {
+      "answerable": 3,
+      "correct": 3,
+      "reproducible_correct": 3,
+      "over_refusal": 0,
+      "omission": 0,
+      "unanswerable": 0,
+      "justified_refusal": 0,
+      "incorrect": 0
+    },
+    "primary_rate": 1.0,
+    "slots": [
+      {
+        "slot_id": "S1",
+        "state": "correct",
+        "replay": {
+          "verdict": "PASS",
+          "reason": "raw_recomputation_matches",
+          "expected": {
+            "query": {
+              "metric": "share_pct",
+              "operation": "change",
+              "start": "2022-11-09T00:00:00Z",
+              "end": "2022-11-10T00:00:00Z",
+              "coin": "USDC"
+            },
+            "value": "-18.3838963275728161995907012028447201796890808800132331450046",
+            "unit": "percentage_points",
+            "evidence_ids": [
+              "E_UTC_20221109T000000Z",
+              "E_UTC_20221110T000000Z"
+            ]
+          }
+        }
+      },
+      {
+        "slot_id": "S2",
+        "state": "correct",
+        "replay": {
+          "verdict": "PASS",
+          "reason": "raw_recomputation_matches",
+          "expected": {
+            "query": {
+              "metric": "imbalance_l1",
+              "operation": "maximum",
+              "start": "2022-11-09T00:00:00Z",
+              "end": "2022-11-10T00:00:00Z"
+            },
+            "value": "0.34786479754237962650930991503084061319118647538394050755239845154939455664675356",
+            "unit": "dimensionless",
+            "sample_count": 25,
+            "evidence_ids": [
+              "E_UTC_20221109T000000Z",
+              "E_UTC_20221109T010000Z",
+              "E_UTC_20221109T020000Z",
+              "E_UTC_20221109T030000Z",
+              "E_UTC_20221109T040000Z",
+              "E_UTC_20221109T050000Z",
+              "E_UTC_20221109T060000Z",
+              "E_UTC_20221109T070000Z",
+              "E_UTC_20221109T080000Z",
+              "E_UTC_20221109T090000Z",
+              "E_UTC_20221109T100000Z",
+              "E_UTC_20221109T110000Z",
+              "E_UTC_20221109T120000Z",
+              "E_UTC_20221109T130000Z",
+              "E_UTC_20221109T140000Z",
+              "E_UTC_20221109T150000Z",
+              "E_UTC_20221109T160000Z",
+              "E_UTC_20221109T170000Z",
+              "E_UTC_20221109T180000Z",
+              "E_UTC_20221109T190000Z",
+              "E_UTC_20221109T200000Z",
+              "E_UTC_20221109T210000Z",
+              "E_UTC_20221109T220000Z",
+              "E_UTC_20221109T230000Z",
+              "E_UTC_20221110T000000Z"
+            ],
+            "blocks": [
+              {
+                "snapshot_id": "UTC_20221109T000000Z",
+                "block_number": 15928753,
+                "block_hash": "0xe3987e59feed8962559ca1ac1409836ca3fe0d832806aeb4986a2ada033f9105"
+              },
+              {
+                "snapshot_id": "UTC_20221109T010000Z",
+                "block_number": 15929052,
+                "block_hash": "0x1931d4b2b9f123f5e2b9ae6a7b3be8f47b3a4b9c8115bad7173d746d99e32663"
+              },
+              {
+                "snapshot_id": "UTC_20221109T020000Z",
+                "block_number": 15929351,
+                "block_hash": "0x857ca0990f469db3f882c24a8fe0e517913a1e6dcde4386a82773c19ad7feb2e"
+              },
+              {
+                "snapshot_id": "UTC_20221109T030000Z",
+                "block_number": 15929650,
+                "block_hash": "0x42af0a79df48303028ca45d1a7cf368053175ec2bdf366da0092aed8537bbb71"
+              },
+              {
+                "snapshot_id": "UTC_20221109T040000Z",
+                "block_number": 15929947,
+                "block_hash": "0x34d9994db5f0f411b50d4df08480124e867947e08a4bcc415e62d36edb0a1f23"
+              },
+              {
+                "snapshot_id": "UTC_20221109T050000Z",
+                "block_number": 15930247,
+                "block_hash": "0x8efbcf33eb18160c83a908bda6e24578c4433905e3d72032000385b2d6ce4b92"
+              },
+              {
+                "snapshot_id": "UTC_20221109T060000Z",
+                "block_number": 15930547,
+                "block_hash": "0xc54ef150681359e91344af8a5b3ea74cd4589a239d768d6cd3a0c9f3f65f566c"
+              },
+              {
+                "snapshot_id": "UTC_20221109T070000Z",
+                "block_number": 15930846,
+                "block_hash": "0xd2018d9cf32857815e53c4b92644c5b7cc77843564094815cfae4eed1f0e6955"
+              },
+              {
+                "snapshot_id": "UTC_20221109T080000Z",
+                "block_number": 15931143,
+                "block_hash": "0x0fa11a38c8ec7c540311eb7e7a5f0cac9692c48a8e19108c613f17067e7ac177"
+              },
+              {
+                "snapshot_id": "UTC_20221109T090000Z",
+                "block_number": 15931440,
+                "block_hash": "0x0fbdd338f02f912f5b4eb0cf31ba66ca64acf5ae33bfe57e3b1167a5541fc30d"
+              },
+              {
+                "snapshot_id": "UTC_20221109T100000Z",
+                "block_number": 15931737,
+                "block_hash": "0x7587e4368c5d3404f9302682505ad85cf6c05b958dc6721d1151387708024a2b"
+              },
+              {
+                "snapshot_id": "UTC_20221109T110000Z",
+                "block_number": 15932035,
+                "block_hash": "0x07a2257cb7a6d57124fe0e5a411eae1e195acc7a8575b89a059c5550e0ce3c3b"
+              },
+              {
+                "snapshot_id": "UTC_20221109T120000Z",
+                "block_number": 15932330,
+                "block_hash": "0x7c11cd2d4858b59b3b2ae74177f39b2458a9acd57f22386b89f62157f765781a"
+              },
+              {
+                "snapshot_id": "UTC_20221109T130000Z",
+                "block_number": 15932627,
+                "block_hash": "0xd648c762e9b7cd184dfaa75baeafc2082382e307825e1ceb5b0b4581536ff748"
+              },
+              {
+                "snapshot_id": "UTC_20221109T140000Z",
+                "block_number": 15932923,
+                "block_hash": "0x7c68bda39be6907163e37d098cf59019c587e2f46cd6366bf716b17926e1856e"
+              },
+              {
+                "snapshot_id": "UTC_20221109T150000Z",
+                "block_number": 15933220,
+                "block_hash": "0x2cb6fc089876256989d86d5a2528f7c1d3d006b1d28993ff4df3e273955cf4a4"
+              },
+              {
+                "snapshot_id": "UTC_20221109T160000Z",
+                "block_number": 15933518,
+                "block_hash": "0xb0e8f2725717591a407610174f641c1a05b21977227432e22d9e03d1c629af21"
+              },
+              {
+                "snapshot_id": "UTC_20221109T170000Z",
+                "block_number": 15933816,
+                "block_hash": "0xb02c95fb158efba54de3e3634346c862679ef48603fd37b2b30c15683f981889"
+              },
+              {
+                "snapshot_id": "UTC_20221109T180000Z",
+                "block_number": 15934112,
+                "block_hash": "0x1600daea4d429c0b039d3369de1f36f9ad3d1e48e1866d44a99e9bfdc036f46f"
+              },
+              {
+                "snapshot_id": "UTC_20221109T190000Z",
+                "block_number": 15934412,
+                "block_hash": "0x0063d629c79e00e95fe47467757c464328a5722118ff0fc9cddf2bf3b534972e"
+              },
+              {
+                "snapshot_id": "UTC_20221109T200000Z",
+                "block_number": 15934707,
+                "block_hash": "0x60fe61e8368708e52494c92ac3dcc85a232b5460b648913a1bb134ca84264d06"
+              },
+              {
+                "snapshot_id": "UTC_20221109T210000Z",
+                "block_number": 15935003,
+                "block_hash": "0x94a888394097151a3ec6ab4e4e8c2b3130ba43d110dff082b8b102f842d2d548"
+              },
+              {
+                "snapshot_id": "UTC_20221109T220000Z",
+                "block_number": 15935302,
+                "block_hash": "0x4f03da04970a51fae6cd3c8c67a54d52b7355af170d515d3d4410aeedac45c6b"
+              },
+              {
+                "snapshot_id": "UTC_20221109T230000Z",
+                "block_number": 15935601,
+                "block_hash": "0xb957aafdbd56d92d2e33ac1ef652d7939868afbd97ab3a3c0db4dd3fbffc12bd"
+              },
+              {
+                "snapshot_id": "UTC_20221110T000000Z",
+                "block_number": 15935899,
+                "block_hash": "0x9ed34cb80a3f3fe3e020cf0dd69b2d14e589d65fca9adb2a56fc84b0c235b25d"
+              }
+            ],
+            "observed_at": "2022-11-09T14:59:59Z",
+            "target_timestamp_utc": "2022-11-09T15:00:00Z",
+            "snapshot_id": "UTC_20221109T150000Z",
+            "block_number": 15933220,
+            "block_hash": "0x2cb6fc089876256989d86d5a2528f7c1d3d006b1d28993ff4df3e273955cf4a4"
+          }
+        }
+      },
+      {
+        "slot_id": "S3",
+        "state": "correct",
+        "replay": {
+          "verdict": "PASS",
+          "reason": "raw_recomputation_matches",
+          "expected": {
+            "query": {
+              "metric": "quote_rate",
+              "operation": "last",
+              "start": "2022-11-09T16:00:00Z",
+              "end": "2022-11-09T16:00:00Z",
+              "direction": "USDC_USDT",
+              "size": 100000
+            },
+            "value": "1.0012227852",
+            "unit": "USDT/USDC",
+            "sample_count": 1,
+            "evidence_ids": [
+              "E_UTC_20221109T160000Z"
+            ],
+            "blocks": [
+              {
+                "snapshot_id": "UTC_20221109T160000Z",
+                "block_number": 15933518,
+                "block_hash": "0xb0e8f2725717591a407610174f641c1a05b21977227432e22d9e03d1c629af21"
+              }
+            ],
+            "observed_at": "2022-11-09T15:59:59Z",
+            "target_timestamp_utc": "2022-11-09T16:00:00Z",
+            "snapshot_id": "UTC_20221109T160000Z",
+            "block_number": 15933518,
+            "block_hash": "0xb0e8f2725717591a407610174f641c1a05b21977227432e22d9e03d1c629af21"
+          }
+        }
+      }
+    ],
+    "human_validation": true,
+    "extra_prose_status": "requires_independent_human_review"
+  },
+  "V1": {
+    "C1": {
+      "verdict": "PASS",
+      "reason": "raw_recomputation_matches",
+      "expected": {
+        "query": {
+          "metric": "share_pct",
+          "operation": "change",
+          "start": "2022-11-09T00:00:00Z",
+          "end": "2022-11-10T00:00:00Z",
+          "coin": "USDC"
+        },
+        "value": "-18.3838963275728161995907012028447201796890808800132331450046",
+        "unit": "percentage_points",
+        "evidence_ids": [
+          "E_UTC_20221109T000000Z",
+          "E_UTC_20221110T000000Z"
+        ]
+      }
+    },
+    "C2": {
+      "verdict": "PASS",
+      "reason": "raw_recomputation_matches",
+      "expected": {
+        "query": {
+          "metric": "imbalance_l1",
+          "operation": "maximum",
+          "start": "2022-11-09T00:00:00Z",
+          "end": "2022-11-10T00:00:00Z"
+        },
+        "value": "0.34786479754237962650930991503084061319118647538394050755239845154939455664675356",
+        "unit": "dimensionless",
+        "sample_count": 25,
+        "evidence_ids": [
+          "E_UTC_20221109T000000Z",
+          "E_UTC_20221109T010000Z",
+          "E_UTC_20221109T020000Z",
+          "E_UTC_20221109T030000Z",
+          "E_UTC_20221109T040000Z",
+          "E_UTC_20221109T050000Z",
+          "E_UTC_20221109T060000Z",
+          "E_UTC_20221109T070000Z",
+          "E_UTC_20221109T080000Z",
+          "E_UTC_20221109T090000Z",
+          "E_UTC_20221109T100000Z",
+          "E_UTC_20221109T110000Z",
+          "E_UTC_20221109T120000Z",
+          "E_UTC_20221109T130000Z",
+          "E_UTC_20221109T140000Z",
+          "E_UTC_20221109T150000Z",
+          "E_UTC_20221109T160000Z",
+          "E_UTC_20221109T170000Z",
+          "E_UTC_20221109T180000Z",
+          "E_UTC_20221109T190000Z",
+          "E_UTC_20221109T200000Z",
+          "E_UTC_20221109T210000Z",
+          "E_UTC_20221109T220000Z",
+          "E_UTC_20221109T230000Z",
+          "E_UTC_20221110T000000Z"
+        ],
+        "blocks": [
+          {
+            "snapshot_id": "UTC_20221109T000000Z",
+            "block_number": 15928753,
+            "block_hash": "0xe3987e59feed8962559ca1ac1409836ca3fe0d832806aeb4986a2ada033f9105"
+          },
+          {
+            "snapshot_id": "UTC_20221109T010000Z",
+            "block_number": 15929052,
+            "block_hash": "0x1931d4b2b9f123f5e2b9ae6a7b3be8f47b3a4b9c8115bad7173d746d99e32663"
+          },
+          {
+            "snapshot_id": "UTC_20221109T020000Z",
+            "block_number": 15929351,
+            "block_hash": "0x857ca0990f469db3f882c24a8fe0e517913a1e6dcde4386a82773c19ad7feb2e"
+          },
+          {
+            "snapshot_id": "UTC_20221109T030000Z",
+            "block_number": 15929650,
+            "block_hash": "0x42af0a79df48303028ca45d1a7cf368053175ec2bdf366da0092aed8537bbb71"
+          },
+          {
+            "snapshot_id": "UTC_20221109T040000Z",
+            "block_number": 15929947,
+            "block_hash": "0x34d9994db5f0f411b50d4df08480124e867947e08a4bcc415e62d36edb0a1f23"
+          },
+          {
+            "snapshot_id": "UTC_20221109T050000Z",
+            "block_number": 15930247,
+            "block_hash": "0x8efbcf33eb18160c83a908bda6e24578c4433905e3d72032000385b2d6ce4b92"
+          },
+          {
+            "snapshot_id": "UTC_20221109T060000Z",
+            "block_number": 15930547,
+            "block_hash": "0xc54ef150681359e91344af8a5b3ea74cd4589a239d768d6cd3a0c9f3f65f566c"
+          },
+          {
+            "snapshot_id": "UTC_20221109T070000Z",
+            "block_number": 15930846,
+            "block_hash": "0xd2018d9cf32857815e53c4b92644c5b7cc77843564094815cfae4eed1f0e6955"
+          },
+          {
+            "snapshot_id": "UTC_20221109T080000Z",
+            "block_number": 15931143,
+            "block_hash": "0x0fa11a38c8ec7c540311eb7e7a5f0cac9692c48a8e19108c613f17067e7ac177"
+          },
+          {
+            "snapshot_id": "UTC_20221109T090000Z",
+            "block_number": 15931440,
+            "block_hash": "0x0fbdd338f02f912f5b4eb0cf31ba66ca64acf5ae33bfe57e3b1167a5541fc30d"
+          },
+          {
+            "snapshot_id": "UTC_20221109T100000Z",
+            "block_number": 15931737,
+            "block_hash": "0x7587e4368c5d3404f9302682505ad85cf6c05b958dc6721d1151387708024a2b"
+          },
+          {
+            "snapshot_id": "UTC_20221109T110000Z",
+            "block_number": 15932035,
+            "block_hash": "0x07a2257cb7a6d57124fe0e5a411eae1e195acc7a8575b89a059c5550e0ce3c3b"
+          },
+          {
+            "snapshot_id": "UTC_20221109T120000Z",
+            "block_number": 15932330,
+            "block_hash": "0x7c11cd2d4858b59b3b2ae74177f39b2458a9acd57f22386b89f62157f765781a"
+          },
+          {
+            "snapshot_id": "UTC_20221109T130000Z",
+            "block_number": 15932627,
+            "block_hash": "0xd648c762e9b7cd184dfaa75baeafc2082382e307825e1ceb5b0b4581536ff748"
+          },
+          {
+            "snapshot_id": "UTC_20221109T140000Z",
+            "block_number": 15932923,
+            "block_hash": "0x7c68bda39be6907163e37d098cf59019c587e2f46cd6366bf716b17926e1856e"
+          },
+          {
+            "snapshot_id": "UTC_20221109T150000Z",
+            "block_number": 15933220,
+            "block_hash": "0x2cb6fc089876256989d86d5a2528f7c1d3d006b1d28993ff4df3e273955cf4a4"
+          },
+          {
+            "snapshot_id": "UTC_20221109T160000Z",
+            "block_number": 15933518,
+            "block_hash": "0xb0e8f2725717591a407610174f641c1a05b21977227432e22d9e03d1c629af21"
+          },
+          {
+            "snapshot_id": "UTC_20221109T170000Z",
+            "block_number": 15933816,
+            "block_hash": "0xb02c95fb158efba54de3e3634346c862679ef48603fd37b2b30c15683f981889"
+          },
+          {
+            "snapshot_id": "UTC_20221109T180000Z",
+            "block_number": 15934112,
+            "block_hash": "0x1600daea4d429c0b039d3369de1f36f9ad3d1e48e1866d44a99e9bfdc036f46f"
+          },
+          {
+            "snapshot_id": "UTC_20221109T190000Z",
+            "block_number": 15934412,
+            "block_hash": "0x0063d629c79e00e95fe47467757c464328a5722118ff0fc9cddf2bf3b534972e"
+          },
+          {
+            "snapshot_id": "UTC_20221109T200000Z",
+            "block_number": 15934707,
+            "block_hash": "0x60fe61e8368708e52494c92ac3dcc85a232b5460b648913a1bb134ca84264d06"
+          },
+          {
+            "snapshot_id": "UTC_20221109T210000Z",
+            "block_number": 15935003,
+            "block_hash": "0x94a888394097151a3ec6ab4e4e8c2b3130ba43d110dff082b8b102f842d2d548"
+          },
+          {
+            "snapshot_id": "UTC_20221109T220000Z",
+            "block_number": 15935302,
+            "block_hash": "0x4f03da04970a51fae6cd3c8c67a54d52b7355af170d515d3d4410aeedac45c6b"
+          },
+          {
+            "snapshot_id": "UTC_20221109T230000Z",
+            "block_number": 15935601,
+            "block_hash": "0xb957aafdbd56d92d2e33ac1ef652d7939868afbd97ab3a3c0db4dd3fbffc12bd"
+          },
+          {
+            "snapshot_id": "UTC_20221110T000000Z",
+            "block_number": 15935899,
+            "block_hash": "0x9ed34cb80a3f3fe3e020cf0dd69b2d14e589d65fca9adb2a56fc84b0c235b25d"
+          }
+        ],
+        "observed_at": "2022-11-09T14:59:59Z",
+        "target_timestamp_utc": "2022-11-09T15:00:00Z",
+        "snapshot_id": "UTC_20221109T150000Z",
+        "block_number": 15933220,
+        "block_hash": "0x2cb6fc089876256989d86d5a2528f7c1d3d006b1d28993ff4df3e273955cf4a4"
+      }
+    },
+    "C3": {
+      "verdict": "PASS",
+      "reason": "raw_recomputation_matches",
+      "expected": {
+        "query": {
+          "metric": "quote_rate",
+          "operation": "last",
+          "start": "2022-11-09T16:00:00Z",
+          "end": "2022-11-09T16:00:00Z",
+          "direction": "USDC_USDT",
+          "size": 100000
+        },
+        "value": "1.0012227852",
+        "unit": "USDT/USDC",
+        "sample_count": 1,
+        "evidence_ids": [
+          "E_UTC_20221109T160000Z"
+        ],
+        "blocks": [
+          {
+            "snapshot_id": "UTC_20221109T160000Z",
+            "block_number": 15933518,
+            "block_hash": "0xb0e8f2725717591a407610174f641c1a05b21977227432e22d9e03d1c629af21"
+          }
+        ],
+        "observed_at": "2022-11-09T15:59:59Z",
+        "target_timestamp_utc": "2022-11-09T16:00:00Z",
+        "snapshot_id": "UTC_20221109T160000Z",
+        "block_number": 15933518,
+        "block_hash": "0xb0e8f2725717591a407610174f641c1a05b21977227432e22d9e03d1c629af21"
+      }
+    }
+  },
+  "V2": {
+    "C1": {
+      "verdict": "PASS",
+      "reason": "raw_recomputation_matches",
+      "expected": {
+        "query": {
+          "metric": "share_pct",
+          "operation": "change",
+          "start": "2022-11-09T00:00:00Z",
+          "end": "2022-11-10T00:00:00Z",
+          "coin": "USDC"
+        },
+        "value": "-18.3838963275728161995907012028447201796890808800132331450046",
+        "unit": "percentage_points",
+        "evidence_ids": [
+          "E_UTC_20221109T000000Z",
+          "E_UTC_20221110T000000Z"
+        ]
+      },
+      "source_recomputed": true,
+      "secondary_value": "-18.3838963275728161995907012028447201796890808800132331450046"
+    },
+    "C2": {
+      "verdict": "PASS",
+      "reason": "raw_recomputation_matches",
+      "expected": {
+        "query": {
+          "metric": "imbalance_l1",
+          "operation": "maximum",
+          "start": "2022-11-09T00:00:00Z",
+          "end": "2022-11-10T00:00:00Z"
+        },
+        "value": "0.34786479754237962650930991503084061319118647538394050755239845154939455664675356",
+        "unit": "dimensionless",
+        "sample_count": 25,
+        "evidence_ids": [
+          "E_UTC_20221109T000000Z",
+          "E_UTC_20221109T010000Z",
+          "E_UTC_20221109T020000Z",
+          "E_UTC_20221109T030000Z",
+          "E_UTC_20221109T040000Z",
+          "E_UTC_20221109T050000Z",
+          "E_UTC_20221109T060000Z",
+          "E_UTC_20221109T070000Z",
+          "E_UTC_20221109T080000Z",
+          "E_UTC_20221109T090000Z",
+          "E_UTC_20221109T100000Z",
+          "E_UTC_20221109T110000Z",
+          "E_UTC_20221109T120000Z",
+          "E_UTC_20221109T130000Z",
+          "E_UTC_20221109T140000Z",
+          "E_UTC_20221109T150000Z",
+          "E_UTC_20221109T160000Z",
+          "E_UTC_20221109T170000Z",
+          "E_UTC_20221109T180000Z",
+          "E_UTC_20221109T190000Z",
+          "E_UTC_20221109T200000Z",
+          "E_UTC_20221109T210000Z",
+          "E_UTC_20221109T220000Z",
+          "E_UTC_20221109T230000Z",
+          "E_UTC_20221110T000000Z"
+        ],
+        "blocks": [
+          {
+            "snapshot_id": "UTC_20221109T000000Z",
+            "block_number": 15928753,
+            "block_hash": "0xe3987e59feed8962559ca1ac1409836ca3fe0d832806aeb4986a2ada033f9105"
+          },
+          {
+            "snapshot_id": "UTC_20221109T010000Z",
+            "block_number": 15929052,
+            "block_hash": "0x1931d4b2b9f123f5e2b9ae6a7b3be8f47b3a4b9c8115bad7173d746d99e32663"
+          },
+          {
+            "snapshot_id": "UTC_20221109T020000Z",
+            "block_number": 15929351,
+            "block_hash": "0x857ca0990f469db3f882c24a8fe0e517913a1e6dcde4386a82773c19ad7feb2e"
+          },
+          {
+            "snapshot_id": "UTC_20221109T030000Z",
+            "block_number": 15929650,
+            "block_hash": "0x42af0a79df48303028ca45d1a7cf368053175ec2bdf366da0092aed8537bbb71"
+          },
+          {
+            "snapshot_id": "UTC_20221109T040000Z",
+            "block_number": 15929947,
+            "block_hash": "0x34d9994db5f0f411b50d4df08480124e867947e08a4bcc415e62d36edb0a1f23"
+          },
+          {
+            "snapshot_id": "UTC_20221109T050000Z",
+            "block_number": 15930247,
+            "block_hash": "0x8efbcf33eb18160c83a908bda6e24578c4433905e3d72032000385b2d6ce4b92"
+          },
+          {
+            "snapshot_id": "UTC_20221109T060000Z",
+            "block_number": 15930547,
+            "block_hash": "0xc54ef150681359e91344af8a5b3ea74cd4589a239d768d6cd3a0c9f3f65f566c"
+          },
+          {
+            "snapshot_id": "UTC_20221109T070000Z",
+            "block_number": 15930846,
+            "block_hash": "0xd2018d9cf32857815e53c4b92644c5b7cc77843564094815cfae4eed1f0e6955"
+          },
+          {
+            "snapshot_id": "UTC_20221109T080000Z",
+            "block_number": 15931143,
+            "block_hash": "0x0fa11a38c8ec7c540311eb7e7a5f0cac9692c48a8e19108c613f17067e7ac177"
+          },
+          {
+            "snapshot_id": "UTC_20221109T090000Z",
+            "block_number": 15931440,
+            "block_hash": "0x0fbdd338f02f912f5b4eb0cf31ba66ca64acf5ae33bfe57e3b1167a5541fc30d"
+          },
+          {
+            "snapshot_id": "UTC_20221109T100000Z",
+            "block_number": 15931737,
+            "block_hash": "0x7587e4368c5d3404f9302682505ad85cf6c05b958dc6721d1151387708024a2b"
+          },
+          {
+            "snapshot_id": "UTC_20221109T110000Z",
+            "block_number": 15932035,
+            "block_hash": "0x07a2257cb7a6d57124fe0e5a411eae1e195acc7a8575b89a059c5550e0ce3c3b"
+          },
+          {
+            "snapshot_id": "UTC_20221109T120000Z",
+            "block_number": 15932330,
+            "block_hash": "0x7c11cd2d4858b59b3b2ae74177f39b2458a9acd57f22386b89f62157f765781a"
+          },
+          {
+            "snapshot_id": "UTC_20221109T130000Z",
+            "block_number": 15932627,
+            "block_hash": "0xd648c762e9b7cd184dfaa75baeafc2082382e307825e1ceb5b0b4581536ff748"
+          },
+          {
+            "snapshot_id": "UTC_20221109T140000Z",
+            "block_number": 15932923,
+            "block_hash": "0x7c68bda39be6907163e37d098cf59019c587e2f46cd6366bf716b17926e1856e"
+          },
+          {
+            "snapshot_id": "UTC_20221109T150000Z",
+            "block_number": 15933220,
+            "block_hash": "0x2cb6fc089876256989d86d5a2528f7c1d3d006b1d28993ff4df3e273955cf4a4"
+          },
+          {
+            "snapshot_id": "UTC_20221109T160000Z",
+            "block_number": 15933518,
+            "block_hash": "0xb0e8f2725717591a407610174f641c1a05b21977227432e22d9e03d1c629af21"
+          },
+          {
+            "snapshot_id": "UTC_20221109T170000Z",
+            "block_number": 15933816,
+            "block_hash": "0xb02c95fb158efba54de3e3634346c862679ef48603fd37b2b30c15683f981889"
+          },
+          {
+            "snapshot_id": "UTC_20221109T180000Z",
+            "block_number": 15934112,
+            "block_hash": "0x1600daea4d429c0b039d3369de1f36f9ad3d1e48e1866d44a99e9bfdc036f46f"
+          },
+          {
+            "snapshot_id": "UTC_20221109T190000Z",
+            "block_number": 15934412,
+            "block_hash": "0x0063d629c79e00e95fe47467757c464328a5722118ff0fc9cddf2bf3b534972e"
+          },
+          {
+            "snapshot_id": "UTC_20221109T200000Z",
+            "block_number": 15934707,
+            "block_hash": "0x60fe61e8368708e52494c92ac3dcc85a232b5460b648913a1bb134ca84264d06"
+          },
+          {
+            "snapshot_id": "UTC_20221109T210000Z",
+            "block_number": 15935003,
+            "block_hash": "0x94a888394097151a3ec6ab4e4e8c2b3130ba43d110dff082b8b102f842d2d548"
+          },
+          {
+            "snapshot_id": "UTC_20221109T220000Z",
+            "block_number": 15935302,
+            "block_hash": "0x4f03da04970a51fae6cd3c8c67a54d52b7355af170d515d3d4410aeedac45c6b"
+          },
+          {
+            "snapshot_id": "UTC_20221109T230000Z",
+            "block_number": 15935601,
+            "block_hash": "0xb957aafdbd56d92d2e33ac1ef652d7939868afbd97ab3a3c0db4dd3fbffc12bd"
+          },
+          {
+            "snapshot_id": "UTC_20221110T000000Z",
+            "block_number": 15935899,
+            "block_hash": "0x9ed34cb80a3f3fe3e020cf0dd69b2d14e589d65fca9adb2a56fc84b0c235b25d"
+          }
+        ],
+        "observed_at": "2022-11-09T14:59:59Z",
+        "target_timestamp_utc": "2022-11-09T15:00:00Z",
+        "snapshot_id": "UTC_20221109T150000Z",
+        "block_number": 15933220,
+        "block_hash": "0x2cb6fc089876256989d86d5a2528f7c1d3d006b1d28993ff4df3e273955cf4a4"
+      },
+      "source_recomputed": true,
+      "secondary_value": "0.34786479754237962650930991503084061319118647538394050755239845154939455664675356"
+    },
+    "C3": {
+      "verdict": "PASS",
+      "reason": "raw_recomputation_matches",
+      "expected": {
+        "query": {
+          "metric": "quote_rate",
+          "operation": "last",
+          "start": "2022-11-09T16:00:00Z",
+          "end": "2022-11-09T16:00:00Z",
+          "direction": "USDC_USDT",
+          "size": 100000
+        },
+        "value": "1.0012227852",
+        "unit": "USDT/USDC",
+        "sample_count": 1,
+        "evidence_ids": [
+          "E_UTC_20221109T160000Z"
+        ],
+        "blocks": [
+          {
+            "snapshot_id": "UTC_20221109T160000Z",
+            "block_number": 15933518,
+            "block_hash": "0xb0e8f2725717591a407610174f641c1a05b21977227432e22d9e03d1c629af21"
+          }
+        ],
+        "observed_at": "2022-11-09T15:59:59Z",
+        "target_timestamp_utc": "2022-11-09T16:00:00Z",
+        "snapshot_id": "UTC_20221109T160000Z",
+        "block_number": 15933518,
+        "block_hash": "0xb0e8f2725717591a407610174f641c1a05b21977227432e22d9e03d1c629af21"
+      },
+      "source_recomputed": true,
+      "secondary_value": "1.0012227852"
+    }
+  },
+  "published": {
+    "task_id": "R05",
+    "answer": "C1: -18.383896327572816 percentage_points\nC2: 0.34786479754237963 dimensionless",
+    "claims": [
+      {
+        "claim_id": "C1",
+        "slot_id": "S1",
+        "query": {
+          "metric": "share_pct",
+          "operation": "change",
+          "coin": "USDC",
+          "start": "2022-11-09T00:00:00Z",
+          "end": "2022-11-10T00:00:00Z"
+        },
+        "value": "-18.383896327572816",
+        "unit": "percentage_points",
+        "status": "supported",
+        "explanation": "USDC 占比在窗口内末减初为 -18.38 个百分点。",
+        "depends_on": [],
+        "evidence_ids": [
+          "E_UTC_20221109T000000Z",
+          "E_UTC_20221110T000000Z"
+        ],
+        "formula_version": "3pool-erc20-balanceOf-20261102",
+        "dataset_sha256": "79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055"
+      },
+      {
+        "claim_id": "C2",
+        "slot_id": "S2",
+        "query": {
+          "metric": "imbalance_l1",
+          "operation": "maximum",
+          "start": "2022-11-09T00:00:00Z",
+          "end": "2022-11-10T00:00:00Z"
+        },
+        "value": "0.34786479754237963",
+        "unit": "dimensionless",
+        "status": "supported",
+        "explanation": "允许小时网格采样的 L1 失衡最大值出现在 2022-11-09T15:00:00Z；仅为采样最大值，非连续时间峰值。",
+        "depends_on": [],
+        "evidence_ids": [
+          "E_UTC_20221109T000000Z",
+          "E_UTC_20221109T010000Z",
+          "E_UTC_20221109T020000Z",
+          "E_UTC_20221109T030000Z",
+          "E_UTC_20221109T040000Z",
+          "E_UTC_20221109T050000Z",
+          "E_UTC_20221109T060000Z",
+          "E_UTC_20221109T070000Z",
+          "E_UTC_20221109T080000Z",
+          "E_UTC_20221109T090000Z",
+          "E_UTC_20221109T100000Z",
+          "E_UTC_20221109T110000Z",
+          "E_UTC_20221109T120000Z",
+          "E_UTC_20221109T130000Z",
+          "E_UTC_20221109T140000Z",
+          "E_UTC_20221109T150000Z",
+          "E_UTC_20221109T160000Z",
+          "E_UTC_20221109T170000Z",
+          "E_UTC_20221109T180000Z",
+          "E_UTC_20221109T190000Z",
+          "E_UTC_20221109T200000Z",
+          "E_UTC_20221109T210000Z",
+          "E_UTC_20221109T220000Z",
+          "E_UTC_20221109T230000Z",
+          "E_UTC_20221110T000000Z"
+        ],
+        "formula_version": "3pool-erc20-balanceOf-20261102",
+        "dataset_sha256": "79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055",
+        "target_timestamp_utc": "2022-11-09T15:00:00Z"
+      }
+    ],
+    "withdrawals": [
+      {
+        "claim_id": "C3",
+        "verdict": "UNKNOWN",
+        "reason": "withdrawn_dependency"
+      }
+    ]
+  },
+  "verification": {
+    "C1": {
+      "verdict": "PASS",
+      "reason": "raw_recomputation_matches",
+      "expected": {
+        "query": {
+          "metric": "share_pct",
+          "operation": "change",
+          "start": "2022-11-09T00:00:00Z",
+          "end": "2022-11-10T00:00:00Z",
+          "coin": "USDC"
+        },
+        "value": "-18.3838963275728161995907012028447201796890808800132331450046",
+        "unit": "percentage_points",
+        "evidence_ids": [
+          "E_UTC_20221109T000000Z",
+          "E_UTC_20221110T000000Z"
+        ]
+      },
+      "source_recomputed": true,
+      "secondary_value": "-18.3838963275728161995907012028447201796890808800132331450046"
+    },
+    "C2": {
+      "verdict": "PASS",
+      "reason": "raw_recomputation_matches",
+      "expected": {
+        "query": {
+          "metric": "imbalance_l1",
+          "operation": "maximum",
+          "start": "2022-11-09T00:00:00Z",
+          "end": "2022-11-10T00:00:00Z"
+        },
+        "value": "0.34786479754237962650930991503084061319118647538394050755239845154939455664675356",
+        "unit": "dimensionless",
+        "sample_count": 25,
+        "evidence_ids": [
+          "E_UTC_20221109T000000Z",
+          "E_UTC_20221109T010000Z",
+          "E_UTC_20221109T020000Z",
+          "E_UTC_20221109T030000Z",
+          "E_UTC_20221109T040000Z",
+          "E_UTC_20221109T050000Z",
+          "E_UTC_20221109T060000Z",
+          "E_UTC_20221109T070000Z",
+          "E_UTC_20221109T080000Z",
+          "E_UTC_20221109T090000Z",
+          "E_UTC_20221109T100000Z",
+          "E_UTC_20221109T110000Z",
+          "E_UTC_20221109T120000Z",
+          "E_UTC_20221109T130000Z",
+          "E_UTC_20221109T140000Z",
+          "E_UTC_20221109T150000Z",
+          "E_UTC_20221109T160000Z",
+          "E_UTC_20221109T170000Z",
+          "E_UTC_20221109T180000Z",
+          "E_UTC_20221109T190000Z",
+          "E_UTC_20221109T200000Z",
+          "E_UTC_20221109T210000Z",
+          "E_UTC_20221109T220000Z",
+          "E_UTC_20221109T230000Z",
+          "E_UTC_20221110T000000Z"
+        ],
+        "blocks": [
+          {
+            "snapshot_id": "UTC_20221109T000000Z",
+            "block_number": 15928753,
+            "block_hash": "0xe3987e59feed8962559ca1ac1409836ca3fe0d832806aeb4986a2ada033f9105"
+          },
+          {
+            "snapshot_id": "UTC_20221109T010000Z",
+            "block_number": 15929052,
+            "block_hash": "0x1931d4b2b9f123f5e2b9ae6a7b3be8f47b3a4b9c8115bad7173d746d99e32663"
+          },
+          {
+            "snapshot_id": "UTC_20221109T020000Z",
+            "block_number": 15929351,
+            "block_hash": "0x857ca0990f469db3f882c24a8fe0e517913a1e6dcde4386a82773c19ad7feb2e"
+          },
+          {
+            "snapshot_id": "UTC_20221109T030000Z",
+            "block_number": 15929650,
+            "block_hash": "0x42af0a79df48303028ca45d1a7cf368053175ec2bdf366da0092aed8537bbb71"
+          },
+          {
+            "snapshot_id": "UTC_20221109T040000Z",
+            "block_number": 15929947,
+            "block_hash": "0x34d9994db5f0f411b50d4df08480124e867947e08a4bcc415e62d36edb0a1f23"
+          },
+          {
+            "snapshot_id": "UTC_20221109T050000Z",
+            "block_number": 15930247,
+            "block_hash": "0x8efbcf33eb18160c83a908bda6e24578c4433905e3d72032000385b2d6ce4b92"
+          },
+          {
+            "snapshot_id": "UTC_20221109T060000Z",
+            "block_number": 15930547,
+            "block_hash": "0xc54ef150681359e91344af8a5b3ea74cd4589a239d768d6cd3a0c9f3f65f566c"
+          },
+          {
+            "snapshot_id": "UTC_20221109T070000Z",
+            "block_number": 15930846,
+            "block_hash": "0xd2018d9cf32857815e53c4b92644c5b7cc77843564094815cfae4eed1f0e6955"
+          },
+          {
+            "snapshot_id": "UTC_20221109T080000Z",
+            "block_number": 15931143,
+            "block_hash": "0x0fa11a38c8ec7c540311eb7e7a5f0cac9692c48a8e19108c613f17067e7ac177"
+          },
+          {
+            "snapshot_id": "UTC_20221109T090000Z",
+            "block_number": 15931440,
+            "block_hash": "0x0fbdd338f02f912f5b4eb0cf31ba66ca64acf5ae33bfe57e3b1167a5541fc30d"
+          },
+          {
+            "snapshot_id": "UTC_20221109T100000Z",
+            "block_number": 15931737,
+            "block_hash": "0x7587e4368c5d3404f9302682505ad85cf6c05b958dc6721d1151387708024a2b"
+          },
+          {
+            "snapshot_id": "UTC_20221109T110000Z",
+            "block_number": 15932035,
+            "block_hash": "0x07a2257cb7a6d57124fe0e5a411eae1e195acc7a8575b89a059c5550e0ce3c3b"
+          },
+          {
+            "snapshot_id": "UTC_20221109T120000Z",
+            "block_number": 15932330,
+            "block_hash": "0x7c11cd2d4858b59b3b2ae74177f39b2458a9acd57f22386b89f62157f765781a"
+          },
+          {
+            "snapshot_id": "UTC_20221109T130000Z",
+            "block_number": 15932627,
+            "block_hash": "0xd648c762e9b7cd184dfaa75baeafc2082382e307825e1ceb5b0b4581536ff748"
+          },
+          {
+            "snapshot_id": "UTC_20221109T140000Z",
+            "block_number": 15932923,
+            "block_hash": "0x7c68bda39be6907163e37d098cf59019c587e2f46cd6366bf716b17926e1856e"
+          },
+          {
+            "snapshot_id": "UTC_20221109T150000Z",
+            "block_number": 15933220,
+            "block_hash": "0x2cb6fc089876256989d86d5a2528f7c1d3d006b1d28993ff4df3e273955cf4a4"
+          },
+          {
+            "snapshot_id": "UTC_20221109T160000Z",
+            "block_number": 15933518,
+            "block_hash": "0xb0e8f2725717591a407610174f641c1a05b21977227432e22d9e03d1c629af21"
+          },
+          {
+            "snapshot_id": "UTC_20221109T170000Z",
+            "block_number": 15933816,
+            "block_hash": "0xb02c95fb158efba54de3e3634346c862679ef48603fd37b2b30c15683f981889"
+          },
+          {
+            "snapshot_id": "UTC_20221109T180000Z",
+            "block_number": 15934112,
+            "block_hash": "0x1600daea4d429c0b039d3369de1f36f9ad3d1e48e1866d44a99e9bfdc036f46f"
+          },
+          {
+            "snapshot_id": "UTC_20221109T190000Z",
+            "block_number": 15934412,
+            "block_hash": "0x0063d629c79e00e95fe47467757c464328a5722118ff0fc9cddf2bf3b534972e"
+          },
+          {
+            "snapshot_id": "UTC_20221109T200000Z",
+            "block_number": 15934707,
+            "block_hash": "0x60fe61e8368708e52494c92ac3dcc85a232b5460b648913a1bb134ca84264d06"
+          },
+          {
+            "snapshot_id": "UTC_20221109T210000Z",
+            "block_number": 15935003,
+            "block_hash": "0x94a888394097151a3ec6ab4e4e8c2b3130ba43d110dff082b8b102f842d2d548"
+          },
+          {
+            "snapshot_id": "UTC_20221109T220000Z",
+            "block_number": 15935302,
+            "block_hash": "0x4f03da04970a51fae6cd3c8c67a54d52b7355af170d515d3d4410aeedac45c6b"
+          },
+          {
+            "snapshot_id": "UTC_20221109T230000Z",
+            "block_number": 15935601,
+            "block_hash": "0xb957aafdbd56d92d2e33ac1ef652d7939868afbd97ab3a3c0db4dd3fbffc12bd"
+          },
+          {
+            "snapshot_id": "UTC_20221110T000000Z",
+            "block_number": 15935899,
+            "block_hash": "0x9ed34cb80a3f3fe3e020cf0dd69b2d14e589d65fca9adb2a56fc84b0c235b25d"
+          }
+        ],
+        "observed_at": "2022-11-09T14:59:59Z",
+        "target_timestamp_utc": "2022-11-09T15:00:00Z",
+        "snapshot_id": "UTC_20221109T150000Z",
+        "block_number": 15933220,
+        "block_hash": "0x2cb6fc089876256989d86d5a2528f7c1d3d006b1d28993ff4df3e273955cf4a4"
+      },
+      "source_recomputed": true,
+      "secondary_value": "0.34786479754237962650930991503084061319118647538394050755239845154939455664675356"
+    },
+    "C3": {
+      "verdict": "UNKNOWN",
+      "reason": "withdrawn_dependency"
+    }
+  },
+  "published_score": {
+    "counts": {
+      "answerable": 3,
+      "correct": 2,
+      "reproducible_correct": 2,
+      "over_refusal": 0,
+      "omission": 1,
+      "unanswerable": 0,
+      "justified_refusal": 0,
+      "incorrect": 0
+    },
+    "primary_rate": 0.6666666666666666,
+    "slots": [
+      {
+        "slot_id": "S1",
+        "state": "correct",
+        "replay": {
+          "verdict": "PASS",
+          "reason": "raw_recomputation_matches",
+          "expected": {
+            "query": {
+              "metric": "share_pct",
+              "operation": "change",
+              "start": "2022-11-09T00:00:00Z",
+              "end": "2022-11-10T00:00:00Z",
+              "coin": "USDC"
+            },
+            "value": "-18.3838963275728161995907012028447201796890808800132331450046",
+            "unit": "percentage_points",
+            "evidence_ids": [
+              "E_UTC_20221109T000000Z",
+              "E_UTC_20221110T000000Z"
+            ]
+          }
+        }
+      },
+      {
+        "slot_id": "S2",
+        "state": "correct",
+        "replay": {
+          "verdict": "PASS",
+          "reason": "raw_recomputation_matches",
+          "expected": {
+            "query": {
+              "metric": "imbalance_l1",
+              "operation": "maximum",
+              "start": "2022-11-09T00:00:00Z",
+              "end": "2022-11-10T00:00:00Z"
+            },
+            "value": "0.34786479754237962650930991503084061319118647538394050755239845154939455664675356",
+            "unit": "dimensionless",
+            "sample_count": 25,
+            "evidence_ids": [
+              "E_UTC_20221109T000000Z",
+              "E_UTC_20221109T010000Z",
+              "E_UTC_20221109T020000Z",
+              "E_UTC_20221109T030000Z",
+              "E_UTC_20221109T040000Z",
+              "E_UTC_20221109T050000Z",
+              "E_UTC_20221109T060000Z",
+              "E_UTC_20221109T070000Z",
+              "E_UTC_20221109T080000Z",
+              "E_UTC_20221109T090000Z",
+              "E_UTC_20221109T100000Z",
+              "E_UTC_20221109T110000Z",
+              "E_UTC_20221109T120000Z",
+              "E_UTC_20221109T130000Z",
+              "E_UTC_20221109T140000Z",
+              "E_UTC_20221109T150000Z",
+              "E_UTC_20221109T160000Z",
+              "E_UTC_20221109T170000Z",
+              "E_UTC_20221109T180000Z",
+              "E_UTC_20221109T190000Z",
+              "E_UTC_20221109T200000Z",
+              "E_UTC_20221109T210000Z",
+              "E_UTC_20221109T220000Z",
+              "E_UTC_20221109T230000Z",
+              "E_UTC_20221110T000000Z"
+            ],
+            "blocks": [
+              {
+                "snapshot_id": "UTC_20221109T000000Z",
+                "block_number": 15928753,
+                "block_hash": "0xe3987e59feed8962559ca1ac1409836ca3fe0d832806aeb4986a2ada033f9105"
+              },
+              {
+                "snapshot_id": "UTC_20221109T010000Z",
+                "block_number": 15929052,
+                "block_hash": "0x1931d4b2b9f123f5e2b9ae6a7b3be8f47b3a4b9c8115bad7173d746d99e32663"
+              },
+              {
+                "snapshot_id": "UTC_20221109T020000Z",
+                "block_number": 15929351,
+                "block_hash": "0x857ca0990f469db3f882c24a8fe0e517913a1e6dcde4386a82773c19ad7feb2e"
+              },
+              {
+                "snapshot_id": "UTC_20221109T030000Z",
+                "block_number": 15929650,
+                "block_hash": "0x42af0a79df48303028ca45d1a7cf368053175ec2bdf366da0092aed8537bbb71"
+              },
+              {
+                "snapshot_id": "UTC_20221109T040000Z",
+                "block_number": 15929947,
+                "block_hash": "0x34d9994db5f0f411b50d4df08480124e867947e08a4bcc415e62d36edb0a1f23"
+              },
+              {
+                "snapshot_id": "UTC_20221109T050000Z",
+                "block_number": 15930247,
+                "block_hash": "0x8efbcf33eb18160c83a908bda6e24578c4433905e3d72032000385b2d6ce4b92"
+              },
+              {
+                "snapshot_id": "UTC_20221109T060000Z",
+                "block_number": 15930547,
+                "block_hash": "0xc54ef150681359e91344af8a5b3ea74cd4589a239d768d6cd3a0c9f3f65f566c"
+              },
+              {
+                "snapshot_id": "UTC_20221109T070000Z",
+                "block_number": 15930846,
+                "block_hash": "0xd2018d9cf32857815e53c4b92644c5b7cc77843564094815cfae4eed1f0e6955"
+              },
+              {
+                "snapshot_id": "UTC_20221109T080000Z",
+                "block_number": 15931143,
+                "block_hash": "0x0fa11a38c8ec7c540311eb7e7a5f0cac9692c48a8e19108c613f17067e7ac177"
+              },
+              {
+                "snapshot_id": "UTC_20221109T090000Z",
+                "block_number": 15931440,
+                "block_hash": "0x0fbdd338f02f912f5b4eb0cf31ba66ca64acf5ae33bfe57e3b1167a5541fc30d"
+              },
+              {
+                "snapshot_id": "UTC_20221109T100000Z",
+                "block_number": 15931737,
+                "block_hash": "0x7587e4368c5d3404f9302682505ad85cf6c05b958dc6721d1151387708024a2b"
+              },
+              {
+                "snapshot_id": "UTC_20221109T110000Z",
+                "block_number": 15932035,
+                "block_hash": "0x07a2257cb7a6d57124fe0e5a411eae1e195acc7a8575b89a059c5550e0ce3c3b"
+              },
+              {
+                "snapshot_id": "UTC_20221109T120000Z",
+                "block_number": 15932330,
+                "block_hash": "0x7c11cd2d4858b59b3b2ae74177f39b2458a9acd57f22386b89f62157f765781a"
+              },
+              {
+                "snapshot_id": "UTC_20221109T130000Z",
+                "block_number": 15932627,
+                "block_hash": "0xd648c762e9b7cd184dfaa75baeafc2082382e307825e1ceb5b0b4581536ff748"
+              },
+              {
+                "snapshot_id": "UTC_20221109T140000Z",
+                "block_number": 15932923,
+                "block_hash": "0x7c68bda39be6907163e37d098cf59019c587e2f46cd6366bf716b17926e1856e"
+              },
+              {
+                "snapshot_id": "UTC_20221109T150000Z",
+                "block_number": 15933220,
+                "block_hash": "0x2cb6fc089876256989d86d5a2528f7c1d3d006b1d28993ff4df3e273955cf4a4"
+              },
+              {
+                "snapshot_id": "UTC_20221109T160000Z",
+                "block_number": 15933518,
+                "block_hash": "0xb0e8f2725717591a407610174f641c1a05b21977227432e22d9e03d1c629af21"
+              },
+              {
+                "snapshot_id": "UTC_20221109T170000Z",
+                "block_number": 15933816,
+                "block_hash": "0xb02c95fb158efba54de3e3634346c862679ef48603fd37b2b30c15683f981889"
+              },
+              {
+                "snapshot_id": "UTC_20221109T180000Z",
+                "block_number": 15934112,
+                "block_hash": "0x1600daea4d429c0b039d3369de1f36f9ad3d1e48e1866d44a99e9bfdc036f46f"
+              },
+              {
+                "snapshot_id": "UTC_20221109T190000Z",
+                "block_number": 15934412,
+                "block_hash": "0x0063d629c79e00e95fe47467757c464328a5722118ff0fc9cddf2bf3b534972e"
+              },
+              {
+                "snapshot_id": "UTC_20221109T200000Z",
+                "block_number": 15934707,
+                "block_hash": "0x60fe61e8368708e52494c92ac3dcc85a232b5460b648913a1bb134ca84264d06"
+              },
+              {
+                "snapshot_id": "UTC_20221109T210000Z",
+                "block_number": 15935003,
+                "block_hash": "0x94a888394097151a3ec6ab4e4e8c2b3130ba43d110dff082b8b102f842d2d548"
+              },
+              {
+                "snapshot_id": "UTC_20221109T220000Z",
+                "block_number": 15935302,
+                "block_hash": "0x4f03da04970a51fae6cd3c8c67a54d52b7355af170d515d3d4410aeedac45c6b"
+              },
+              {
+                "snapshot_id": "UTC_20221109T230000Z",
+                "block_number": 15935601,
+                "block_hash": "0xb957aafdbd56d92d2e33ac1ef652d7939868afbd97ab3a3c0db4dd3fbffc12bd"
+              },
+              {
+                "snapshot_id": "UTC_20221110T000000Z",
+                "block_number": 15935899,
+                "block_hash": "0x9ed34cb80a3f3fe3e020cf0dd69b2d14e589d65fca9adb2a56fc84b0c235b25d"
+              }
+            ],
+            "observed_at": "2022-11-09T14:59:59Z",
+            "target_timestamp_utc": "2022-11-09T15:00:00Z",
+            "snapshot_id": "UTC_20221109T150000Z",
+            "block_number": 15933220,
+            "block_hash": "0x2cb6fc089876256989d86d5a2528f7c1d3d006b1d28993ff4df3e273955cf4a4"
+          }
+        }
+      },
+      {
+        "slot_id": "S3",
+        "state": "omission",
+        "replay": {
+          "verdict": "UNKNOWN",
+          "reason": "missing_or_duplicate_slot"
+        }
+      }
+    ],
+    "human_validation": false,
+    "extra_prose_status": "requires_independent_human_review"
+  }
+}

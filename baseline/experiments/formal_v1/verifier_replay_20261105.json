@@ -1,0 +1,460 @@
+{
+  "cases": 32,
+  "logical_checks": 64,
+  "observed_by_layer": {
+    "V1": {
+      "fault": {
+        "FAIL": 7,
+        "PASS": 5
+      },
+      "clean": {
+        "PASS": 12
+      },
+      "legal_refusal": {
+        "UNKNOWN": 4
+      },
+      "source_unavailable": {
+        "PASS": 2
+      },
+      "source_conflict": {
+        "PASS": 2
+      }
+    },
+    "V2": {
+      "fault": {
+        "FAIL": 10,
+        "UNKNOWN": 2
+      },
+      "clean": {
+        "PASS": 12
+      },
+      "legal_refusal": {
+        "UNKNOWN": 4
+      },
+      "source_unavailable": {
+        "UNKNOWN": 2
+      },
+      "source_conflict": {
+        "UNKNOWN": 2
+      }
+    }
+  },
+  "expectation_mismatches": [],
+  "cases_sha256": "9a70aa04e63c2847a3db6153dcb25d7ac773f1e2f57cb249744f5ada28ca4f60",
+  "scope": "Local replay against fixed snapshots and simulated faults. No live provider outage asserted.",
+  "changes": [
+    {
+      "case_id": "U3",
+      "before": {
+        "verdict": "FAIL",
+        "reason": "secondary_source_state_mismatch"
+      },
+      "after": {
+        "verdict": "UNKNOWN",
+        "reason": "source_conflict"
+      }
+    },
+    {
+      "case_id": "U4",
+      "before": {
+        "verdict": "FAIL",
+        "reason": "secondary_source_state_mismatch"
+      },
+      "after": {
+        "verdict": "UNKNOWN",
+        "reason": "source_conflict"
+      }
+    }
+  ],
+  "observations": [
+    {
+      "case_id": "P01_clean",
+      "kind": "clean",
+      "V1": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "V2": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      }
+    },
+    {
+      "case_id": "P01_fault",
+      "kind": "unit",
+      "V1": {
+        "verdict": "FAIL",
+        "reason": "value_or_unit_mismatch"
+      },
+      "V2": {
+        "verdict": "FAIL",
+        "reason": "value_or_unit_mismatch"
+      }
+    },
+    {
+      "case_id": "P02_clean",
+      "kind": "clean",
+      "V1": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "V2": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      }
+    },
+    {
+      "case_id": "P02_fault",
+      "kind": "unit",
+      "V1": {
+        "verdict": "FAIL",
+        "reason": "value_or_unit_mismatch"
+      },
+      "V2": {
+        "verdict": "FAIL",
+        "reason": "value_or_unit_mismatch"
+      }
+    },
+    {
+      "case_id": "P03_clean",
+      "kind": "clean",
+      "V1": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "V2": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      }
+    },
+    {
+      "case_id": "P03_fault",
+      "kind": "unit",
+      "V1": {
+        "verdict": "FAIL",
+        "reason": "value_or_unit_mismatch"
+      },
+      "V2": {
+        "verdict": "FAIL",
+        "reason": "value_or_unit_mismatch"
+      }
+    },
+    {
+      "case_id": "P04_clean",
+      "kind": "clean",
+      "V1": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "V2": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      }
+    },
+    {
+      "case_id": "P04_fault",
+      "kind": "block",
+      "V1": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "V2": {
+        "verdict": "FAIL",
+        "reason": "secondary_source_state_mismatch"
+      }
+    },
+    {
+      "case_id": "P05_clean",
+      "kind": "clean",
+      "V1": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "V2": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      }
+    },
+    {
+      "case_id": "P05_fault",
+      "kind": "block",
+      "V1": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "V2": {
+        "verdict": "FAIL",
+        "reason": "secondary_source_state_mismatch"
+      }
+    },
+    {
+      "case_id": "P06_clean",
+      "kind": "clean",
+      "V1": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "V2": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      }
+    },
+    {
+      "case_id": "P06_fault",
+      "kind": "block",
+      "V1": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "V2": {
+        "verdict": "FAIL",
+        "reason": "secondary_source_state_mismatch"
+      }
+    },
+    {
+      "case_id": "P07_clean",
+      "kind": "clean",
+      "V1": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "V2": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      }
+    },
+    {
+      "case_id": "P07_fault",
+      "kind": "window",
+      "V1": {
+        "verdict": "FAIL",
+        "reason": "task_query_mismatch"
+      },
+      "V2": {
+        "verdict": "FAIL",
+        "reason": "task_query_mismatch"
+      }
+    },
+    {
+      "case_id": "P08_clean",
+      "kind": "clean",
+      "V1": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "V2": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      }
+    },
+    {
+      "case_id": "P08_fault",
+      "kind": "window",
+      "V1": {
+        "verdict": "FAIL",
+        "reason": "task_query_mismatch"
+      },
+      "V2": {
+        "verdict": "FAIL",
+        "reason": "task_query_mismatch"
+      }
+    },
+    {
+      "case_id": "P09_clean",
+      "kind": "clean",
+      "V1": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "V2": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      }
+    },
+    {
+      "case_id": "P09_fault",
+      "kind": "missing_data",
+      "V1": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "V2": {
+        "verdict": "UNKNOWN",
+        "reason": "secondary_source_unavailable"
+      }
+    },
+    {
+      "case_id": "P10_clean",
+      "kind": "clean",
+      "V1": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "V2": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      }
+    },
+    {
+      "case_id": "P10_fault",
+      "kind": "missing_data",
+      "V1": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "V2": {
+        "verdict": "UNKNOWN",
+        "reason": "secondary_source_unavailable"
+      }
+    },
+    {
+      "case_id": "P11_clean",
+      "kind": "clean",
+      "V1": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "V2": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      }
+    },
+    {
+      "case_id": "P11_fault",
+      "kind": "wrong_value",
+      "V1": {
+        "verdict": "FAIL",
+        "reason": "value_or_unit_mismatch"
+      },
+      "V2": {
+        "verdict": "FAIL",
+        "reason": "value_or_unit_mismatch"
+      }
+    },
+    {
+      "case_id": "P12_clean",
+      "kind": "clean",
+      "V1": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "V2": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      }
+    },
+    {
+      "case_id": "P12_fault",
+      "kind": "direction",
+      "V1": {
+        "verdict": "FAIL",
+        "reason": "task_query_mismatch"
+      },
+      "V2": {
+        "verdict": "FAIL",
+        "reason": "task_query_mismatch"
+      }
+    },
+    {
+      "case_id": "R1",
+      "kind": "legal_refusal",
+      "V1": {
+        "verdict": "UNKNOWN",
+        "reason": "refusal_or_omission"
+      },
+      "V2": {
+        "verdict": "UNKNOWN",
+        "reason": "refusal_or_omission"
+      }
+    },
+    {
+      "case_id": "R2",
+      "kind": "legal_refusal",
+      "V1": {
+        "verdict": "UNKNOWN",
+        "reason": "refusal_or_omission"
+      },
+      "V2": {
+        "verdict": "UNKNOWN",
+        "reason": "refusal_or_omission"
+      }
+    },
+    {
+      "case_id": "R3",
+      "kind": "legal_refusal",
+      "V1": {
+        "verdict": "UNKNOWN",
+        "reason": "refusal_or_omission"
+      },
+      "V2": {
+        "verdict": "UNKNOWN",
+        "reason": "refusal_or_omission"
+      }
+    },
+    {
+      "case_id": "R4",
+      "kind": "legal_refusal",
+      "V1": {
+        "verdict": "UNKNOWN",
+        "reason": "refusal_or_omission"
+      },
+      "V2": {
+        "verdict": "UNKNOWN",
+        "reason": "refusal_or_omission"
+      }
+    },
+    {
+      "case_id": "U1",
+      "kind": "source_unavailable",
+      "V1": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "V2": {
+        "verdict": "UNKNOWN",
+        "reason": "secondary_source_unavailable"
+      }
+    },
+    {
+      "case_id": "U2",
+      "kind": "source_unavailable",
+      "V1": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "V2": {
+        "verdict": "UNKNOWN",
+        "reason": "secondary_source_unavailable"
+      }
+    },
+    {
+      "case_id": "U3",
+      "kind": "source_conflict",
+      "V1": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "V2": {
+        "verdict": "UNKNOWN",
+        "reason": "source_conflict"
+      }
+    },
+    {
+      "case_id": "U4",
+      "kind": "source_conflict",
+      "V1": {
+        "verdict": "PASS",
+        "reason": "raw_recomputation_matches"
+      },
+      "V2": {
+        "verdict": "UNKNOWN",
+        "reason": "source_conflict"
+      }
+    }
+  ],
+  "formal_v2_reports_unchanged": 36,
+  "formal_published_reports_unchanged": 36,
+  "original_observations_sha256": "178c46ffac0e4d67ecd79d70c52f20f70bc521d2d959bd1d8642c0464e140cd8",
+  "verifier_sha256": "4c07fda24d6f0c2cc01a9fc39c96c34f97d0d2e25c309e42de36e9a859e7c48b",
+  "model_calls": 0
+}

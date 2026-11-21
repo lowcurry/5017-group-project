@@ -1,0 +1,155 @@
+{
+  "report": {
+    "task_id": "R06",
+    "claims": [
+      {
+        "value": "34.510911298256857308040816750457147912331240726617801968092156047781641334183385",
+        "unit": "percent",
+        "evidence_ids": [
+          "E_UTC_20221109T000000Z"
+        ],
+        "calculation_id": "C_149475811982ccce",
+        "query": {
+          "metric": "share_pct",
+          "operation": "last",
+          "start": "2022-11-09T00:00:00Z",
+          "end": "2022-11-09T00:00:00Z",
+          "coin": "USDC"
+        },
+        "metrics_version": "1.0",
+        "sample_count": 1,
+        "snapshot_id": "UTC_20221109T000000Z",
+        "target_timestamp_utc": "2022-11-09T00:00:00Z",
+        "observed_at": "2022-11-08T23:59:59Z",
+        "block_number": 15928753,
+        "block_hash": "0xe3987e59feed8962559ca1ac1409836ca3fe0d832806aeb4986a2ada033f9105",
+        "status": "supported",
+        "formula_version": "3pool-erc20-balanceOf-20261102",
+        "dataset_sha256": "79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055",
+        "claim_id": "R06_S1",
+        "slot_id": "S1",
+        "depends_on": []
+      },
+      {
+        "query": {
+          "metric": "share_pct",
+          "operation": "max_hourly_change",
+          "start": "2022-11-09T18:00:00Z",
+          "end": "2022-11-10T00:00:00Z",
+          "coin": "USDC"
+        },
+        "value": "1.16926089569553310526339305012134564134473244385372167551813",
+        "unit": "percentage_points",
+        "evidence_ids": [
+          "E_UTC_20221109T180000Z",
+          "E_UTC_20221109T190000Z",
+          "E_UTC_20221109T200000Z",
+          "E_UTC_20221109T210000Z",
+          "E_UTC_20221109T230000Z",
+          "E_UTC_20221110T000000Z"
+        ],
+        "interval_start": "2022-11-09T19:00:00Z",
+        "interval_end": "2022-11-09T20:00:00Z",
+        "status": "supported",
+        "formula_version": "3pool-erc20-balanceOf-20261102",
+        "dataset_sha256": "79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055",
+        "claim_id": "R06_S2",
+        "slot_id": "S2",
+        "depends_on": []
+      },
+      {
+        "query": {
+          "metric": "continuous_imbalance_peak",
+          "operation": "maximum",
+          "start": "2022-11-09T00:00:00Z",
+          "end": "2022-11-10T00:00:00Z"
+        },
+        "value": null,
+        "unit": null,
+        "status": "refused",
+        "explanation": "sampling_resolution_insufficient",
+        "evidence_ids": [],
+        "claim_id": "R06_S3",
+        "slot_id": "S3",
+        "depends_on": []
+      }
+    ],
+    "answer": "确定性模板输出；不属于模型实验。"
+  },
+  "trace": [
+    {
+      "slot_id": "S1",
+      "query": {
+        "metric": "share_pct",
+        "operation": "last",
+        "start": "2022-11-09T00:00:00Z",
+        "end": "2022-11-09T00:00:00Z",
+        "coin": "USDC"
+      },
+      "result": {
+        "value": "34.510911298256857308040816750457147912331240726617801968092156047781641334183385",
+        "unit": "percent",
+        "evidence_ids": [
+          "E_UTC_20221109T000000Z"
+        ],
+        "calculation_id": "C_149475811982ccce",
+        "query": {
+          "metric": "share_pct",
+          "operation": "last",
+          "start": "2022-11-09T00:00:00Z",
+          "end": "2022-11-09T00:00:00Z",
+          "coin": "USDC"
+        },
+        "metrics_version": "1.0",
+        "sample_count": 1,
+        "snapshot_id": "UTC_20221109T000000Z",
+        "target_timestamp_utc": "2022-11-09T00:00:00Z",
+        "observed_at": "2022-11-08T23:59:59Z",
+        "block_number": 15928753,
+        "block_hash": "0xe3987e59feed8962559ca1ac1409836ca3fe0d832806aeb4986a2ada033f9105"
+      }
+    },
+    {
+      "slot_id": "S2",
+      "query": {
+        "metric": "share_pct",
+        "operation": "max_hourly_change",
+        "start": "2022-11-09T18:00:00Z",
+        "end": "2022-11-10T00:00:00Z",
+        "coin": "USDC"
+      },
+      "result": {
+        "query": {
+          "metric": "share_pct",
+          "operation": "max_hourly_change",
+          "start": "2022-11-09T18:00:00Z",
+          "end": "2022-11-10T00:00:00Z",
+          "coin": "USDC"
+        },
+        "value": "1.16926089569553310526339305012134564134473244385372167551813",
+        "unit": "percentage_points",
+        "evidence_ids": [
+          "E_UTC_20221109T180000Z",
+          "E_UTC_20221109T190000Z",
+          "E_UTC_20221109T200000Z",
+          "E_UTC_20221109T210000Z",
+          "E_UTC_20221109T230000Z",
+          "E_UTC_20221110T000000Z"
+        ],
+        "interval_start": "2022-11-09T19:00:00Z",
+        "interval_end": "2022-11-09T20:00:00Z"
+      }
+    },
+    {
+      "slot_id": "S3",
+      "query": {
+        "metric": "continuous_imbalance_peak",
+        "operation": "maximum",
+        "start": "2022-11-09T00:00:00Z",
+        "end": "2022-11-10T00:00:00Z"
+      },
+      "error": "sampling_resolution_insufficient"
+    }
+  ],
+  "model_inference_performed": false
+}

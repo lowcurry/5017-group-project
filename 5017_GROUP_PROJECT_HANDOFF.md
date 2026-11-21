@@ -11,6 +11,6 @@
 | 发布前独立算术核验 | 两个发布入口均已接入。共享故障回放从发布 6/6 错误降到 0/6，6 个正确对照全部发布，2 个依赖错误峰值时点的报价也被撤回。报价算术继续使用 V2。 |
 | 历史应用 | 36 次研究判断中核验拦下 1 次错误并将 8 次正确判断转复核。50 个历史区块报价筛查的五档门槛下无决策差异。 |
 
-从公开 ZIP 解压后按 README 复现。正式重放使用 `python3 -B -m curve_audit replay`，单独重跑冻结故障使用 `python3 -B docs/replay_formal_faults.py .`，核对新发布规则使用 `python3 -B audit/arithmetic_faults/replay_publication_guard.py .`。课程提交使用组内保管的课程包。公开仓库中的两份原始正文审核表单独保留。
+从仓库根目录按 README 复现。正式重放使用 `python3 -B -m curve_audit replay`，单独重跑冻结故障使用 `python3 -B docs/replay_formal_faults.py .`，核对新发布规则使用 `python3 -B audit/arithmetic_faults/replay_publication_guard.py .`。课程提交使用组内保管的课程包。公开仓库中的两份原始正文审核表单独保留。
 
 11 月 15 日新增效果图表与指标。解压后打开 `audit/effect_metrics/figures/index.html` 查看七张 Matplotlib 图，包括逐题配对、故障判定和模型用量；CSV 和 JSON 提供完整指标与分母。

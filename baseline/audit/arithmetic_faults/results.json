@@ -1,0 +1,313 @@
+{
+  "observations": [
+    {
+      "clean": {
+        "V1": {
+          "reason": "raw_recomputation_matches",
+          "verdict": "PASS"
+        },
+        "V2": {
+          "reason": "raw_recomputation_matches",
+          "verdict": "PASS"
+        },
+        "oracle_agrees": true,
+        "published": true
+      },
+      "correct_target": "2023-03-10T02:00:00Z",
+      "correct_value": "30.878165451717635126728599379737588325727294918739276732216972310798954081766651",
+      "event": "usdc_2023",
+      "fault": "omit_usdt_from_denominator",
+      "fault_target": "2023-03-10T02:00:00Z",
+      "fault_value": "50.846823958159645680319985212015301341602353303088258749322268735599583479120804",
+      "faulty_report": {
+        "V1": {
+          "reason": "value_or_unit_mismatch",
+          "verdict": "FAIL"
+        },
+        "V2": {
+          "reason": "value_or_unit_mismatch",
+          "verdict": "FAIL"
+        },
+        "oracle_agrees": false,
+        "published": false
+      },
+      "shared_verifier_bug": {
+        "V1": {
+          "reason": "raw_recomputation_matches",
+          "verdict": "PASS"
+        },
+        "V2": {
+          "reason": "raw_recomputation_matches",
+          "verdict": "PASS"
+        },
+        "oracle_agrees": false,
+        "published": true
+      },
+      "slot": "S1",
+      "task": "R01"
+    },
+    {
+      "clean": {
+        "V1": {
+          "reason": "raw_recomputation_matches",
+          "verdict": "PASS"
+        },
+        "V2": {
+          "reason": "raw_recomputation_matches",
+          "verdict": "PASS"
+        },
+        "oracle_agrees": true,
+        "published": true
+      },
+      "correct_target": "2023-03-10T02:00:00Z",
+      "correct_value": "30.878165451717635126728599379737588325727294918739276732216972310798954081766651",
+      "event": "usdc_2023",
+      "fault": "dai_6_instead_of_18_decimals",
+      "fault_target": "2023-03-10T02:00:00Z",
+      "fault_value": "99.999999999776146563317664171624897396718509275793231087075518985188259375300199",
+      "faulty_report": {
+        "V1": {
+          "reason": "value_or_unit_mismatch",
+          "verdict": "FAIL"
+        },
+        "V2": {
+          "reason": "value_or_unit_mismatch",
+          "verdict": "FAIL"
+        },
+        "oracle_agrees": false,
+        "published": false
+      },
+      "shared_verifier_bug": {
+        "V1": {
+          "reason": "raw_recomputation_matches",
+          "verdict": "PASS"
+        },
+        "V2": {
+          "reason": "raw_recomputation_matches",
+          "verdict": "PASS"
+        },
+        "oracle_agrees": false,
+        "published": true
+      },
+      "slot": "S1",
+      "task": "R01"
+    },
+    {
+      "clean": {
+        "V1": {
+          "reason": "raw_recomputation_matches",
+          "verdict": "PASS"
+        },
+        "V2": {
+          "reason": "raw_recomputation_matches",
+          "verdict": "PASS"
+        },
+        "oracle_agrees": true,
+        "published": true
+      },
+      "correct_target": "2023-03-11T00:00:00Z",
+      "correct_value": "0.27769611460247753473319477124196774500537447998211223648399174085854495170752812",
+      "event": "usdc_2023",
+      "fault": "minimum_instead_of_maximum",
+      "fault_target": "2023-03-10T17:00:00Z",
+      "fault_value": "0.0085760688850875203551155006947444137601191295687297883567346889460359128664975879",
+      "faulty_report": {
+        "V1": {
+          "reason": "value_or_unit_mismatch",
+          "verdict": "FAIL"
+        },
+        "V2": {
+          "reason": "value_or_unit_mismatch",
+          "verdict": "FAIL"
+        },
+        "oracle_agrees": false,
+        "published": false
+      },
+      "shared_verifier_bug": {
+        "V1": {
+          "reason": "raw_recomputation_matches",
+          "verdict": "PASS"
+        },
+        "V2": {
+          "reason": "raw_recomputation_matches",
+          "verdict": "PASS"
+        },
+        "oracle_agrees": false,
+        "published": true
+      },
+      "slot": "S2",
+      "task": "R02"
+    },
+    {
+      "clean": {
+        "V1": {
+          "reason": "raw_recomputation_matches",
+          "verdict": "PASS"
+        },
+        "V2": {
+          "reason": "raw_recomputation_matches",
+          "verdict": "PASS"
+        },
+        "oracle_agrees": true,
+        "published": true
+      },
+      "correct_target": "2022-11-09T02:00:00Z",
+      "correct_value": "33.712746344371832328033843439919310765356377547356387423159872900326130669920849",
+      "event": "ftx_2022",
+      "fault": "omit_usdt_from_denominator",
+      "fault_target": "2022-11-09T02:00:00Z",
+      "fault_value": "50.357882175712452773386910093780697918942949775138823667435600657757526962764903",
+      "faulty_report": {
+        "V1": {
+          "reason": "value_or_unit_mismatch",
+          "verdict": "FAIL"
+        },
+        "V2": {
+          "reason": "value_or_unit_mismatch",
+          "verdict": "FAIL"
+        },
+        "oracle_agrees": false,
+        "published": false
+      },
+      "shared_verifier_bug": {
+        "V1": {
+          "reason": "raw_recomputation_matches",
+          "verdict": "PASS"
+        },
+        "V2": {
+          "reason": "raw_recomputation_matches",
+          "verdict": "PASS"
+        },
+        "oracle_agrees": false,
+        "published": true
+      },
+      "slot": "S1",
+      "task": "R04"
+    },
+    {
+      "clean": {
+        "V1": {
+          "reason": "raw_recomputation_matches",
+          "verdict": "PASS"
+        },
+        "V2": {
+          "reason": "raw_recomputation_matches",
+          "verdict": "PASS"
+        },
+        "oracle_agrees": true,
+        "published": true
+      },
+      "correct_target": "2022-11-09T02:00:00Z",
+      "correct_value": "33.712746344371832328033843439919310765356377547356387423159872900326130669920849",
+      "event": "ftx_2022",
+      "fault": "dai_6_instead_of_18_decimals",
+      "fault_target": "2022-11-09T02:00:00Z",
+      "fault_value": "99.999999999803376286884547620162990451052997473979338652437330640444746779865354",
+      "faulty_report": {
+        "V1": {
+          "reason": "value_or_unit_mismatch",
+          "verdict": "FAIL"
+        },
+        "V2": {
+          "reason": "value_or_unit_mismatch",
+          "verdict": "FAIL"
+        },
+        "oracle_agrees": false,
+        "published": false
+      },
+      "shared_verifier_bug": {
+        "V1": {
+          "reason": "raw_recomputation_matches",
+          "verdict": "PASS"
+        },
+        "V2": {
+          "reason": "raw_recomputation_matches",
+          "verdict": "PASS"
+        },
+        "oracle_agrees": false,
+        "published": true
+      },
+      "slot": "S1",
+      "task": "R04"
+    },
+    {
+      "clean": {
+        "V1": {
+          "reason": "raw_recomputation_matches",
+          "verdict": "PASS"
+        },
+        "V2": {
+          "reason": "raw_recomputation_matches",
+          "verdict": "PASS"
+        },
+        "oracle_agrees": true,
+        "published": true
+      },
+      "correct_target": "2022-11-09T15:00:00Z",
+      "correct_value": "0.34786479754237962650930991503084061319118647538394050755239845154939455664675355",
+      "event": "ftx_2022",
+      "fault": "minimum_instead_of_maximum",
+      "fault_target": "2022-11-09T02:00:00Z",
+      "fault_value": "0.0037941301103849899470051010658597743202304421402305408982653956699279733658751539",
+      "faulty_report": {
+        "V1": {
+          "reason": "value_or_unit_mismatch",
+          "verdict": "FAIL"
+        },
+        "V2": {
+          "reason": "value_or_unit_mismatch",
+          "verdict": "FAIL"
+        },
+        "oracle_agrees": false,
+        "published": false
+      },
+      "shared_verifier_bug": {
+        "V1": {
+          "reason": "raw_recomputation_matches",
+          "verdict": "PASS"
+        },
+        "V2": {
+          "reason": "raw_recomputation_matches",
+          "verdict": "PASS"
+        },
+        "oracle_agrees": false,
+        "published": true
+      },
+      "slot": "S2",
+      "task": "R05"
+    }
+  ],
+  "pairs": 6,
+  "totals": {
+    "clean": {
+      "V1": {
+        "PASS": 6
+      },
+      "V2": {
+        "PASS": 6
+      },
+      "oracle_disagreements": 0,
+      "published": 6
+    },
+    "faulty_report": {
+      "V1": {
+        "FAIL": 6
+      },
+      "V2": {
+        "FAIL": 6
+      },
+      "oracle_disagreements": 6,
+      "published": 0
+    },
+    "shared_verifier_bug": {
+      "V1": {
+        "PASS": 6
+      },
+      "V2": {
+        "PASS": 6
+      },
+      "oracle_disagreements": 6,
+      "published": 6
+    }
+  }
+}

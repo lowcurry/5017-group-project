@@ -1,0 +1,48 @@
+{
+  "historical_model_generation": {
+    "G": {
+      "input_tokens": 85883,
+      "output_tokens": 18283,
+      "total_tokens": 104166,
+      "model_calls": 63,
+      "cached_input_tokens": 66176,
+      "wall_seconds": 191.60171304499983
+    },
+    "E": {
+      "input_tokens": 106443,
+      "output_tokens": 22564,
+      "total_tokens": 129007,
+      "model_calls": 70,
+      "cached_input_tokens": 83317,
+      "wall_seconds": 234.586930334
+    }
+  },
+  "historical_rpc_collection": {
+    "alchemy": {
+      "base_rpc_attempts": 1125,
+      "base_retries": 0,
+      "base_attempt_seconds": 821.6288529999999,
+      "supplement_rpc_items": 153
+    },
+    "drpc": {
+      "base_rpc_attempts": 1125,
+      "base_retries": 0,
+      "base_attempt_seconds": 918.308018,
+      "supplement_rpc_items": 153
+    },
+    "publicnode": {
+      "base_rpc_attempts": 615,
+      "base_retries": 0,
+      "base_attempt_seconds": 476.83944599999995
+    }
+  },
+  "archived_local_verifier_and_publisher_medians_seconds": {
+    "V1": 0.21641649999946821,
+    "V2": 0.2827625829995668,
+    "publication": 0.0018156670003008912
+  },
+  "archived_serial_offline_median_seconds": 0.900818750000326,
+  "historical_prose_review_and_adjudication_person_minutes": 420,
+  "historical_actual_charges": null,
+  "historical_live_end_to_end_time": null
+}

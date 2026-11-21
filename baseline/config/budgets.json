@@ -1,0 +1,14 @@
+{
+  "schema_version": "2.0",
+  "model": "gpt-6-luna",
+  "reasoning_effort": "low",
+  "max_model_rounds": 4,
+  "max_tool_calls": 4,
+  "max_prompt_characters": 24000,
+  "max_response_characters": 12000,
+  "timeout_seconds_per_round": 120,
+  "max_repair_rounds": 1,
+  "repetitions": 3,
+  "conditions": ["fixed_template", "ordinary_agent", "evidence_grounded_agent"],
+  "note": "Equal application ceilings; actual tokens are measured, not claimed equal. CLI hidden/provider tokens cannot be hard-capped; violations are recorded."
+}

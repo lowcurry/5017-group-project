@@ -1,0 +1,85 @@
+{
+  "generation": {
+    "G": {
+      "input_tokens": 85883,
+      "output_tokens": 18283,
+      "total_tokens": 104166,
+      "model_calls": 63,
+      "cached_input_tokens": 66176,
+      "wall_seconds": 191.60171304499983
+    },
+    "E": {
+      "input_tokens": 106443,
+      "output_tokens": 22564,
+      "total_tokens": 129007,
+      "model_calls": 70,
+      "cached_input_tokens": 83317,
+      "wall_seconds": 234.586930334
+    }
+  },
+  "acquisition": {
+    "alchemy": {
+      "base_rpc_attempts": 1125,
+      "base_retries": 0,
+      "base_attempt_seconds": 821.6288529999999,
+      "supplement_rpc_items": 153
+    },
+    "drpc": {
+      "base_rpc_attempts": 1125,
+      "base_retries": 0,
+      "base_attempt_seconds": 918.308018,
+      "supplement_rpc_items": 153
+    },
+    "publicnode": {
+      "base_rpc_attempts": 615,
+      "base_retries": 0,
+      "base_attempt_seconds": 476.83944599999995
+    }
+  },
+  "offline_timing": {
+    "scope": "Separate wall-clock batches on preloaded frozen model records and recorded source data",
+    "platform": "Darwin",
+    "machine": "arm64",
+    "python": "3.12.14",
+    "archived_model_records": 36,
+    "emitted_claims": 102,
+    "new_rpc_calls": 0,
+    "new_model_calls": 0,
+    "verifier_source_sha256": {
+      "current_study.py": "3f6928bd6ea2199504d6b5af19bce467f1999a6c57d0f4592246aa1d3dd21507",
+      "current_verify.py": "c5d27c2a86057d6f2015c65f957e7224351e4b90d82b775bc71878470fe9ece2"
+    },
+    "seconds": {
+      "V1": {
+        "samples": [
+          0.21280912499969418,
+          0.2180084159999751,
+          0.21641649999946821,
+          0.21728075000009994,
+          0.2160334159998456
+        ],
+        "median": 0.21641649999946821
+      },
+      "V2": {
+        "samples": [
+          0.2795932079998238,
+          0.2807875830003468,
+          0.2827625829995668,
+          0.28336241699980746,
+          0.28367162499944243
+        ],
+        "median": 0.2827625829995668
+      },
+      "publication": {
+        "samples": [
+          0.001877292000244779,
+          0.0017734160001054988,
+          0.0017768329998943955,
+          0.0018213330004073214,
+          0.0018156670003008912
+        ],
+        "median": 0.0018156670003008912
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "development_baseline": {
+    "scheduled_runs": 9,
+    "submissions": 8,
+    "all_answerable_components_correct": 7,
+    "budget_stops": 1,
+    "tool_results_declined_in_preflight": 0,
+    "actual_tokens": 66475,
+    "model_calls": 32
+  },
+  "development_compact": {
+    "scheduled_runs": 9,
+    "submissions": 9,
+    "all_answerable_components_correct": 9,
+    "budget_stops": 0,
+    "tool_results_declined_in_preflight": 0,
+    "actual_tokens": 62078,
+    "model_calls": 35
+  },
+  "offline_admissions_restored": 3,
+  "tests_passed": 267,
+  "scope": "Development validation after the frozen formal run."
+}

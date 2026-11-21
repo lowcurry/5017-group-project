@@ -1,0 +1,18 @@
+{
+  "pass": true,
+  "tasks": 6,
+  "totals": {
+    "answerable": 16,
+    "correct": 16,
+    "reproducible_correct": 16,
+    "over_refusal": 0,
+    "omission": 0,
+    "unanswerable": 2,
+    "justified_refusal": 2,
+    "incorrect": 0
+  },
+  "model_calls": 0,
+  "formal_model_outputs": 0,
+  "human_references_validated": false,
+  "scope": "deterministic template and independent arithmetic; not model performance"
+}

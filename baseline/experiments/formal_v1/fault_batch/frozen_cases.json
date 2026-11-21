@@ -1,0 +1,368 @@
+{
+  "frozen_utc": "2026-11-05T08:35:58.206694Z",
+  "dataset_sha256": "79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055",
+  "secondary_dataset_sha256": "79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055",
+  "script_sha256": "c26a93bb889716813b04dc1a0ad9492109979957d06598495ad972f6e547d101",
+  "answer_key_sha256": "b61be027a3d31de3cba2230fcca85ca5322bbf8de29379f77eaa5f607aca9246",
+  "cases": [
+    {
+      "case_id": "P01_clean",
+      "kind": "clean",
+      "task": "R02",
+      "slot": "S1",
+      "mode": "clean",
+      "point": null,
+      "change": null,
+      "input_sha256": "e5aaaa6679845533684a98d7628c04ccc9bf9e733815fc7d715bff02814cb8c1"
+    },
+    {
+      "case_id": "P01_fault",
+      "kind": "unit",
+      "task": "R02",
+      "slot": "S1",
+      "mode": "report",
+      "point": null,
+      "change": {
+        "path": [
+          "unit"
+        ],
+        "value": "percent"
+      },
+      "input_sha256": "820dc4ce175c6a16e45e68444adf84f284beb6e0f3ab72858c38114d6f105526"
+    },
+    {
+      "case_id": "P02_clean",
+      "kind": "clean",
+      "task": "R05",
+      "slot": "S2",
+      "mode": "clean",
+      "point": null,
+      "change": null,
+      "input_sha256": "36098d14efb57946ca27dc685e68948657f053af3c46cf0966858a24edd03895"
+    },
+    {
+      "case_id": "P02_fault",
+      "kind": "unit",
+      "task": "R05",
+      "slot": "S2",
+      "mode": "report",
+      "point": null,
+      "change": {
+        "path": [
+          "unit"
+        ],
+        "value": "basis_points"
+      },
+      "input_sha256": "9270013ef1e44244cd977969eb25aa358262c1ef3006b53de53e74ee8cf3ffdb"
+    },
+    {
+      "case_id": "P03_clean",
+      "kind": "clean",
+      "task": "R04",
+      "slot": "S2",
+      "mode": "clean",
+      "point": null,
+      "change": null,
+      "input_sha256": "441df8913f339c17e15fdc5c75c0ebf44cf15ea2b70f5cdf4a0dd93aa575c4ee"
+    },
+    {
+      "case_id": "P03_fault",
+      "kind": "unit",
+      "task": "R04",
+      "slot": "S2",
+      "mode": "report",
+      "point": null,
+      "change": {
+        "path": [
+          "unit"
+        ],
+        "value": "USDC/USDT"
+      },
+      "input_sha256": "7f4784175d1211d8ea71e14cce5951c2ac5617c6e37162f7e20fe3f28306d454"
+    },
+    {
+      "case_id": "P04_clean",
+      "kind": "clean",
+      "task": "R04",
+      "slot": "S1",
+      "mode": "clean",
+      "point": null,
+      "change": null,
+      "input_sha256": "3a482e981ce941127daec23f24aaba48c16fafcb000aac52be4e230264f9625e"
+    },
+    {
+      "case_id": "P04_fault",
+      "kind": "block",
+      "task": "R04",
+      "slot": "S1",
+      "mode": "primary_number",
+      "point": "2022-11-09T02:00:00Z",
+      "change": null,
+      "input_sha256": "1b04123bf788df0929d1b01ad28bbd6380c311bd89e00391a22b9f6fd190e3fc"
+    },
+    {
+      "case_id": "P05_clean",
+      "kind": "clean",
+      "task": "R02",
+      "slot": "S3",
+      "mode": "clean",
+      "point": null,
+      "change": null,
+      "input_sha256": "8646984e26829e72b350fc341af7d5e91d967a3540340c566fa891ad723f1db0"
+    },
+    {
+      "case_id": "P05_fault",
+      "kind": "block",
+      "task": "R02",
+      "slot": "S3",
+      "mode": "primary_hash",
+      "point": "2023-03-11T01:00:00Z",
+      "change": null,
+      "input_sha256": "4fe121e015c2589df5eeec4f02efed479eb16fa12c96795a9a3fc44a638a3e3d"
+    },
+    {
+      "case_id": "P06_clean",
+      "kind": "clean",
+      "task": "R05",
+      "slot": "S2",
+      "mode": "clean",
+      "point": null,
+      "change": null,
+      "input_sha256": "36098d14efb57946ca27dc685e68948657f053af3c46cf0966858a24edd03895"
+    },
+    {
+      "case_id": "P06_fault",
+      "kind": "block",
+      "task": "R05",
+      "slot": "S2",
+      "mode": "primary_number",
+      "point": "2022-11-09T15:00:00Z",
+      "change": null,
+      "input_sha256": "e9ace9ce659656c82f5a391c2d4308ce1792beebe3f37052eb3eac5ea28af8f6"
+    },
+    {
+      "case_id": "P07_clean",
+      "kind": "clean",
+      "task": "R05",
+      "slot": "S1",
+      "mode": "clean",
+      "point": null,
+      "change": null,
+      "input_sha256": "c304080ba1cda5868d7f209b66447f4de4b202b3f8a9beb77f3a8cd4bf6bfe1d"
+    },
+    {
+      "case_id": "P07_fault",
+      "kind": "window",
+      "task": "R05",
+      "slot": "S1",
+      "mode": "report",
+      "point": null,
+      "change": {
+        "path": [
+          "query",
+          "start"
+        ],
+        "value": "2022-11-09T01:00:00Z"
+      },
+      "input_sha256": "4b610adfc62a0fa24fb6ade3153274e1d9f0f378a33e7522cf6972bef31b3b9c"
+    },
+    {
+      "case_id": "P08_clean",
+      "kind": "clean",
+      "task": "R02",
+      "slot": "S2",
+      "mode": "clean",
+      "point": null,
+      "change": null,
+      "input_sha256": "1f09e7ab39b9acfe76683fd17c9a092abe71d5cfce71b6fee4ed9c24e5947faf"
+    },
+    {
+      "case_id": "P08_fault",
+      "kind": "window",
+      "task": "R02",
+      "slot": "S2",
+      "mode": "report",
+      "point": null,
+      "change": {
+        "path": [
+          "query",
+          "end"
+        ],
+        "value": "2023-03-10T23:00:00Z"
+      },
+      "input_sha256": "35eff33288c240a43efc7d4337bd5dfb3603288e912cbff7e2086f179d773e0a"
+    },
+    {
+      "case_id": "P09_clean",
+      "kind": "clean",
+      "task": "R06",
+      "slot": "S1",
+      "mode": "clean",
+      "point": null,
+      "change": null,
+      "input_sha256": "c425200a87c271314977ab912c9e4ad191fc75af5386c82acc677046ae8d6e44"
+    },
+    {
+      "case_id": "P09_fault",
+      "kind": "missing_data",
+      "task": "R06",
+      "slot": "S1",
+      "mode": "drop_secondary",
+      "point": "2022-11-09T00:00:00Z",
+      "change": null,
+      "input_sha256": "98c57c452f183b8925616f4981e0b29a51e87a3802ebc106d71d8ef985ae740b"
+    },
+    {
+      "case_id": "P10_clean",
+      "kind": "clean",
+      "task": "R05",
+      "slot": "S3",
+      "mode": "clean",
+      "point": null,
+      "change": null,
+      "input_sha256": "51eab7efbea19720ed6d62ae23d4830745e3bc515cb7ef93ecd96d96bfe90772"
+    },
+    {
+      "case_id": "P10_fault",
+      "kind": "missing_data",
+      "task": "R05",
+      "slot": "S3",
+      "mode": "drop_secondary",
+      "point": "2022-11-09T16:00:00Z",
+      "change": null,
+      "input_sha256": "c8e711090def990cb9cc7d6195b67100fc752935a898a052ab2ac2862aa541ac"
+    },
+    {
+      "case_id": "P11_clean",
+      "kind": "clean",
+      "task": "R04",
+      "slot": "S3",
+      "mode": "clean",
+      "point": null,
+      "change": null,
+      "input_sha256": "cec11a1d96756103e082941231303685876fc6d1d2a9347f1cf8e2af984e49ab"
+    },
+    {
+      "case_id": "P11_fault",
+      "kind": "wrong_value",
+      "task": "R04",
+      "slot": "S3",
+      "mode": "report",
+      "point": null,
+      "change": {
+        "path": [
+          "value"
+        ],
+        "value": "0"
+      },
+      "input_sha256": "8b0b9dd1842ec4c50f15cf29231dd53beb4966be26fc669e294900b0848ccbf8"
+    },
+    {
+      "case_id": "P12_clean",
+      "kind": "clean",
+      "task": "R05",
+      "slot": "S3",
+      "mode": "clean",
+      "point": null,
+      "change": null,
+      "input_sha256": "51eab7efbea19720ed6d62ae23d4830745e3bc515cb7ef93ecd96d96bfe90772"
+    },
+    {
+      "case_id": "P12_fault",
+      "kind": "direction",
+      "task": "R05",
+      "slot": "S3",
+      "mode": "report",
+      "point": null,
+      "change": {
+        "path": [
+          "query",
+          "direction"
+        ],
+        "value": "USDT_USDC"
+      },
+      "input_sha256": "3e468ca93e85ea8eaa86bd0a8bc7c4d0955ec45ec5b2cb1605f9284722f25e3f"
+    },
+    {
+      "case_id": "R1",
+      "kind": "legal_refusal",
+      "task": "R03",
+      "slot": "S3",
+      "mode": "clean",
+      "point": null,
+      "change": null,
+      "input_sha256": "486113d8fa17e85113791a31d1613471558c613bba6a3a235ba0db858030b4a8"
+    },
+    {
+      "case_id": "R2",
+      "kind": "legal_refusal",
+      "task": "R06",
+      "slot": "S3",
+      "mode": "clean",
+      "point": null,
+      "change": null,
+      "input_sha256": "6e7fc8d6fe6cb6a9b0b22761aa56f7d017897be693175025d994d54a2c0788bf"
+    },
+    {
+      "case_id": "R3",
+      "kind": "legal_refusal",
+      "task": "R01",
+      "slot": "S1",
+      "mode": "exclude_point",
+      "point": "2023-03-10T02:00:00Z",
+      "change": null,
+      "input_sha256": "ccb9577c392124dd854388a24057b40f01f318cdfeff669c3db16b9cfd67cfc6"
+    },
+    {
+      "case_id": "R4",
+      "kind": "legal_refusal",
+      "task": "R04",
+      "slot": "S2",
+      "mode": "exclude_point",
+      "point": "2022-11-09T02:00:00Z",
+      "change": null,
+      "input_sha256": "96926dcca9852ffec6aa3a8f714eb53f9ceffa0da475179c7527c133bdd1f86d"
+    },
+    {
+      "case_id": "U1",
+      "kind": "source_unavailable",
+      "task": "R02",
+      "slot": "S1",
+      "mode": "no_secondary",
+      "point": null,
+      "change": null,
+      "input_sha256": "c21d0153f605861644ba31c2822d345ac8f0b345660c5fbdb66a2e75e3c78895"
+    },
+    {
+      "case_id": "U2",
+      "kind": "source_unavailable",
+      "task": "R05",
+      "slot": "S2",
+      "mode": "no_secondary",
+      "point": null,
+      "change": null,
+      "input_sha256": "ea8d572e5931f49fbb24738518f654ce90d912254b1fe4fba6eed3a52a428d4d"
+    },
+    {
+      "case_id": "U3",
+      "kind": "source_conflict",
+      "task": "R02",
+      "slot": "S2",
+      "mode": "secondary_hash",
+      "point": "2023-03-11T00:00:00Z",
+      "change": null,
+      "input_sha256": "56c5460b4b8f58b0047a94ad90f82a69827a883f533026e530e799a14685071e"
+    },
+    {
+      "case_id": "U4",
+      "kind": "source_conflict",
+      "task": "R06",
+      "slot": "S2",
+      "mode": "secondary_hash",
+      "point": "2022-11-09T20:00:00Z",
+      "change": null,
+      "input_sha256": "bf10947cb8d6c457fe95f3223931d50a5e07c5d28876834fb4ea026228d4f72c"
+    }
+  ],
+  "scope": "Scripted follow-up with disjoint scenario instances. Frozen separately before verifier execution."
+}

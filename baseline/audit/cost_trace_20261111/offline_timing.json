@@ -1,0 +1,340 @@
+{
+  "scope": "Serial local replay of archived G/E reports from input loading through checked publication",
+  "environment": {
+    "system": "Darwin",
+    "machine": "arm64",
+    "python": "3.12.14"
+  },
+  "freeze_sha256": "ec66a6aaf06a0a37eeff5e74bbda6e68a866be00617a00a9413087679e7cd220",
+  "archived_runs": 36,
+  "emitted_claims": 102,
+  "code_sha256": {
+    "curve_audit/current_study.py": "3f6928bd6ea2199504d6b5af19bce467f1999a6c57d0f4592246aa1d3dd21507",
+    "curve_audit/current_verify.py": "c5d27c2a86057d6f2015c65f957e7224351e4b90d82b775bc71878470fe9ece2",
+    "audit/cost_trace_20261111/ledger.py": "527f8ceea73d7803f51c613ebf52d4525fbff39531a61fccf37ae9e4a9122683",
+    "audit/cost_trace_20261111/replay_cost.py": "96fcabf8fc55e48648451e0ee5f16c29cf70ef3fe290232409c28c1940e66308"
+  },
+  "new_rpc_attempts": 0,
+  "new_model_attempts": 0,
+  "median_elapsed_seconds": 0.900818750000326,
+  "median_phase_seconds": {
+    "load_archived_inputs": 0.008761832999880426,
+    "load_and_bind_rpc_captures": 0.3995702500033076,
+    "verify_v1": 0.20982320800249,
+    "verify_v2": 0.27952825000102166,
+    "publish_and_write_json": 0.004556667001452297,
+    "validate_against_archive": 0.0012323339979047887
+  },
+  "samples": [
+    {
+      "run_id": "offline-publication-1",
+      "mode": "offline_replay",
+      "started_at_utc": "2026-11-11T14:08:01.179705+00:00",
+      "elapsed_seconds": 0.8963386670002365,
+      "phase_seconds": {
+        "load_archived_inputs": 0.009108500002184883,
+        "load_and_bind_rpc_captures": 0.39249812500202097,
+        "verify_v1": 0.20935066700621974,
+        "verify_v2": 0.27957395799603546,
+        "publish_and_write_json": 0.004605374997481704,
+        "validate_against_archive": 0.0011795830068876967
+      },
+      "attempt_counts": {
+        "rpc_attempts": 0,
+        "rpc_retries": 0,
+        "model_attempts": 0,
+        "model_retries": 0,
+        "model_attempts_without_usage": 0,
+        "model_receipts_without_cache_count": 0
+      },
+      "known_model_usage": {},
+      "recorded_charges_by_currency": {},
+      "events": [
+        {
+          "kind": "phase",
+          "name": "load_archived_inputs",
+          "status": "ok",
+          "seconds": 0.009108500002184883
+        },
+        {
+          "kind": "phase",
+          "name": "load_and_bind_rpc_captures",
+          "status": "ok",
+          "seconds": 0.39249812500202097
+        },
+        {
+          "kind": "phase",
+          "name": "verify_v1",
+          "status": "ok",
+          "seconds": 0.20935066700621974
+        },
+        {
+          "kind": "phase",
+          "name": "verify_v2",
+          "status": "ok",
+          "seconds": 0.27957395799603546
+        },
+        {
+          "kind": "phase",
+          "name": "publish_and_write_json",
+          "status": "ok",
+          "seconds": 0.004605374997481704
+        },
+        {
+          "kind": "phase",
+          "name": "validate_against_archive",
+          "status": "ok",
+          "seconds": 0.0011795830068876967
+        }
+      ]
+    },
+    {
+      "run_id": "offline-publication-2",
+      "mode": "offline_replay",
+      "started_at_utc": "2026-11-11T14:08:02.076828+00:00",
+      "elapsed_seconds": 0.8965434159981669,
+      "phase_seconds": {
+        "load_archived_inputs": 0.008821292001812253,
+        "load_and_bind_rpc_captures": 0.3995702500033076,
+        "verify_v1": 0.2066570419992786,
+        "verify_v2": 0.27570237499458017,
+        "publish_and_write_json": 0.004517749999649823,
+        "validate_against_archive": 0.001250166998943314
+      },
+      "attempt_counts": {
+        "rpc_attempts": 0,
+        "rpc_retries": 0,
+        "model_attempts": 0,
+        "model_retries": 0,
+        "model_attempts_without_usage": 0,
+        "model_receipts_without_cache_count": 0
+      },
+      "known_model_usage": {},
+      "recorded_charges_by_currency": {},
+      "events": [
+        {
+          "kind": "phase",
+          "name": "load_archived_inputs",
+          "status": "ok",
+          "seconds": 0.008821292001812253
+        },
+        {
+          "kind": "phase",
+          "name": "load_and_bind_rpc_captures",
+          "status": "ok",
+          "seconds": 0.3995702500033076
+        },
+        {
+          "kind": "phase",
+          "name": "verify_v1",
+          "status": "ok",
+          "seconds": 0.2066570419992786
+        },
+        {
+          "kind": "phase",
+          "name": "verify_v2",
+          "status": "ok",
+          "seconds": 0.27570237499458017
+        },
+        {
+          "kind": "phase",
+          "name": "publish_and_write_json",
+          "status": "ok",
+          "seconds": 0.004517749999649823
+        },
+        {
+          "kind": "phase",
+          "name": "validate_against_archive",
+          "status": "ok",
+          "seconds": 0.001250166998943314
+        }
+      ]
+    },
+    {
+      "run_id": "offline-publication-3",
+      "mode": "offline_replay",
+      "started_at_utc": "2026-11-11T14:08:02.974193+00:00",
+      "elapsed_seconds": 0.9054545420003706,
+      "phase_seconds": {
+        "load_archived_inputs": 0.008652999997138977,
+        "load_and_bind_rpc_captures": 0.4001380830013659,
+        "verify_v1": 0.21145183400221867,
+        "verify_v2": 0.27952825000102166,
+        "publish_and_write_json": 0.004475916997762397,
+        "validate_against_archive": 0.0011878750010509975
+      },
+      "attempt_counts": {
+        "rpc_attempts": 0,
+        "rpc_retries": 0,
+        "model_attempts": 0,
+        "model_retries": 0,
+        "model_attempts_without_usage": 0,
+        "model_receipts_without_cache_count": 0
+      },
+      "known_model_usage": {},
+      "recorded_charges_by_currency": {},
+      "events": [
+        {
+          "kind": "phase",
+          "name": "load_archived_inputs",
+          "status": "ok",
+          "seconds": 0.008652999997138977
+        },
+        {
+          "kind": "phase",
+          "name": "load_and_bind_rpc_captures",
+          "status": "ok",
+          "seconds": 0.4001380830013659
+        },
+        {
+          "kind": "phase",
+          "name": "verify_v1",
+          "status": "ok",
+          "seconds": 0.21145183400221867
+        },
+        {
+          "kind": "phase",
+          "name": "verify_v2",
+          "status": "ok",
+          "seconds": 0.27952825000102166
+        },
+        {
+          "kind": "phase",
+          "name": "publish_and_write_json",
+          "status": "ok",
+          "seconds": 0.004475916997762397
+        },
+        {
+          "kind": "phase",
+          "name": "validate_against_archive",
+          "status": "ok",
+          "seconds": 0.0011878750010509975
+        }
+      ]
+    },
+    {
+      "run_id": "offline-publication-4",
+      "mode": "offline_replay",
+      "started_at_utc": "2026-11-11T14:08:03.880400+00:00",
+      "elapsed_seconds": 0.900818750000326,
+      "phase_seconds": {
+        "load_archived_inputs": 0.008761832999880426,
+        "load_and_bind_rpc_captures": 0.39691887499793665,
+        "verify_v1": 0.20982320800249,
+        "verify_v2": 0.2795056670001941,
+        "publish_and_write_json": 0.004556667001452297,
+        "validate_against_archive": 0.0012323339979047887
+      },
+      "attempt_counts": {
+        "rpc_attempts": 0,
+        "rpc_retries": 0,
+        "model_attempts": 0,
+        "model_retries": 0,
+        "model_attempts_without_usage": 0,
+        "model_receipts_without_cache_count": 0
+      },
+      "known_model_usage": {},
+      "recorded_charges_by_currency": {},
+      "events": [
+        {
+          "kind": "phase",
+          "name": "load_archived_inputs",
+          "status": "ok",
+          "seconds": 0.008761832999880426
+        },
+        {
+          "kind": "phase",
+          "name": "load_and_bind_rpc_captures",
+          "status": "ok",
+          "seconds": 0.39691887499793665
+        },
+        {
+          "kind": "phase",
+          "name": "verify_v1",
+          "status": "ok",
+          "seconds": 0.20982320800249
+        },
+        {
+          "kind": "phase",
+          "name": "verify_v2",
+          "status": "ok",
+          "seconds": 0.2795056670001941
+        },
+        {
+          "kind": "phase",
+          "name": "publish_and_write_json",
+          "status": "ok",
+          "seconds": 0.004556667001452297
+        },
+        {
+          "kind": "phase",
+          "name": "validate_against_archive",
+          "status": "ok",
+          "seconds": 0.0012323339979047887
+        }
+      ]
+    },
+    {
+      "run_id": "offline-publication-5",
+      "mode": "offline_replay",
+      "started_at_utc": "2026-11-11T14:08:04.782086+00:00",
+      "elapsed_seconds": 0.9070999169998686,
+      "phase_seconds": {
+        "load_archived_inputs": 0.008733333001146093,
+        "load_and_bind_rpc_captures": 0.4003612080050516,
+        "verify_v1": 0.21170695799810346,
+        "verify_v2": 0.2804320409995853,
+        "publish_and_write_json": 0.004605375004757661,
+        "validate_against_archive": 0.0012412920041242614
+      },
+      "attempt_counts": {
+        "rpc_attempts": 0,
+        "rpc_retries": 0,
+        "model_attempts": 0,
+        "model_retries": 0,
+        "model_attempts_without_usage": 0,
+        "model_receipts_without_cache_count": 0
+      },
+      "known_model_usage": {},
+      "recorded_charges_by_currency": {},
+      "events": [
+        {
+          "kind": "phase",
+          "name": "load_archived_inputs",
+          "status": "ok",
+          "seconds": 0.008733333001146093
+        },
+        {
+          "kind": "phase",
+          "name": "load_and_bind_rpc_captures",
+          "status": "ok",
+          "seconds": 0.4003612080050516
+        },
+        {
+          "kind": "phase",
+          "name": "verify_v1",
+          "status": "ok",
+          "seconds": 0.21170695799810346
+        },
+        {
+          "kind": "phase",
+          "name": "verify_v2",
+          "status": "ok",
+          "seconds": 0.2804320409995853
+        },
+        {
+          "kind": "phase",
+          "name": "publish_and_write_json",
+          "status": "ok",
+          "seconds": 0.004605375004757661
+        },
+        {
+          "kind": "phase",
+          "name": "validate_against_archive",
+          "status": "ok",
+          "seconds": 0.0012412920041242614
+        }
+      ]
+    }
+  ]
+}

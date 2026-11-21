@@ -1,0 +1,60 @@
+{
+  "version": "curve-confirmation-20261015.1",
+  "derived_decimal_absolute_tolerance": "1E-8",
+  "relative_tolerance": "0",
+  "exact_fields": [
+    "raw_integer",
+    "unit",
+    "block_number",
+    "block_hash",
+    "target_timestamp_utc",
+    "coin",
+    "direction",
+    "size"
+  ],
+  "accepted_assertion_statuses": [
+    "conflicting",
+    "supported"
+  ],
+  "accepted_refusal_statuses": [
+    "refused",
+    "unsupported"
+  ],
+  "refusal_reason_locations": [
+    "claim.explanation",
+    "claim.refusal_reason",
+    "claim.reason",
+    "report.refusal_reason",
+    "report.answer"
+  ],
+  "refusal_reason_check": "presence_only_semantic_adequacy_requires_review",
+  "automatic_scope": "report.claims_only_not_unrestricted_prose",
+  "conditions": [
+    "self_review",
+    "archive_recompute",
+    "source_recompute"
+  ],
+  "repetitions": 3,
+  "study_design": "shared_initial_with_three_matched_review_branches",
+  "planned_final_model_answers": 72,
+  "planned_fixed_references": 8,
+  "draft_required_slots": 26,
+  "draft_answerable_slots": 22,
+  "draft_refusal_slots": 4,
+  "public_inputs_exclude": [
+    "candidate_references",
+    "expected_claims",
+    "reference_values",
+    "review_records",
+    "_private"
+  ],
+  "human_review_status": "pending_external_records",
+  "budget_status": "pending_hard_cap_adapter",
+  "event_scope": "single_event_draft_second_event_not_selected",
+  "formal_start_requirements": [
+    "frozen_tasks",
+    "validated_human_reference_records",
+    "verified_independent_source_path",
+    "enforced_equal_hard_token_caps"
+  ]
+}

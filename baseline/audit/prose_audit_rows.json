@@ -1,0 +1,3077 @@
+[
+  {
+    "review_id": "P01",
+    "task_id": "R03",
+    "condition": "E",
+    "scope": "submitted_prose",
+    "task_bundles": [
+      {
+        "slot": "S1",
+        "type": "numerical",
+        "prose_value": "29.68",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "29.67964770039234092492767823476935832656357246256436644475260743636932",
+        "target_utc": "2023-03-10T00:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20230310T000000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20230310T000000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S2",
+        "type": "numerical",
+        "prose_value": "2.579",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "2.579202362334303699039127478585149461581611251892147343246473404509644",
+        "target_utc": null,
+        "comparison_interval_utc": [
+          "2023-03-10T20:00:00Z",
+          "2023-03-10T21:00:00Z"
+        ],
+        "required_evidence_ids": [
+          "E_UTC_20230310T180000Z",
+          "E_UTC_20230310T190000Z",
+          "E_UTC_20230310T200000Z",
+          "E_UTC_20230310T210000Z",
+          "E_UTC_20230310T230000Z",
+          "E_UTC_20230311T000000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20230310T180000Z",
+          "E_UTC_20230310T190000Z",
+          "E_UTC_20230310T200000Z",
+          "E_UTC_20230310T210000Z",
+          "E_UTC_20230310T230000Z",
+          "E_UTC_20230311T000000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S3",
+        "type": "evidence_limit_refusal",
+        "support": "supported",
+        "basis": "An hourly grid does not identify the continuous-time maximum."
+      }
+    ],
+    "additional_assertions": []
+  },
+  {
+    "review_id": "P02",
+    "task_id": "R03",
+    "condition": "E",
+    "scope": "submitted_prose",
+    "task_bundles": [
+      {
+        "slot": "S1",
+        "type": "numerical",
+        "prose_value": "29.6796",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "29.67964770039234092492767823476935832656357246256436644475260743636932",
+        "target_utc": "2023-03-10T00:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20230310T000000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20230310T000000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S2",
+        "type": "numerical",
+        "prose_value": "2.5792",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "2.579202362334303699039127478585149461581611251892147343246473404509644",
+        "target_utc": null,
+        "comparison_interval_utc": [
+          "2023-03-10T20:00:00Z",
+          "2023-03-10T21:00:00Z"
+        ],
+        "required_evidence_ids": [
+          "E_UTC_20230310T180000Z",
+          "E_UTC_20230310T190000Z",
+          "E_UTC_20230310T200000Z",
+          "E_UTC_20230310T210000Z",
+          "E_UTC_20230310T230000Z",
+          "E_UTC_20230311T000000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20230310T180000Z",
+          "E_UTC_20230310T190000Z",
+          "E_UTC_20230310T200000Z",
+          "E_UTC_20230310T210000Z",
+          "E_UTC_20230310T230000Z",
+          "E_UTC_20230311T000000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S3",
+        "type": "evidence_limit_refusal",
+        "support": "supported",
+        "basis": "An hourly grid does not identify the continuous-time maximum."
+      }
+    ],
+    "additional_assertions": []
+  },
+  {
+    "review_id": "P03",
+    "task_id": "R05",
+    "condition": "T",
+    "scope": "template_stub",
+    "task_bundles": [],
+    "additional_assertions": []
+  },
+  {
+    "review_id": "P04",
+    "task_id": "R02",
+    "condition": "T",
+    "scope": "template_stub",
+    "task_bundles": [],
+    "additional_assertions": []
+  },
+  {
+    "review_id": "P05",
+    "task_id": "R04",
+    "condition": "E",
+    "scope": "submitted_prose",
+    "task_bundles": [
+      {
+        "slot": "S1",
+        "type": "numerical",
+        "prose_value": "33.712746",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "33.71274634437183232803384343991931076535637754735638742315987290032613",
+        "target_utc": "2022-11-09T02:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20221109T020000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20221109T020000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S2",
+        "type": "numerical",
+        "prose_value": "0.999897263",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "0.999897263",
+        "target_utc": "2022-11-09T02:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20221109T020000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20221109T020000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S3",
+        "type": "numerical",
+        "prose_value": "0.001928",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "0.001928398117837432264278535183869185168476653785980010228310825969327611",
+        "target_utc": "2022-11-09T02:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20221109T020000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20221109T020000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      }
+    ],
+    "additional_assertions": [
+      {
+        "assertion_id": "about_1bp_discount",
+        "excerpt": "约1bp折价",
+        "support": "supported",
+        "basis": "The 1,000 USDC quote is below parity by 1.02737 basis points."
+      },
+      {
+        "assertion_id": "liquidity_depth",
+        "excerpt": "流动性仍充裕",
+        "support": "unsupported",
+        "basis": "Two quote sizes supply no benchmark for sufficient liquidity."
+      }
+    ]
+  },
+  {
+    "review_id": "P06",
+    "task_id": "R01",
+    "condition": "E",
+    "scope": "submitted_prose",
+    "task_bundles": [
+      {
+        "slot": "S1",
+        "type": "numerical",
+        "prose_value": "30.878165451717635",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "30.87816545171763512672859937973758832572729491873927673221697231079895",
+        "target_utc": "2023-03-10T02:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20230310T020000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20230310T020000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S2",
+        "type": "numerical",
+        "prose_value": "1.000037",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "1.000036999",
+        "target_utc": "2023-03-10T02:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20230310T020000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20230310T020000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S3",
+        "type": "numerical",
+        "prose_value": "0.002924",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "0.002924291804127539085181387373848554977314394344723639570059547366806976",
+        "target_utc": "2023-03-10T02:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20230310T020000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20230310T020000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      }
+    ],
+    "additional_assertions": [
+      {
+        "assertion_id": "material_dai_shortfall",
+        "excerpt": "DAI 份额明显偏低",
+        "support": "ambiguous",
+        "basis": "The share is below one third, but the comparison threshold for ‘materially low’ is unspecified."
+      },
+      {
+        "assertion_id": "discount_direction",
+        "excerpt": "USDC 相对 USDT 的轻微折价",
+        "support": "unsupported",
+        "basis": "Contradiction. At the quoted size, 1.000036999 USDT per USDC is above one, not below."
+      }
+    ]
+  },
+  {
+    "review_id": "P07",
+    "task_id": "R04",
+    "condition": "E",
+    "scope": "submitted_prose",
+    "task_bundles": [
+      {
+        "slot": "S1",
+        "type": "numerical",
+        "prose_value": "33.7127",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "33.71274634437183232803384343991931076535637754735638742315987290032613",
+        "target_utc": "2022-11-09T02:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20221109T020000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20221109T020000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S2",
+        "type": "numerical",
+        "prose_value": "0.999897",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "0.999897263",
+        "target_utc": "2022-11-09T02:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20221109T020000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20221109T020000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S3",
+        "type": "numerical",
+        "prose_value": "0.00193",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "0.001928398117837432264278535183869185168476653785980010228310825969327611",
+        "target_utc": "2022-11-09T02:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20221109T020000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20221109T020000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      }
+    ],
+    "additional_assertions": [
+      {
+        "assertion_id": "rough_three_way_balance",
+        "excerpt": "三币大致均衡",
+        "support": "supported",
+        "basis": "The three nominal shares at this snapshot are each within one percentage point of one third."
+      },
+      {
+        "assertion_id": "liquidity_depth",
+        "excerpt": "流动性深度对 100000 规模仍较充裕",
+        "support": "unsupported",
+        "basis": "The two direction-specific quotes give a rate difference but no benchmark for sufficient depth."
+      }
+    ]
+  },
+  {
+    "review_id": "P08",
+    "task_id": "R01",
+    "condition": "E",
+    "scope": "submitted_prose",
+    "task_bundles": [
+      {
+        "slot": "S1",
+        "type": "numerical",
+        "prose_value": "30.878165",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "30.87816545171763512672859937973758832572729491873927673221697231079895",
+        "target_utc": "2023-03-10T02:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20230310T020000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20230310T020000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S2",
+        "type": "numerical",
+        "prose_value": "1.000036999",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "1.000036999",
+        "target_utc": "2023-03-10T02:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20230310T020000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20230310T020000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S3",
+        "type": "numerical",
+        "prose_value": "0.002924",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "0.002924291804127539085181387373848554977314394344723639570059547366806976",
+        "target_utc": "2023-03-10T02:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20230310T020000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20230310T020000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      }
+    ],
+    "additional_assertions": []
+  },
+  {
+    "review_id": "P09",
+    "task_id": "R06",
+    "condition": "E",
+    "scope": "submitted_prose",
+    "task_bundles": [
+      {
+        "slot": "S1",
+        "type": "numerical",
+        "prose_value": "34.5109",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "34.51091129825685730804081675045714791233124072661780196809215604778164",
+        "target_utc": "2022-11-09T00:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20221109T000000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20221109T000000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S2",
+        "type": "numerical",
+        "prose_value": "1.1693",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "1.169260895695533105263393050121345641344732443853721675518133578431254",
+        "target_utc": null,
+        "comparison_interval_utc": [
+          "2022-11-09T19:00:00Z",
+          "2022-11-09T20:00:00Z"
+        ],
+        "required_evidence_ids": [
+          "E_UTC_20221109T180000Z",
+          "E_UTC_20221109T190000Z",
+          "E_UTC_20221109T200000Z",
+          "E_UTC_20221109T210000Z",
+          "E_UTC_20221109T230000Z",
+          "E_UTC_20221110T000000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20221109T180000Z",
+          "E_UTC_20221109T190000Z",
+          "E_UTC_20221109T200000Z",
+          "E_UTC_20221109T210000Z",
+          "E_UTC_20221109T230000Z",
+          "E_UTC_20221110T000000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S3",
+        "type": "evidence_limit_refusal",
+        "support": "supported",
+        "basis": "An hourly grid does not identify the continuous-time maximum."
+      }
+    ],
+    "additional_assertions": [
+      {
+        "assertion_id": "block_and_observed_time",
+        "excerpt": "快照15928753，观测于11-08T23:59:59Z",
+        "support": "supported",
+        "basis": "Frozen block 15928753 has UTC timestamp 2022-11-08T23:59:59Z."
+      },
+      {
+        "assertion_id": "sample_as_lower_bound",
+        "excerpt": "小时点只能给出下界采样值",
+        "support": "supported",
+        "basis": "The sampled maximum is a lower bound on the maximum over all times in the same interval."
+      }
+    ]
+  },
+  {
+    "review_id": "P10",
+    "task_id": "R05",
+    "condition": "G",
+    "scope": "submitted_prose",
+    "task_bundles": [
+      {
+        "slot": "S1",
+        "type": "numerical",
+        "prose_value": "-18.38",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "-18.38389632757281619959070120284472017968908088001323314500462397030229",
+        "target_utc": null,
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20221109T000000Z",
+          "E_UTC_20221110T000000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20221109T000000Z",
+          "E_UTC_20221110T000000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S2",
+        "type": "numerical",
+        "prose_value": "0.3479",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "0.3478647975423796265093099150308406131911864753839405075523984515493946",
+        "target_utc": "2022-11-09T15:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20221109T000000Z",
+          "E_UTC_20221109T010000Z",
+          "E_UTC_20221109T020000Z",
+          "E_UTC_20221109T030000Z",
+          "E_UTC_20221109T040000Z",
+          "E_UTC_20221109T050000Z",
+          "E_UTC_20221109T060000Z",
+          "E_UTC_20221109T070000Z",
+          "E_UTC_20221109T080000Z",
+          "E_UTC_20221109T090000Z",
+          "E_UTC_20221109T100000Z",
+          "E_UTC_20221109T110000Z",
+          "E_UTC_20221109T120000Z",
+          "E_UTC_20221109T130000Z",
+          "E_UTC_20221109T140000Z",
+          "E_UTC_20221109T150000Z",
+          "E_UTC_20221109T160000Z",
+          "E_UTC_20221109T170000Z",
+          "E_UTC_20221109T180000Z",
+          "E_UTC_20221109T190000Z",
+          "E_UTC_20221109T200000Z",
+          "E_UTC_20221109T210000Z",
+          "E_UTC_20221109T220000Z",
+          "E_UTC_20221109T230000Z",
+          "E_UTC_20221110T000000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20221109T150000Z"
+        ],
+        "missing_required_evidence_ids": [
+          "E_UTC_20221109T000000Z",
+          "E_UTC_20221109T010000Z",
+          "E_UTC_20221109T020000Z",
+          "E_UTC_20221109T030000Z",
+          "E_UTC_20221109T040000Z",
+          "E_UTC_20221109T050000Z",
+          "E_UTC_20221109T060000Z",
+          "E_UTC_20221109T070000Z",
+          "E_UTC_20221109T080000Z",
+          "E_UTC_20221109T090000Z",
+          "E_UTC_20221109T100000Z",
+          "E_UTC_20221109T110000Z",
+          "E_UTC_20221109T120000Z",
+          "E_UTC_20221109T130000Z",
+          "E_UTC_20221109T140000Z",
+          "E_UTC_20221109T160000Z",
+          "E_UTC_20221109T170000Z",
+          "E_UTC_20221109T180000Z",
+          "E_UTC_20221109T190000Z",
+          "E_UTC_20221109T200000Z",
+          "E_UTC_20221109T210000Z",
+          "E_UTC_20221109T220000Z",
+          "E_UTC_20221109T230000Z",
+          "E_UTC_20221110T000000Z"
+        ],
+        "original_citation_coverage": "incomplete"
+      },
+      {
+        "slot": "S3",
+        "type": "numerical",
+        "prose_value": "1.00122",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "1.0012227852",
+        "target_utc": "2022-11-09T16:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20221109T160000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20221109T160000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      }
+    ],
+    "additional_assertions": [
+      {
+        "assertion_id": "token_flow_attribution",
+        "excerpt": "资金显著流出USDC侧",
+        "support": "unsupported",
+        "basis": "Share change does not identify transaction flow or its cause."
+      }
+    ]
+  },
+  {
+    "review_id": "P11",
+    "task_id": "R01",
+    "condition": "T",
+    "scope": "template_stub",
+    "task_bundles": [],
+    "additional_assertions": []
+  },
+  {
+    "review_id": "P12",
+    "task_id": "R03",
+    "condition": "G",
+    "scope": "submitted_prose",
+    "task_bundles": [
+      {
+        "slot": "S1",
+        "type": "numerical",
+        "prose_value": "29.6796",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "29.67964770039234092492767823476935832656357246256436644475260743636932",
+        "target_utc": "2023-03-10T00:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20230310T000000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20230310T000000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S2",
+        "type": "numerical",
+        "prose_value": "2.5792",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "2.579202362334303699039127478585149461581611251892147343246473404509644",
+        "target_utc": null,
+        "comparison_interval_utc": [
+          "2023-03-10T20:00:00Z",
+          "2023-03-10T21:00:00Z"
+        ],
+        "required_evidence_ids": [
+          "E_UTC_20230310T180000Z",
+          "E_UTC_20230310T190000Z",
+          "E_UTC_20230310T200000Z",
+          "E_UTC_20230310T210000Z",
+          "E_UTC_20230310T230000Z",
+          "E_UTC_20230311T000000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20230310T200000Z",
+          "E_UTC_20230310T210000Z"
+        ],
+        "missing_required_evidence_ids": [
+          "E_UTC_20230310T180000Z",
+          "E_UTC_20230310T190000Z",
+          "E_UTC_20230310T230000Z",
+          "E_UTC_20230311T000000Z"
+        ],
+        "original_citation_coverage": "incomplete"
+      },
+      {
+        "slot": "S3",
+        "type": "evidence_limit_refusal",
+        "support": "supported",
+        "basis": "An hourly grid does not identify the continuous-time maximum."
+      }
+    ],
+    "additional_assertions": [
+      {
+        "assertion_id": "sampling_upper_bound",
+        "excerpt": "采样只能给出离散时点的上下界",
+        "support": "unsupported",
+        "basis": "Sampled observations cannot upper-bound an inter-sample peak without a further model."
+      }
+    ]
+  },
+  {
+    "review_id": "P13",
+    "task_id": "R04",
+    "condition": "G",
+    "scope": "submitted_prose",
+    "task_bundles": [
+      {
+        "slot": "S1",
+        "type": "numerical",
+        "prose_value": "33.71",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "33.71274634437183232803384343991931076535637754735638742315987290032613",
+        "target_utc": "2022-11-09T02:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20221109T020000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20221109T020000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S2",
+        "type": "numerical",
+        "prose_value": "0.999897",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "0.999897263",
+        "target_utc": "2022-11-09T02:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20221109T020000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20221109T020000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S3",
+        "type": "numerical",
+        "prose_value": "0.0019",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "0.001928398117837432264278535183869185168476653785980010228310825969327611",
+        "target_utc": "2022-11-09T02:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20221109T020000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20221109T020000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      }
+    ],
+    "additional_assertions": [
+      {
+        "assertion_id": "dispersed_structure",
+        "excerpt": "池内结构仍偏分散",
+        "support": "ambiguous",
+        "basis": "The frozen nominal shares are available, but the relevant dispersion threshold is undefined."
+      },
+      {
+        "assertion_id": "liquidity_depth",
+        "excerpt": "深度充足",
+        "support": "unsupported",
+        "basis": "Two single-direction quotes at one instant do not establish adequate depth."
+      },
+      {
+        "assertion_id": "material_imbalance",
+        "excerpt": "尚未显现明显失衡",
+        "support": "ambiguous",
+        "basis": "The degree of imbalance can be calculated but no threshold for ‘material’ is specified."
+      }
+    ]
+  },
+  {
+    "review_id": "P14",
+    "task_id": "R02",
+    "condition": "E",
+    "scope": "submitted_prose",
+    "task_bundles": [
+      {
+        "slot": "S1",
+        "type": "numerical",
+        "prose_value": "+18.4205",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "18.42049050066259317899276263832776348381636628342168216214056570109342",
+        "target_utc": null,
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20230310T000000Z",
+          "E_UTC_20230311T000000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20230310T000000Z",
+          "E_UTC_20230311T000000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S2",
+        "type": "numerical",
+        "prose_value": "0.27770",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "0.2776961146024775347331947712419677450053744799821122364839917408585450",
+        "target_utc": "2023-03-11T00:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20230310T000000Z",
+          "E_UTC_20230310T010000Z",
+          "E_UTC_20230310T020000Z",
+          "E_UTC_20230310T030000Z",
+          "E_UTC_20230310T040000Z",
+          "E_UTC_20230310T050000Z",
+          "E_UTC_20230310T060000Z",
+          "E_UTC_20230310T070000Z",
+          "E_UTC_20230310T080000Z",
+          "E_UTC_20230310T090000Z",
+          "E_UTC_20230310T100000Z",
+          "E_UTC_20230310T110000Z",
+          "E_UTC_20230310T120000Z",
+          "E_UTC_20230310T130000Z",
+          "E_UTC_20230310T140000Z",
+          "E_UTC_20230310T150000Z",
+          "E_UTC_20230310T160000Z",
+          "E_UTC_20230310T170000Z",
+          "E_UTC_20230310T180000Z",
+          "E_UTC_20230310T190000Z",
+          "E_UTC_20230310T200000Z",
+          "E_UTC_20230310T210000Z",
+          "E_UTC_20230310T220000Z",
+          "E_UTC_20230310T230000Z",
+          "E_UTC_20230311T000000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20230310T000000Z",
+          "E_UTC_20230310T010000Z",
+          "E_UTC_20230310T020000Z",
+          "E_UTC_20230310T030000Z",
+          "E_UTC_20230310T040000Z",
+          "E_UTC_20230310T050000Z",
+          "E_UTC_20230310T060000Z",
+          "E_UTC_20230310T070000Z",
+          "E_UTC_20230310T080000Z",
+          "E_UTC_20230310T090000Z",
+          "E_UTC_20230310T100000Z",
+          "E_UTC_20230310T110000Z",
+          "E_UTC_20230310T120000Z",
+          "E_UTC_20230310T130000Z",
+          "E_UTC_20230310T140000Z",
+          "E_UTC_20230310T150000Z",
+          "E_UTC_20230310T160000Z",
+          "E_UTC_20230310T170000Z",
+          "E_UTC_20230310T180000Z",
+          "E_UTC_20230310T190000Z",
+          "E_UTC_20230310T200000Z",
+          "E_UTC_20230310T210000Z",
+          "E_UTC_20230310T220000Z",
+          "E_UTC_20230310T230000Z",
+          "E_UTC_20230311T000000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S3",
+        "type": "numerical",
+        "prose_value": "0.98978",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "0.9897830738",
+        "target_utc": "2023-03-11T01:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20230311T010000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20230311T010000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      }
+    ],
+    "additional_assertions": []
+  },
+  {
+    "review_id": "P15",
+    "task_id": "R02",
+    "condition": "E",
+    "scope": "submitted_prose",
+    "task_bundles": [
+      {
+        "slot": "S1",
+        "type": "numerical",
+        "prose_value": "+18.4205",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "18.42049050066259317899276263832776348381636628342168216214056570109342",
+        "target_utc": null,
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20230310T000000Z",
+          "E_UTC_20230311T000000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20230310T000000Z",
+          "E_UTC_20230311T000000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S2",
+        "type": "numerical",
+        "prose_value": "0.27770",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "0.2776961146024775347331947712419677450053744799821122364839917408585450",
+        "target_utc": "2023-03-11T00:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20230310T000000Z",
+          "E_UTC_20230310T010000Z",
+          "E_UTC_20230310T020000Z",
+          "E_UTC_20230310T030000Z",
+          "E_UTC_20230310T040000Z",
+          "E_UTC_20230310T050000Z",
+          "E_UTC_20230310T060000Z",
+          "E_UTC_20230310T070000Z",
+          "E_UTC_20230310T080000Z",
+          "E_UTC_20230310T090000Z",
+          "E_UTC_20230310T100000Z",
+          "E_UTC_20230310T110000Z",
+          "E_UTC_20230310T120000Z",
+          "E_UTC_20230310T130000Z",
+          "E_UTC_20230310T140000Z",
+          "E_UTC_20230310T150000Z",
+          "E_UTC_20230310T160000Z",
+          "E_UTC_20230310T170000Z",
+          "E_UTC_20230310T180000Z",
+          "E_UTC_20230310T190000Z",
+          "E_UTC_20230310T200000Z",
+          "E_UTC_20230310T210000Z",
+          "E_UTC_20230310T220000Z",
+          "E_UTC_20230310T230000Z",
+          "E_UTC_20230311T000000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20230310T000000Z",
+          "E_UTC_20230310T010000Z",
+          "E_UTC_20230310T020000Z",
+          "E_UTC_20230310T030000Z",
+          "E_UTC_20230310T040000Z",
+          "E_UTC_20230310T050000Z",
+          "E_UTC_20230310T060000Z",
+          "E_UTC_20230310T070000Z",
+          "E_UTC_20230310T080000Z",
+          "E_UTC_20230310T090000Z",
+          "E_UTC_20230310T100000Z",
+          "E_UTC_20230310T110000Z",
+          "E_UTC_20230310T120000Z",
+          "E_UTC_20230310T130000Z",
+          "E_UTC_20230310T140000Z",
+          "E_UTC_20230310T150000Z",
+          "E_UTC_20230310T160000Z",
+          "E_UTC_20230310T170000Z",
+          "E_UTC_20230310T180000Z",
+          "E_UTC_20230310T190000Z",
+          "E_UTC_20230310T200000Z",
+          "E_UTC_20230310T210000Z",
+          "E_UTC_20230310T220000Z",
+          "E_UTC_20230310T230000Z",
+          "E_UTC_20230311T000000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S3",
+        "type": "numerical",
+        "prose_value": "0.98978",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "0.9897830738",
+        "target_utc": "2023-03-11T01:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20230311T010000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20230311T010000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      }
+    ],
+    "additional_assertions": []
+  },
+  {
+    "review_id": "P16",
+    "task_id": "R05",
+    "condition": "E",
+    "scope": "submitted_prose",
+    "task_bundles": [
+      {
+        "slot": "S1",
+        "type": "numerical",
+        "prose_value": "-18.38",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "-18.38389632757281619959070120284472017968908088001323314500462397030229",
+        "target_utc": null,
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20221109T000000Z",
+          "E_UTC_20221110T000000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20221109T000000Z",
+          "E_UTC_20221110T000000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S2",
+        "type": "numerical",
+        "prose_value": "0.3479",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "0.3478647975423796265093099150308406131911864753839405075523984515493946",
+        "target_utc": "2022-11-09T15:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20221109T000000Z",
+          "E_UTC_20221109T010000Z",
+          "E_UTC_20221109T020000Z",
+          "E_UTC_20221109T030000Z",
+          "E_UTC_20221109T040000Z",
+          "E_UTC_20221109T050000Z",
+          "E_UTC_20221109T060000Z",
+          "E_UTC_20221109T070000Z",
+          "E_UTC_20221109T080000Z",
+          "E_UTC_20221109T090000Z",
+          "E_UTC_20221109T100000Z",
+          "E_UTC_20221109T110000Z",
+          "E_UTC_20221109T120000Z",
+          "E_UTC_20221109T130000Z",
+          "E_UTC_20221109T140000Z",
+          "E_UTC_20221109T150000Z",
+          "E_UTC_20221109T160000Z",
+          "E_UTC_20221109T170000Z",
+          "E_UTC_20221109T180000Z",
+          "E_UTC_20221109T190000Z",
+          "E_UTC_20221109T200000Z",
+          "E_UTC_20221109T210000Z",
+          "E_UTC_20221109T220000Z",
+          "E_UTC_20221109T230000Z",
+          "E_UTC_20221110T000000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20221109T000000Z",
+          "E_UTC_20221109T010000Z",
+          "E_UTC_20221109T020000Z",
+          "E_UTC_20221109T030000Z",
+          "E_UTC_20221109T040000Z",
+          "E_UTC_20221109T050000Z",
+          "E_UTC_20221109T060000Z",
+          "E_UTC_20221109T070000Z",
+          "E_UTC_20221109T080000Z",
+          "E_UTC_20221109T090000Z",
+          "E_UTC_20221109T100000Z",
+          "E_UTC_20221109T110000Z",
+          "E_UTC_20221109T120000Z",
+          "E_UTC_20221109T130000Z",
+          "E_UTC_20221109T140000Z",
+          "E_UTC_20221109T150000Z",
+          "E_UTC_20221109T160000Z",
+          "E_UTC_20221109T170000Z",
+          "E_UTC_20221109T180000Z",
+          "E_UTC_20221109T190000Z",
+          "E_UTC_20221109T200000Z",
+          "E_UTC_20221109T210000Z",
+          "E_UTC_20221109T220000Z",
+          "E_UTC_20221109T230000Z",
+          "E_UTC_20221110T000000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S3",
+        "type": "numerical",
+        "prose_value": "1.00122",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "1.0012227852",
+        "target_utc": "2022-11-09T16:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20221109T160000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20221109T160000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      }
+    ],
+    "additional_assertions": [
+      {
+        "assertion_id": "token_flow_attribution",
+        "excerpt": "资金明显流出USDC侧",
+        "support": "unsupported",
+        "basis": "Share change does not identify transaction flow or its cause."
+      },
+      {
+        "assertion_id": "market_pressure",
+        "excerpt": "符合USDC承压的方向性解读",
+        "support": "unsupported",
+        "basis": "A direction-specific pool quote above one does not substantiate market pressure."
+      }
+    ]
+  },
+  {
+    "review_id": "P17",
+    "task_id": "R02",
+    "condition": "G",
+    "scope": "submitted_prose",
+    "task_bundles": [
+      {
+        "slot": "S1",
+        "type": "numerical",
+        "prose_value": "18.4205",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "18.42049050066259317899276263832776348381636628342168216214056570109342",
+        "target_utc": null,
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20230310T000000Z",
+          "E_UTC_20230311T000000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20230310T000000Z",
+          "E_UTC_20230311T000000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S2",
+        "type": "numerical",
+        "prose_value": "0.27770",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "0.2776961146024775347331947712419677450053744799821122364839917408585450",
+        "target_utc": "2023-03-11T00:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20230310T000000Z",
+          "E_UTC_20230310T010000Z",
+          "E_UTC_20230310T020000Z",
+          "E_UTC_20230310T030000Z",
+          "E_UTC_20230310T040000Z",
+          "E_UTC_20230310T050000Z",
+          "E_UTC_20230310T060000Z",
+          "E_UTC_20230310T070000Z",
+          "E_UTC_20230310T080000Z",
+          "E_UTC_20230310T090000Z",
+          "E_UTC_20230310T100000Z",
+          "E_UTC_20230310T110000Z",
+          "E_UTC_20230310T120000Z",
+          "E_UTC_20230310T130000Z",
+          "E_UTC_20230310T140000Z",
+          "E_UTC_20230310T150000Z",
+          "E_UTC_20230310T160000Z",
+          "E_UTC_20230310T170000Z",
+          "E_UTC_20230310T180000Z",
+          "E_UTC_20230310T190000Z",
+          "E_UTC_20230310T200000Z",
+          "E_UTC_20230310T210000Z",
+          "E_UTC_20230310T220000Z",
+          "E_UTC_20230310T230000Z",
+          "E_UTC_20230311T000000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20230310T000000Z",
+          "E_UTC_20230311T000000Z"
+        ],
+        "missing_required_evidence_ids": [
+          "E_UTC_20230310T010000Z",
+          "E_UTC_20230310T020000Z",
+          "E_UTC_20230310T030000Z",
+          "E_UTC_20230310T040000Z",
+          "E_UTC_20230310T050000Z",
+          "E_UTC_20230310T060000Z",
+          "E_UTC_20230310T070000Z",
+          "E_UTC_20230310T080000Z",
+          "E_UTC_20230310T090000Z",
+          "E_UTC_20230310T100000Z",
+          "E_UTC_20230310T110000Z",
+          "E_UTC_20230310T120000Z",
+          "E_UTC_20230310T130000Z",
+          "E_UTC_20230310T140000Z",
+          "E_UTC_20230310T150000Z",
+          "E_UTC_20230310T160000Z",
+          "E_UTC_20230310T170000Z",
+          "E_UTC_20230310T180000Z",
+          "E_UTC_20230310T190000Z",
+          "E_UTC_20230310T200000Z",
+          "E_UTC_20230310T210000Z",
+          "E_UTC_20230310T220000Z",
+          "E_UTC_20230310T230000Z"
+        ],
+        "original_citation_coverage": "incomplete"
+      },
+      {
+        "slot": "S3",
+        "type": "numerical",
+        "prose_value": "0.9897830738",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "0.9897830738",
+        "target_utc": "2023-03-11T01:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20230311T010000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20230311T010000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      }
+    ],
+    "additional_assertions": []
+  },
+  {
+    "review_id": "P18",
+    "task_id": "R05",
+    "condition": "G",
+    "scope": "submitted_prose",
+    "task_bundles": [
+      {
+        "slot": "S1",
+        "type": "numerical",
+        "prose_value": "-18.38",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "-18.38389632757281619959070120284472017968908088001323314500462397030229",
+        "target_utc": null,
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20221109T000000Z",
+          "E_UTC_20221110T000000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20221109T000000Z",
+          "E_UTC_20221110T000000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S2",
+        "type": "numerical",
+        "prose_value": "0.3479",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "0.3478647975423796265093099150308406131911864753839405075523984515493946",
+        "target_utc": "2022-11-09T15:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20221109T000000Z",
+          "E_UTC_20221109T010000Z",
+          "E_UTC_20221109T020000Z",
+          "E_UTC_20221109T030000Z",
+          "E_UTC_20221109T040000Z",
+          "E_UTC_20221109T050000Z",
+          "E_UTC_20221109T060000Z",
+          "E_UTC_20221109T070000Z",
+          "E_UTC_20221109T080000Z",
+          "E_UTC_20221109T090000Z",
+          "E_UTC_20221109T100000Z",
+          "E_UTC_20221109T110000Z",
+          "E_UTC_20221109T120000Z",
+          "E_UTC_20221109T130000Z",
+          "E_UTC_20221109T140000Z",
+          "E_UTC_20221109T150000Z",
+          "E_UTC_20221109T160000Z",
+          "E_UTC_20221109T170000Z",
+          "E_UTC_20221109T180000Z",
+          "E_UTC_20221109T190000Z",
+          "E_UTC_20221109T200000Z",
+          "E_UTC_20221109T210000Z",
+          "E_UTC_20221109T220000Z",
+          "E_UTC_20221109T230000Z",
+          "E_UTC_20221110T000000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20221109T150000Z"
+        ],
+        "missing_required_evidence_ids": [
+          "E_UTC_20221109T000000Z",
+          "E_UTC_20221109T010000Z",
+          "E_UTC_20221109T020000Z",
+          "E_UTC_20221109T030000Z",
+          "E_UTC_20221109T040000Z",
+          "E_UTC_20221109T050000Z",
+          "E_UTC_20221109T060000Z",
+          "E_UTC_20221109T070000Z",
+          "E_UTC_20221109T080000Z",
+          "E_UTC_20221109T090000Z",
+          "E_UTC_20221109T100000Z",
+          "E_UTC_20221109T110000Z",
+          "E_UTC_20221109T120000Z",
+          "E_UTC_20221109T130000Z",
+          "E_UTC_20221109T140000Z",
+          "E_UTC_20221109T160000Z",
+          "E_UTC_20221109T170000Z",
+          "E_UTC_20221109T180000Z",
+          "E_UTC_20221109T190000Z",
+          "E_UTC_20221109T200000Z",
+          "E_UTC_20221109T210000Z",
+          "E_UTC_20221109T220000Z",
+          "E_UTC_20221109T230000Z",
+          "E_UTC_20221110T000000Z"
+        ],
+        "original_citation_coverage": "incomplete"
+      },
+      {
+        "slot": "S3",
+        "type": "numerical",
+        "prose_value": "1.0012227852",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "1.0012227852",
+        "target_utc": "2022-11-09T16:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20221109T160000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20221109T160000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      }
+    ],
+    "additional_assertions": [
+      {
+        "assertion_id": "token_flow_attribution",
+        "excerpt": "资金从USDC侧流出",
+        "support": "unsupported",
+        "basis": "Share change does not identify transaction flow or its cause."
+      }
+    ]
+  },
+  {
+    "review_id": "P19",
+    "task_id": "R06",
+    "condition": "G",
+    "scope": "submitted_prose",
+    "task_bundles": [
+      {
+        "slot": "S1",
+        "type": "numerical",
+        "prose_value": "34.51",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "34.51091129825685730804081675045714791233124072661780196809215604778164",
+        "target_utc": "2022-11-09T00:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20221109T000000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20221109T000000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S2",
+        "type": "numerical",
+        "prose_value": "1.169",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "1.169260895695533105263393050121345641344732443853721675518133578431254",
+        "target_utc": null,
+        "comparison_interval_utc": [
+          "2022-11-09T19:00:00Z",
+          "2022-11-09T20:00:00Z"
+        ],
+        "required_evidence_ids": [
+          "E_UTC_20221109T180000Z",
+          "E_UTC_20221109T190000Z",
+          "E_UTC_20221109T200000Z",
+          "E_UTC_20221109T210000Z",
+          "E_UTC_20221109T230000Z",
+          "E_UTC_20221110T000000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20221109T190000Z",
+          "E_UTC_20221109T200000Z"
+        ],
+        "missing_required_evidence_ids": [
+          "E_UTC_20221109T180000Z",
+          "E_UTC_20221109T210000Z",
+          "E_UTC_20221109T230000Z",
+          "E_UTC_20221110T000000Z"
+        ],
+        "original_citation_coverage": "incomplete"
+      },
+      {
+        "slot": "S3",
+        "type": "evidence_limit_refusal",
+        "support": "supported",
+        "basis": "An hourly grid does not identify the continuous-time maximum."
+      }
+    ],
+    "additional_assertions": []
+  },
+  {
+    "review_id": "P20",
+    "task_id": "R02",
+    "condition": "E",
+    "scope": "submitted_prose",
+    "task_bundles": [
+      {
+        "slot": "S1",
+        "type": "numerical",
+        "prose_value": "18.4205",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "18.42049050066259317899276263832776348381636628342168216214056570109342",
+        "target_utc": null,
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20230310T000000Z",
+          "E_UTC_20230311T000000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20230310T000000Z",
+          "E_UTC_20230311T000000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S2",
+        "type": "numerical",
+        "prose_value": "0.2777",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "0.2776961146024775347331947712419677450053744799821122364839917408585450",
+        "target_utc": "2023-03-11T00:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20230310T000000Z",
+          "E_UTC_20230310T010000Z",
+          "E_UTC_20230310T020000Z",
+          "E_UTC_20230310T030000Z",
+          "E_UTC_20230310T040000Z",
+          "E_UTC_20230310T050000Z",
+          "E_UTC_20230310T060000Z",
+          "E_UTC_20230310T070000Z",
+          "E_UTC_20230310T080000Z",
+          "E_UTC_20230310T090000Z",
+          "E_UTC_20230310T100000Z",
+          "E_UTC_20230310T110000Z",
+          "E_UTC_20230310T120000Z",
+          "E_UTC_20230310T130000Z",
+          "E_UTC_20230310T140000Z",
+          "E_UTC_20230310T150000Z",
+          "E_UTC_20230310T160000Z",
+          "E_UTC_20230310T170000Z",
+          "E_UTC_20230310T180000Z",
+          "E_UTC_20230310T190000Z",
+          "E_UTC_20230310T200000Z",
+          "E_UTC_20230310T210000Z",
+          "E_UTC_20230310T220000Z",
+          "E_UTC_20230310T230000Z",
+          "E_UTC_20230311T000000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20230310T000000Z",
+          "E_UTC_20230310T010000Z",
+          "E_UTC_20230310T020000Z",
+          "E_UTC_20230310T030000Z",
+          "E_UTC_20230310T040000Z",
+          "E_UTC_20230310T050000Z",
+          "E_UTC_20230310T060000Z",
+          "E_UTC_20230310T070000Z",
+          "E_UTC_20230310T080000Z",
+          "E_UTC_20230310T090000Z",
+          "E_UTC_20230310T100000Z",
+          "E_UTC_20230310T110000Z",
+          "E_UTC_20230310T120000Z",
+          "E_UTC_20230310T130000Z",
+          "E_UTC_20230310T140000Z",
+          "E_UTC_20230310T150000Z",
+          "E_UTC_20230310T160000Z",
+          "E_UTC_20230310T170000Z",
+          "E_UTC_20230310T180000Z",
+          "E_UTC_20230310T190000Z",
+          "E_UTC_20230310T200000Z",
+          "E_UTC_20230310T210000Z",
+          "E_UTC_20230310T220000Z",
+          "E_UTC_20230310T230000Z",
+          "E_UTC_20230311T000000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S3",
+        "type": "numerical",
+        "prose_value": "0.9897830738",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "0.9897830738",
+        "target_utc": "2023-03-11T01:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20230311T010000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20230311T010000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      }
+    ],
+    "additional_assertions": [
+      {
+        "assertion_id": "token_flow_attribution",
+        "excerpt": "资金向USDC集中",
+        "support": "unsupported",
+        "basis": "The frozen observations support higher nominal share, not an attribution to capital movements."
+      }
+    ]
+  },
+  {
+    "review_id": "P21",
+    "task_id": "R05",
+    "condition": "G",
+    "scope": "submitted_prose",
+    "task_bundles": [
+      {
+        "slot": "S1",
+        "type": "numerical",
+        "prose_value": "-18.38",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "-18.38389632757281619959070120284472017968908088001323314500462397030229",
+        "target_utc": null,
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20221109T000000Z",
+          "E_UTC_20221110T000000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20221109T000000Z",
+          "E_UTC_20221110T000000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S2",
+        "type": "numerical",
+        "prose_value": "0.3479",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "0.3478647975423796265093099150308406131911864753839405075523984515493946",
+        "target_utc": "2022-11-09T15:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20221109T000000Z",
+          "E_UTC_20221109T010000Z",
+          "E_UTC_20221109T020000Z",
+          "E_UTC_20221109T030000Z",
+          "E_UTC_20221109T040000Z",
+          "E_UTC_20221109T050000Z",
+          "E_UTC_20221109T060000Z",
+          "E_UTC_20221109T070000Z",
+          "E_UTC_20221109T080000Z",
+          "E_UTC_20221109T090000Z",
+          "E_UTC_20221109T100000Z",
+          "E_UTC_20221109T110000Z",
+          "E_UTC_20221109T120000Z",
+          "E_UTC_20221109T130000Z",
+          "E_UTC_20221109T140000Z",
+          "E_UTC_20221109T150000Z",
+          "E_UTC_20221109T160000Z",
+          "E_UTC_20221109T170000Z",
+          "E_UTC_20221109T180000Z",
+          "E_UTC_20221109T190000Z",
+          "E_UTC_20221109T200000Z",
+          "E_UTC_20221109T210000Z",
+          "E_UTC_20221109T220000Z",
+          "E_UTC_20221109T230000Z",
+          "E_UTC_20221110T000000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20221109T000000Z",
+          "E_UTC_20221109T010000Z",
+          "E_UTC_20221109T020000Z",
+          "E_UTC_20221109T030000Z",
+          "E_UTC_20221109T040000Z",
+          "E_UTC_20221109T050000Z",
+          "E_UTC_20221109T060000Z",
+          "E_UTC_20221109T070000Z",
+          "E_UTC_20221109T080000Z",
+          "E_UTC_20221109T090000Z",
+          "E_UTC_20221109T100000Z",
+          "E_UTC_20221109T110000Z",
+          "E_UTC_20221109T120000Z",
+          "E_UTC_20221109T130000Z",
+          "E_UTC_20221109T140000Z",
+          "E_UTC_20221109T150000Z",
+          "E_UTC_20221109T160000Z",
+          "E_UTC_20221109T170000Z",
+          "E_UTC_20221109T180000Z",
+          "E_UTC_20221109T190000Z",
+          "E_UTC_20221109T200000Z",
+          "E_UTC_20221109T210000Z",
+          "E_UTC_20221109T220000Z",
+          "E_UTC_20221109T230000Z",
+          "E_UTC_20221110T000000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S3",
+        "type": "numerical",
+        "prose_value": "1.001223",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "1.0012227852",
+        "target_utc": "2022-11-09T16:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20221109T160000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20221109T160000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      }
+    ],
+    "additional_assertions": [
+      {
+        "assertion_id": "token_flow_attribution",
+        "excerpt": "FTX 事件期间资金撤离 USDC 的显著失衡",
+        "support": "unsupported",
+        "basis": "The event is a window label. A pool composition change does not identify withdrawals or their causes."
+      }
+    ]
+  },
+  {
+    "review_id": "P22",
+    "task_id": "R04",
+    "condition": "G",
+    "scope": "submitted_prose",
+    "task_bundles": [
+      {
+        "slot": "S1",
+        "type": "numerical",
+        "prose_value": "33.7127",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "33.71274634437183232803384343991931076535637754735638742315987290032613",
+        "target_utc": "2022-11-09T02:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20221109T020000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20221109T020000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S2",
+        "type": "numerical",
+        "prose_value": "0.999897",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "0.999897263",
+        "target_utc": "2022-11-09T02:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20221109T020000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20221109T020000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S3",
+        "type": "numerical",
+        "prose_value": "0.00193",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "0.001928398117837432264278535183869185168476653785980010228310825969327611",
+        "target_utc": "2022-11-09T02:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20221109T020000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20221109T020000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      }
+    ],
+    "additional_assertions": [
+      {
+        "assertion_id": "slippage_meaning",
+        "excerpt": "几乎无滑点偏离",
+        "support": "ambiguous",
+        "basis": "The quote is near parity, but the passage gives no execution or reference-price definition of slippage."
+      },
+      {
+        "assertion_id": "liquidity_depth",
+        "excerpt": "该时点池内流动性充足",
+        "support": "unsupported",
+        "basis": "The available two-size quote comparison gives no sufficient-depth benchmark."
+      },
+      {
+        "assertion_id": "market_calm",
+        "excerpt": "市场处于相对平静状态",
+        "support": "unsupported",
+        "basis": "A one-pool snapshot does not measure broader market activity or volatility."
+      }
+    ]
+  },
+  {
+    "review_id": "P23",
+    "task_id": "R03",
+    "condition": "E",
+    "scope": "submitted_prose",
+    "task_bundles": [
+      {
+        "slot": "S1",
+        "type": "numerical",
+        "prose_value": "29.6796",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "29.67964770039234092492767823476935832656357246256436644475260743636932",
+        "target_utc": "2023-03-10T00:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20230310T000000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20230310T000000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S2",
+        "type": "numerical",
+        "prose_value": "2.5792",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "2.579202362334303699039127478585149461581611251892147343246473404509644",
+        "target_utc": null,
+        "comparison_interval_utc": [
+          "2023-03-10T20:00:00Z",
+          "2023-03-10T21:00:00Z"
+        ],
+        "required_evidence_ids": [
+          "E_UTC_20230310T180000Z",
+          "E_UTC_20230310T190000Z",
+          "E_UTC_20230310T200000Z",
+          "E_UTC_20230310T210000Z",
+          "E_UTC_20230310T230000Z",
+          "E_UTC_20230311T000000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20230310T180000Z",
+          "E_UTC_20230310T190000Z",
+          "E_UTC_20230310T200000Z",
+          "E_UTC_20230310T210000Z",
+          "E_UTC_20230310T230000Z",
+          "E_UTC_20230311T000000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S3",
+        "type": "evidence_limit_refusal",
+        "support": "supported",
+        "basis": "An hourly grid does not identify the continuous-time maximum."
+      }
+    ],
+    "additional_assertions": [
+      {
+        "assertion_id": "peak_direction_meaning",
+        "excerpt": "峰值方向与连续时点仍未确定",
+        "support": "ambiguous",
+        "basis": "‘Peak direction’ could refer to the observed increase or the unidentified continuous-time peak."
+      }
+    ]
+  },
+  {
+    "review_id": "P24",
+    "task_id": "R06",
+    "condition": "G",
+    "scope": "submitted_prose",
+    "task_bundles": [
+      {
+        "slot": "S1",
+        "type": "numerical",
+        "prose_value": "34.51",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "34.51091129825685730804081675045714791233124072661780196809215604778164",
+        "target_utc": "2022-11-09T00:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20221109T000000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20221109T000000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S2",
+        "type": "numerical",
+        "prose_value": "1.17",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "1.169260895695533105263393050121345641344732443853721675518133578431254",
+        "target_utc": null,
+        "comparison_interval_utc": [
+          "2022-11-09T19:00:00Z",
+          "2022-11-09T20:00:00Z"
+        ],
+        "required_evidence_ids": [
+          "E_UTC_20221109T180000Z",
+          "E_UTC_20221109T190000Z",
+          "E_UTC_20221109T200000Z",
+          "E_UTC_20221109T210000Z",
+          "E_UTC_20221109T230000Z",
+          "E_UTC_20221110T000000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20221109T180000Z",
+          "E_UTC_20221109T190000Z",
+          "E_UTC_20221109T200000Z",
+          "E_UTC_20221109T210000Z",
+          "E_UTC_20221109T230000Z",
+          "E_UTC_20221110T000000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S3",
+        "type": "evidence_limit_refusal",
+        "support": "supported",
+        "basis": "An hourly grid does not identify the continuous-time maximum."
+      }
+    ],
+    "additional_assertions": [
+      {
+        "assertion_id": "missing_20_to_21",
+        "excerpt": "20:00至21:00Z及21:00至23:00Z存在缺口",
+        "support": "unsupported",
+        "basis": "Contradiction for 20:00 to 21:00. Both points are permitted. 22:00 is the excluded point."
+      }
+    ]
+  },
+  {
+    "review_id": "P25",
+    "task_id": "R03",
+    "condition": "G",
+    "scope": "submitted_prose",
+    "task_bundles": [
+      {
+        "slot": "S1",
+        "type": "numerical",
+        "prose_value": "29.6796",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "29.67964770039234092492767823476935832656357246256436644475260743636932",
+        "target_utc": "2023-03-10T00:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20230310T000000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20230310T000000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S2",
+        "type": "numerical",
+        "prose_value": "2.5792",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "2.579202362334303699039127478585149461581611251892147343246473404509644",
+        "target_utc": null,
+        "comparison_interval_utc": [
+          "2023-03-10T20:00:00Z",
+          "2023-03-10T21:00:00Z"
+        ],
+        "required_evidence_ids": [
+          "E_UTC_20230310T180000Z",
+          "E_UTC_20230310T190000Z",
+          "E_UTC_20230310T200000Z",
+          "E_UTC_20230310T210000Z",
+          "E_UTC_20230310T230000Z",
+          "E_UTC_20230311T000000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20230310T180000Z",
+          "E_UTC_20230310T190000Z",
+          "E_UTC_20230310T200000Z",
+          "E_UTC_20230310T210000Z",
+          "E_UTC_20230310T230000Z",
+          "E_UTC_20230311T000000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S3",
+        "type": "evidence_limit_refusal",
+        "support": "supported",
+        "basis": "An hourly grid does not identify the continuous-time maximum."
+      }
+    ],
+    "additional_assertions": [
+      {
+        "assertion_id": "inside_interval_observation",
+        "excerpt": "小时点只能给出采样间隔内的观测",
+        "support": "ambiguous",
+        "basis": "An hourly snapshot is one block observation. The wording leaves observation within the interval unclear."
+      }
+    ]
+  },
+  {
+    "review_id": "P26",
+    "task_id": "R06",
+    "condition": "E",
+    "scope": "submitted_prose",
+    "task_bundles": [
+      {
+        "slot": "S1",
+        "type": "numerical",
+        "prose_value": "34.51",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "34.51091129825685730804081675045714791233124072661780196809215604778164",
+        "target_utc": "2022-11-09T00:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20221109T000000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20221109T000000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S2",
+        "type": "numerical",
+        "prose_value": "1.17",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "1.169260895695533105263393050121345641344732443853721675518133578431254",
+        "target_utc": null,
+        "comparison_interval_utc": [
+          "2022-11-09T19:00:00Z",
+          "2022-11-09T20:00:00Z"
+        ],
+        "required_evidence_ids": [
+          "E_UTC_20221109T180000Z",
+          "E_UTC_20221109T190000Z",
+          "E_UTC_20221109T200000Z",
+          "E_UTC_20221109T210000Z",
+          "E_UTC_20221109T230000Z",
+          "E_UTC_20221110T000000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20221109T190000Z",
+          "E_UTC_20221109T200000Z"
+        ],
+        "missing_required_evidence_ids": [
+          "E_UTC_20221109T180000Z",
+          "E_UTC_20221109T210000Z",
+          "E_UTC_20221109T230000Z",
+          "E_UTC_20221110T000000Z"
+        ],
+        "original_citation_coverage": "incomplete"
+      },
+      {
+        "slot": "S3",
+        "type": "evidence_limit_refusal",
+        "support": "supported",
+        "basis": "An hourly grid does not identify the continuous-time maximum."
+      }
+    ],
+    "additional_assertions": []
+  },
+  {
+    "review_id": "P27",
+    "task_id": "R03",
+    "condition": "T",
+    "scope": "template_stub",
+    "task_bundles": [],
+    "additional_assertions": []
+  },
+  {
+    "review_id": "P28",
+    "task_id": "R04",
+    "condition": "E",
+    "scope": "submitted_prose",
+    "task_bundles": [
+      {
+        "slot": "S1",
+        "type": "numerical",
+        "prose_value": "33.712746",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "33.71274634437183232803384343991931076535637754735638742315987290032613",
+        "target_utc": "2022-11-09T02:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20221109T020000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20221109T020000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S2",
+        "type": "numerical",
+        "prose_value": "0.999897263",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "0.999897263",
+        "target_utc": "2022-11-09T02:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20221109T020000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20221109T020000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S3",
+        "type": "numerical",
+        "prose_value": "0.001928",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "0.001928398117837432264278535183869185168476653785980010228310825969327611",
+        "target_utc": "2022-11-09T02:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20221109T020000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20221109T020000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      }
+    ],
+    "additional_assertions": [
+      {
+        "assertion_id": "price_deviation_meaning",
+        "excerpt": "池内USDC与USDT价格偏差极小",
+        "support": "ambiguous",
+        "basis": "The directional small-size quote is close to one. A two-size rate difference alone does not define a pool mid-price or market-price deviation."
+      }
+    ]
+  },
+  {
+    "review_id": "P29",
+    "task_id": "R05",
+    "condition": "E",
+    "scope": "submitted_prose",
+    "task_bundles": [
+      {
+        "slot": "S1",
+        "type": "numerical",
+        "prose_value": "-18.38",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "-18.38389632757281619959070120284472017968908088001323314500462397030229",
+        "target_utc": null,
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20221109T000000Z",
+          "E_UTC_20221110T000000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20221109T000000Z",
+          "E_UTC_20221110T000000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S2",
+        "type": "numerical",
+        "prose_value": "0.348",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "0.3478647975423796265093099150308406131911864753839405075523984515493946",
+        "target_utc": "2022-11-09T15:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20221109T000000Z",
+          "E_UTC_20221109T010000Z",
+          "E_UTC_20221109T020000Z",
+          "E_UTC_20221109T030000Z",
+          "E_UTC_20221109T040000Z",
+          "E_UTC_20221109T050000Z",
+          "E_UTC_20221109T060000Z",
+          "E_UTC_20221109T070000Z",
+          "E_UTC_20221109T080000Z",
+          "E_UTC_20221109T090000Z",
+          "E_UTC_20221109T100000Z",
+          "E_UTC_20221109T110000Z",
+          "E_UTC_20221109T120000Z",
+          "E_UTC_20221109T130000Z",
+          "E_UTC_20221109T140000Z",
+          "E_UTC_20221109T150000Z",
+          "E_UTC_20221109T160000Z",
+          "E_UTC_20221109T170000Z",
+          "E_UTC_20221109T180000Z",
+          "E_UTC_20221109T190000Z",
+          "E_UTC_20221109T200000Z",
+          "E_UTC_20221109T210000Z",
+          "E_UTC_20221109T220000Z",
+          "E_UTC_20221109T230000Z",
+          "E_UTC_20221110T000000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20221109T150000Z"
+        ],
+        "missing_required_evidence_ids": [
+          "E_UTC_20221109T000000Z",
+          "E_UTC_20221109T010000Z",
+          "E_UTC_20221109T020000Z",
+          "E_UTC_20221109T030000Z",
+          "E_UTC_20221109T040000Z",
+          "E_UTC_20221109T050000Z",
+          "E_UTC_20221109T060000Z",
+          "E_UTC_20221109T070000Z",
+          "E_UTC_20221109T080000Z",
+          "E_UTC_20221109T090000Z",
+          "E_UTC_20221109T100000Z",
+          "E_UTC_20221109T110000Z",
+          "E_UTC_20221109T120000Z",
+          "E_UTC_20221109T130000Z",
+          "E_UTC_20221109T140000Z",
+          "E_UTC_20221109T160000Z",
+          "E_UTC_20221109T170000Z",
+          "E_UTC_20221109T180000Z",
+          "E_UTC_20221109T190000Z",
+          "E_UTC_20221109T200000Z",
+          "E_UTC_20221109T210000Z",
+          "E_UTC_20221109T220000Z",
+          "E_UTC_20221109T230000Z",
+          "E_UTC_20221110T000000Z"
+        ],
+        "original_citation_coverage": "incomplete"
+      },
+      {
+        "slot": "S3",
+        "type": "numerical",
+        "prose_value": "1.001223",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "1.0012227852",
+        "target_utc": "2022-11-09T16:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20221109T160000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20221109T160000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      }
+    ],
+    "additional_assertions": []
+  },
+  {
+    "review_id": "P30",
+    "task_id": "R06",
+    "condition": "E",
+    "scope": "submitted_prose",
+    "task_bundles": [
+      {
+        "slot": "S1",
+        "type": "numerical",
+        "prose_value": "34.5109",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "34.51091129825685730804081675045714791233124072661780196809215604778164",
+        "target_utc": "2022-11-09T00:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20221109T000000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20221109T000000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S2",
+        "type": "numerical",
+        "prose_value": "1.1693",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "1.169260895695533105263393050121345641344732443853721675518133578431254",
+        "target_utc": null,
+        "comparison_interval_utc": [
+          "2022-11-09T19:00:00Z",
+          "2022-11-09T20:00:00Z"
+        ],
+        "required_evidence_ids": [
+          "E_UTC_20221109T180000Z",
+          "E_UTC_20221109T190000Z",
+          "E_UTC_20221109T200000Z",
+          "E_UTC_20221109T210000Z",
+          "E_UTC_20221109T230000Z",
+          "E_UTC_20221110T000000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20221109T180000Z",
+          "E_UTC_20221109T190000Z",
+          "E_UTC_20221109T200000Z",
+          "E_UTC_20221109T210000Z",
+          "E_UTC_20221109T230000Z",
+          "E_UTC_20221110T000000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S3",
+        "type": "evidence_limit_refusal",
+        "support": "supported",
+        "basis": "An hourly grid does not identify the continuous-time maximum."
+      }
+    ],
+    "additional_assertions": []
+  },
+  {
+    "review_id": "P31",
+    "task_id": "R06",
+    "condition": "T",
+    "scope": "template_stub",
+    "task_bundles": [],
+    "additional_assertions": []
+  },
+  {
+    "review_id": "P32",
+    "task_id": "R01",
+    "condition": "E",
+    "scope": "submitted_prose",
+    "task_bundles": [
+      {
+        "slot": "S1",
+        "type": "numerical",
+        "prose_value": "30.88",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "30.87816545171763512672859937973758832572729491873927673221697231079895",
+        "target_utc": "2023-03-10T02:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20230310T020000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20230310T020000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S2",
+        "type": "numerical",
+        "prose_value": "1.000037",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "1.000036999",
+        "target_utc": "2023-03-10T02:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20230310T020000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20230310T020000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S3",
+        "type": "numerical",
+        "prose_value": "0.0029",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "0.002924291804127539085181387373848554977314394344723639570059547366806976",
+        "target_utc": "2023-03-10T02:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20230310T020000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20230310T020000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      }
+    ],
+    "additional_assertions": [
+      {
+        "assertion_id": "slippage_meaning",
+        "excerpt": "大额交易滑点极小",
+        "support": "ambiguous",
+        "basis": "The data measure a two-size quote-rate difference. Execution slippage requires a stated reference."
+      }
+    ]
+  },
+  {
+    "review_id": "P33",
+    "task_id": "R06",
+    "condition": "G",
+    "scope": "budget_stop",
+    "task_bundles": [],
+    "additional_assertions": []
+  },
+  {
+    "review_id": "P34",
+    "task_id": "R04",
+    "condition": "G",
+    "scope": "submitted_prose",
+    "task_bundles": [
+      {
+        "slot": "S1",
+        "type": "numerical",
+        "prose_value": "33.71",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "33.71274634437183232803384343991931076535637754735638742315987290032613",
+        "target_utc": "2022-11-09T02:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20221109T020000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20221109T020000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S2",
+        "type": "numerical",
+        "prose_value": "0.999897",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "0.999897263",
+        "target_utc": "2022-11-09T02:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20221109T020000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20221109T020000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S3",
+        "type": "numerical",
+        "prose_value": "0.0019",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "0.001928398117837432264278535183869185168476653785980010228310825969327611",
+        "target_utc": "2022-11-09T02:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20221109T020000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20221109T020000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      }
+    ],
+    "additional_assertions": [
+      {
+        "assertion_id": "three_pool_balance_meaning",
+        "excerpt": "三池接近均衡",
+        "support": "ambiguous",
+        "basis": "The observations concern the three coins in one pool. The phrase could be a shorthand or a claim about three pools."
+      },
+      {
+        "assertion_id": "slippage_meaning",
+        "excerpt": "滑点极小",
+        "support": "ambiguous",
+        "basis": "A directional quote close to one is not itself an execution slippage measure."
+      },
+      {
+        "assertion_id": "liquidity_depth_and_curve",
+        "excerpt": "池子流动性深度充足、曲线平缓",
+        "support": "unsupported",
+        "basis": "Two same-direction quote sizes do not establish a depth threshold or the shape of the full curve."
+      },
+      {
+        "assertion_id": "event_impact",
+        "excerpt": "FTX 事件冲击尚未在 3pool 定价与结构上显现",
+        "support": "unsupported",
+        "basis": "A single point supplies neither event attribution nor a suitable pre-event comparison."
+      }
+    ]
+  },
+  {
+    "review_id": "P35",
+    "task_id": "R02",
+    "condition": "G",
+    "scope": "submitted_prose",
+    "task_bundles": [
+      {
+        "slot": "S1",
+        "type": "numerical",
+        "prose_value": "+18.4205",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "18.42049050066259317899276263832776348381636628342168216214056570109342",
+        "target_utc": null,
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20230310T000000Z",
+          "E_UTC_20230311T000000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20230310T000000Z",
+          "E_UTC_20230311T000000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S2",
+        "type": "numerical",
+        "prose_value": "0.27770",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "0.2776961146024775347331947712419677450053744799821122364839917408585450",
+        "target_utc": "2023-03-11T00:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20230310T000000Z",
+          "E_UTC_20230310T010000Z",
+          "E_UTC_20230310T020000Z",
+          "E_UTC_20230310T030000Z",
+          "E_UTC_20230310T040000Z",
+          "E_UTC_20230310T050000Z",
+          "E_UTC_20230310T060000Z",
+          "E_UTC_20230310T070000Z",
+          "E_UTC_20230310T080000Z",
+          "E_UTC_20230310T090000Z",
+          "E_UTC_20230310T100000Z",
+          "E_UTC_20230310T110000Z",
+          "E_UTC_20230310T120000Z",
+          "E_UTC_20230310T130000Z",
+          "E_UTC_20230310T140000Z",
+          "E_UTC_20230310T150000Z",
+          "E_UTC_20230310T160000Z",
+          "E_UTC_20230310T170000Z",
+          "E_UTC_20230310T180000Z",
+          "E_UTC_20230310T190000Z",
+          "E_UTC_20230310T200000Z",
+          "E_UTC_20230310T210000Z",
+          "E_UTC_20230310T220000Z",
+          "E_UTC_20230310T230000Z",
+          "E_UTC_20230311T000000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20230311T000000Z"
+        ],
+        "missing_required_evidence_ids": [
+          "E_UTC_20230310T000000Z",
+          "E_UTC_20230310T010000Z",
+          "E_UTC_20230310T020000Z",
+          "E_UTC_20230310T030000Z",
+          "E_UTC_20230310T040000Z",
+          "E_UTC_20230310T050000Z",
+          "E_UTC_20230310T060000Z",
+          "E_UTC_20230310T070000Z",
+          "E_UTC_20230310T080000Z",
+          "E_UTC_20230310T090000Z",
+          "E_UTC_20230310T100000Z",
+          "E_UTC_20230310T110000Z",
+          "E_UTC_20230310T120000Z",
+          "E_UTC_20230310T130000Z",
+          "E_UTC_20230310T140000Z",
+          "E_UTC_20230310T150000Z",
+          "E_UTC_20230310T160000Z",
+          "E_UTC_20230310T170000Z",
+          "E_UTC_20230310T180000Z",
+          "E_UTC_20230310T190000Z",
+          "E_UTC_20230310T200000Z",
+          "E_UTC_20230310T210000Z",
+          "E_UTC_20230310T220000Z",
+          "E_UTC_20230310T230000Z"
+        ],
+        "original_citation_coverage": "incomplete"
+      },
+      {
+        "slot": "S3",
+        "type": "numerical",
+        "prose_value": "0.98978",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "0.9897830738",
+        "target_utc": "2023-03-11T01:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20230311T010000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20230311T010000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      }
+    ],
+    "additional_assertions": []
+  },
+  {
+    "review_id": "P36",
+    "task_id": "R01",
+    "condition": "G",
+    "scope": "submitted_prose",
+    "task_bundles": [
+      {
+        "slot": "S1",
+        "type": "numerical",
+        "prose_value": "30.88",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "30.87816545171763512672859937973758832572729491873927673221697231079895",
+        "target_utc": "2023-03-10T02:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20230310T020000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20230310T020000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S2",
+        "type": "numerical",
+        "prose_value": "1.000037",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "1.000036999",
+        "target_utc": "2023-03-10T02:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20230310T020000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20230310T020000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S3",
+        "type": "numerical",
+        "prose_value": "0.0029",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "0.002924291804127539085181387373848554977314394344723639570059547366806976",
+        "target_utc": "2023-03-10T02:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20230310T020000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20230310T020000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      }
+    ],
+    "additional_assertions": [
+      {
+        "assertion_id": "slippage_meaning",
+        "excerpt": "几乎无滑点",
+        "support": "ambiguous",
+        "basis": "A quote near one establishes deviation from parity, not execution slippage without a baseline."
+      },
+      {
+        "assertion_id": "liquidity_depth",
+        "excerpt": "USDC/USDT兑换深度充足",
+        "support": "unsupported",
+        "basis": "The quote comparison gives no sufficient-depth benchmark."
+      },
+      {
+        "assertion_id": "no_depeg_pressure",
+        "excerpt": "尚未显现后续脱锚压力",
+        "support": "unsupported",
+        "basis": "A single directional quote and pool composition cannot establish later depeg pressure."
+      }
+    ]
+  },
+  {
+    "review_id": "P37",
+    "task_id": "R01",
+    "condition": "G",
+    "scope": "submitted_prose",
+    "task_bundles": [
+      {
+        "slot": "S1",
+        "type": "numerical",
+        "prose_value": "30.8782",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "30.87816545171763512672859937973758832572729491873927673221697231079895",
+        "target_utc": "2023-03-10T02:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20230310T020000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20230310T020000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S2",
+        "type": "numerical",
+        "prose_value": "1.000037",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "1.000036999",
+        "target_utc": "2023-03-10T02:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20230310T020000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20230310T020000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S3",
+        "type": "numerical",
+        "prose_value": "0.002924",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "0.002924291804127539085181387373848554977314394344723639570059547366806976",
+        "target_utc": "2023-03-10T02:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20230310T020000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20230310T020000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      }
+    ],
+    "additional_assertions": [
+      {
+        "assertion_id": "pair_balance_meaning",
+        "excerpt": "池内 USDC/USDT 段仍高度均衡",
+        "support": "ambiguous",
+        "basis": "Balance could refer to composition or quote parity. The scope and threshold are unstated."
+      },
+      {
+        "assertion_id": "no_depeg_pressure",
+        "excerpt": "兑换价格尚未出现显著脱锚压力",
+        "support": "unsupported",
+        "basis": "One point and direction do not measure price pressure over time."
+      }
+    ]
+  },
+  {
+    "review_id": "P38",
+    "task_id": "R05",
+    "condition": "E",
+    "scope": "submitted_prose",
+    "task_bundles": [
+      {
+        "slot": "S1",
+        "type": "numerical",
+        "prose_value": "-18.3839",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "-18.38389632757281619959070120284472017968908088001323314500462397030229",
+        "target_utc": null,
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20221109T000000Z",
+          "E_UTC_20221110T000000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20221109T000000Z",
+          "E_UTC_20221110T000000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S2",
+        "type": "numerical",
+        "prose_value": "0.3479",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "0.3478647975423796265093099150308406131911864753839405075523984515493946",
+        "target_utc": "2022-11-09T15:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20221109T000000Z",
+          "E_UTC_20221109T010000Z",
+          "E_UTC_20221109T020000Z",
+          "E_UTC_20221109T030000Z",
+          "E_UTC_20221109T040000Z",
+          "E_UTC_20221109T050000Z",
+          "E_UTC_20221109T060000Z",
+          "E_UTC_20221109T070000Z",
+          "E_UTC_20221109T080000Z",
+          "E_UTC_20221109T090000Z",
+          "E_UTC_20221109T100000Z",
+          "E_UTC_20221109T110000Z",
+          "E_UTC_20221109T120000Z",
+          "E_UTC_20221109T130000Z",
+          "E_UTC_20221109T140000Z",
+          "E_UTC_20221109T150000Z",
+          "E_UTC_20221109T160000Z",
+          "E_UTC_20221109T170000Z",
+          "E_UTC_20221109T180000Z",
+          "E_UTC_20221109T190000Z",
+          "E_UTC_20221109T200000Z",
+          "E_UTC_20221109T210000Z",
+          "E_UTC_20221109T220000Z",
+          "E_UTC_20221109T230000Z",
+          "E_UTC_20221110T000000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20221109T000000Z",
+          "E_UTC_20221109T010000Z",
+          "E_UTC_20221109T020000Z",
+          "E_UTC_20221109T030000Z",
+          "E_UTC_20221109T040000Z",
+          "E_UTC_20221109T050000Z",
+          "E_UTC_20221109T060000Z",
+          "E_UTC_20221109T070000Z",
+          "E_UTC_20221109T080000Z",
+          "E_UTC_20221109T090000Z",
+          "E_UTC_20221109T100000Z",
+          "E_UTC_20221109T110000Z",
+          "E_UTC_20221109T120000Z",
+          "E_UTC_20221109T130000Z",
+          "E_UTC_20221109T140000Z",
+          "E_UTC_20221109T150000Z",
+          "E_UTC_20221109T160000Z",
+          "E_UTC_20221109T170000Z",
+          "E_UTC_20221109T180000Z",
+          "E_UTC_20221109T190000Z",
+          "E_UTC_20221109T200000Z",
+          "E_UTC_20221109T210000Z",
+          "E_UTC_20221109T220000Z",
+          "E_UTC_20221109T230000Z",
+          "E_UTC_20221110T000000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S3",
+        "type": "numerical",
+        "prose_value": "1.0012227852",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "1.0012227852",
+        "target_utc": "2022-11-09T16:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20221109T160000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20221109T160000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      }
+    ],
+    "additional_assertions": [
+      {
+        "assertion_id": "relative_tightness",
+        "excerpt": "可能反映该时点USDT相对偏紧的池内状态",
+        "support": "unsupported",
+        "basis": "The hedge is retained, but the direction-specific quote alone does not identify relative scarcity."
+      }
+    ]
+  },
+  {
+    "review_id": "P39",
+    "task_id": "R04",
+    "condition": "T",
+    "scope": "template_stub",
+    "task_bundles": [],
+    "additional_assertions": []
+  },
+  {
+    "review_id": "P40",
+    "task_id": "R01",
+    "condition": "G",
+    "scope": "budget_stop",
+    "task_bundles": [],
+    "additional_assertions": []
+  },
+  {
+    "review_id": "P41",
+    "task_id": "R02",
+    "condition": "G",
+    "scope": "submitted_prose",
+    "task_bundles": [
+      {
+        "slot": "S1",
+        "type": "numerical",
+        "prose_value": "-18.42",
+        "support": "unsupported",
+        "basis": "Contradiction. Prose states that USDC share fell from about 31% to 12.6%, but the frozen endpoint share change is positive.",
+        "recomputed_value": "18.42049050066259317899276263832776348381636628342168216214056570109342",
+        "target_utc": null,
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20230310T000000Z",
+          "E_UTC_20230311T000000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20230310T000000Z",
+          "E_UTC_20230311T000000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S2",
+        "type": "numerical",
+        "prose_value": "0.2777",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "0.2776961146024775347331947712419677450053744799821122364839917408585450",
+        "target_utc": "2023-03-11T00:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20230310T000000Z",
+          "E_UTC_20230310T010000Z",
+          "E_UTC_20230310T020000Z",
+          "E_UTC_20230310T030000Z",
+          "E_UTC_20230310T040000Z",
+          "E_UTC_20230310T050000Z",
+          "E_UTC_20230310T060000Z",
+          "E_UTC_20230310T070000Z",
+          "E_UTC_20230310T080000Z",
+          "E_UTC_20230310T090000Z",
+          "E_UTC_20230310T100000Z",
+          "E_UTC_20230310T110000Z",
+          "E_UTC_20230310T120000Z",
+          "E_UTC_20230310T130000Z",
+          "E_UTC_20230310T140000Z",
+          "E_UTC_20230310T150000Z",
+          "E_UTC_20230310T160000Z",
+          "E_UTC_20230310T170000Z",
+          "E_UTC_20230310T180000Z",
+          "E_UTC_20230310T190000Z",
+          "E_UTC_20230310T200000Z",
+          "E_UTC_20230310T210000Z",
+          "E_UTC_20230310T220000Z",
+          "E_UTC_20230310T230000Z",
+          "E_UTC_20230311T000000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20230310T000000Z",
+          "E_UTC_20230310T010000Z",
+          "E_UTC_20230310T020000Z",
+          "E_UTC_20230310T030000Z",
+          "E_UTC_20230310T040000Z",
+          "E_UTC_20230310T050000Z",
+          "E_UTC_20230310T060000Z",
+          "E_UTC_20230310T070000Z",
+          "E_UTC_20230310T080000Z",
+          "E_UTC_20230310T090000Z",
+          "E_UTC_20230310T100000Z",
+          "E_UTC_20230310T110000Z",
+          "E_UTC_20230310T120000Z",
+          "E_UTC_20230310T130000Z",
+          "E_UTC_20230310T140000Z",
+          "E_UTC_20230310T150000Z",
+          "E_UTC_20230310T160000Z",
+          "E_UTC_20230310T170000Z",
+          "E_UTC_20230310T180000Z",
+          "E_UTC_20230310T190000Z",
+          "E_UTC_20230310T200000Z",
+          "E_UTC_20230310T210000Z",
+          "E_UTC_20230310T220000Z",
+          "E_UTC_20230310T230000Z",
+          "E_UTC_20230311T000000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S3",
+        "type": "numerical",
+        "prose_value": "0.98978",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "0.9897830738",
+        "target_utc": "2023-03-11T01:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20230311T010000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20230311T010000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      }
+    ],
+    "additional_assertions": [
+      {
+        "assertion_id": "token_flow_attribution",
+        "excerpt": "资金快速撤离",
+        "support": "unsupported",
+        "basis": "The reported share direction is reversed. The frozen pool state does not identify withdrawal transactions."
+      },
+      {
+        "assertion_id": "market_pressure",
+        "excerpt": "低于1显示USDC承压",
+        "support": "unsupported",
+        "basis": "The quote is below one at that size and direction. It does not establish market pressure."
+      }
+    ]
+  },
+  {
+    "review_id": "P42",
+    "task_id": "R03",
+    "condition": "G",
+    "scope": "submitted_prose",
+    "task_bundles": [
+      {
+        "slot": "S1",
+        "type": "numerical",
+        "prose_value": "29.68",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "29.67964770039234092492767823476935832656357246256436644475260743636932",
+        "target_utc": "2023-03-10T00:00:00Z",
+        "comparison_interval_utc": null,
+        "required_evidence_ids": [
+          "E_UTC_20230310T000000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20230310T000000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S2",
+        "type": "numerical",
+        "prose_value": "2.58",
+        "support": "supported",
+        "basis": "Prose value, scope, direction and unit agree with the frozen task at reported precision.",
+        "recomputed_value": "2.579202362334303699039127478585149461581611251892147343246473404509644",
+        "target_utc": null,
+        "comparison_interval_utc": [
+          "2023-03-10T20:00:00Z",
+          "2023-03-10T21:00:00Z"
+        ],
+        "required_evidence_ids": [
+          "E_UTC_20230310T180000Z",
+          "E_UTC_20230310T190000Z",
+          "E_UTC_20230310T200000Z",
+          "E_UTC_20230310T210000Z",
+          "E_UTC_20230310T230000Z",
+          "E_UTC_20230311T000000Z"
+        ],
+        "original_cited_evidence_ids": [
+          "E_UTC_20230310T180000Z",
+          "E_UTC_20230310T190000Z",
+          "E_UTC_20230310T200000Z",
+          "E_UTC_20230310T210000Z",
+          "E_UTC_20230310T230000Z",
+          "E_UTC_20230311T000000Z"
+        ],
+        "missing_required_evidence_ids": [],
+        "original_citation_coverage": "complete"
+      },
+      {
+        "slot": "S3",
+        "type": "evidence_limit_refusal",
+        "support": "supported",
+        "basis": "An hourly grid does not identify the continuous-time maximum."
+      }
+    ],
+    "additional_assertions": []
+  }
+]

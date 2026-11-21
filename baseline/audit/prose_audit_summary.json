@@ -1,0 +1,152 @@
+{
+  "sources": {
+    "anonymous_records": {
+      "path": "experiments/formal_v1/prose_review_input.json",
+      "sha256": "0e998041196b23ec1a8b3a8cdb9438f05ba295011b878535f22fb09bf6758181"
+    },
+    "group_key": {
+      "path": "experiments/formal_v1/prose_review_key.json",
+      "sha256": "6ab18cfdff55f36489bfc760f7dd2b4fe6d2a37f886fe61e12ca06afc56aaae2"
+    },
+    "frozen_tasks": {
+      "path": "results/current_preparation/tasks.json",
+      "sha256": "8827a195ada42d45c09f9454e997e7dbd6797bf2aa546f64f85ac1ff63e0e917"
+    },
+    "frozen_snapshots": {
+      "path": "results/current_preparation/dataset.json",
+      "sha256": "cdb3b1c28a18473a776682ef0fb013c620d6ae3ec71804676fc98498e9d0a87f"
+    },
+    "frozen_references": {
+      "path": "results/current_preparation/references.automatic.private.json",
+      "sha256": "a569206219f4807a7a2eadfecee5219d5a3fd2abb8bf6f7d8d6e0113115655f9"
+    }
+  },
+  "scope": "Submitted prose, with numerical data agreement and original citation coverage recorded separately.",
+  "method": "Initial rule-based review with exact frozen-data recomputation. The later annotation and adjudication workbooks are documented separately in audit/prose_review_20261110/REVIEW.md.",
+  "by_condition": {
+    "G": {
+      "scheduled_records": 18,
+      "submitted_prose": 16,
+      "template_stubs_excluded_from_prose_denominators": 0,
+      "budget_stops_excluded_from_prose_denominators": 2,
+      "numerical_prose_matches": {
+        "numerator": 42,
+        "denominator": 43,
+        "ratio": 0.9767441860465116
+      },
+      "numerical_bundles_with_incomplete_original_citations": {
+        "numerator": 6,
+        "denominator": 43,
+        "ratio": 0.13953488372093023
+      },
+      "supported_evidence_limit_refusals_in_prose": {
+        "numerator": 5,
+        "denominator": 5,
+        "ratio": 1.0
+      },
+      "additional_assertions": {
+        "supported": 0,
+        "unsupported": 15,
+        "ambiguous": 8
+      },
+      "reports_with_at_least_one_unsupported_prose_assertion": {
+        "numerator": 11,
+        "denominator": 16,
+        "ratio": 0.6875
+      }
+    },
+    "E": {
+      "scheduled_records": 18,
+      "submitted_prose": 18,
+      "template_stubs_excluded_from_prose_denominators": 0,
+      "budget_stops_excluded_from_prose_denominators": 0,
+      "numerical_prose_matches": {
+        "numerator": 48,
+        "denominator": 48,
+        "ratio": 1.0
+      },
+      "numerical_bundles_with_incomplete_original_citations": {
+        "numerator": 2,
+        "denominator": 48,
+        "ratio": 0.041666666666666664
+      },
+      "supported_evidence_limit_refusals_in_prose": {
+        "numerator": 6,
+        "denominator": 6,
+        "ratio": 1.0
+      },
+      "additional_assertions": {
+        "supported": 4,
+        "unsupported": 7,
+        "ambiguous": 4
+      },
+      "reports_with_at_least_one_unsupported_prose_assertion": {
+        "numerator": 6,
+        "denominator": 18,
+        "ratio": 0.3333333333333333
+      }
+    },
+    "T": {
+      "scheduled_records": 6,
+      "submitted_prose": 0,
+      "template_stubs_excluded_from_prose_denominators": 6,
+      "budget_stops_excluded_from_prose_denominators": 0,
+      "numerical_prose_matches": {
+        "numerator": 0,
+        "denominator": 0,
+        "ratio": null
+      },
+      "numerical_bundles_with_incomplete_original_citations": {
+        "numerator": 0,
+        "denominator": 0,
+        "ratio": null
+      },
+      "supported_evidence_limit_refusals_in_prose": {
+        "numerator": 0,
+        "denominator": 0,
+        "ratio": null
+      },
+      "additional_assertions": {
+        "supported": 0,
+        "unsupported": 0,
+        "ambiguous": 0
+      },
+      "reports_with_at_least_one_unsupported_prose_assertion": {
+        "numerator": 0,
+        "denominator": 0,
+        "ratio": null
+      }
+    },
+    "all": {
+      "scheduled_records": 42,
+      "submitted_prose": 34,
+      "template_stubs_excluded_from_prose_denominators": 6,
+      "budget_stops_excluded_from_prose_denominators": 2,
+      "numerical_prose_matches": {
+        "numerator": 90,
+        "denominator": 91,
+        "ratio": 0.989010989010989
+      },
+      "numerical_bundles_with_incomplete_original_citations": {
+        "numerator": 8,
+        "denominator": 91,
+        "ratio": 0.08791208791208792
+      },
+      "supported_evidence_limit_refusals_in_prose": {
+        "numerator": 11,
+        "denominator": 11,
+        "ratio": 1.0
+      },
+      "additional_assertions": {
+        "supported": 4,
+        "unsupported": 22,
+        "ambiguous": 12
+      },
+      "reports_with_at_least_one_unsupported_prose_assertion": {
+        "numerator": 17,
+        "denominator": 34,
+        "ratio": 0.5
+      }
+    }
+  }
+}

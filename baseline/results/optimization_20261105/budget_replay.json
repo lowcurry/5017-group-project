@@ -1,0 +1,53 @@
+{
+  "cases": [
+    {
+      "run": "deepseek-flash_R01_G_1",
+      "source": "experiments/formal_v1/deepseek-flash_R01_G_1.json",
+      "windows": [
+        {
+          "snapshots": 25,
+          "before_bytes": 70058,
+          "after_bytes": 12392
+        }
+      ],
+      "recorded_input_tokens": 914,
+      "input_limit": 48000,
+      "next_request_bound_before": 81239,
+      "next_request_bound_after": 20711,
+      "next_request_admitted_after": true
+    },
+    {
+      "run": "deepseek-flash_R06_G_1",
+      "source": "experiments/formal_v1/deepseek-flash_R06_G_1.json",
+      "windows": [
+        {
+          "snapshots": 24,
+          "before_bytes": 67305,
+          "after_bytes": 11926
+        }
+      ],
+      "recorded_input_tokens": 927,
+      "input_limit": 48000,
+      "next_request_bound_before": 78370,
+      "next_request_bound_after": 20251,
+      "next_request_admitted_after": true
+    },
+    {
+      "run": "D01_3",
+      "source": "results/current_preparation/development_flash/D01_3.json",
+      "windows": [
+        {
+          "snapshots": 7,
+          "before_bytes": 19663,
+          "after_bytes": 3503
+        }
+      ],
+      "recorded_input_tokens": 18948,
+      "input_limit": 48000,
+      "next_request_bound_before": 31367,
+      "next_request_bound_after": 14541,
+      "next_request_admitted_after": true
+    }
+  ],
+  "scope": "The same recorded prior usage and tool choices. Admission only, with no model inference."
+}

@@ -1,0 +1,23 @@
+{
+  "status": "completed",
+  "frozen_before_formal": true,
+  "model": "deepseek-flash",
+  "family_counts": [
+    {
+      "task_id": "D01",
+      "correct_runs": 2,
+      "runs": 3
+    },
+    {
+      "task_id": "D02",
+      "correct_runs": 2,
+      "runs": 3
+    },
+    {
+      "task_id": "D03",
+      "correct_runs": 3,
+      "runs": 3
+    }
+  ],
+  "scope": "development only; automatic candidates, not human labels; no E-G reward used for model selection"
+}

@@ -1,0 +1,16 @@
+[
+  {
+    "path": "data/current_study/usdc_2023_alchemy.json",
+    "status": "available",
+    "snapshots": 26,
+    "replay": true,
+    "seconds": 436.23
+  },
+  {
+    "path": "data/current_study/ftx_2022_alchemy.json",
+    "status": "available",
+    "snapshots": 25,
+    "replay": true,
+    "seconds": 386.02
+  }
+]

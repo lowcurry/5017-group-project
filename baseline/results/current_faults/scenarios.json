@@ -1,0 +1,904 @@
+[
+  {
+    "id": "N01_bad",
+    "type": "unit",
+    "expected": "FAIL",
+    "actual": "FAIL",
+    "reason": "value_or_unit_mismatch",
+    "claim": {
+      "value": "30.878165451717635126728599379737588325727294918739276732216972310798954081766651",
+      "unit": "USD",
+      "evidence_ids": [
+        "E_UTC_20230310T020000Z"
+      ],
+      "calculation_id": "C_77755134b840f9ab",
+      "query": {
+        "metric": "share_pct",
+        "operation": "last",
+        "start": "2023-03-10T02:00:00Z",
+        "end": "2023-03-10T02:00:00Z",
+        "coin": "DAI"
+      },
+      "metrics_version": "1.0",
+      "sample_count": 1,
+      "snapshot_id": "UTC_20230310T020000Z",
+      "target_timestamp_utc": "2023-03-10T02:00:00Z",
+      "observed_at": "2023-03-10T01:59:59Z",
+      "block_number": 16794649,
+      "block_hash": "0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e",
+      "status": "supported",
+      "formula_version": "3pool-erc20-balanceOf-20261102",
+      "dataset_sha256": "79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055",
+      "claim_id": "R01_S1",
+      "slot_id": "S1",
+      "depends_on": []
+    }
+  },
+  {
+    "id": "N01_clean",
+    "type": "unit",
+    "expected": "PASS",
+    "actual": "PASS",
+    "reason": "raw_recomputation_matches",
+    "claim": {
+      "value": "30.878165451717635126728599379737588325727294918739276732216972310798954081766651",
+      "unit": "percent",
+      "evidence_ids": [
+        "E_UTC_20230310T020000Z"
+      ],
+      "calculation_id": "C_77755134b840f9ab",
+      "query": {
+        "metric": "share_pct",
+        "operation": "last",
+        "start": "2023-03-10T02:00:00Z",
+        "end": "2023-03-10T02:00:00Z",
+        "coin": "DAI"
+      },
+      "metrics_version": "1.0",
+      "sample_count": 1,
+      "snapshot_id": "UTC_20230310T020000Z",
+      "target_timestamp_utc": "2023-03-10T02:00:00Z",
+      "observed_at": "2023-03-10T01:59:59Z",
+      "block_number": 16794649,
+      "block_hash": "0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e",
+      "status": "supported",
+      "formula_version": "3pool-erc20-balanceOf-20261102",
+      "dataset_sha256": "79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055",
+      "claim_id": "R01_S1",
+      "slot_id": "S1",
+      "depends_on": []
+    }
+  },
+  {
+    "id": "N02_bad",
+    "type": "decimal_scale",
+    "expected": "FAIL",
+    "actual": "FAIL",
+    "reason": "value_or_unit_mismatch",
+    "claim": {
+      "value": "3.087816545171763e-05",
+      "unit": "percent",
+      "evidence_ids": [
+        "E_UTC_20230310T020000Z"
+      ],
+      "calculation_id": "C_77755134b840f9ab",
+      "query": {
+        "metric": "share_pct",
+        "operation": "last",
+        "start": "2023-03-10T02:00:00Z",
+        "end": "2023-03-10T02:00:00Z",
+        "coin": "DAI"
+      },
+      "metrics_version": "1.0",
+      "sample_count": 1,
+      "snapshot_id": "UTC_20230310T020000Z",
+      "target_timestamp_utc": "2023-03-10T02:00:00Z",
+      "observed_at": "2023-03-10T01:59:59Z",
+      "block_number": 16794649,
+      "block_hash": "0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e",
+      "status": "supported",
+      "formula_version": "3pool-erc20-balanceOf-20261102",
+      "dataset_sha256": "79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055",
+      "claim_id": "R01_S1",
+      "slot_id": "S1",
+      "depends_on": []
+    }
+  },
+  {
+    "id": "N02_clean",
+    "type": "decimal_scale",
+    "expected": "PASS",
+    "actual": "PASS",
+    "reason": "raw_recomputation_matches",
+    "claim": {
+      "value": "30.878165451717635126728599379737588325727294918739276732216972310798954081766651",
+      "unit": "percent",
+      "evidence_ids": [
+        "E_UTC_20230310T020000Z"
+      ],
+      "calculation_id": "C_77755134b840f9ab",
+      "query": {
+        "metric": "share_pct",
+        "operation": "last",
+        "start": "2023-03-10T02:00:00Z",
+        "end": "2023-03-10T02:00:00Z",
+        "coin": "DAI"
+      },
+      "metrics_version": "1.0",
+      "sample_count": 1,
+      "snapshot_id": "UTC_20230310T020000Z",
+      "target_timestamp_utc": "2023-03-10T02:00:00Z",
+      "observed_at": "2023-03-10T01:59:59Z",
+      "block_number": 16794649,
+      "block_hash": "0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e",
+      "status": "supported",
+      "formula_version": "3pool-erc20-balanceOf-20261102",
+      "dataset_sha256": "79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055",
+      "claim_id": "R01_S1",
+      "slot_id": "S1",
+      "depends_on": []
+    }
+  },
+  {
+    "id": "N03_bad",
+    "type": "wrong_value",
+    "expected": "FAIL",
+    "actual": "FAIL",
+    "reason": "value_or_unit_mismatch",
+    "claim": {
+      "value": "999999",
+      "unit": "percent",
+      "evidence_ids": [
+        "E_UTC_20230310T020000Z"
+      ],
+      "calculation_id": "C_77755134b840f9ab",
+      "query": {
+        "metric": "share_pct",
+        "operation": "last",
+        "start": "2023-03-10T02:00:00Z",
+        "end": "2023-03-10T02:00:00Z",
+        "coin": "DAI"
+      },
+      "metrics_version": "1.0",
+      "sample_count": 1,
+      "snapshot_id": "UTC_20230310T020000Z",
+      "target_timestamp_utc": "2023-03-10T02:00:00Z",
+      "observed_at": "2023-03-10T01:59:59Z",
+      "block_number": 16794649,
+      "block_hash": "0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e",
+      "status": "supported",
+      "formula_version": "3pool-erc20-balanceOf-20261102",
+      "dataset_sha256": "79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055",
+      "claim_id": "R01_S1",
+      "slot_id": "S1",
+      "depends_on": []
+    }
+  },
+  {
+    "id": "N03_clean",
+    "type": "wrong_value",
+    "expected": "PASS",
+    "actual": "PASS",
+    "reason": "raw_recomputation_matches",
+    "claim": {
+      "value": "30.878165451717635126728599379737588325727294918739276732216972310798954081766651",
+      "unit": "percent",
+      "evidence_ids": [
+        "E_UTC_20230310T020000Z"
+      ],
+      "calculation_id": "C_77755134b840f9ab",
+      "query": {
+        "metric": "share_pct",
+        "operation": "last",
+        "start": "2023-03-10T02:00:00Z",
+        "end": "2023-03-10T02:00:00Z",
+        "coin": "DAI"
+      },
+      "metrics_version": "1.0",
+      "sample_count": 1,
+      "snapshot_id": "UTC_20230310T020000Z",
+      "target_timestamp_utc": "2023-03-10T02:00:00Z",
+      "observed_at": "2023-03-10T01:59:59Z",
+      "block_number": 16794649,
+      "block_hash": "0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e",
+      "status": "supported",
+      "formula_version": "3pool-erc20-balanceOf-20261102",
+      "dataset_sha256": "79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055",
+      "claim_id": "R01_S1",
+      "slot_id": "S1",
+      "depends_on": []
+    }
+  },
+  {
+    "id": "N04_bad",
+    "type": "window",
+    "expected": "FAIL",
+    "actual": "FAIL",
+    "reason": "task_query_mismatch",
+    "claim": {
+      "value": "30.878165451717635126728599379737588325727294918739276732216972310798954081766651",
+      "unit": "percent",
+      "evidence_ids": [
+        "E_UTC_20230310T020000Z"
+      ],
+      "calculation_id": "C_77755134b840f9ab",
+      "query": {
+        "metric": "share_pct",
+        "operation": "last",
+        "start": "2023-03-10T00:00:00Z",
+        "end": "2023-03-10T02:00:00Z",
+        "coin": "DAI"
+      },
+      "metrics_version": "1.0",
+      "sample_count": 1,
+      "snapshot_id": "UTC_20230310T020000Z",
+      "target_timestamp_utc": "2023-03-10T02:00:00Z",
+      "observed_at": "2023-03-10T01:59:59Z",
+      "block_number": 16794649,
+      "block_hash": "0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e",
+      "status": "supported",
+      "formula_version": "3pool-erc20-balanceOf-20261102",
+      "dataset_sha256": "79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055",
+      "claim_id": "R01_S1",
+      "slot_id": "S1",
+      "depends_on": []
+    }
+  },
+  {
+    "id": "N04_clean",
+    "type": "window",
+    "expected": "PASS",
+    "actual": "PASS",
+    "reason": "raw_recomputation_matches",
+    "claim": {
+      "value": "30.878165451717635126728599379737588325727294918739276732216972310798954081766651",
+      "unit": "percent",
+      "evidence_ids": [
+        "E_UTC_20230310T020000Z"
+      ],
+      "calculation_id": "C_77755134b840f9ab",
+      "query": {
+        "metric": "share_pct",
+        "operation": "last",
+        "start": "2023-03-10T02:00:00Z",
+        "end": "2023-03-10T02:00:00Z",
+        "coin": "DAI"
+      },
+      "metrics_version": "1.0",
+      "sample_count": 1,
+      "snapshot_id": "UTC_20230310T020000Z",
+      "target_timestamp_utc": "2023-03-10T02:00:00Z",
+      "observed_at": "2023-03-10T01:59:59Z",
+      "block_number": 16794649,
+      "block_hash": "0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e",
+      "status": "supported",
+      "formula_version": "3pool-erc20-balanceOf-20261102",
+      "dataset_sha256": "79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055",
+      "claim_id": "R01_S1",
+      "slot_id": "S1",
+      "depends_on": []
+    }
+  },
+  {
+    "id": "N05_bad",
+    "type": "coin",
+    "expected": "FAIL",
+    "actual": "FAIL",
+    "reason": "task_query_mismatch",
+    "claim": {
+      "value": "30.878165451717635126728599379737588325727294918739276732216972310798954081766651",
+      "unit": "percent",
+      "evidence_ids": [
+        "E_UTC_20230310T020000Z"
+      ],
+      "calculation_id": "C_77755134b840f9ab",
+      "query": {
+        "metric": "share_pct",
+        "operation": "last",
+        "start": "2023-03-10T02:00:00Z",
+        "end": "2023-03-10T02:00:00Z",
+        "coin": "USDT"
+      },
+      "metrics_version": "1.0",
+      "sample_count": 1,
+      "snapshot_id": "UTC_20230310T020000Z",
+      "target_timestamp_utc": "2023-03-10T02:00:00Z",
+      "observed_at": "2023-03-10T01:59:59Z",
+      "block_number": 16794649,
+      "block_hash": "0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e",
+      "status": "supported",
+      "formula_version": "3pool-erc20-balanceOf-20261102",
+      "dataset_sha256": "79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055",
+      "claim_id": "R01_S1",
+      "slot_id": "S1",
+      "depends_on": []
+    }
+  },
+  {
+    "id": "N05_clean",
+    "type": "coin",
+    "expected": "PASS",
+    "actual": "PASS",
+    "reason": "raw_recomputation_matches",
+    "claim": {
+      "value": "30.878165451717635126728599379737588325727294918739276732216972310798954081766651",
+      "unit": "percent",
+      "evidence_ids": [
+        "E_UTC_20230310T020000Z"
+      ],
+      "calculation_id": "C_77755134b840f9ab",
+      "query": {
+        "metric": "share_pct",
+        "operation": "last",
+        "start": "2023-03-10T02:00:00Z",
+        "end": "2023-03-10T02:00:00Z",
+        "coin": "DAI"
+      },
+      "metrics_version": "1.0",
+      "sample_count": 1,
+      "snapshot_id": "UTC_20230310T020000Z",
+      "target_timestamp_utc": "2023-03-10T02:00:00Z",
+      "observed_at": "2023-03-10T01:59:59Z",
+      "block_number": 16794649,
+      "block_hash": "0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e",
+      "status": "supported",
+      "formula_version": "3pool-erc20-balanceOf-20261102",
+      "dataset_sha256": "79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055",
+      "claim_id": "R01_S1",
+      "slot_id": "S1",
+      "depends_on": []
+    }
+  },
+  {
+    "id": "N06_bad",
+    "type": "block_time",
+    "expected": "FAIL",
+    "actual": "FAIL",
+    "reason": "target_timestamp_utc_mismatch",
+    "claim": {
+      "value": "30.878165451717635126728599379737588325727294918739276732216972310798954081766651",
+      "unit": "percent",
+      "evidence_ids": [
+        "E_UTC_20230310T020000Z"
+      ],
+      "calculation_id": "C_77755134b840f9ab",
+      "query": {
+        "metric": "share_pct",
+        "operation": "last",
+        "start": "2023-03-10T02:00:00Z",
+        "end": "2023-03-10T02:00:00Z",
+        "coin": "DAI"
+      },
+      "metrics_version": "1.0",
+      "sample_count": 1,
+      "snapshot_id": "UTC_20230310T020000Z",
+      "target_timestamp_utc": "2023-03-10T00:00:00Z",
+      "observed_at": "2023-03-10T01:59:59Z",
+      "block_number": 16794649,
+      "block_hash": "0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e",
+      "status": "supported",
+      "formula_version": "3pool-erc20-balanceOf-20261102",
+      "dataset_sha256": "79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055",
+      "claim_id": "R01_S1",
+      "slot_id": "S1",
+      "depends_on": []
+    }
+  },
+  {
+    "id": "N06_clean",
+    "type": "block_time",
+    "expected": "PASS",
+    "actual": "PASS",
+    "reason": "raw_recomputation_matches",
+    "claim": {
+      "value": "30.878165451717635126728599379737588325727294918739276732216972310798954081766651",
+      "unit": "percent",
+      "evidence_ids": [
+        "E_UTC_20230310T020000Z"
+      ],
+      "calculation_id": "C_77755134b840f9ab",
+      "query": {
+        "metric": "share_pct",
+        "operation": "last",
+        "start": "2023-03-10T02:00:00Z",
+        "end": "2023-03-10T02:00:00Z",
+        "coin": "DAI"
+      },
+      "metrics_version": "1.0",
+      "sample_count": 1,
+      "snapshot_id": "UTC_20230310T020000Z",
+      "target_timestamp_utc": "2023-03-10T02:00:00Z",
+      "observed_at": "2023-03-10T01:59:59Z",
+      "block_number": 16794649,
+      "block_hash": "0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e",
+      "status": "supported",
+      "formula_version": "3pool-erc20-balanceOf-20261102",
+      "dataset_sha256": "79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055",
+      "claim_id": "R01_S1",
+      "slot_id": "S1",
+      "depends_on": []
+    }
+  },
+  {
+    "id": "N07_bad",
+    "type": "direction",
+    "expected": "FAIL",
+    "actual": "FAIL",
+    "reason": "task_query_mismatch",
+    "claim": {
+      "value": "1.000036999",
+      "unit": "USDT/USDC",
+      "evidence_ids": [
+        "E_UTC_20230310T020000Z"
+      ],
+      "calculation_id": "C_691ed4807dc05871",
+      "query": {
+        "metric": "quote_rate",
+        "operation": "last",
+        "start": "2023-03-10T02:00:00Z",
+        "end": "2023-03-10T02:00:00Z",
+        "direction": "USDT_USDC",
+        "size": 1000
+      },
+      "metrics_version": "1.0",
+      "sample_count": 1,
+      "snapshot_id": "UTC_20230310T020000Z",
+      "target_timestamp_utc": "2023-03-10T02:00:00Z",
+      "observed_at": "2023-03-10T01:59:59Z",
+      "block_number": 16794649,
+      "block_hash": "0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e",
+      "status": "supported",
+      "formula_version": "3pool-erc20-balanceOf-20261102",
+      "dataset_sha256": "79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055",
+      "claim_id": "R01_S2",
+      "slot_id": "S2",
+      "depends_on": []
+    }
+  },
+  {
+    "id": "N07_clean",
+    "type": "direction",
+    "expected": "PASS",
+    "actual": "PASS",
+    "reason": "raw_recomputation_matches",
+    "claim": {
+      "value": "1.000036999",
+      "unit": "USDT/USDC",
+      "evidence_ids": [
+        "E_UTC_20230310T020000Z"
+      ],
+      "calculation_id": "C_691ed4807dc05871",
+      "query": {
+        "metric": "quote_rate",
+        "operation": "last",
+        "start": "2023-03-10T02:00:00Z",
+        "end": "2023-03-10T02:00:00Z",
+        "direction": "USDC_USDT",
+        "size": 1000
+      },
+      "metrics_version": "1.0",
+      "sample_count": 1,
+      "snapshot_id": "UTC_20230310T020000Z",
+      "target_timestamp_utc": "2023-03-10T02:00:00Z",
+      "observed_at": "2023-03-10T01:59:59Z",
+      "block_number": 16794649,
+      "block_hash": "0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e",
+      "status": "supported",
+      "formula_version": "3pool-erc20-balanceOf-20261102",
+      "dataset_sha256": "79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055",
+      "claim_id": "R01_S2",
+      "slot_id": "S2",
+      "depends_on": []
+    }
+  },
+  {
+    "id": "N08_bad",
+    "type": "size",
+    "expected": "FAIL",
+    "actual": "FAIL",
+    "reason": "task_query_mismatch",
+    "claim": {
+      "value": "1.000036999",
+      "unit": "USDT/USDC",
+      "evidence_ids": [
+        "E_UTC_20230310T020000Z"
+      ],
+      "calculation_id": "C_691ed4807dc05871",
+      "query": {
+        "metric": "quote_rate",
+        "operation": "last",
+        "start": "2023-03-10T02:00:00Z",
+        "end": "2023-03-10T02:00:00Z",
+        "direction": "USDC_USDT",
+        "size": 10000
+      },
+      "metrics_version": "1.0",
+      "sample_count": 1,
+      "snapshot_id": "UTC_20230310T020000Z",
+      "target_timestamp_utc": "2023-03-10T02:00:00Z",
+      "observed_at": "2023-03-10T01:59:59Z",
+      "block_number": 16794649,
+      "block_hash": "0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e",
+      "status": "supported",
+      "formula_version": "3pool-erc20-balanceOf-20261102",
+      "dataset_sha256": "79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055",
+      "claim_id": "R01_S2",
+      "slot_id": "S2",
+      "depends_on": []
+    }
+  },
+  {
+    "id": "N08_clean",
+    "type": "size",
+    "expected": "PASS",
+    "actual": "PASS",
+    "reason": "raw_recomputation_matches",
+    "claim": {
+      "value": "1.000036999",
+      "unit": "USDT/USDC",
+      "evidence_ids": [
+        "E_UTC_20230310T020000Z"
+      ],
+      "calculation_id": "C_691ed4807dc05871",
+      "query": {
+        "metric": "quote_rate",
+        "operation": "last",
+        "start": "2023-03-10T02:00:00Z",
+        "end": "2023-03-10T02:00:00Z",
+        "direction": "USDC_USDT",
+        "size": 1000
+      },
+      "metrics_version": "1.0",
+      "sample_count": 1,
+      "snapshot_id": "UTC_20230310T020000Z",
+      "target_timestamp_utc": "2023-03-10T02:00:00Z",
+      "observed_at": "2023-03-10T01:59:59Z",
+      "block_number": 16794649,
+      "block_hash": "0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e",
+      "status": "supported",
+      "formula_version": "3pool-erc20-balanceOf-20261102",
+      "dataset_sha256": "79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055",
+      "claim_id": "R01_S2",
+      "slot_id": "S2",
+      "depends_on": []
+    }
+  },
+  {
+    "id": "N09_bad",
+    "type": "incomplete_evidence",
+    "expected": "UNKNOWN",
+    "actual": "UNKNOWN",
+    "reason": "incomplete_attribution",
+    "claim": {
+      "value": "30.878165451717635126728599379737588325727294918739276732216972310798954081766651",
+      "unit": "percent",
+      "evidence_ids": [],
+      "calculation_id": "C_77755134b840f9ab",
+      "query": {
+        "metric": "share_pct",
+        "operation": "last",
+        "start": "2023-03-10T02:00:00Z",
+        "end": "2023-03-10T02:00:00Z",
+        "coin": "DAI"
+      },
+      "metrics_version": "1.0",
+      "sample_count": 1,
+      "snapshot_id": "UTC_20230310T020000Z",
+      "target_timestamp_utc": "2023-03-10T02:00:00Z",
+      "observed_at": "2023-03-10T01:59:59Z",
+      "block_number": 16794649,
+      "block_hash": "0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e",
+      "status": "supported",
+      "formula_version": "3pool-erc20-balanceOf-20261102",
+      "dataset_sha256": "79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055",
+      "claim_id": "R01_S1",
+      "slot_id": "S1",
+      "depends_on": []
+    }
+  },
+  {
+    "id": "N09_clean",
+    "type": "incomplete_evidence",
+    "expected": "PASS",
+    "actual": "PASS",
+    "reason": "raw_recomputation_matches",
+    "claim": {
+      "value": "30.878165451717635126728599379737588325727294918739276732216972310798954081766651",
+      "unit": "percent",
+      "evidence_ids": [
+        "E_UTC_20230310T020000Z"
+      ],
+      "calculation_id": "C_77755134b840f9ab",
+      "query": {
+        "metric": "share_pct",
+        "operation": "last",
+        "start": "2023-03-10T02:00:00Z",
+        "end": "2023-03-10T02:00:00Z",
+        "coin": "DAI"
+      },
+      "metrics_version": "1.0",
+      "sample_count": 1,
+      "snapshot_id": "UTC_20230310T020000Z",
+      "target_timestamp_utc": "2023-03-10T02:00:00Z",
+      "observed_at": "2023-03-10T01:59:59Z",
+      "block_number": 16794649,
+      "block_hash": "0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e",
+      "status": "supported",
+      "formula_version": "3pool-erc20-balanceOf-20261102",
+      "dataset_sha256": "79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055",
+      "claim_id": "R01_S1",
+      "slot_id": "S1",
+      "depends_on": []
+    }
+  },
+  {
+    "id": "N10_bad",
+    "type": "dataset_binding",
+    "expected": "UNKNOWN",
+    "actual": "UNKNOWN",
+    "reason": "incomplete_attribution",
+    "claim": {
+      "value": "30.878165451717635126728599379737588325727294918739276732216972310798954081766651",
+      "unit": "percent",
+      "evidence_ids": [
+        "E_UTC_20230310T020000Z"
+      ],
+      "calculation_id": "C_77755134b840f9ab",
+      "query": {
+        "metric": "share_pct",
+        "operation": "last",
+        "start": "2023-03-10T02:00:00Z",
+        "end": "2023-03-10T02:00:00Z",
+        "coin": "DAI"
+      },
+      "metrics_version": "1.0",
+      "sample_count": 1,
+      "snapshot_id": "UTC_20230310T020000Z",
+      "target_timestamp_utc": "2023-03-10T02:00:00Z",
+      "observed_at": "2023-03-10T01:59:59Z",
+      "block_number": 16794649,
+      "block_hash": "0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e",
+      "status": "supported",
+      "formula_version": "3pool-erc20-balanceOf-20261102",
+      "dataset_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "claim_id": "R01_S1",
+      "slot_id": "S1",
+      "depends_on": []
+    }
+  },
+  {
+    "id": "N10_clean",
+    "type": "dataset_binding",
+    "expected": "PASS",
+    "actual": "PASS",
+    "reason": "raw_recomputation_matches",
+    "claim": {
+      "value": "30.878165451717635126728599379737588325727294918739276732216972310798954081766651",
+      "unit": "percent",
+      "evidence_ids": [
+        "E_UTC_20230310T020000Z"
+      ],
+      "calculation_id": "C_77755134b840f9ab",
+      "query": {
+        "metric": "share_pct",
+        "operation": "last",
+        "start": "2023-03-10T02:00:00Z",
+        "end": "2023-03-10T02:00:00Z",
+        "coin": "DAI"
+      },
+      "metrics_version": "1.0",
+      "sample_count": 1,
+      "snapshot_id": "UTC_20230310T020000Z",
+      "target_timestamp_utc": "2023-03-10T02:00:00Z",
+      "observed_at": "2023-03-10T01:59:59Z",
+      "block_number": 16794649,
+      "block_hash": "0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e",
+      "status": "supported",
+      "formula_version": "3pool-erc20-balanceOf-20261102",
+      "dataset_sha256": "79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055",
+      "claim_id": "R01_S1",
+      "slot_id": "S1",
+      "depends_on": []
+    }
+  },
+  {
+    "id": "N11_bad",
+    "type": "formula_version",
+    "expected": "UNKNOWN",
+    "actual": "UNKNOWN",
+    "reason": "incomplete_attribution",
+    "claim": {
+      "value": "30.878165451717635126728599379737588325727294918739276732216972310798954081766651",
+      "unit": "percent",
+      "evidence_ids": [
+        "E_UTC_20230310T020000Z"
+      ],
+      "calculation_id": "C_77755134b840f9ab",
+      "query": {
+        "metric": "share_pct",
+        "operation": "last",
+        "start": "2023-03-10T02:00:00Z",
+        "end": "2023-03-10T02:00:00Z",
+        "coin": "DAI"
+      },
+      "metrics_version": "1.0",
+      "sample_count": 1,
+      "snapshot_id": "UTC_20230310T020000Z",
+      "target_timestamp_utc": "2023-03-10T02:00:00Z",
+      "observed_at": "2023-03-10T01:59:59Z",
+      "block_number": 16794649,
+      "block_hash": "0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e",
+      "status": "supported",
+      "formula_version": "unregistered",
+      "dataset_sha256": "79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055",
+      "claim_id": "R01_S1",
+      "slot_id": "S1",
+      "depends_on": []
+    }
+  },
+  {
+    "id": "N11_clean",
+    "type": "formula_version",
+    "expected": "PASS",
+    "actual": "PASS",
+    "reason": "raw_recomputation_matches",
+    "claim": {
+      "value": "30.878165451717635126728599379737588325727294918739276732216972310798954081766651",
+      "unit": "percent",
+      "evidence_ids": [
+        "E_UTC_20230310T020000Z"
+      ],
+      "calculation_id": "C_77755134b840f9ab",
+      "query": {
+        "metric": "share_pct",
+        "operation": "last",
+        "start": "2023-03-10T02:00:00Z",
+        "end": "2023-03-10T02:00:00Z",
+        "coin": "DAI"
+      },
+      "metrics_version": "1.0",
+      "sample_count": 1,
+      "snapshot_id": "UTC_20230310T020000Z",
+      "target_timestamp_utc": "2023-03-10T02:00:00Z",
+      "observed_at": "2023-03-10T01:59:59Z",
+      "block_number": 16794649,
+      "block_hash": "0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e",
+      "status": "supported",
+      "formula_version": "3pool-erc20-balanceOf-20261102",
+      "dataset_sha256": "79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055",
+      "claim_id": "R01_S1",
+      "slot_id": "S1",
+      "depends_on": []
+    }
+  },
+  {
+    "id": "N12_bad",
+    "type": "claim_slot",
+    "expected": "UNKNOWN",
+    "actual": "UNKNOWN",
+    "reason": "unregistered_claim_requires_review",
+    "claim": {
+      "value": "30.878165451717635126728599379737588325727294918739276732216972310798954081766651",
+      "unit": "percent",
+      "evidence_ids": [
+        "E_UTC_20230310T020000Z"
+      ],
+      "calculation_id": "C_77755134b840f9ab",
+      "query": {
+        "metric": "share_pct",
+        "operation": "last",
+        "start": "2023-03-10T02:00:00Z",
+        "end": "2023-03-10T02:00:00Z",
+        "coin": "DAI"
+      },
+      "metrics_version": "1.0",
+      "sample_count": 1,
+      "snapshot_id": "UTC_20230310T020000Z",
+      "target_timestamp_utc": "2023-03-10T02:00:00Z",
+      "observed_at": "2023-03-10T01:59:59Z",
+      "block_number": 16794649,
+      "block_hash": "0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e",
+      "status": "supported",
+      "formula_version": "3pool-erc20-balanceOf-20261102",
+      "dataset_sha256": "79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055",
+      "claim_id": "R01_S1",
+      "slot_id": "S99",
+      "depends_on": []
+    }
+  },
+  {
+    "id": "N12_clean",
+    "type": "claim_slot",
+    "expected": "PASS",
+    "actual": "PASS",
+    "reason": "raw_recomputation_matches",
+    "claim": {
+      "value": "30.878165451717635126728599379737588325727294918739276732216972310798954081766651",
+      "unit": "percent",
+      "evidence_ids": [
+        "E_UTC_20230310T020000Z"
+      ],
+      "calculation_id": "C_77755134b840f9ab",
+      "query": {
+        "metric": "share_pct",
+        "operation": "last",
+        "start": "2023-03-10T02:00:00Z",
+        "end": "2023-03-10T02:00:00Z",
+        "coin": "DAI"
+      },
+      "metrics_version": "1.0",
+      "sample_count": 1,
+      "snapshot_id": "UTC_20230310T020000Z",
+      "target_timestamp_utc": "2023-03-10T02:00:00Z",
+      "observed_at": "2023-03-10T01:59:59Z",
+      "block_number": 16794649,
+      "block_hash": "0xfb7b60af27b4e823b0928721d57619d10ce4bf491f9ee046a28ce7eab339951e",
+      "status": "supported",
+      "formula_version": "3pool-erc20-balanceOf-20261102",
+      "dataset_sha256": "79a6bed9d904ac904b2cc45cf164587fe93495cf11ca8240854b3f7f1ecf4055",
+      "claim_id": "R01_S1",
+      "slot_id": "S1",
+      "depends_on": []
+    }
+  },
+  {
+    "id": "R1",
+    "type": "valid_refusal",
+    "expected": "UNKNOWN",
+    "actual": "UNKNOWN",
+    "reason": "refusal_or_omission",
+    "scope": "refusal is not a numerical PASS"
+  },
+  {
+    "id": "R2",
+    "type": "valid_refusal",
+    "expected": "UNKNOWN",
+    "actual": "UNKNOWN",
+    "reason": "refusal_or_omission",
+    "scope": "refusal is not a numerical PASS"
+  },
+  {
+    "id": "R3",
+    "type": "valid_refusal",
+    "expected": "UNKNOWN",
+    "actual": "UNKNOWN",
+    "reason": "refusal_or_omission",
+    "scope": "refusal is not a numerical PASS"
+  },
+  {
+    "id": "R4",
+    "type": "valid_refusal",
+    "expected": "UNKNOWN",
+    "actual": "UNKNOWN",
+    "reason": "refusal_or_omission",
+    "scope": "refusal is not a numerical PASS"
+  },
+  {
+    "id": "U1",
+    "type": "invalid_source",
+    "expected": "UNKNOWN",
+    "actual": "UNKNOWN",
+    "reason": "invalid_source_dataset"
+  },
+  {
+    "id": "U2",
+    "type": "invalid_source",
+    "expected": "UNKNOWN",
+    "actual": "UNKNOWN",
+    "reason": "invalid_source_dataset"
+  },
+  {
+    "id": "U3",
+    "type": "invalid_source",
+    "expected": "UNKNOWN",
+    "actual": "UNKNOWN",
+    "reason": "invalid_source_dataset"
+  },
+  {
+    "id": "U4",
+    "type": "invalid_source",
+    "expected": "UNKNOWN",
+    "actual": "UNKNOWN",
+    "reason": "invalid_source_dataset"
+  }
+]

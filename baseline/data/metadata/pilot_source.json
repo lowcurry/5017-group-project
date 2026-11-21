@@ -1,0 +1,19 @@
+{
+  "chain_id": 1,
+  "chain": "Ethereum Mainnet",
+  "provider": "Alchemy",
+  "rpc_env_var": "ETH_RPC_URL",
+  "rpc_url_storage": ".env.local (local only; do not publish the API key)",
+  "pool_address": "0xbEbc44782C7dB0a1A60Cb6Fe97d0b483032FF1C7",
+  "pool_coin_order": ["DAI", "USDC", "USDT"],
+  "decimals": {"DAI": 18, "USDC": 6, "USDT": 6},
+  "balance_function": "balances(uint256)",
+  "balance_selector": "0x4903b0d1",
+  "quote_function": "get_dy(int128,int128,uint256)",
+  "quote_selector": "0x5e0d443f",
+  "retrieved_at_utc": "2026-09-19",
+  "raw_dataset": "data/raw/curve_3pool_archive.json",
+  "sampling": "three named anchors plus 25 hourly points in the frozen 24-hour stress window",
+  "block_selection": "latest block with timestamp less than or equal to each target timestamp",
+  "notes": "The credential is excluded. Raw integers, calldata, block and parent hashes, timestamps, and exact normalized decimals are retained."
+}

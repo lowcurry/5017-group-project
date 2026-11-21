@@ -1,0 +1,70 @@
+{
+  "cases": 32,
+  "logical_checks": 64,
+  "observed_by_layer": {
+    "V1": {
+      "fault": {
+        "FAIL": 7,
+        "PASS": 5
+      },
+      "clean": {
+        "PASS": 12
+      },
+      "legal_refusal": {
+        "UNKNOWN": 4
+      },
+      "source_unavailable": {
+        "PASS": 2
+      },
+      "source_conflict": {
+        "PASS": 2
+      }
+    },
+    "V2": {
+      "fault": {
+        "FAIL": 10,
+        "UNKNOWN": 2
+      },
+      "clean": {
+        "PASS": 12
+      },
+      "legal_refusal": {
+        "UNKNOWN": 4
+      },
+      "source_unavailable": {
+        "UNKNOWN": 2
+      },
+      "source_conflict": {
+        "FAIL": 2
+      }
+    }
+  },
+  "expectation_mismatches": [
+    {
+      "case_id": "U3",
+      "layer": "V2",
+      "expected": [
+        "UNKNOWN",
+        null
+      ],
+      "actual": {
+        "verdict": "FAIL",
+        "reason": "secondary_source_state_mismatch"
+      }
+    },
+    {
+      "case_id": "U4",
+      "layer": "V2",
+      "expected": [
+        "UNKNOWN",
+        null
+      ],
+      "actual": {
+        "verdict": "FAIL",
+        "reason": "secondary_source_state_mismatch"
+      }
+    }
+  ],
+  "cases_sha256": "9a70aa04e63c2847a3db6153dcb25d7ac773f1e2f57cb249744f5ada28ca4f60",
+  "scope": "Local replay against fixed snapshots and simulated faults. No live provider outage asserted."
+}

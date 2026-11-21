@@ -1,0 +1,43 @@
+{
+  "scope": "Post-study diagnostic on 36 archived formal model records. Sequential wall-clock batches on preloaded inputs with exact equality checks against archived verdicts. Excludes JSON loading, model generation, data acquisition, publication, and monetary fees.",
+  "environment": {
+    "os": "macOS",
+    "release": "27.2",
+    "machine": "arm64",
+    "python": "3.9.6"
+  },
+  "archived_model_records": 36,
+  "emitted_claims": 102,
+  "new_rpc_calls": 0,
+  "new_model_calls": 0,
+  "archived_generation_wall_seconds_sum": {
+    "G": 191.602,
+    "E": 234.587
+  },
+  "verifier_source_sha256": {
+    "current_study.py": "be8ee3a2011a31ddc7ddb5034dcb0ed4cc18893bc7ec9303851294040787fd9f",
+    "current_verify.py": "4c07fda24d6f0c2cc01a9fc39c96c34f97d0d2e25c309e42de36e9a859e7c48b"
+  },
+  "offline_verifier_wall_seconds": {
+    "V1": {
+      "samples": [
+        0.360929,
+        0.344527,
+        0.3713,
+        0.355216,
+        0.352797
+      ],
+      "median": 0.355216
+    },
+    "V2": {
+      "samples": [
+        0.437742,
+        0.436032,
+        0.435294,
+        0.427877,
+        0.429627
+      ],
+      "median": 0.435294
+    }
+  }
+}

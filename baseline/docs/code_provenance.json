@@ -1,0 +1,42 @@
+{
+  "expected_differences": {
+    "__main__.py": {
+      "frozen_sha256": "b0e37dace32661ede32c4c4042c7d875eb37294f74fbece5581757876e19b536",
+      "packaged_sha256": "b7e3b4894064dd605b713f71280528c09a703b89c8aa695c010b3d806bb6260f",
+      "scope": "Portable replay and verification command entry points."
+    },
+    "balance_sources.py": {
+      "frozen_sha256": "40f8346fa3399bdf8ffa6c2535f82f2f6acd83e85737b267b6b3cd5c24c7adcd",
+      "packaged_sha256": "addeb61ba4e335d83315f5ea9cdc6f64799ee767cadba34af72d7f6d4dbc213d",
+      "scope": "Portable source acquisition and archived provider handling."
+    },
+    "current_runner.py": {
+      "frozen_sha256": "cb08b9b5387a8f50d6c0485a7bdf2b02ef1f39e27cb1830566435d5ffce39cad",
+      "packaged_sha256": "4e3b0caed1bd140a6ffb967043abff79470a9aa49d336d675110ff2c7810a624",
+      "scope": "Source-directory and submission protocol updates and independent arithmetic before publication."
+    },
+    "current_study.py": {
+      "frozen_sha256": "ceb7d42d2e57597ef9c1027f38d02292c8201889799a7bf7eea63627137b72d7",
+      "packaged_sha256": "3f6928bd6ea2199504d6b5af19bce467f1999a6c57d0f4592246aa1d3dd21507",
+      "scope": "Publication dependency mapping and verified public payload."
+    },
+    "current_verify.py": {
+      "frozen_sha256": "aeb3e9fd8aa63146c79c64977cc727b762358224246d2d93f1217564856b0dc0",
+      "packaged_sha256": "5da3da5bf5324298d2a28395f263023bc8f102911b6a0f19c31847b900bc94c7",
+      "scope": "Verifier envelope and recorded-source checks and independent arithmetic before publication."
+    },
+    "deepseek_adapter.py": {
+      "frozen_sha256": "d676786ff5e5506b2c5729b75650e914a3d3a9e7dcefee892907431234a7c9c8",
+      "packaged_sha256": "bbedc475f584b6ef8279c2de0e09eaa3b72645e9fd221779fd27a30e81e0773a",
+      "scope": "Packaged provider adapter updates."
+    }
+  },
+  "freeze_sha256": "ec66a6aaf06a0a37eeff5e74bbda6e68a866be00617a00a9413087679e7cd220",
+  "modules": 31,
+  "post_freeze_additions": {
+    "publication_arithmetic.py": {
+      "packaged_sha256": "f5725388014ff2a70550a1350b59fc9d0c18fb81aa14c4940cb095c3bdfbe746",
+      "scope": "Exact arithmetic from raw 3pool balances for new publications."
+    }
+  }
+}
