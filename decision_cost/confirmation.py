@@ -6,6 +6,7 @@ from datetime import date
 from hashlib import sha256
 import os
 from pathlib import Path
+import sys
 from time import perf_counter
 
 import numpy as np
@@ -15,12 +16,47 @@ from replay import action, outcome
 from curve_audit.budget_guard import BudgetLimits
 from curve_audit.current_runner import agent_run
 from curve_audit.current_study import digest, equal, reference_candidates, score_report, template_report
-from curve_audit.current_verify import bound_recorded_sources, verify_v2
-from curve_audit.current_study import publish
+from curve_audit.current_verify import bound_recorded_sources, publish_verified, verify_v2
 from curve_audit.deepseek_adapter import DeepSeekAdapter
+
+LEDGER_DIR = str(BASE / 'audit/cost_trace_20261111')
+if LEDGER_DIR not in sys.path:
+    sys.path.insert(0, LEDGER_DIR)
+from ledger import RunLedger
 
 RULES = {('H02','S1'):'share_direction', ('H02','S2'):'peak_follow_up_hour',
          ('H03','S2'):'concentration_alert'}
+LEDGER_PHASES = ('model_call', 'verify_v2', 'publish_verified', 'policy_score')
+
+
+def _normalize_model_usage(raw_usage):
+    if not isinstance(raw_usage, dict):
+        return None
+    inp, out = raw_usage.get('input_tokens'), raw_usage.get('output_tokens')
+    if type(inp) is not int or type(out) is not int or inp < 0 or out < 0:
+        return None
+    usage = {'input_tokens': inp, 'output_tokens': out}
+    cached = raw_usage.get('cached_input_tokens')
+    if type(cached) is int and 0 <= cached <= inp:
+        usage['cached_input_tokens'] = cached
+    return usage
+
+
+def _record_model_attempts(run_ledger, provider, spec, record):
+    ledger_data = record.get('ledger') or {}
+    calls = ledger_data.get('calls')
+    status = record.get('status', 'completed')
+    if isinstance(calls, list) and calls:
+        for index, call in enumerate(calls, 1):
+            outcome_label = call.get('state') or status
+            run_ledger.attempt(
+                'model', provider, f"{spec['run_id']}_call_{index}", 1, outcome_label,
+                usage=_normalize_model_usage(call.get('usage')),
+            )
+        return
+    actual = _normalize_model_usage(ledger_data.get('actual_usage'))
+    if actual is not None or status != 'completed':
+        run_ledger.attempt('model', provider, f"{spec['run_id']}_call_1", 1, status, usage=actual)
 
 
 def digest_file(path):
@@ -119,38 +155,64 @@ def run(window, output, a, b, arbitration):
         raise ValueError('Model feature order changed')
     models={mode:predictor(candidate['models'][mode]) for mode in MODELS}
     by_id={t['task_id']:t for t in tasks}
-    rows=[]; scores={}; timing={}
+    rows=[]; scores={}; timing={}; run_ledgers=[]
     for spec in runs:
         task=by_id[spec['task_id']]
-        record=agent_run(primary,task,spec['group'],DeepSeekAdapter(model_config['model']),limits,
-                         per_call_output=model_config['per_call_output'])
+        run_ledger=RunLedger(spec['run_id'], f"confirmation_{spec['group']}")
+        with run_ledger.phase('model_call'):
+            record=agent_run(primary,task,spec['group'],DeepSeekAdapter(model_config['model']),limits,
+                             per_call_output=model_config['per_call_output'])
+            _record_model_attempts(run_ledger, model_config['model'], spec, record)
         record.update(spec,requested_model=model_config['model'])
         record['score']=score_report(primary,task,record['report'],refs)
-        save(output/(spec['run_id']+'.json'),record)
         report=record['report']
-        checks=verify_v2(primary,secondary,task,report,expected_primary_sha256=digest(primary))
-        published,_=publish(primary,task,report,checks_override=checks)
-        used=[(slot,rule) for (task_id,slot),rule in RULES.items() if task_id==spec['task_id']]
-        usage=record['ledger']['actual_usage']
-        for slot,rule in used:
-            claim=next((c for c in report['claims'] if c['slot_id']==slot),None)
-            kept=next((c for c in published['claims'] if c['slot_id']==slot),None)
-            ref=next(r for r in refs if (r['task_id'],r['slot_id'])==(spec['task_id'],slot))
-            expected=action(rule,{**ref['result'],'status':'supported'})
-            raw=action(rule,claim); verified=action(rule,kept)
-            event=task['event_id']; cid=spec['run_id']+'_'+slot
-            x=np.array(features(rule,claim,raw))
-            for mode,predict in models.items():
-                begin=perf_counter(); scores[cid,mode]=predict(x)
-                timing.setdefault(f'{event}/{mode}',[]).append(perf_counter()-begin)
-            rows.append({**spec,'case_id':cid,'event_id':event,'slot_id':slot,'rule':rule,
-                         'raw_action':raw,'raw_outcome':outcome(raw,expected),
-                         'verified_action':verified,'expected_action':expected,
-                         'allocated_input':usage['input_tokens']/len(used),
-                         'allocated_output':usage['output_tokens']/len(used)})
+        with run_ledger.phase('verify_v2'):
+            checks=verify_v2(primary,secondary,task,report,expected_primary_sha256=digest(primary))
+        with run_ledger.phase('publish_verified'):
+            published,verification,arithmetic=publish_verified(primary,task,report,checks)
+        record['verification']=verification
+        record['independent_arithmetic']=arithmetic
+        record['published']=published
+        with run_ledger.phase('policy_score'):
+            used=[(slot,rule) for (task_id,slot),rule in RULES.items() if task_id==spec['task_id']]
+            usage=record['ledger']['actual_usage']
+            for slot,rule in used:
+                claim=next((c for c in report['claims'] if c['slot_id']==slot),None)
+                kept=next((c for c in published['claims'] if c['slot_id']==slot),None)
+                ref=next(r for r in refs if (r['task_id'],r['slot_id'])==(spec['task_id'],slot))
+                expected=action(rule,{**ref['result'],'status':'supported'})
+                raw=action(rule,claim); verified=action(rule,kept)
+                event=task['event_id']; cid=spec['run_id']+'_'+slot
+                x=np.array(features(rule,claim,raw))
+                for mode,predict in models.items():
+                    begin=perf_counter(); scores[cid,mode]=predict(x)
+                    timing.setdefault(f'{event}/{mode}',[]).append(perf_counter()-begin)
+                rows.append({**spec,'case_id':cid,'event_id':event,'slot_id':slot,'rule':rule,
+                             'raw_action':raw,'raw_outcome':outcome(raw,expected),
+                             'verified_action':verified,'expected_action':expected,
+                             'allocated_input':usage['input_tokens']/len(used),
+                             'allocated_output':usage['output_tokens']/len(used)})
+        ledger_snapshot=run_ledger.snapshot()
+        record['run_ledger']=ledger_snapshot
+        run_ledgers.append(ledger_snapshot)
+        save(output/(spec['run_id']+'.json'),record)
     for t in tasks:
         report,_=template_report(primary,t)
         save(output/(t['task_id']+'_T.json'),{'report':report,'score':score_report(primary,t,report,refs)})
+    save(output/'run-ledgers.json', {
+        'cost_basis': 'scenario_estimate_only_for_policy_table',
+        'recorded_charges_note': 'No billing receipts attached; recorded_charges_by_currency remains empty.',
+        'runs': run_ledgers,
+        'phase_seconds_totals': {
+            phase: sum(item['phase_seconds'].get(phase, 0.0) for item in run_ledgers)
+            for phase in LEDGER_PHASES
+        },
+        'known_model_usage_totals': {
+            key: sum(item['known_model_usage'].get(key, 0) for item in run_ledgers)
+            for key in ('input_tokens', 'output_tokens', 'cached_input_tokens')
+        },
+        'recorded_charges_by_currency': {},
+    })
     stored=load(HERE/'results/timing.json')
     timing={key:{'cpu_inference_seconds_per_case':float(np.median(v)),
                  'training_seconds':float(np.mean([r['training_seconds'] for k,r in stored.items()
