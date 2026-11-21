@@ -1,0 +1,22 @@
+{
+  "unit": "hypothetical cost units",
+  "review_minutes": 5,
+  "price_per_minute": 1,
+  "review_error_probability": 0.02,
+  "verify_cost": 0.2,
+  "input_cost_per_1000_tokens": 0.01,
+  "output_cost_per_1000_tokens": 0.04,
+  "shared_rpc_cost_per_request_item": 0.001,
+  "cpu_cost_per_second": 0.0001,
+  "amortize_training_over_decisions": 1000,
+  "loss": {"share_direction": 100, "peak_follow_up_hour": 15, "concentration_miss": 200, "concentration_false_alarm": 40},
+  "rule_error_probability": {"share_direction": 0.08, "peak_follow_up_hour": 0.02, "concentration_alert": 0.05},
+  "verification_referral_probability": 0.25,
+  "verification_fraction_errors_missed": 0.1,
+  "high_risk_rule": "concentration_alert",
+  "automatic_high_risk_errors_allowed": 0,
+  "holdout_start_utc": "2023-06-15T00:00:00Z",
+  "holdout_end_utc": "2023-06-16T00:00:00Z",
+  "training_seed": 5017,
+  "protocol": "Leave one entire historical event out. Train error heads only on nondeferred actions. Use fixed features from pre-verification reports. Freeze these settings before obtaining confirmation-window outcomes."
+}
