@@ -1,0 +1,94 @@
+{
+  "raw_to_verified": {
+    "additional_reviews": 9,
+    "automatic_errors_intercepted": 1,
+    "break_even_avoided_loss_with_perfect_review": 52.2,
+    "break_even_avoided_loss_with_configured_review_outcomes": 67.7,
+    "interpretation": "One avoided automatic error. Other residual review costs/losses held at configured values."
+  },
+  "models": {
+    "logistic": {
+      "brier_on_submitted_raw_decisions": 0.030211506492271008,
+      "sample_size": 35,
+      "average_one_fit_cost": 9.746874993652455e-08,
+      "per_decision_saving_vs_rule_before_training": -1.5184986601468609e-10,
+      "decisions_to_recoup_fit_vs_rule": null,
+      "timing_scope": "CPU elapsed time for fit and warm in-memory risk score; excludes I/O and feature construction"
+    },
+    "frozen_head": {
+      "brier_on_submitted_raw_decisions": 0.031124581094566263,
+      "sample_size": 35,
+      "average_one_fit_cost": 5.321145500602143e-07,
+      "per_decision_saving_vs_rule_before_training": -0.5277777780149278,
+      "decisions_to_recoup_fit_vs_rule": null,
+      "timing_scope": "CPU elapsed time for fit and warm in-memory risk score; excludes I/O and feature construction"
+    },
+    "tuned_encoder": {
+      "brier_on_submitted_raw_decisions": 0.031048484729268112,
+      "sample_size": 35,
+      "average_one_fit_cost": 3.004479499395529e-07,
+      "per_decision_saving_vs_rule_before_training": -0.5277777780077528,
+      "decisions_to_recoup_fit_vs_rule": null,
+      "timing_scope": "CPU elapsed time for fit and warm in-memory risk score; excludes I/O and feature construction"
+    }
+  },
+  "risk_exposure": {
+    "raw": {
+      "scheduled": 12,
+      "automatic": 11,
+      "automatic_errors": 0,
+      "routes": {
+        "release": 35,
+        "human": 1
+      }
+    },
+    "verified": {
+      "scheduled": 12,
+      "automatic": 8,
+      "automatic_errors": 0,
+      "routes": {
+        "verify": 36
+      }
+    },
+    "rule": {
+      "scheduled": 12,
+      "automatic": 11,
+      "automatic_errors": 0,
+      "routes": {
+        "release": 23,
+        "human": 1,
+        "verify": 12
+      }
+    },
+    "logistic": {
+      "scheduled": 12,
+      "automatic": 11,
+      "automatic_errors": 0,
+      "routes": {
+        "release": 23,
+        "human": 1,
+        "verify": 12
+      }
+    },
+    "frozen_head": {
+      "scheduled": 12,
+      "automatic": 9,
+      "automatic_errors": 0,
+      "routes": {
+        "verify": 17,
+        "release": 18,
+        "human": 1
+      }
+    },
+    "tuned_encoder": {
+      "scheduled": 12,
+      "automatic": 9,
+      "automatic_errors": 0,
+      "routes": {
+        "verify": 17,
+        "release": 18,
+        "human": 1
+      }
+    }
+  }
+}

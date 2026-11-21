@@ -1,7 +1,7 @@
-policy,to_human,automatic_errors,mean_scenario_cost
-raw,1,1,3.17
-verified,10,0,2.27
-rule,2,0,0.65
-logistic,2,0,0.65
-frozen_head,4,0,1.18
-tuned_encoder,4,0,1.18
+﻿compute_cost,human_cost,error_cost,total_cost,minutes,to_human,auto_error,high_risk_auto_error,policy,wage,loss_scale,average_cost,auto_completed,cases,measured_reviews,within_observed_limit
+5.00234,5,104.0,114.00233999999999,5,1,1,0,raw,1,1,3.1667316666666663,35,36,0,True
+12.202340000000001,50,19.5,81.70234,50,10,0,0,verified,1,1,2.2695094444444446,26,36,0,True
+7.402340000000001,10,6.0,23.402340000000002,10,2,0,0,rule,1,1,0.6500650000000001,34,36,0,True
+7.402340008975476,10,6.0,23.402340008975475,10,2,0,0,logistic,1,1,0.6500650002493188,34,36,0,True
+8.402340027693525,20,14.0,42.402340027693526,20,4,0,0,frozen_head,1,1,1.1778427785470424,32,36,0,True
+8.402340019095227,20,14.0,42.40234001909523,20,4,0,0,tuned_encoder,1,1,1.1778427783082008,32,36,0,True
