@@ -1,0 +1,38 @@
+{
+  "ftx_2022/logistic": {
+    "training_seconds": 0.0010196669991273666,
+    "cpu_inference_seconds_per_case": 1.509222278804777e-06,
+    "training_count": 18,
+    "training_errors": 1
+  },
+  "ftx_2022/frozen_head": {
+    "training_seconds": 0.008045791000768077,
+    "cpu_inference_seconds_per_case": 2.2800555194003714e-06,
+    "training_count": 18,
+    "training_errors": 1
+  },
+  "ftx_2022/tuned_encoder": {
+    "training_seconds": 0.0028756669998983853,
+    "cpu_inference_seconds_per_case": 2.2314444423601444e-06,
+    "training_count": 18,
+    "training_errors": 1
+  },
+  "usdc_2023/logistic": {
+    "training_seconds": 0.0009297079996031243,
+    "cpu_inference_seconds_per_case": 1.5277777897103483e-06,
+    "training_count": 17,
+    "training_errors": 0
+  },
+  "usdc_2023/frozen_head": {
+    "training_seconds": 0.002596500000436208,
+    "cpu_inference_seconds_per_case": 2.4629444952653203e-06,
+    "training_count": 17,
+    "training_errors": 0
+  },
+  "usdc_2023/tuned_encoder": {
+    "training_seconds": 0.0031332919988926733,
+    "cpu_inference_seconds_per_case": 2.3680554982598146e-06,
+    "training_count": 17,
+    "training_errors": 0
+  }
+}
