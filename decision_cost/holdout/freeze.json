@@ -36,7 +36,7 @@
     "../baseline/curve_audit/source_check_v2.py": "36f5378bed61d2edab8a69913584fb7eaa89091225957496d6a17ad0d1e08aad",
     "../baseline/curve_audit/trajectory.py": "9a9f9bb90ec0644fdf6209c4154b0f667179ba965fea69741ec267315ddb5dc5",
     "../baseline/curve_audit/verification.py": "c47bad1a9a487e0a9d220090d40a92e7737d2fe7e03442d2587a49deb13e8f34",
-    "confirmation.py": "0fba3114cb58e89ecbce55d4a4d23ed597d2568b6dacb99caa6e200d9ec20d4f",
+    "confirmation.py": "efba6f86c3d3c1e87e376790a452a1a66a286cb7d1f6448309cbefc3f156607f",
     "evaluation.py": "0020914248e5231ebade877e759e8f58d0c939dd6dc04b36d1ca34adf3d64e64",
     "holdout/preparation/coordinator/binding.json": "89a4f07029767b691d8d64458387ca9309d71a0df5c8d82e98f86a64b2ea59cb",
     "holdout/preparation/coordinator/candidate-references.json": "7f114be1f24fe6cbbfc033430f199db2a138eab1d9036b1dbb2286af83cf3115",
