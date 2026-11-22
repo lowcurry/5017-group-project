@@ -1,0 +1,161 @@
+{
+  "decision_replay_36": {
+    "baseline_decision_counts": {
+      "correct": 26,
+      "deferred": 10
+    },
+    "break_even_raw_to_verified": {
+      "additional_reviews": 9,
+      "automatic_errors_intercepted": 1,
+      "break_even_avoided_loss_configured_review": 67.7,
+      "break_even_avoided_loss_perfect_review": 52.2
+    },
+    "break_even_raw_to_verified_recovered": {
+      "additional_reviews": 1,
+      "automatic_errors_intercepted": 1,
+      "break_even_avoided_loss_configured_review": 14.2,
+      "break_even_avoided_loss_perfect_review": 12.2
+    },
+    "decision_changes_from_recovery": [
+      {
+        "baseline_verified_outcome": "deferred",
+        "case_id": "D001",
+        "recovered_verified_outcome": "correct",
+        "rule": "concentration_alert",
+        "run_id": "deepseek-flash_R06_E_1",
+        "slot_id": "S2"
+      },
+      {
+        "baseline_verified_outcome": "deferred",
+        "case_id": "D007",
+        "recovered_verified_outcome": "correct",
+        "rule": "peak_follow_up_hour",
+        "run_id": "deepseek-flash_R05_E_1",
+        "slot_id": "S2"
+      },
+      {
+        "baseline_verified_outcome": "deferred",
+        "case_id": "D013",
+        "recovered_verified_outcome": "correct",
+        "rule": "concentration_alert",
+        "run_id": "deepseek-flash_R03_G_2",
+        "slot_id": "S2"
+      },
+      {
+        "baseline_verified_outcome": "deferred",
+        "case_id": "D019",
+        "recovered_verified_outcome": "correct",
+        "rule": "peak_follow_up_hour",
+        "run_id": "deepseek-flash_R02_G_1",
+        "slot_id": "S2"
+      },
+      {
+        "baseline_verified_outcome": "deferred",
+        "case_id": "D027",
+        "recovered_verified_outcome": "correct",
+        "rule": "peak_follow_up_hour",
+        "run_id": "deepseek-flash_R02_G_2",
+        "slot_id": "S2"
+      },
+      {
+        "baseline_verified_outcome": "deferred",
+        "case_id": "D028",
+        "recovered_verified_outcome": "correct",
+        "rule": "peak_follow_up_hour",
+        "run_id": "deepseek-flash_R05_G_3",
+        "slot_id": "S2"
+      },
+      {
+        "baseline_verified_outcome": "deferred",
+        "case_id": "D032",
+        "recovered_verified_outcome": "correct",
+        "rule": "concentration_alert",
+        "run_id": "deepseek-flash_R06_G_3",
+        "slot_id": "S2"
+      },
+      {
+        "baseline_verified_outcome": "deferred",
+        "case_id": "D033",
+        "recovered_verified_outcome": "correct",
+        "rule": "peak_follow_up_hour",
+        "run_id": "deepseek-flash_R05_G_2",
+        "slot_id": "S2"
+      }
+    ],
+    "recovered_decision_counts": {
+      "correct": 34,
+      "deferred": 2
+    }
+  },
+  "fault_safety_gates": {
+    "extension_40_cases": {
+      "cases_tested": 40,
+      "clean_kept": 16,
+      "clean_total": 16,
+      "false_accepts": 0,
+      "non_clean_total": 24
+    },
+    "frozen_32_faults": {
+      "cases_tested": 32,
+      "clean_kept": 12,
+      "clean_total": 12,
+      "false_accepts": 0,
+      "non_clean_total": 20
+    },
+    "shared_arithmetic_6_pairs": {
+      "clean_kept": 6,
+      "false_accepts": 0,
+      "pairs": 6,
+      "shared_bug_cases_tested": 12
+    },
+    "total_fault_false_accepts": 0
+  },
+  "formal_36_runs": {
+    "by_group": {
+      "E": {
+        "answerable": 48,
+        "baseline_published_correct": 42,
+        "baseline_published_incorrect": 0,
+        "cascade_dependency_recoveries": 1,
+        "direct_attribution_recoveries": 2,
+        "raw_correct": 45,
+        "recovered_published_correct": 45,
+        "recovered_published_incorrect": 0,
+        "total_recovered_correct": 3
+      },
+      "G": {
+        "answerable": 48,
+        "baseline_published_correct": 31,
+        "baseline_published_incorrect": 0,
+        "cascade_dependency_recoveries": 3,
+        "direct_attribution_recoveries": 6,
+        "raw_correct": 40,
+        "recovered_published_correct": 40,
+        "recovered_published_incorrect": 0,
+        "total_recovered_correct": 9
+      }
+    },
+    "emitted_structured_claims": 102,
+    "scheduled_runs": 36,
+    "totals": {
+      "answerable": 96,
+      "baseline_published_correct": 73,
+      "cascade_dependency_recoveries": 4,
+      "direct_attribution_recoveries": 8,
+      "false_accepts_on_non_correct_claims": 0,
+      "previously_published_lost": 0,
+      "raw_correct": 85,
+      "recovered_published_correct": 85,
+      "total_recovered_correct": 12
+    }
+  },
+  "safety_invariants": [
+    "replay_claim returns UNKNOWN with reason incomplete_attribution",
+    "dataset_sha256 matches bound primary dataset digest",
+    "formula_version matches VERSION",
+    "original evidence_ids is nonempty and a strict subset of expected evidence_ids",
+    "full re-verification through verify_v2 + publish_verified independent arithmetic + task dependencies",
+    "input report left untouched; recovered evidence IDs recorded explicitly"
+  ],
+  "scope": "Offline deterministic attribution recovery audit over frozen formal runs, fault suites, and 36 historical decisions. No live model or RPC calls."
+}

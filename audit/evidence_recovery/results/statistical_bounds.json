@@ -1,0 +1,1119 @@
+{
+  "clustering_and_independence_disclosure": {
+    "distinct_event_task_slot_units": 6,
+    "distinct_historical_events": 2,
+    "events": [
+      "ftx_2022",
+      "usdc_2023"
+    ],
+    "repeated_runs_per_task_group": 3,
+    "scheduled_decisions": 36,
+    "warning": "Repeated model runs share the same two frozen historical events (usdc_2023 and ftx_2022) and six task-slot pairs. Clopper-Pearson and Beta bounds treat automatic decisions as independent Bernoulli trials and are therefore nominal upper bounds under an i.i.d. assumption; true out-of-window generalization requires the held-out 2023-06-15 confirmation window."
+  },
+  "conservative_high_risk_prior_cost_check": [
+    {
+      "assumed_high_risk_error_prob": 0.05,
+      "lowest_average_cost_policy": "rule",
+      "policies": {
+        "raw": {
+          "auto_error": 1,
+          "average_cost": 3.1667316666666663,
+          "to_human": 1,
+          "total_cost": 114.00233999999999
+        },
+        "rule": {
+          "auto_error": 0,
+          "average_cost": 0.6500650000000001,
+          "to_human": 2,
+          "total_cost": 23.402340000000002
+        },
+        "rule_recovered": {
+          "auto_error": 0,
+          "average_cost": 0.6500650000000001,
+          "to_human": 2,
+          "total_cost": 23.402340000000002
+        },
+        "verified": {
+          "auto_error": 0,
+          "average_cost": 2.2695094444444446,
+          "to_human": 10,
+          "total_cost": 81.70234
+        },
+        "verified_recovered": {
+          "auto_error": 0,
+          "average_cost": 0.7833983333333334,
+          "to_human": 2,
+          "total_cost": 28.202340000000003
+        }
+      },
+      "risk_assumption": "scenario_default_0.05"
+    },
+    {
+      "assumed_high_risk_error_prob": 0.07692307692307693,
+      "lowest_average_cost_policy": "rule_recovered",
+      "policies": {
+        "raw": {
+          "auto_error": 1,
+          "average_cost": 3.1667316666666663,
+          "to_human": 1,
+          "total_cost": 114.00233999999999
+        },
+        "rule": {
+          "auto_error": 0,
+          "average_cost": 1.4611761111111112,
+          "to_human": 5,
+          "total_cost": 52.602340000000005
+        },
+        "rule_recovered": {
+          "auto_error": 0,
+          "average_cost": 0.7111761111111111,
+          "to_human": 2,
+          "total_cost": 25.60234
+        },
+        "verified": {
+          "auto_error": 0,
+          "average_cost": 2.2695094444444446,
+          "to_human": 10,
+          "total_cost": 81.70234
+        },
+        "verified_recovered": {
+          "auto_error": 0,
+          "average_cost": 0.7833983333333334,
+          "to_human": 2,
+          "total_cost": 28.202340000000003
+        }
+      },
+      "risk_assumption": "beta_1_1_posterior_mean"
+    },
+    {
+      "assumed_high_risk_error_prob": 0.15687123050498347,
+      "lowest_average_cost_policy": "rule_recovered",
+      "policies": {
+        "raw": {
+          "auto_error": 1,
+          "average_cost": 3.1667316666666663,
+          "to_human": 1,
+          "total_cost": 114.00233999999999
+        },
+        "rule": {
+          "auto_error": 0,
+          "average_cost": 1.4611761111111112,
+          "to_human": 5,
+          "total_cost": 52.602340000000005
+        },
+        "rule_recovered": {
+          "auto_error": 0,
+          "average_cost": 0.7111761111111111,
+          "to_human": 2,
+          "total_cost": 25.60234
+        },
+        "verified": {
+          "auto_error": 0,
+          "average_cost": 2.2695094444444446,
+          "to_human": 10,
+          "total_cost": 81.70234
+        },
+        "verified_recovered": {
+          "auto_error": 0,
+          "average_cost": 0.7833983333333334,
+          "to_human": 2,
+          "total_cost": 28.202340000000003
+        }
+      },
+      "risk_assumption": "jeffreys_95_one_sided_upper"
+    },
+    {
+      "assumed_high_risk_error_prob": 0.2384041903808526,
+      "lowest_average_cost_policy": "rule_recovered",
+      "policies": {
+        "raw": {
+          "auto_error": 1,
+          "average_cost": 3.1667316666666663,
+          "to_human": 1,
+          "total_cost": 114.00233999999999
+        },
+        "rule": {
+          "auto_error": 0,
+          "average_cost": 1.4611761111111112,
+          "to_human": 5,
+          "total_cost": 52.602340000000005
+        },
+        "rule_recovered": {
+          "auto_error": 0,
+          "average_cost": 0.7111761111111111,
+          "to_human": 2,
+          "total_cost": 25.60234
+        },
+        "verified": {
+          "auto_error": 0,
+          "average_cost": 2.2695094444444446,
+          "to_human": 10,
+          "total_cost": 81.70234
+        },
+        "verified_recovered": {
+          "auto_error": 0,
+          "average_cost": 0.7833983333333334,
+          "to_human": 2,
+          "total_cost": 28.202340000000003
+        }
+      },
+      "risk_assumption": "clopper_pearson_95_one_sided_upper"
+    }
+  ],
+  "policies": {
+    "frozen_head": {
+      "all_automatic": {
+        "bayesian_priors": {
+          "jeffreys_beta_0.5_0.5": {
+            "credible_95_one_sided_upper": 0.05781480052991489,
+            "credible_95_two_sided": {
+              "lower": 1.5225304324521482e-05,
+              "upper": 0.07492776342928359
+            },
+            "posterior": {
+              "alpha": 0.5,
+              "beta": 32.5
+            },
+            "posterior_mean": 0.015151515151515152,
+            "prior": {
+              "alpha": 0.5,
+              "beta": 0.5
+            }
+          },
+          "uniform_beta_1_1": {
+            "credible_95_one_sided_upper": 0.0867811892914751,
+            "credible_95_two_sided": {
+              "lower": 0.0007669120750481036,
+              "upper": 0.10576281007457938
+            },
+            "posterior": {
+              "alpha": 1.0,
+              "beta": 33.0
+            },
+            "posterior_mean": 0.029411764705882353,
+            "prior": {
+              "alpha": 1.0,
+              "beta": 1.0
+            }
+          }
+        },
+        "clopper_pearson_95_one_sided_upper": 0.0893681989862648,
+        "clopper_pearson_95_two_sided": {
+          "lower": 0.0,
+          "upper": 0.10888116067935283
+        },
+        "errors": 0,
+        "nominal_under_iid_assumption": true,
+        "observed_rate": 0.0,
+        "opportunities": 32
+      },
+      "by_event": {
+        "ftx_2022": {
+          "all_automatic_errors": 0,
+          "all_automatic_opportunities": 15,
+          "high_risk_automatic_errors": 0,
+          "high_risk_automatic_opportunities": 3
+        },
+        "usdc_2023": {
+          "all_automatic_errors": 0,
+          "all_automatic_opportunities": 17,
+          "high_risk_automatic_errors": 0,
+          "high_risk_automatic_opportunities": 6
+        }
+      },
+      "high_risk_concentration_alert_automatic": {
+        "bayesian_priors": {
+          "jeffreys_beta_0.5_0.5": {
+            "credible_95_one_sided_upper": 0.1873656640603158,
+            "credible_95_two_sided": {
+              "lower": 5.3064053418493335e-05,
+              "upper": 0.237610098632902
+            },
+            "posterior": {
+              "alpha": 0.5,
+              "beta": 9.5
+            },
+            "posterior_mean": 0.05,
+            "prior": {
+              "alpha": 0.5,
+              "beta": 0.5
+            }
+          },
+          "uniform_beta_1_1": {
+            "credible_95_one_sided_upper": 0.2588655508930521,
+            "credible_95_two_sided": {
+              "lower": 0.002528578544461783,
+              "upper": 0.3084971078187607
+            },
+            "posterior": {
+              "alpha": 1.0,
+              "beta": 10.0
+            },
+            "posterior_mean": 0.09090909090909091,
+            "prior": {
+              "alpha": 1.0,
+              "beta": 1.0
+            }
+          }
+        },
+        "clopper_pearson_95_one_sided_upper": 0.2831288355631134,
+        "clopper_pearson_95_two_sided": {
+          "lower": 0.0,
+          "upper": 0.3362671168799428
+        },
+        "errors": 0,
+        "nominal_under_iid_assumption": true,
+        "observed_rate": 0.0,
+        "opportunities": 9
+      }
+    },
+    "logistic": {
+      "all_automatic": {
+        "bayesian_priors": {
+          "jeffreys_beta_0.5_0.5": {
+            "credible_95_one_sided_upper": 0.05453299154170038,
+            "credible_95_two_sided": {
+              "lower": 1.4336290671557498e-05,
+              "upper": 0.07071163067902037
+            },
+            "posterior": {
+              "alpha": 0.5,
+              "beta": 34.5
+            },
+            "posterior_mean": 0.014285714285714285,
+            "prior": {
+              "alpha": 0.5,
+              "beta": 0.5
+            }
+          },
+          "uniform_beta_1_1": {
+            "credible_95_one_sided_upper": 0.08203163585667034,
+            "credible_95_two_sided": {
+              "lower": 0.0007231043763380957,
+              "upper": 0.1000324355721049
+            },
+            "posterior": {
+              "alpha": 1.0,
+              "beta": 35.0
+            },
+            "posterior_mean": 0.027777777777777776,
+            "prior": {
+              "alpha": 1.0,
+              "beta": 1.0
+            }
+          }
+        },
+        "clopper_pearson_95_one_sided_upper": 0.08433964335062538,
+        "clopper_pearson_95_two_sided": {
+          "lower": 0.0,
+          "upper": 0.1028179242590126
+        },
+        "errors": 0,
+        "nominal_under_iid_assumption": true,
+        "observed_rate": 0.0,
+        "opportunities": 34
+      },
+      "by_event": {
+        "ftx_2022": {
+          "all_automatic_errors": 0,
+          "all_automatic_opportunities": 17,
+          "high_risk_automatic_errors": 0,
+          "high_risk_automatic_opportunities": 5
+        },
+        "usdc_2023": {
+          "all_automatic_errors": 0,
+          "all_automatic_opportunities": 17,
+          "high_risk_automatic_errors": 0,
+          "high_risk_automatic_opportunities": 6
+        }
+      },
+      "high_risk_concentration_alert_automatic": {
+        "bayesian_priors": {
+          "jeffreys_beta_0.5_0.5": {
+            "credible_95_one_sided_upper": 0.15687123050498347,
+            "credible_95_two_sided": {
+              "lower": 4.3635798142189775e-05,
+              "upper": 0.19999456902620721
+            },
+            "posterior": {
+              "alpha": 0.5,
+              "beta": 11.5
+            },
+            "posterior_mean": 0.041666666666666664,
+            "prior": {
+              "alpha": 0.5,
+              "beta": 0.5
+            }
+          },
+          "uniform_beta_1_1": {
+            "credible_95_one_sided_upper": 0.22092219194555557,
+            "credible_95_two_sided": {
+              "lower": 0.0021075932318602338,
+              "upper": 0.2646484693970509
+            },
+            "posterior": {
+              "alpha": 1.0,
+              "beta": 12.0
+            },
+            "posterior_mean": 0.07692307692307693,
+            "prior": {
+              "alpha": 1.0,
+              "beta": 1.0
+            }
+          }
+        },
+        "clopper_pearson_95_one_sided_upper": 0.2384041903808526,
+        "clopper_pearson_95_two_sided": {
+          "lower": 0.0,
+          "upper": 0.28491415291815436
+        },
+        "errors": 0,
+        "nominal_under_iid_assumption": true,
+        "observed_rate": 0.0,
+        "opportunities": 11
+      }
+    },
+    "logistic_recovered": {
+      "all_automatic": {
+        "bayesian_priors": {
+          "jeffreys_beta_0.5_0.5": {
+            "credible_95_one_sided_upper": 0.05453299154170038,
+            "credible_95_two_sided": {
+              "lower": 1.4336290671557498e-05,
+              "upper": 0.07071163067902037
+            },
+            "posterior": {
+              "alpha": 0.5,
+              "beta": 34.5
+            },
+            "posterior_mean": 0.014285714285714285,
+            "prior": {
+              "alpha": 0.5,
+              "beta": 0.5
+            }
+          },
+          "uniform_beta_1_1": {
+            "credible_95_one_sided_upper": 0.08203163585667034,
+            "credible_95_two_sided": {
+              "lower": 0.0007231043763380957,
+              "upper": 0.1000324355721049
+            },
+            "posterior": {
+              "alpha": 1.0,
+              "beta": 35.0
+            },
+            "posterior_mean": 0.027777777777777776,
+            "prior": {
+              "alpha": 1.0,
+              "beta": 1.0
+            }
+          }
+        },
+        "clopper_pearson_95_one_sided_upper": 0.08433964335062538,
+        "clopper_pearson_95_two_sided": {
+          "lower": 0.0,
+          "upper": 0.1028179242590126
+        },
+        "errors": 0,
+        "nominal_under_iid_assumption": true,
+        "observed_rate": 0.0,
+        "opportunities": 34
+      },
+      "by_event": {
+        "ftx_2022": {
+          "all_automatic_errors": 0,
+          "all_automatic_opportunities": 17,
+          "high_risk_automatic_errors": 0,
+          "high_risk_automatic_opportunities": 5
+        },
+        "usdc_2023": {
+          "all_automatic_errors": 0,
+          "all_automatic_opportunities": 17,
+          "high_risk_automatic_errors": 0,
+          "high_risk_automatic_opportunities": 6
+        }
+      },
+      "high_risk_concentration_alert_automatic": {
+        "bayesian_priors": {
+          "jeffreys_beta_0.5_0.5": {
+            "credible_95_one_sided_upper": 0.15687123050498347,
+            "credible_95_two_sided": {
+              "lower": 4.3635798142189775e-05,
+              "upper": 0.19999456902620721
+            },
+            "posterior": {
+              "alpha": 0.5,
+              "beta": 11.5
+            },
+            "posterior_mean": 0.041666666666666664,
+            "prior": {
+              "alpha": 0.5,
+              "beta": 0.5
+            }
+          },
+          "uniform_beta_1_1": {
+            "credible_95_one_sided_upper": 0.22092219194555557,
+            "credible_95_two_sided": {
+              "lower": 0.0021075932318602338,
+              "upper": 0.2646484693970509
+            },
+            "posterior": {
+              "alpha": 1.0,
+              "beta": 12.0
+            },
+            "posterior_mean": 0.07692307692307693,
+            "prior": {
+              "alpha": 1.0,
+              "beta": 1.0
+            }
+          }
+        },
+        "clopper_pearson_95_one_sided_upper": 0.2384041903808526,
+        "clopper_pearson_95_two_sided": {
+          "lower": 0.0,
+          "upper": 0.28491415291815436
+        },
+        "errors": 0,
+        "nominal_under_iid_assumption": true,
+        "observed_rate": 0.0,
+        "opportunities": 11
+      }
+    },
+    "raw": {
+      "all_automatic": {
+        "bayesian_priors": {
+          "jeffreys_beta_0.5_0.5": {
+            "credible_95_one_sided_upper": 0.10636204471741201,
+            "credible_95_two_sided": {
+              "lower": 0.0031002919366465093,
+              "upper": 0.1258698944083793
+            },
+            "posterior": {
+              "alpha": 1.5,
+              "beta": 34.5
+            },
+            "posterior_mean": 0.041666666666666664,
+            "prior": {
+              "alpha": 0.5,
+              "beta": 0.5
+            }
+          },
+          "uniform_beta_1_1": {
+            "credible_95_one_sided_upper": 0.12511620483905211,
+            "credible_95_two_sided": {
+              "lower": 0.006800300654022831,
+              "upper": 0.14528926474685305
+            },
+            "posterior": {
+              "alpha": 2.0,
+              "beta": 35.0
+            },
+            "posterior_mean": 0.05405405405405406,
+            "prior": {
+              "alpha": 1.0,
+              "beta": 1.0
+            }
+          }
+        },
+        "clopper_pearson_95_one_sided_upper": 0.12850103634130067,
+        "clopper_pearson_95_two_sided": {
+          "lower": 0.0007231043763380463,
+          "upper": 0.1491720796564316
+        },
+        "errors": 1,
+        "nominal_under_iid_assumption": true,
+        "observed_rate": 0.02857142857142857,
+        "opportunities": 35
+      },
+      "by_event": {
+        "ftx_2022": {
+          "all_automatic_errors": 0,
+          "all_automatic_opportunities": 17,
+          "high_risk_automatic_errors": 0,
+          "high_risk_automatic_opportunities": 5
+        },
+        "usdc_2023": {
+          "all_automatic_errors": 1,
+          "all_automatic_opportunities": 18,
+          "high_risk_automatic_errors": 0,
+          "high_risk_automatic_opportunities": 6
+        }
+      },
+      "high_risk_concentration_alert_automatic": {
+        "bayesian_priors": {
+          "jeffreys_beta_0.5_0.5": {
+            "credible_95_one_sided_upper": 0.15687123050498347,
+            "credible_95_two_sided": {
+              "lower": 4.3635798142189775e-05,
+              "upper": 0.19999456902620721
+            },
+            "posterior": {
+              "alpha": 0.5,
+              "beta": 11.5
+            },
+            "posterior_mean": 0.041666666666666664,
+            "prior": {
+              "alpha": 0.5,
+              "beta": 0.5
+            }
+          },
+          "uniform_beta_1_1": {
+            "credible_95_one_sided_upper": 0.22092219194555557,
+            "credible_95_two_sided": {
+              "lower": 0.0021075932318602338,
+              "upper": 0.2646484693970509
+            },
+            "posterior": {
+              "alpha": 1.0,
+              "beta": 12.0
+            },
+            "posterior_mean": 0.07692307692307693,
+            "prior": {
+              "alpha": 1.0,
+              "beta": 1.0
+            }
+          }
+        },
+        "clopper_pearson_95_one_sided_upper": 0.2384041903808526,
+        "clopper_pearson_95_two_sided": {
+          "lower": 0.0,
+          "upper": 0.28491415291815436
+        },
+        "errors": 0,
+        "nominal_under_iid_assumption": true,
+        "observed_rate": 0.0,
+        "opportunities": 11
+      }
+    },
+    "rule": {
+      "all_automatic": {
+        "bayesian_priors": {
+          "jeffreys_beta_0.5_0.5": {
+            "credible_95_one_sided_upper": 0.05453299154170038,
+            "credible_95_two_sided": {
+              "lower": 1.4336290671557498e-05,
+              "upper": 0.07071163067902037
+            },
+            "posterior": {
+              "alpha": 0.5,
+              "beta": 34.5
+            },
+            "posterior_mean": 0.014285714285714285,
+            "prior": {
+              "alpha": 0.5,
+              "beta": 0.5
+            }
+          },
+          "uniform_beta_1_1": {
+            "credible_95_one_sided_upper": 0.08203163585667034,
+            "credible_95_two_sided": {
+              "lower": 0.0007231043763380957,
+              "upper": 0.1000324355721049
+            },
+            "posterior": {
+              "alpha": 1.0,
+              "beta": 35.0
+            },
+            "posterior_mean": 0.027777777777777776,
+            "prior": {
+              "alpha": 1.0,
+              "beta": 1.0
+            }
+          }
+        },
+        "clopper_pearson_95_one_sided_upper": 0.08433964335062538,
+        "clopper_pearson_95_two_sided": {
+          "lower": 0.0,
+          "upper": 0.1028179242590126
+        },
+        "errors": 0,
+        "nominal_under_iid_assumption": true,
+        "observed_rate": 0.0,
+        "opportunities": 34
+      },
+      "by_event": {
+        "ftx_2022": {
+          "all_automatic_errors": 0,
+          "all_automatic_opportunities": 17,
+          "high_risk_automatic_errors": 0,
+          "high_risk_automatic_opportunities": 5
+        },
+        "usdc_2023": {
+          "all_automatic_errors": 0,
+          "all_automatic_opportunities": 17,
+          "high_risk_automatic_errors": 0,
+          "high_risk_automatic_opportunities": 6
+        }
+      },
+      "high_risk_concentration_alert_automatic": {
+        "bayesian_priors": {
+          "jeffreys_beta_0.5_0.5": {
+            "credible_95_one_sided_upper": 0.15687123050498347,
+            "credible_95_two_sided": {
+              "lower": 4.3635798142189775e-05,
+              "upper": 0.19999456902620721
+            },
+            "posterior": {
+              "alpha": 0.5,
+              "beta": 11.5
+            },
+            "posterior_mean": 0.041666666666666664,
+            "prior": {
+              "alpha": 0.5,
+              "beta": 0.5
+            }
+          },
+          "uniform_beta_1_1": {
+            "credible_95_one_sided_upper": 0.22092219194555557,
+            "credible_95_two_sided": {
+              "lower": 0.0021075932318602338,
+              "upper": 0.2646484693970509
+            },
+            "posterior": {
+              "alpha": 1.0,
+              "beta": 12.0
+            },
+            "posterior_mean": 0.07692307692307693,
+            "prior": {
+              "alpha": 1.0,
+              "beta": 1.0
+            }
+          }
+        },
+        "clopper_pearson_95_one_sided_upper": 0.2384041903808526,
+        "clopper_pearson_95_two_sided": {
+          "lower": 0.0,
+          "upper": 0.28491415291815436
+        },
+        "errors": 0,
+        "nominal_under_iid_assumption": true,
+        "observed_rate": 0.0,
+        "opportunities": 11
+      }
+    },
+    "rule_recovered": {
+      "all_automatic": {
+        "bayesian_priors": {
+          "jeffreys_beta_0.5_0.5": {
+            "credible_95_one_sided_upper": 0.05453299154170038,
+            "credible_95_two_sided": {
+              "lower": 1.4336290671557498e-05,
+              "upper": 0.07071163067902037
+            },
+            "posterior": {
+              "alpha": 0.5,
+              "beta": 34.5
+            },
+            "posterior_mean": 0.014285714285714285,
+            "prior": {
+              "alpha": 0.5,
+              "beta": 0.5
+            }
+          },
+          "uniform_beta_1_1": {
+            "credible_95_one_sided_upper": 0.08203163585667034,
+            "credible_95_two_sided": {
+              "lower": 0.0007231043763380957,
+              "upper": 0.1000324355721049
+            },
+            "posterior": {
+              "alpha": 1.0,
+              "beta": 35.0
+            },
+            "posterior_mean": 0.027777777777777776,
+            "prior": {
+              "alpha": 1.0,
+              "beta": 1.0
+            }
+          }
+        },
+        "clopper_pearson_95_one_sided_upper": 0.08433964335062538,
+        "clopper_pearson_95_two_sided": {
+          "lower": 0.0,
+          "upper": 0.1028179242590126
+        },
+        "errors": 0,
+        "nominal_under_iid_assumption": true,
+        "observed_rate": 0.0,
+        "opportunities": 34
+      },
+      "by_event": {
+        "ftx_2022": {
+          "all_automatic_errors": 0,
+          "all_automatic_opportunities": 17,
+          "high_risk_automatic_errors": 0,
+          "high_risk_automatic_opportunities": 5
+        },
+        "usdc_2023": {
+          "all_automatic_errors": 0,
+          "all_automatic_opportunities": 17,
+          "high_risk_automatic_errors": 0,
+          "high_risk_automatic_opportunities": 6
+        }
+      },
+      "high_risk_concentration_alert_automatic": {
+        "bayesian_priors": {
+          "jeffreys_beta_0.5_0.5": {
+            "credible_95_one_sided_upper": 0.15687123050498347,
+            "credible_95_two_sided": {
+              "lower": 4.3635798142189775e-05,
+              "upper": 0.19999456902620721
+            },
+            "posterior": {
+              "alpha": 0.5,
+              "beta": 11.5
+            },
+            "posterior_mean": 0.041666666666666664,
+            "prior": {
+              "alpha": 0.5,
+              "beta": 0.5
+            }
+          },
+          "uniform_beta_1_1": {
+            "credible_95_one_sided_upper": 0.22092219194555557,
+            "credible_95_two_sided": {
+              "lower": 0.0021075932318602338,
+              "upper": 0.2646484693970509
+            },
+            "posterior": {
+              "alpha": 1.0,
+              "beta": 12.0
+            },
+            "posterior_mean": 0.07692307692307693,
+            "prior": {
+              "alpha": 1.0,
+              "beta": 1.0
+            }
+          }
+        },
+        "clopper_pearson_95_one_sided_upper": 0.2384041903808526,
+        "clopper_pearson_95_two_sided": {
+          "lower": 0.0,
+          "upper": 0.28491415291815436
+        },
+        "errors": 0,
+        "nominal_under_iid_assumption": true,
+        "observed_rate": 0.0,
+        "opportunities": 11
+      }
+    },
+    "tuned_encoder": {
+      "all_automatic": {
+        "bayesian_priors": {
+          "jeffreys_beta_0.5_0.5": {
+            "credible_95_one_sided_upper": 0.05781480052991489,
+            "credible_95_two_sided": {
+              "lower": 1.5225304324521482e-05,
+              "upper": 0.07492776342928359
+            },
+            "posterior": {
+              "alpha": 0.5,
+              "beta": 32.5
+            },
+            "posterior_mean": 0.015151515151515152,
+            "prior": {
+              "alpha": 0.5,
+              "beta": 0.5
+            }
+          },
+          "uniform_beta_1_1": {
+            "credible_95_one_sided_upper": 0.0867811892914751,
+            "credible_95_two_sided": {
+              "lower": 0.0007669120750481036,
+              "upper": 0.10576281007457938
+            },
+            "posterior": {
+              "alpha": 1.0,
+              "beta": 33.0
+            },
+            "posterior_mean": 0.029411764705882353,
+            "prior": {
+              "alpha": 1.0,
+              "beta": 1.0
+            }
+          }
+        },
+        "clopper_pearson_95_one_sided_upper": 0.0893681989862648,
+        "clopper_pearson_95_two_sided": {
+          "lower": 0.0,
+          "upper": 0.10888116067935283
+        },
+        "errors": 0,
+        "nominal_under_iid_assumption": true,
+        "observed_rate": 0.0,
+        "opportunities": 32
+      },
+      "by_event": {
+        "ftx_2022": {
+          "all_automatic_errors": 0,
+          "all_automatic_opportunities": 15,
+          "high_risk_automatic_errors": 0,
+          "high_risk_automatic_opportunities": 3
+        },
+        "usdc_2023": {
+          "all_automatic_errors": 0,
+          "all_automatic_opportunities": 17,
+          "high_risk_automatic_errors": 0,
+          "high_risk_automatic_opportunities": 6
+        }
+      },
+      "high_risk_concentration_alert_automatic": {
+        "bayesian_priors": {
+          "jeffreys_beta_0.5_0.5": {
+            "credible_95_one_sided_upper": 0.1873656640603158,
+            "credible_95_two_sided": {
+              "lower": 5.3064053418493335e-05,
+              "upper": 0.237610098632902
+            },
+            "posterior": {
+              "alpha": 0.5,
+              "beta": 9.5
+            },
+            "posterior_mean": 0.05,
+            "prior": {
+              "alpha": 0.5,
+              "beta": 0.5
+            }
+          },
+          "uniform_beta_1_1": {
+            "credible_95_one_sided_upper": 0.2588655508930521,
+            "credible_95_two_sided": {
+              "lower": 0.002528578544461783,
+              "upper": 0.3084971078187607
+            },
+            "posterior": {
+              "alpha": 1.0,
+              "beta": 10.0
+            },
+            "posterior_mean": 0.09090909090909091,
+            "prior": {
+              "alpha": 1.0,
+              "beta": 1.0
+            }
+          }
+        },
+        "clopper_pearson_95_one_sided_upper": 0.2831288355631134,
+        "clopper_pearson_95_two_sided": {
+          "lower": 0.0,
+          "upper": 0.3362671168799428
+        },
+        "errors": 0,
+        "nominal_under_iid_assumption": true,
+        "observed_rate": 0.0,
+        "opportunities": 9
+      }
+    },
+    "verified": {
+      "all_automatic": {
+        "bayesian_priors": {
+          "jeffreys_beta_0.5_0.5": {
+            "credible_95_one_sided_upper": 0.07055075668643679,
+            "credible_95_two_sided": {
+              "lower": 1.8705055066259005e-05,
+              "upper": 0.09124656340895604
+            },
+            "posterior": {
+              "alpha": 0.5,
+              "beta": 26.5
+            },
+            "posterior_mean": 0.018518518518518517,
+            "prior": {
+              "alpha": 0.5,
+              "beta": 0.5
+            }
+          },
+          "uniform_beta_1_1": {
+            "credible_95_one_sided_upper": 0.10501923017634424,
+            "credible_95_two_sided": {
+              "lower": 0.0009372570919447076,
+              "upper": 0.1277028676154322
+            },
+            "posterior": {
+              "alpha": 1.0,
+              "beta": 27.0
+            },
+            "posterior_mean": 0.03571428571428571,
+            "prior": {
+              "alpha": 1.0,
+              "beta": 1.0
+            }
+          }
+        },
+        "clopper_pearson_95_one_sided_upper": 0.10883035576078481,
+        "clopper_pearson_95_two_sided": {
+          "lower": 0.0,
+          "upper": 0.13227460449775408
+        },
+        "errors": 0,
+        "nominal_under_iid_assumption": true,
+        "observed_rate": 0.0,
+        "opportunities": 26
+      },
+      "by_event": {
+        "ftx_2022": {
+          "all_automatic_errors": 0,
+          "all_automatic_opportunities": 12,
+          "high_risk_automatic_errors": 0,
+          "high_risk_automatic_opportunities": 3
+        },
+        "usdc_2023": {
+          "all_automatic_errors": 0,
+          "all_automatic_opportunities": 14,
+          "high_risk_automatic_errors": 0,
+          "high_risk_automatic_opportunities": 5
+        }
+      },
+      "high_risk_concentration_alert_automatic": {
+        "bayesian_priors": {
+          "jeffreys_beta_0.5_0.5": {
+            "credible_95_one_sided_upper": 0.2075080416807326,
+            "credible_95_two_sided": {
+              "lower": 5.949030289440234e-05,
+              "upper": 0.2622172487171853
+            },
+            "posterior": {
+              "alpha": 0.5,
+              "beta": 8.5
+            },
+            "posterior_mean": 0.05555555555555555,
+            "prior": {
+              "alpha": 0.5,
+              "beta": 0.5
+            }
+          },
+          "uniform_beta_1_1": {
+            "credible_95_one_sided_upper": 0.2831288355631131,
+            "credible_95_two_sided": {
+              "lower": 0.0028091367465992254,
+              "upper": 0.3362671168799426
+            },
+            "posterior": {
+              "alpha": 1.0,
+              "beta": 9.0
+            },
+            "posterior_mean": 0.1,
+            "prior": {
+              "alpha": 1.0,
+              "beta": 1.0
+            }
+          }
+        },
+        "clopper_pearson_95_one_sided_upper": 0.3123439780663678,
+        "clopper_pearson_95_two_sided": {
+          "lower": 0.0,
+          "upper": 0.3694166475528192
+        },
+        "errors": 0,
+        "nominal_under_iid_assumption": true,
+        "observed_rate": 0.0,
+        "opportunities": 8
+      }
+    },
+    "verified_recovered": {
+      "all_automatic": {
+        "bayesian_priors": {
+          "jeffreys_beta_0.5_0.5": {
+            "credible_95_one_sided_upper": 0.05453299154170038,
+            "credible_95_two_sided": {
+              "lower": 1.4336290671557498e-05,
+              "upper": 0.07071163067902037
+            },
+            "posterior": {
+              "alpha": 0.5,
+              "beta": 34.5
+            },
+            "posterior_mean": 0.014285714285714285,
+            "prior": {
+              "alpha": 0.5,
+              "beta": 0.5
+            }
+          },
+          "uniform_beta_1_1": {
+            "credible_95_one_sided_upper": 0.08203163585667034,
+            "credible_95_two_sided": {
+              "lower": 0.0007231043763380957,
+              "upper": 0.1000324355721049
+            },
+            "posterior": {
+              "alpha": 1.0,
+              "beta": 35.0
+            },
+            "posterior_mean": 0.027777777777777776,
+            "prior": {
+              "alpha": 1.0,
+              "beta": 1.0
+            }
+          }
+        },
+        "clopper_pearson_95_one_sided_upper": 0.08433964335062538,
+        "clopper_pearson_95_two_sided": {
+          "lower": 0.0,
+          "upper": 0.1028179242590126
+        },
+        "errors": 0,
+        "nominal_under_iid_assumption": true,
+        "observed_rate": 0.0,
+        "opportunities": 34
+      },
+      "by_event": {
+        "ftx_2022": {
+          "all_automatic_errors": 0,
+          "all_automatic_opportunities": 17,
+          "high_risk_automatic_errors": 0,
+          "high_risk_automatic_opportunities": 5
+        },
+        "usdc_2023": {
+          "all_automatic_errors": 0,
+          "all_automatic_opportunities": 17,
+          "high_risk_automatic_errors": 0,
+          "high_risk_automatic_opportunities": 6
+        }
+      },
+      "high_risk_concentration_alert_automatic": {
+        "bayesian_priors": {
+          "jeffreys_beta_0.5_0.5": {
+            "credible_95_one_sided_upper": 0.15687123050498347,
+            "credible_95_two_sided": {
+              "lower": 4.3635798142189775e-05,
+              "upper": 0.19999456902620721
+            },
+            "posterior": {
+              "alpha": 0.5,
+              "beta": 11.5
+            },
+            "posterior_mean": 0.041666666666666664,
+            "prior": {
+              "alpha": 0.5,
+              "beta": 0.5
+            }
+          },
+          "uniform_beta_1_1": {
+            "credible_95_one_sided_upper": 0.22092219194555557,
+            "credible_95_two_sided": {
+              "lower": 0.0021075932318602338,
+              "upper": 0.2646484693970509
+            },
+            "posterior": {
+              "alpha": 1.0,
+              "beta": 12.0
+            },
+            "posterior_mean": 0.07692307692307693,
+            "prior": {
+              "alpha": 1.0,
+              "beta": 1.0
+            }
+          }
+        },
+        "clopper_pearson_95_one_sided_upper": 0.2384041903808526,
+        "clopper_pearson_95_two_sided": {
+          "lower": 0.0,
+          "upper": 0.28491415291815436
+        },
+        "errors": 0,
+        "nominal_under_iid_assumption": true,
+        "observed_rate": 0.0,
+        "opportunities": 11
+      }
+    }
+  }
+}
