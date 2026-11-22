@@ -11,14 +11,14 @@
 | 发布前独立算术核验 | 两个发布入口均已接入。共享故障回放从发布 6/6 错误降到 0/6，6 个正确对照全部发布，2 个依赖错误峰值时点的报价也被撤回。报价算术继续使用 V2。 |
 | 历史应用 | 36 次研究判断中核验拦下 1 次错误并将 8 次正确判断转复核。50 个历史区块报价筛查的五档门槛下无决策差异。 |
 
-从仓库根目录按 README 复现。正式重放使用 `python3 -B -m curve_audit replay`，单独重跑冻结故障使用 `python3 -B docs/replay_formal_faults.py .`，核对新发布规则使用 `python3 -B audit/arithmetic_faults/replay_publication_guard.py .`。课程提交使用组内保管的课程包。公开仓库中的两份原始正文审核表单独保留。
+从仓库根目录按 README 准备。历史正式重放在 `baseline/` 中运行，使用 `python3 -B -m curve_audit replay`，单独重跑冻结故障使用 `python3 -B docs/replay_formal_faults.py .`，核对新发布规则使用 `python3 -B audit/arithmetic_faults/replay_publication_guard.py .`。课程提交使用组内保管的课程包。公开仓库中的两份原始正文审核表单独保留。
 
-11 月 15 日新增效果图表与指标。解压后打开 `audit/effect_metrics/figures/index.html` 查看七张 Matplotlib 图，包括逐题配对、故障判定和模型用量；CSV 和 JSON 提供完整指标与分母。
+11 月 15 日新增效果图表与指标。打开 `baseline/audit/effect_metrics/figures/index.html` 查看七张 Matplotlib 图，包括逐题配对、故障判定和模型用量；CSV 和 JSON 提供完整指标与分母。
 
 ## 11 月 21–22 日终稿前更新
 
 - **决策成本与分诊（`decision_cost/`，PR #3）**：在 36 次历史研究判断上按留一事件法对比 6 种策略（`raw`、`verified`、`rule`、`logistic`、`frozen_head`、`tuned_encoder`），产出成本分解、人工负担与敏感性三张 SVG 图及盈亏临界点（52.2 / 67.7 成本单位）。
 - **确认脚本守卫与台账（`decision_cost/confirmation.py`，PR #4）**：将第三窗口确认脚本接入 `publish_verified` 独立算术与 `RunLedger` 四阶段墙钟/token 台账，同步刷新 `holdout/freeze.json` 中 `confirmation.py` 哈希并新增离线单测（7 项测试）。
-- **确定性补证与小样本统计上界（`audit/evidence_recovery/`，PR #5）**：以 6 条安全门禁仅补严格真子集 `evidence_ids` 并重过全量 `verify_v2` + `publish_verified`。历史 36 运行恢复 12/12 误撤回正确主张（`G 31→40/48`、`E 42→45/48`），90 个故障安全闸门用例 0 错放；全量核验转人工 10/36→2/36、平均情景成本 2.27→0.78；在 Clopper-Pearson 与 Beta 保守高风险先验下，`rule_recovered`（0.71）与 `verified_recovered`（0.78）均显著优于无补证规则（1.46）。
-- **三个独立留出窗口与实测资源（`audit/holdout_validation/`）**：完成 `2023-06-15`、`2023-10-23`、`2024-01-11` 共 54 次模型运行与 54 项下游决策的配对重放（双源核对 + 双人九项参考一致，无需仲裁）。转人工从 **12/54 降至 3/54**，正确发布 **120 → 132**，0 观察误放；三窗口 DeepSeek 实付账单 **¥0.34073796**（补证 0 新增请求）；`2023-06-15` 两项基准转人工实测人工用时 **15 分 06 秒**；两新窗本机增量耗时中位数约 **3.8 ms/份**。
+- **确定性补证与小样本统计上界（`audit/evidence_recovery/`，PR #5）**：以 6 条安全门禁仅补严格真子集 `evidence_ids` 并重过全量 `verify_v2` + `publish_verified`。历史 36 运行恢复 12/12 误撤回正确主张（`G 31→40/48`、`E 42→45/48`），90 个故障安全闸门用例 0 错放；全量核验转人工 10/36→2/36、平均情景成本 2.27→0.78；在三个保守高风险假设下，`rule_recovered`（0.71）与 `verified_recovered`（0.78）的情景平均成本均低于无补证规则（1.46）。
+- **三个留出窗口与实测资源（`audit/holdout_validation/`）**：完成 `2023-06-15`、`2023-10-23`、`2024-01-11` 共 54 次模型运行与 54 项下游决策的配对重放（每窗两份人工复核均与双源复算一致，无需仲裁）。转人工从 **12/54 降至 3/54**，正确发布 **120 → 132**，0 观察误放；三窗口 DeepSeek 实付账单 **¥0.34073796**（补证 0 新增请求）；`2023-06-15` 两项基准转人工实测人工用时 **15 分 06 秒**；两新窗本机增量耗时中位数约 **3.8 ms/份**。
 - **待最终排版更新**：仓库根目录 `MSBD5017_Final_Project_Report.pdf`（11-13 版）与 `MSBD5017_Project_Presentation.pptx`（11-12 版）尚未合入上述 11 月 21–22 日新增结果；143 项正文共同主张表的最终仲裁汇总待组内确认是否合入终稿。
