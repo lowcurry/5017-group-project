@@ -1,0 +1,150 @@
+{
+  "events": [
+    {
+      "event": "holdout_20231023",
+      "scheduled": 18,
+      "completed": 18,
+      "failed": 0,
+      "failure_reasons": {},
+      "decisions": 18,
+      "high_risk_decisions": 6,
+      "reference_escalations": 6,
+      "baseline_high_risk_automatic": 4,
+      "recovery_high_risk_automatic": 6,
+      "observed_models": [
+        "deepseek-flash"
+      ],
+      "observed_fingerprints": [
+        "bc19ba97cbe016479903222bb1578db6"
+      ],
+      "baseline": {
+        "compute_cost": 6.18487,
+        "human_cost": 30,
+        "error_cost": 10.9,
+        "total_cost": 47.08487,
+        "minutes": 30,
+        "to_human": 6,
+        "auto_error": 0,
+        "high_risk_auto_error": 0,
+        "policy": "verified",
+        "wage": 1,
+        "loss_scale": 1,
+        "average_cost": 2.615826111111111,
+        "auto_completed": 12,
+        "cases": 18,
+        "measured_reviews": 0,
+        "within_observed_limit": true,
+        "published_correct_claims": 37,
+        "published_incorrect_claims": 0
+      },
+      "recovery": {
+        "compute_cost": 6.18487,
+        "human_cost": 15,
+        "error_cost": 2.6,
+        "total_cost": 23.78487,
+        "minutes": 15,
+        "to_human": 3,
+        "auto_error": 0,
+        "high_risk_auto_error": 0,
+        "policy": "verified",
+        "wage": 1,
+        "loss_scale": 1,
+        "average_cost": 1.3213816666666667,
+        "auto_completed": 15,
+        "cases": 18,
+        "measured_reviews": 0,
+        "within_observed_limit": true,
+        "published_correct_claims": 40,
+        "published_incorrect_claims": 0
+      },
+      "changed_referrals": [
+        "H02_G_3_S2",
+        "H03_E_3_S2",
+        "H03_G_3_S2"
+      ]
+    },
+    {
+      "event": "holdout_20240111",
+      "scheduled": 18,
+      "completed": 18,
+      "failed": 0,
+      "failure_reasons": {},
+      "decisions": 18,
+      "high_risk_decisions": 6,
+      "reference_escalations": 6,
+      "baseline_high_risk_automatic": 4,
+      "recovery_high_risk_automatic": 6,
+      "observed_models": [
+        "deepseek-flash"
+      ],
+      "observed_fingerprints": [
+        "bc19ba97cbe016479903222bb1578db6"
+      ],
+      "baseline": {
+        "compute_cost": 6.34414,
+        "human_cost": 20,
+        "error_cost": 8.6,
+        "total_cost": 34.94414,
+        "minutes": 20,
+        "to_human": 4,
+        "auto_error": 0,
+        "high_risk_auto_error": 0,
+        "policy": "verified",
+        "wage": 1,
+        "loss_scale": 1,
+        "average_cost": 1.941341111111111,
+        "auto_completed": 14,
+        "cases": 18,
+        "measured_reviews": 0,
+        "within_observed_limit": true,
+        "published_correct_claims": 41,
+        "published_incorrect_claims": 0
+      },
+      "recovery": {
+        "compute_cost": 6.34414,
+        "human_cost": 0,
+        "error_cost": 0,
+        "total_cost": 6.34414,
+        "minutes": 0,
+        "to_human": 0,
+        "auto_error": 0,
+        "high_risk_auto_error": 0,
+        "policy": "verified",
+        "wage": 1,
+        "loss_scale": 1,
+        "average_cost": 0.3524522222222222,
+        "auto_completed": 18,
+        "cases": 18,
+        "measured_reviews": 0,
+        "within_observed_limit": true,
+        "published_correct_claims": 46,
+        "published_incorrect_claims": 0
+      },
+      "changed_referrals": [
+        "H02_G_1_S2",
+        "H03_E_1_S2",
+        "H03_G_1_S2",
+        "H02_G_2_S2"
+      ]
+    }
+  ],
+  "usage": {
+    "holdout_20231023": {
+      "request_count": 69,
+      "requests_with_reported_usage": 69,
+      "input_tokens": 102930,
+      "output_tokens": 21962,
+      "cached_input_tokens": 82678,
+      "total_tokens": 124892
+    },
+    "holdout_20240111": {
+      "request_count": 70,
+      "requests_with_reported_usage": 70,
+      "input_tokens": 121795,
+      "output_tokens": 21511,
+      "cached_input_tokens": 96634,
+      "total_tokens": 143306
+    }
+  },
+  "model_calls_added_for_recovery": 0
+}

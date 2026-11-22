@@ -1,0 +1,30 @@
+{
+  "observations": [
+    {
+      "case_id": "H02_G_1_S2",
+      "seconds": 408.0,
+      "correct": true,
+      "previously_seen": "no"
+    },
+    {
+      "case_id": "H02_G_3_S2",
+      "seconds": 498.0,
+      "correct": true,
+      "previously_seen": "no"
+    }
+  ],
+  "baseline": {
+    "referrals": 2,
+    "measured": 2,
+    "complete": true,
+    "observed_minutes_sum": 15.1,
+    "labor_cny": null
+  },
+  "recovery": {
+    "referrals": 0,
+    "measured": 0,
+    "complete": true,
+    "observed_minutes_sum": 0.0,
+    "labor_cny": null
+  }
+}

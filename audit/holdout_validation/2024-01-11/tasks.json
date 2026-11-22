@@ -1,0 +1,146 @@
+[
+  {
+    "task_id": "H01",
+    "event_id": "holdout_20240111",
+    "window": {
+      "start": "2024-01-11T00:00:00Z",
+      "end": "2024-01-12T00:00:00Z"
+    },
+    "question": "单点与单位",
+    "required_components": [
+      {
+        "slot_id": "S1",
+        "label": "DAI 名义占比",
+        "request": {
+          "metric": "share_pct",
+          "operation": "last",
+          "start": "2024-01-11T02:00:00Z",
+          "end": "2024-01-11T02:00:00Z",
+          "coin": "DAI"
+        }
+      },
+      {
+        "slot_id": "S2",
+        "label": "1000 USDC→USDT 报价率",
+        "request": {
+          "metric": "quote_rate",
+          "operation": "last",
+          "start": "2024-01-11T02:00:00Z",
+          "end": "2024-01-11T02:00:00Z",
+          "direction": "USDC_USDT",
+          "size": 1000
+        }
+      },
+      {
+        "slot_id": "S3",
+        "label": "100000 相对 1000 输入的规模敏感度",
+        "request": {
+          "metric": "size_sensitivity_bps",
+          "operation": "last",
+          "start": "2024-01-11T02:00:00Z",
+          "end": "2024-01-11T02:00:00Z",
+          "direction": "USDC_USDT",
+          "size": 100000
+        }
+      }
+    ],
+    "allowed_evidence": {
+      "excluded_targets": []
+    }
+  },
+  {
+    "task_id": "H02",
+    "event_id": "holdout_20240111",
+    "window": {
+      "start": "2024-01-11T00:00:00Z",
+      "end": "2024-01-12T00:00:00Z"
+    },
+    "question": "窗口与追问",
+    "required_components": [
+      {
+        "slot_id": "S1",
+        "label": "USDC 占比末减初",
+        "request": {
+          "metric": "share_pct",
+          "operation": "change",
+          "start": "2024-01-11T00:00:00Z",
+          "end": "2024-01-12T00:00:00Z",
+          "coin": "USDC"
+        }
+      },
+      {
+        "slot_id": "S2",
+        "label": "允许小时网格的采样失衡最大值及目标时点",
+        "request": {
+          "metric": "imbalance_l1",
+          "operation": "maximum",
+          "start": "2024-01-11T00:00:00Z",
+          "end": "2024-01-12T00:00:00Z"
+        }
+      },
+      {
+        "slot_id": "S3",
+        "label": "S2 返回时点后一小时的 100000 USDC→USDT 报价率",
+        "request": {
+          "metric": "quote_rate",
+          "operation": "last",
+          "direction": "USDC_USDT",
+          "size": 100000,
+          "time_from_slot": "S2",
+          "offset_hours": 1
+        }
+      }
+    ],
+    "allowed_evidence": {
+      "excluded_targets": []
+    }
+  },
+  {
+    "task_id": "H03",
+    "event_id": "holdout_20240111",
+    "window": {
+      "start": "2024-01-11T00:00:00Z",
+      "end": "2024-01-12T00:00:00Z"
+    },
+    "question": "混合证据边界",
+    "required_components": [
+      {
+        "slot_id": "S1",
+        "label": "允许首点 USDC 占比",
+        "request": {
+          "metric": "share_pct",
+          "operation": "last",
+          "start": "2024-01-11T00:00:00Z",
+          "end": "2024-01-11T00:00:00Z",
+          "coin": "USDC"
+        }
+      },
+      {
+        "slot_id": "S2",
+        "label": "允许证据内最大单小时 USDC 占比增幅及起止时点；不得跨越被禁时点",
+        "request": {
+          "metric": "share_pct",
+          "operation": "max_hourly_change",
+          "start": "2024-01-11T18:00:00Z",
+          "end": "2024-01-12T00:00:00Z",
+          "coin": "USDC"
+        }
+      },
+      {
+        "slot_id": "S3",
+        "label": "连续时间真实失衡峰值是否可由小时采样确定",
+        "request": {
+          "metric": "continuous_imbalance_peak",
+          "operation": "maximum",
+          "start": "2024-01-11T00:00:00Z",
+          "end": "2024-01-12T00:00:00Z"
+        }
+      }
+    ],
+    "allowed_evidence": {
+      "excluded_targets": [
+        "2024-01-11T22:00:00Z"
+      ]
+    }
+  }
+]

@@ -1,0 +1,64 @@
+{
+  "scope": "one held-out event; full verification policy; paired model outputs",
+  "scheduled_model_runs": 18,
+  "model_run_status_counts": {
+    "completed": 18
+  },
+  "model_calls_added_for_recovery": 0,
+  "cost_basis": "frozen scenario estimates; measured verifier elapsed time reported separately",
+  "arms": {
+    "baseline": {
+      "compute_cost": 6.18487,
+      "human_cost": 30,
+      "error_cost": 10.9,
+      "total_cost": 47.08487,
+      "minutes": 30,
+      "to_human": 6,
+      "auto_error": 0,
+      "high_risk_auto_error": 0,
+      "policy": "verified",
+      "wage": 1,
+      "loss_scale": 1,
+      "average_cost": 2.615826111111111,
+      "auto_completed": 12,
+      "cases": 18,
+      "measured_reviews": 0,
+      "within_observed_limit": true,
+      "published_correct_claims": 37,
+      "published_incorrect_claims": 0
+    },
+    "recovery": {
+      "compute_cost": 6.18487,
+      "human_cost": 15,
+      "error_cost": 2.6,
+      "total_cost": 23.78487,
+      "minutes": 15,
+      "to_human": 3,
+      "auto_error": 0,
+      "high_risk_auto_error": 0,
+      "policy": "verified",
+      "wage": 1,
+      "loss_scale": 1,
+      "average_cost": 1.3213816666666667,
+      "auto_completed": 15,
+      "cases": 18,
+      "measured_reviews": 0,
+      "within_observed_limit": true,
+      "published_correct_claims": 40,
+      "published_incorrect_claims": 0
+    }
+  },
+  "deltas_recovery_minus_baseline": {
+    "to_human": -3,
+    "auto_error": 0,
+    "high_risk_auto_error": 0,
+    "minutes": -15,
+    "total_cost": -23.3,
+    "average_cost": -1.2944444444444445,
+    "published_correct_claims": 3,
+    "published_incorrect_claims": 0
+  },
+  "new_incorrect_published_claims": [],
+  "new_automatic_errors": [],
+  "new_high_risk_automatic_errors": []
+}

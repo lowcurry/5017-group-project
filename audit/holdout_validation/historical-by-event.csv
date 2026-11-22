@@ -1,0 +1,4 @@
+﻿event,scope,model_runs,decisions,baseline_correct,baseline_incorrect,baseline_referral,baseline_automatic_error,baseline_high_risk_error,recovery_correct,recovery_incorrect,recovery_referral,recovery_automatic_error,recovery_high_risk_error
+ftx_2022,retrospective,18,18,37,0,6,0,0,45,0,1,0,0
+holdout_20230615,previous_holdout,18,18,42,0,2,0,0,46,0,0,0,0
+usdc_2023,retrospective,18,18,36,0,4,0,0,40,0,1,0,0

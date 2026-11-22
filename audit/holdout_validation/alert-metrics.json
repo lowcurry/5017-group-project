@@ -1,0 +1,120 @@
+{
+  "rule": "concentration_alert",
+  "scope": "three completed holdout windows; runs within each window are repeats",
+  "distinct_negative_windows": 1,
+  "distinct_positive_windows": 2,
+  "by_window": {
+    "2023-06-15": {
+      "baseline": {
+        "reference_no_alert": 6,
+        "reference_escalate": 0,
+        "true_negatives": 6,
+        "false_positives": 0,
+        "negative_referrals": 0,
+        "true_positives": 0,
+        "false_negatives": 0,
+        "positive_referrals": 0,
+        "false_positive_rate_among_automatic_negatives": 0.0,
+        "automatic_false_alert_fraction_among_all_negatives": 0.0,
+        "automatic_negative_coverage": 1.0
+      },
+      "recovery": {
+        "reference_no_alert": 6,
+        "reference_escalate": 0,
+        "true_negatives": 6,
+        "false_positives": 0,
+        "negative_referrals": 0,
+        "true_positives": 0,
+        "false_negatives": 0,
+        "positive_referrals": 0,
+        "false_positive_rate_among_automatic_negatives": 0.0,
+        "automatic_false_alert_fraction_among_all_negatives": 0.0,
+        "automatic_negative_coverage": 1.0
+      }
+    },
+    "2023-10-23": {
+      "baseline": {
+        "reference_no_alert": 0,
+        "reference_escalate": 6,
+        "true_negatives": 0,
+        "false_positives": 0,
+        "negative_referrals": 0,
+        "true_positives": 4,
+        "false_negatives": 0,
+        "positive_referrals": 2,
+        "false_positive_rate_among_automatic_negatives": null,
+        "automatic_false_alert_fraction_among_all_negatives": null,
+        "automatic_negative_coverage": null
+      },
+      "recovery": {
+        "reference_no_alert": 0,
+        "reference_escalate": 6,
+        "true_negatives": 0,
+        "false_positives": 0,
+        "negative_referrals": 0,
+        "true_positives": 6,
+        "false_negatives": 0,
+        "positive_referrals": 0,
+        "false_positive_rate_among_automatic_negatives": null,
+        "automatic_false_alert_fraction_among_all_negatives": null,
+        "automatic_negative_coverage": null
+      }
+    },
+    "2024-01-11": {
+      "baseline": {
+        "reference_no_alert": 0,
+        "reference_escalate": 6,
+        "true_negatives": 0,
+        "false_positives": 0,
+        "negative_referrals": 0,
+        "true_positives": 4,
+        "false_negatives": 0,
+        "positive_referrals": 2,
+        "false_positive_rate_among_automatic_negatives": null,
+        "automatic_false_alert_fraction_among_all_negatives": null,
+        "automatic_negative_coverage": null
+      },
+      "recovery": {
+        "reference_no_alert": 0,
+        "reference_escalate": 6,
+        "true_negatives": 0,
+        "false_positives": 0,
+        "negative_referrals": 0,
+        "true_positives": 6,
+        "false_negatives": 0,
+        "positive_referrals": 0,
+        "false_positive_rate_among_automatic_negatives": null,
+        "automatic_false_alert_fraction_among_all_negatives": null,
+        "automatic_negative_coverage": null
+      }
+    }
+  },
+  "pooled_decision_counts": {
+    "baseline": {
+      "reference_no_alert": 6,
+      "reference_escalate": 12,
+      "true_negatives": 6,
+      "false_positives": 0,
+      "negative_referrals": 0,
+      "true_positives": 8,
+      "false_negatives": 0,
+      "positive_referrals": 4,
+      "false_positive_rate_among_automatic_negatives": 0.0,
+      "automatic_false_alert_fraction_among_all_negatives": 0.0,
+      "automatic_negative_coverage": 1.0
+    },
+    "recovery": {
+      "reference_no_alert": 6,
+      "reference_escalate": 12,
+      "true_negatives": 6,
+      "false_positives": 0,
+      "negative_referrals": 0,
+      "true_positives": 12,
+      "false_negatives": 0,
+      "positive_referrals": 0,
+      "false_positive_rate_among_automatic_negatives": 0.0,
+      "automatic_false_alert_fraction_among_all_negatives": 0.0,
+      "automatic_negative_coverage": 1.0
+    }
+  }
+}

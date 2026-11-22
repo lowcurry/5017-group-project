@@ -1,0 +1,25 @@
+{
+  "model_calls": 0,
+  "warmup_rounds_excluded": 1,
+  "rounds": 15,
+  "events": {
+    "holdout_20231023": {
+      "pairs": 270,
+      "median_baseline_cpu_ms": 4.7815,
+      "median_baseline_wall_ms": 4.7883125,
+      "median_recovery_cpu_ms": 8.5955,
+      "median_recovery_wall_ms": 8.6042085,
+      "median_incremental_wall_ms": 3.8209789999999995,
+      "median_incremental_cpu_ms": 3.823
+    },
+    "holdout_20240111": {
+      "pairs": 270,
+      "median_recovery_cpu_ms": 8.568999999999999,
+      "median_recovery_wall_ms": 8.578417,
+      "median_baseline_cpu_ms": 4.7645,
+      "median_baseline_wall_ms": 4.7721245,
+      "median_incremental_wall_ms": 3.8148125,
+      "median_incremental_cpu_ms": 3.8124999999999996
+    }
+  }
+}

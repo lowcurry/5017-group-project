@@ -1,0 +1,11 @@
+{
+  "stage": "locked before new source retrieval or model output",
+  "selection": "Two disjoint 24-hour calendar windows, fixed in advance to add separated time periods. No selection on Curve outcomes. Same three frozen task templates, thresholds and model arms.",
+  "windows": [
+    {"event_id":"holdout_20231023","start_utc":"2023-10-23T00:00:00Z","last_capture_utc":"2023-10-24T01:00:00Z"},
+    {"event_id":"holdout_20240111","start_utc":"2024-01-11T00:00:00Z","last_capture_utc":"2024-01-12T01:00:00Z"}
+  ],
+  "schedule_per_window": "18 runs, three task templates, G and E, three repetitions",
+  "outcomes": ["correct publications", "incorrect publications", "referrals", "automatic errors", "high-risk automatic errors", "phase time", "tokens", "recorded charges"],
+  "gate": "Two matching bound source captures and independent human reference review before model execution. Log disagreements and failures. No substitution of dates after capture."
+}

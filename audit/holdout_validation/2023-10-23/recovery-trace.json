@@ -1,0 +1,1608 @@
+[
+  {
+    "run_id": "H01_G_3",
+    "model_run_status": "completed",
+    "input_report_sha256": "d3c1f3255e22ec4b2e0047045e4aea176e84e5730d20a813e1413c21f3afaa48",
+    "baseline_verify_publish_seconds": 0.011872040995513089,
+    "recovery_verify_publish_seconds": 0.008642417000373825,
+    "recovery_records": {},
+    "recovery_publication": {
+      "task_id": "H01",
+      "claims": [
+        {
+          "claim_id": "C1",
+          "slot_id": "S1",
+          "value": "39.618516627350289197390565672916427773948699196430056358742863646349771413512293",
+          "unit": "percent",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20231023T020000Z"
+          ],
+          "dataset_sha256": "23d32fd101e15b878c00cf4218b3c32ea7b9f41cc8494fadafa78d60850457d8",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2023-10-23T02:00:00Z",
+          "query": {
+            "metric": "share_pct",
+            "operation": "last",
+            "start": "2023-10-23T02:00:00Z",
+            "end": "2023-10-23T02:00:00Z",
+            "coin": "DAI"
+          }
+        },
+        {
+          "claim_id": "C2",
+          "slot_id": "S2",
+          "value": "0.999565335",
+          "unit": "USDT/USDC",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20231023T020000Z"
+          ],
+          "dataset_sha256": "23d32fd101e15b878c00cf4218b3c32ea7b9f41cc8494fadafa78d60850457d8",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2023-10-23T02:00:00Z",
+          "query": {
+            "metric": "quote_rate",
+            "operation": "last",
+            "start": "2023-10-23T02:00:00Z",
+            "end": "2023-10-23T02:00:00Z",
+            "direction": "USDC_USDT",
+            "size": 1000
+          }
+        },
+        {
+          "claim_id": "C3",
+          "slot_id": "S3",
+          "value": "0.01357510062111147541946320097225060330848708353816611697523504053889583915992845",
+          "unit": "basis_points",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20231023T020000Z"
+          ],
+          "dataset_sha256": "23d32fd101e15b878c00cf4218b3c32ea7b9f41cc8494fadafa78d60850457d8",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2023-10-23T02:00:00Z",
+          "query": {
+            "metric": "size_sensitivity_bps",
+            "operation": "last",
+            "start": "2023-10-23T02:00:00Z",
+            "end": "2023-10-23T02:00:00Z",
+            "direction": "USDC_USDT",
+            "size": 100000
+          }
+        }
+      ],
+      "answer": "C1: 39.618516627350289197390565672916427773948699196430056358742863646349771413512293 percent\nC2: 0.999565335 USDT/USDC\nC3: 0.01357510062111147541946320097225060330848708353816611697523504053889583915992845 basis_points",
+      "withdrawals": []
+    }
+  },
+  {
+    "run_id": "H01_E_2",
+    "model_run_status": "completed",
+    "input_report_sha256": "ab18c2dcf160f16cf5972d11f41ee04b18d637e5e9f126e813e8fffd54de926b",
+    "baseline_verify_publish_seconds": 0.005546874999708962,
+    "recovery_verify_publish_seconds": 0.008268375000625383,
+    "recovery_records": {},
+    "recovery_publication": {
+      "task_id": "H01",
+      "claims": [
+        {
+          "claim_id": "C1",
+          "slot_id": "S1",
+          "value": "39.618516627350289197390565672916427773948699196430056358742863646349771413512293",
+          "unit": "percent",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20231023T020000Z"
+          ],
+          "dataset_sha256": "23d32fd101e15b878c00cf4218b3c32ea7b9f41cc8494fadafa78d60850457d8",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2023-10-23T02:00:00Z",
+          "query": {
+            "metric": "share_pct",
+            "operation": "last",
+            "start": "2023-10-23T02:00:00Z",
+            "end": "2023-10-23T02:00:00Z",
+            "coin": "DAI"
+          }
+        },
+        {
+          "claim_id": "C2",
+          "slot_id": "S2",
+          "value": "0.999565335",
+          "unit": "USDT/USDC",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20231023T020000Z"
+          ],
+          "dataset_sha256": "23d32fd101e15b878c00cf4218b3c32ea7b9f41cc8494fadafa78d60850457d8",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2023-10-23T02:00:00Z",
+          "query": {
+            "metric": "quote_rate",
+            "operation": "last",
+            "start": "2023-10-23T02:00:00Z",
+            "end": "2023-10-23T02:00:00Z",
+            "direction": "USDC_USDT",
+            "size": 1000
+          }
+        },
+        {
+          "claim_id": "C3",
+          "slot_id": "S3",
+          "value": "0.01357510062111147541946320097225060330848708353816611697523504053889583915992845",
+          "unit": "basis_points",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20231023T020000Z"
+          ],
+          "dataset_sha256": "23d32fd101e15b878c00cf4218b3c32ea7b9f41cc8494fadafa78d60850457d8",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2023-10-23T02:00:00Z",
+          "query": {
+            "metric": "size_sensitivity_bps",
+            "operation": "last",
+            "start": "2023-10-23T02:00:00Z",
+            "end": "2023-10-23T02:00:00Z",
+            "direction": "USDC_USDT",
+            "size": 100000
+          }
+        }
+      ],
+      "answer": "C1: 39.618516627350289197390565672916427773948699196430056358742863646349771413512293 percent\nC2: 0.999565335 USDT/USDC\nC3: 0.01357510062111147541946320097225060330848708353816611697523504053889583915992845 basis_points",
+      "withdrawals": []
+    }
+  },
+  {
+    "run_id": "H03_E_2",
+    "model_run_status": "completed",
+    "input_report_sha256": "df8a9b74ab85017f581add80dabbfc619a9416b03610224c70595025aca49a9a",
+    "baseline_verify_publish_seconds": 0.012998708996747155,
+    "recovery_verify_publish_seconds": 0.007787458998791408,
+    "recovery_records": {},
+    "recovery_publication": {
+      "task_id": "H03",
+      "claims": [
+        {
+          "claim_id": "S1_USDC_share",
+          "slot_id": "S1",
+          "value": "37.47762023427998459020533909639978559585316321717954922141119248338945258705472",
+          "unit": "percent",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20231023T000000Z"
+          ],
+          "dataset_sha256": "23d32fd101e15b878c00cf4218b3c32ea7b9f41cc8494fadafa78d60850457d8",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2023-10-23T00:00:00Z",
+          "query": {
+            "metric": "share_pct",
+            "operation": "last",
+            "start": "2023-10-23T00:00:00Z",
+            "end": "2023-10-23T00:00:00Z",
+            "coin": "USDC"
+          }
+        },
+        {
+          "claim_id": "S2_USDC_max_hourly",
+          "slot_id": "S2",
+          "value": "1.10197463904849333381448613170676242069443123226867965438081",
+          "unit": "percentage_points",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20231023T180000Z",
+            "E_UTC_20231023T190000Z",
+            "E_UTC_20231023T200000Z",
+            "E_UTC_20231023T210000Z",
+            "E_UTC_20231023T230000Z",
+            "E_UTC_20231024T000000Z"
+          ],
+          "dataset_sha256": "23d32fd101e15b878c00cf4218b3c32ea7b9f41cc8494fadafa78d60850457d8",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "interval_start": "2023-10-23T20:00:00Z",
+          "interval_end": "2023-10-23T21:00:00Z",
+          "query": {
+            "coin": "USDC",
+            "metric": "share_pct",
+            "operation": "max_hourly_change",
+            "start": "2023-10-23T18:00:00Z",
+            "end": "2023-10-24T00:00:00Z"
+          }
+        }
+      ],
+      "answer": "S1_USDC_share: 37.47762023427998459020533909639978559585316321717954922141119248338945258705472 percent\nS2_USDC_max_hourly: 1.10197463904849333381448613170676242069443123226867965438081 percentage_points",
+      "withdrawals": [
+        {
+          "claim_id": "S3_imbalance_peak",
+          "verdict": "UNKNOWN",
+          "reason": "refusal_or_omission"
+        }
+      ]
+    }
+  },
+  {
+    "run_id": "H02_G_1",
+    "model_run_status": "completed",
+    "input_report_sha256": "fddde0d8b5fe743a030a935d66c15c656025cbb7a0480d78ca9b569a9c101d44",
+    "baseline_verify_publish_seconds": 0.014409332994546276,
+    "recovery_verify_publish_seconds": 0.008913958998164162,
+    "recovery_records": {},
+    "recovery_publication": {
+      "task_id": "H02",
+      "claims": [
+        {
+          "claim_id": "H02-S1",
+          "slot_id": "S1",
+          "value": "2.73667605264892268349478287623900430371748028403319375657594",
+          "unit": "percentage_points",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20231023T000000Z",
+            "E_UTC_20231024T000000Z"
+          ],
+          "dataset_sha256": "23d32fd101e15b878c00cf4218b3c32ea7b9f41cc8494fadafa78d60850457d8",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "query": {
+            "metric": "share_pct",
+            "operation": "change",
+            "start": "2023-10-23T00:00:00Z",
+            "end": "2023-10-24T00:00:00Z",
+            "coin": "USDC"
+          }
+        },
+        {
+          "claim_id": "H02-S2",
+          "slot_id": "S2",
+          "value": "0.1542488887882176606371203294185602846065266826029666171229789760507727456115717",
+          "unit": "dimensionless",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20231023T000000Z",
+            "E_UTC_20231023T010000Z",
+            "E_UTC_20231023T020000Z",
+            "E_UTC_20231023T030000Z",
+            "E_UTC_20231023T040000Z",
+            "E_UTC_20231023T050000Z",
+            "E_UTC_20231023T060000Z",
+            "E_UTC_20231023T070000Z",
+            "E_UTC_20231023T080000Z",
+            "E_UTC_20231023T090000Z",
+            "E_UTC_20231023T100000Z",
+            "E_UTC_20231023T110000Z",
+            "E_UTC_20231023T120000Z",
+            "E_UTC_20231023T130000Z",
+            "E_UTC_20231023T140000Z",
+            "E_UTC_20231023T150000Z",
+            "E_UTC_20231023T160000Z",
+            "E_UTC_20231023T170000Z",
+            "E_UTC_20231023T180000Z",
+            "E_UTC_20231023T190000Z",
+            "E_UTC_20231023T200000Z",
+            "E_UTC_20231023T210000Z",
+            "E_UTC_20231023T220000Z",
+            "E_UTC_20231023T230000Z",
+            "E_UTC_20231024T000000Z"
+          ],
+          "dataset_sha256": "23d32fd101e15b878c00cf4218b3c32ea7b9f41cc8494fadafa78d60850457d8",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2023-10-23T22:00:00Z",
+          "query": {
+            "metric": "imbalance_l1",
+            "operation": "maximum",
+            "start": "2023-10-23T00:00:00Z",
+            "end": "2023-10-24T00:00:00Z"
+          }
+        }
+      ],
+      "answer": "H02-S1: 2.73667605264892268349478287623900430371748028403319375657594 percentage_points\nH02-S2: 0.1542488887882176606371203294185602846065266826029666171229789760507727456115717 dimensionless",
+      "withdrawals": [
+        {
+          "claim_id": "H02-S3",
+          "verdict": "FAIL",
+          "reason": "task_query_mismatch"
+        }
+      ]
+    }
+  },
+  {
+    "run_id": "H02_G_3",
+    "model_run_status": "completed",
+    "input_report_sha256": "5df8705ed24bfb8e6097da4ec375cc86df93203a1fc7d0a711babbd54c019fa5",
+    "baseline_verify_publish_seconds": 0.013448249999783002,
+    "recovery_verify_publish_seconds": 0.008866333002515603,
+    "recovery_records": {
+      "S2_imbalance_max": {
+        "status": "recovered",
+        "reason": "strict_subset_evidence_attribution_recovery",
+        "original_evidence_ids": [
+          "E_UTC_20231023T220000Z"
+        ],
+        "added_evidence_ids": [
+          "E_UTC_20231023T000000Z",
+          "E_UTC_20231023T010000Z",
+          "E_UTC_20231023T020000Z",
+          "E_UTC_20231023T030000Z",
+          "E_UTC_20231023T040000Z",
+          "E_UTC_20231023T050000Z",
+          "E_UTC_20231023T060000Z",
+          "E_UTC_20231023T070000Z",
+          "E_UTC_20231023T080000Z",
+          "E_UTC_20231023T090000Z",
+          "E_UTC_20231023T100000Z",
+          "E_UTC_20231023T110000Z",
+          "E_UTC_20231023T120000Z",
+          "E_UTC_20231023T130000Z",
+          "E_UTC_20231023T140000Z",
+          "E_UTC_20231023T150000Z",
+          "E_UTC_20231023T160000Z",
+          "E_UTC_20231023T170000Z",
+          "E_UTC_20231023T180000Z",
+          "E_UTC_20231023T190000Z",
+          "E_UTC_20231023T200000Z",
+          "E_UTC_20231023T210000Z",
+          "E_UTC_20231023T230000Z",
+          "E_UTC_20231024T000000Z"
+        ],
+        "recovered_evidence_ids": [
+          "E_UTC_20231023T000000Z",
+          "E_UTC_20231023T010000Z",
+          "E_UTC_20231023T020000Z",
+          "E_UTC_20231023T030000Z",
+          "E_UTC_20231023T040000Z",
+          "E_UTC_20231023T050000Z",
+          "E_UTC_20231023T060000Z",
+          "E_UTC_20231023T070000Z",
+          "E_UTC_20231023T080000Z",
+          "E_UTC_20231023T090000Z",
+          "E_UTC_20231023T100000Z",
+          "E_UTC_20231023T110000Z",
+          "E_UTC_20231023T120000Z",
+          "E_UTC_20231023T130000Z",
+          "E_UTC_20231023T140000Z",
+          "E_UTC_20231023T150000Z",
+          "E_UTC_20231023T160000Z",
+          "E_UTC_20231023T170000Z",
+          "E_UTC_20231023T180000Z",
+          "E_UTC_20231023T190000Z",
+          "E_UTC_20231023T200000Z",
+          "E_UTC_20231023T210000Z",
+          "E_UTC_20231023T220000Z",
+          "E_UTC_20231023T230000Z",
+          "E_UTC_20231024T000000Z"
+        ]
+      }
+    },
+    "recovery_publication": {
+      "task_id": "H02",
+      "claims": [
+        {
+          "claim_id": "S1_usdc_share_change",
+          "slot_id": "S1",
+          "value": "2.73667605264892268349478287623900430371748028403319375657594",
+          "unit": "percentage_points",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20231023T000000Z",
+            "E_UTC_20231024T000000Z"
+          ],
+          "dataset_sha256": "23d32fd101e15b878c00cf4218b3c32ea7b9f41cc8494fadafa78d60850457d8",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "query": {
+            "metric": "share_pct",
+            "operation": "change",
+            "start": "2023-10-23T00:00:00Z",
+            "end": "2023-10-24T00:00:00Z",
+            "coin": "USDC"
+          }
+        },
+        {
+          "claim_id": "S2_imbalance_max",
+          "slot_id": "S2",
+          "value": "0.1542488887882176606371203294185602846065266826029666171229789760507727456115717",
+          "unit": "dimensionless",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20231023T000000Z",
+            "E_UTC_20231023T010000Z",
+            "E_UTC_20231023T020000Z",
+            "E_UTC_20231023T030000Z",
+            "E_UTC_20231023T040000Z",
+            "E_UTC_20231023T050000Z",
+            "E_UTC_20231023T060000Z",
+            "E_UTC_20231023T070000Z",
+            "E_UTC_20231023T080000Z",
+            "E_UTC_20231023T090000Z",
+            "E_UTC_20231023T100000Z",
+            "E_UTC_20231023T110000Z",
+            "E_UTC_20231023T120000Z",
+            "E_UTC_20231023T130000Z",
+            "E_UTC_20231023T140000Z",
+            "E_UTC_20231023T150000Z",
+            "E_UTC_20231023T160000Z",
+            "E_UTC_20231023T170000Z",
+            "E_UTC_20231023T180000Z",
+            "E_UTC_20231023T190000Z",
+            "E_UTC_20231023T200000Z",
+            "E_UTC_20231023T210000Z",
+            "E_UTC_20231023T220000Z",
+            "E_UTC_20231023T230000Z",
+            "E_UTC_20231024T000000Z"
+          ],
+          "dataset_sha256": "23d32fd101e15b878c00cf4218b3c32ea7b9f41cc8494fadafa78d60850457d8",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2023-10-23T22:00:00Z",
+          "query": {
+            "metric": "imbalance_l1",
+            "operation": "maximum",
+            "start": "2023-10-23T00:00:00Z",
+            "end": "2023-10-24T00:00:00Z"
+          }
+        }
+      ],
+      "answer": "S1_usdc_share_change: 2.73667605264892268349478287623900430371748028403319375657594 percentage_points\nS2_imbalance_max: 0.1542488887882176606371203294185602846065266826029666171229789760507727456115717 dimensionless",
+      "withdrawals": [
+        {
+          "claim_id": "S3_quote_rate",
+          "verdict": "FAIL",
+          "reason": "task_query_mismatch"
+        }
+      ]
+    }
+  },
+  {
+    "run_id": "H02_E_1",
+    "model_run_status": "completed",
+    "input_report_sha256": "fbc8703113990be85ae472d338006895d34b8a128520cc94aec37b475fa6a80b",
+    "baseline_verify_publish_seconds": 0.014424208005948458,
+    "recovery_verify_publish_seconds": 0.00947683300182689,
+    "recovery_records": {},
+    "recovery_publication": {
+      "task_id": "H02",
+      "claims": [
+        {
+          "claim_id": "S1_usdc_share_change",
+          "slot_id": "S1",
+          "value": "2.73667605264892268349478287623900430371748028403319375657594",
+          "unit": "percentage_points",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20231023T000000Z",
+            "E_UTC_20231024T000000Z"
+          ],
+          "dataset_sha256": "23d32fd101e15b878c00cf4218b3c32ea7b9f41cc8494fadafa78d60850457d8",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "query": {
+            "metric": "share_pct",
+            "operation": "change",
+            "start": "2023-10-23T00:00:00Z",
+            "end": "2023-10-24T00:00:00Z",
+            "coin": "USDC"
+          }
+        },
+        {
+          "claim_id": "S2_imbalance_max",
+          "slot_id": "S2",
+          "value": "0.1542488887882176606371203294185602846065266826029666171229789760507727456115717",
+          "unit": "dimensionless",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20231023T000000Z",
+            "E_UTC_20231023T010000Z",
+            "E_UTC_20231023T020000Z",
+            "E_UTC_20231023T030000Z",
+            "E_UTC_20231023T040000Z",
+            "E_UTC_20231023T050000Z",
+            "E_UTC_20231023T060000Z",
+            "E_UTC_20231023T070000Z",
+            "E_UTC_20231023T080000Z",
+            "E_UTC_20231023T090000Z",
+            "E_UTC_20231023T100000Z",
+            "E_UTC_20231023T110000Z",
+            "E_UTC_20231023T120000Z",
+            "E_UTC_20231023T130000Z",
+            "E_UTC_20231023T140000Z",
+            "E_UTC_20231023T150000Z",
+            "E_UTC_20231023T160000Z",
+            "E_UTC_20231023T170000Z",
+            "E_UTC_20231023T180000Z",
+            "E_UTC_20231023T190000Z",
+            "E_UTC_20231023T200000Z",
+            "E_UTC_20231023T210000Z",
+            "E_UTC_20231023T220000Z",
+            "E_UTC_20231023T230000Z",
+            "E_UTC_20231024T000000Z"
+          ],
+          "dataset_sha256": "23d32fd101e15b878c00cf4218b3c32ea7b9f41cc8494fadafa78d60850457d8",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2023-10-23T22:00:00Z",
+          "query": {
+            "metric": "imbalance_l1",
+            "operation": "maximum",
+            "start": "2023-10-23T00:00:00Z",
+            "end": "2023-10-24T00:00:00Z"
+          }
+        },
+        {
+          "claim_id": "S3_quote_rate",
+          "slot_id": "S3",
+          "value": "0.99927362446",
+          "unit": "USDT/USDC",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20231023T230000Z"
+          ],
+          "dataset_sha256": "23d32fd101e15b878c00cf4218b3c32ea7b9f41cc8494fadafa78d60850457d8",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2023-10-23T23:00:00Z",
+          "query": {
+            "metric": "quote_rate",
+            "operation": "last",
+            "start": "2023-10-23T23:00:00Z",
+            "end": "2023-10-23T23:00:00Z",
+            "direction": "USDC_USDT",
+            "size": 100000
+          }
+        }
+      ],
+      "answer": "S1_usdc_share_change: 2.73667605264892268349478287623900430371748028403319375657594 percentage_points\nS2_imbalance_max: 0.1542488887882176606371203294185602846065266826029666171229789760507727456115717 dimensionless\nS3_quote_rate: 0.99927362446 USDT/USDC",
+      "withdrawals": []
+    }
+  },
+  {
+    "run_id": "H03_E_1",
+    "model_run_status": "completed",
+    "input_report_sha256": "400b471af3da0569135aebfed2de67982833ad6d3217cd42672e047ca6b187fb",
+    "baseline_verify_publish_seconds": 0.0190224580001086,
+    "recovery_verify_publish_seconds": 0.007620374999532942,
+    "recovery_records": {},
+    "recovery_publication": {
+      "task_id": "H03",
+      "claims": [
+        {
+          "claim_id": "S1",
+          "slot_id": "S1",
+          "value": "37.47762023427998459020533909639978559585316321717954922141119248338945258705472",
+          "unit": "percent",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20231023T000000Z"
+          ],
+          "dataset_sha256": "23d32fd101e15b878c00cf4218b3c32ea7b9f41cc8494fadafa78d60850457d8",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2023-10-23T00:00:00Z",
+          "query": {
+            "metric": "share_pct",
+            "operation": "last",
+            "start": "2023-10-23T00:00:00Z",
+            "end": "2023-10-23T00:00:00Z",
+            "coin": "USDC"
+          }
+        },
+        {
+          "claim_id": "S2",
+          "slot_id": "S2",
+          "value": "1.10197463904849333381448613170676242069443123226867965438081",
+          "unit": "percentage_points",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20231023T180000Z",
+            "E_UTC_20231023T190000Z",
+            "E_UTC_20231023T200000Z",
+            "E_UTC_20231023T210000Z",
+            "E_UTC_20231023T230000Z",
+            "E_UTC_20231024T000000Z"
+          ],
+          "dataset_sha256": "23d32fd101e15b878c00cf4218b3c32ea7b9f41cc8494fadafa78d60850457d8",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "interval_start": "2023-10-23T20:00:00Z",
+          "interval_end": "2023-10-23T21:00:00Z",
+          "query": {
+            "coin": "USDC",
+            "end": "2023-10-24T00:00:00Z",
+            "metric": "share_pct",
+            "operation": "max_hourly_change",
+            "start": "2023-10-23T18:00:00Z"
+          }
+        }
+      ],
+      "answer": "S1: 37.47762023427998459020533909639978559585316321717954922141119248338945258705472 percent\nS2: 1.10197463904849333381448613170676242069443123226867965438081 percentage_points",
+      "withdrawals": [
+        {
+          "claim_id": "S3",
+          "verdict": "UNKNOWN",
+          "reason": "refusal_or_omission"
+        }
+      ]
+    }
+  },
+  {
+    "run_id": "H01_G_2",
+    "model_run_status": "completed",
+    "input_report_sha256": "0be9d1dcca4fb8a9a277a202eb7d9285ff54ae009040d64ad676017f3b065be9",
+    "baseline_verify_publish_seconds": 0.013707291000173427,
+    "recovery_verify_publish_seconds": 0.008253874999354593,
+    "recovery_records": {},
+    "recovery_publication": {
+      "task_id": "H01",
+      "claims": [
+        {
+          "claim_id": "c1_dai_share",
+          "slot_id": "S1",
+          "value": "39.618516627350289197390565672916427773948699196430056358742863646349771413512293",
+          "unit": "percent",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20231023T020000Z"
+          ],
+          "dataset_sha256": "23d32fd101e15b878c00cf4218b3c32ea7b9f41cc8494fadafa78d60850457d8",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2023-10-23T02:00:00Z",
+          "query": {
+            "metric": "share_pct",
+            "operation": "last",
+            "start": "2023-10-23T02:00:00Z",
+            "end": "2023-10-23T02:00:00Z",
+            "coin": "DAI"
+          }
+        },
+        {
+          "claim_id": "c2_quote_1000",
+          "slot_id": "S2",
+          "value": "0.999565335",
+          "unit": "USDT/USDC",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20231023T020000Z"
+          ],
+          "dataset_sha256": "23d32fd101e15b878c00cf4218b3c32ea7b9f41cc8494fadafa78d60850457d8",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2023-10-23T02:00:00Z",
+          "query": {
+            "metric": "quote_rate",
+            "operation": "last",
+            "start": "2023-10-23T02:00:00Z",
+            "end": "2023-10-23T02:00:00Z",
+            "direction": "USDC_USDT",
+            "size": 1000
+          }
+        },
+        {
+          "claim_id": "c3_size_sens",
+          "slot_id": "S3",
+          "value": "0.01357510062111147541946320097225060330848708353816611697523504053889583915992845",
+          "unit": "basis_points",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20231023T020000Z"
+          ],
+          "dataset_sha256": "23d32fd101e15b878c00cf4218b3c32ea7b9f41cc8494fadafa78d60850457d8",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2023-10-23T02:00:00Z",
+          "query": {
+            "metric": "size_sensitivity_bps",
+            "operation": "last",
+            "start": "2023-10-23T02:00:00Z",
+            "end": "2023-10-23T02:00:00Z",
+            "direction": "USDC_USDT",
+            "size": 100000
+          }
+        }
+      ],
+      "answer": "c1_dai_share: 39.618516627350289197390565672916427773948699196430056358742863646349771413512293 percent\nc2_quote_1000: 0.999565335 USDT/USDC\nc3_size_sens: 0.01357510062111147541946320097225060330848708353816611697523504053889583915992845 basis_points",
+      "withdrawals": []
+    }
+  },
+  {
+    "run_id": "H01_G_1",
+    "model_run_status": "completed",
+    "input_report_sha256": "9527c3c2fcdf296119f62e6127bdfa130391272694dd06c88591e81df8bec033",
+    "baseline_verify_publish_seconds": 0.01416975000029197,
+    "recovery_verify_publish_seconds": 0.008385250002902467,
+    "recovery_records": {},
+    "recovery_publication": {
+      "task_id": "H01",
+      "claims": [
+        {
+          "claim_id": "S1_dai_share",
+          "slot_id": "S1",
+          "value": "39.618516627350289197390565672916427773948699196430056358742863646349771413512293",
+          "unit": "percent",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20231023T020000Z"
+          ],
+          "dataset_sha256": "23d32fd101e15b878c00cf4218b3c32ea7b9f41cc8494fadafa78d60850457d8",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2023-10-23T02:00:00Z",
+          "query": {
+            "metric": "share_pct",
+            "operation": "last",
+            "start": "2023-10-23T02:00:00Z",
+            "end": "2023-10-23T02:00:00Z",
+            "coin": "DAI"
+          }
+        },
+        {
+          "claim_id": "S2_quote_rate",
+          "slot_id": "S2",
+          "value": "0.999565335",
+          "unit": "USDT/USDC",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20231023T020000Z"
+          ],
+          "dataset_sha256": "23d32fd101e15b878c00cf4218b3c32ea7b9f41cc8494fadafa78d60850457d8",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2023-10-23T02:00:00Z",
+          "query": {
+            "metric": "quote_rate",
+            "operation": "last",
+            "start": "2023-10-23T02:00:00Z",
+            "end": "2023-10-23T02:00:00Z",
+            "direction": "USDC_USDT",
+            "size": 1000
+          }
+        },
+        {
+          "claim_id": "S3_size_sens",
+          "slot_id": "S3",
+          "value": "0.01357510062111147541946320097225060330848708353816611697523504053889583915992845",
+          "unit": "basis_points",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20231023T020000Z"
+          ],
+          "dataset_sha256": "23d32fd101e15b878c00cf4218b3c32ea7b9f41cc8494fadafa78d60850457d8",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2023-10-23T02:00:00Z",
+          "query": {
+            "metric": "size_sensitivity_bps",
+            "operation": "last",
+            "start": "2023-10-23T02:00:00Z",
+            "end": "2023-10-23T02:00:00Z",
+            "direction": "USDC_USDT",
+            "size": 100000
+          }
+        }
+      ],
+      "answer": "S1_dai_share: 39.618516627350289197390565672916427773948699196430056358742863646349771413512293 percent\nS2_quote_rate: 0.999565335 USDT/USDC\nS3_size_sens: 0.01357510062111147541946320097225060330848708353816611697523504053889583915992845 basis_points",
+      "withdrawals": []
+    }
+  },
+  {
+    "run_id": "H02_E_3",
+    "model_run_status": "completed",
+    "input_report_sha256": "dcd15d2057e426a6b127a9edcf01d9a93fd4afaa15efe3ebe46a15740f79298e",
+    "baseline_verify_publish_seconds": 0.014945082999474835,
+    "recovery_verify_publish_seconds": 0.009054417001607362,
+    "recovery_records": {},
+    "recovery_publication": {
+      "task_id": "H02",
+      "claims": [
+        {
+          "claim_id": "S1_usdc_share_change",
+          "slot_id": "S1",
+          "value": "2.73667605264892268349478287623900430371748028403319375657594",
+          "unit": "percentage_points",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20231023T000000Z",
+            "E_UTC_20231024T000000Z"
+          ],
+          "dataset_sha256": "23d32fd101e15b878c00cf4218b3c32ea7b9f41cc8494fadafa78d60850457d8",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "query": {
+            "metric": "share_pct",
+            "operation": "change",
+            "start": "2023-10-23T00:00:00Z",
+            "end": "2023-10-24T00:00:00Z",
+            "coin": "USDC"
+          }
+        },
+        {
+          "claim_id": "S2_imbalance_max",
+          "slot_id": "S2",
+          "value": "0.1542488887882176606371203294185602846065266826029666171229789760507727456115717",
+          "unit": "dimensionless",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20231023T000000Z",
+            "E_UTC_20231023T010000Z",
+            "E_UTC_20231023T020000Z",
+            "E_UTC_20231023T030000Z",
+            "E_UTC_20231023T040000Z",
+            "E_UTC_20231023T050000Z",
+            "E_UTC_20231023T060000Z",
+            "E_UTC_20231023T070000Z",
+            "E_UTC_20231023T080000Z",
+            "E_UTC_20231023T090000Z",
+            "E_UTC_20231023T100000Z",
+            "E_UTC_20231023T110000Z",
+            "E_UTC_20231023T120000Z",
+            "E_UTC_20231023T130000Z",
+            "E_UTC_20231023T140000Z",
+            "E_UTC_20231023T150000Z",
+            "E_UTC_20231023T160000Z",
+            "E_UTC_20231023T170000Z",
+            "E_UTC_20231023T180000Z",
+            "E_UTC_20231023T190000Z",
+            "E_UTC_20231023T200000Z",
+            "E_UTC_20231023T210000Z",
+            "E_UTC_20231023T220000Z",
+            "E_UTC_20231023T230000Z",
+            "E_UTC_20231024T000000Z"
+          ],
+          "dataset_sha256": "23d32fd101e15b878c00cf4218b3c32ea7b9f41cc8494fadafa78d60850457d8",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2023-10-23T22:00:00Z",
+          "query": {
+            "metric": "imbalance_l1",
+            "operation": "maximum",
+            "start": "2023-10-23T00:00:00Z",
+            "end": "2023-10-24T00:00:00Z"
+          }
+        }
+      ],
+      "answer": "S1_usdc_share_change: 2.73667605264892268349478287623900430371748028403319375657594 percentage_points\nS2_imbalance_max: 0.1542488887882176606371203294185602846065266826029666171229789760507727456115717 dimensionless",
+      "withdrawals": [
+        {
+          "claim_id": "S3_quote_rate",
+          "verdict": "FAIL",
+          "reason": "task_query_mismatch"
+        }
+      ]
+    }
+  },
+  {
+    "run_id": "H03_G_2",
+    "model_run_status": "completed",
+    "input_report_sha256": "5ac49e9afca07fa1c9afa45b1f47de2a15e5f884419616a958d52a15f8749b38",
+    "baseline_verify_publish_seconds": 0.013617500000691507,
+    "recovery_verify_publish_seconds": 0.00767154099594336,
+    "recovery_records": {},
+    "recovery_publication": {
+      "task_id": "H03",
+      "claims": [
+        {
+          "claim_id": "S1_share",
+          "slot_id": "S1",
+          "value": "37.47762023427998459020533909639978559585316321717954922141119248338945258705472",
+          "unit": "percent",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20231023T000000Z"
+          ],
+          "dataset_sha256": "23d32fd101e15b878c00cf4218b3c32ea7b9f41cc8494fadafa78d60850457d8",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2023-10-23T00:00:00Z",
+          "query": {
+            "metric": "share_pct",
+            "operation": "last",
+            "start": "2023-10-23T00:00:00Z",
+            "end": "2023-10-23T00:00:00Z",
+            "coin": "USDC"
+          }
+        },
+        {
+          "claim_id": "S2_maxchg",
+          "slot_id": "S2",
+          "value": "1.10197463904849333381448613170676242069443123226867965438081",
+          "unit": "percentage_points",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20231023T180000Z",
+            "E_UTC_20231023T190000Z",
+            "E_UTC_20231023T200000Z",
+            "E_UTC_20231023T210000Z",
+            "E_UTC_20231023T230000Z",
+            "E_UTC_20231024T000000Z"
+          ],
+          "dataset_sha256": "23d32fd101e15b878c00cf4218b3c32ea7b9f41cc8494fadafa78d60850457d8",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "interval_start": "2023-10-23T20:00:00Z",
+          "interval_end": "2023-10-23T21:00:00Z",
+          "query": {
+            "coin": "USDC",
+            "end": "2023-10-24T00:00:00Z",
+            "metric": "share_pct",
+            "operation": "max_hourly_change",
+            "start": "2023-10-23T18:00:00Z"
+          }
+        }
+      ],
+      "answer": "S1_share: 37.47762023427998459020533909639978559585316321717954922141119248338945258705472 percent\nS2_maxchg: 1.10197463904849333381448613170676242069443123226867965438081 percentage_points",
+      "withdrawals": [
+        {
+          "claim_id": "S3_peak",
+          "verdict": "UNKNOWN",
+          "reason": "refusal_or_omission"
+        }
+      ]
+    }
+  },
+  {
+    "run_id": "H01_E_1",
+    "model_run_status": "completed",
+    "input_report_sha256": "3b5b50418f8b38eaa163c355db8f9b634bcc5d34df061901fe12f298e74ed905",
+    "baseline_verify_publish_seconds": 0.012990748997253831,
+    "recovery_verify_publish_seconds": 0.00832879199879244,
+    "recovery_records": {},
+    "recovery_publication": {
+      "task_id": "H01",
+      "claims": [
+        {
+          "claim_id": "S1_dai_share",
+          "slot_id": "S1",
+          "value": "39.618516627350289197390565672916427773948699196430056358742863646349771413512293",
+          "unit": "percent",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20231023T020000Z"
+          ],
+          "dataset_sha256": "23d32fd101e15b878c00cf4218b3c32ea7b9f41cc8494fadafa78d60850457d8",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2023-10-23T02:00:00Z",
+          "query": {
+            "metric": "share_pct",
+            "operation": "last",
+            "start": "2023-10-23T02:00:00Z",
+            "end": "2023-10-23T02:00:00Z",
+            "coin": "DAI"
+          }
+        },
+        {
+          "claim_id": "S2_quote_rate_1000",
+          "slot_id": "S2",
+          "value": "0.999565335",
+          "unit": "USDT/USDC",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20231023T020000Z"
+          ],
+          "dataset_sha256": "23d32fd101e15b878c00cf4218b3c32ea7b9f41cc8494fadafa78d60850457d8",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2023-10-23T02:00:00Z",
+          "query": {
+            "metric": "quote_rate",
+            "operation": "last",
+            "start": "2023-10-23T02:00:00Z",
+            "end": "2023-10-23T02:00:00Z",
+            "direction": "USDC_USDT",
+            "size": 1000
+          }
+        },
+        {
+          "claim_id": "S3_size_sens",
+          "slot_id": "S3",
+          "value": "0.01357510062111147541946320097225060330848708353816611697523504053889583915992845",
+          "unit": "basis_points",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20231023T020000Z"
+          ],
+          "dataset_sha256": "23d32fd101e15b878c00cf4218b3c32ea7b9f41cc8494fadafa78d60850457d8",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2023-10-23T02:00:00Z",
+          "query": {
+            "metric": "size_sensitivity_bps",
+            "operation": "last",
+            "start": "2023-10-23T02:00:00Z",
+            "end": "2023-10-23T02:00:00Z",
+            "direction": "USDC_USDT",
+            "size": 100000
+          }
+        }
+      ],
+      "answer": "S1_dai_share: 39.618516627350289197390565672916427773948699196430056358742863646349771413512293 percent\nS2_quote_rate_1000: 0.999565335 USDT/USDC\nS3_size_sens: 0.01357510062111147541946320097225060330848708353816611697523504053889583915992845 basis_points",
+      "withdrawals": []
+    }
+  },
+  {
+    "run_id": "H02_E_2",
+    "model_run_status": "completed",
+    "input_report_sha256": "eb8cc2e5d0bf0794bd216ccae4f0bc298f8d922f6fdfb937a174a4f24c624c5d",
+    "baseline_verify_publish_seconds": 0.01503812600276433,
+    "recovery_verify_publish_seconds": 0.008919291001802776,
+    "recovery_records": {},
+    "recovery_publication": {
+      "task_id": "H02",
+      "claims": [],
+      "answer": "",
+      "withdrawals": [
+        {
+          "claim_id": "C1",
+          "verdict": "UNKNOWN",
+          "reason": "withdrawn_dependency"
+        },
+        {
+          "claim_id": "C2",
+          "verdict": "UNKNOWN",
+          "reason": "withdrawn_dependency"
+        },
+        {
+          "claim_id": "C3",
+          "verdict": "FAIL",
+          "reason": "task_query_mismatch"
+        }
+      ]
+    }
+  },
+  {
+    "run_id": "H03_G_1",
+    "model_run_status": "completed",
+    "input_report_sha256": "b304a37afddedfc364ab862014f5062a0f09a40c292d51691186733dfb8c4061",
+    "baseline_verify_publish_seconds": 0.011790457996539772,
+    "recovery_verify_publish_seconds": 0.007568749999336433,
+    "recovery_records": {},
+    "recovery_publication": {
+      "task_id": "H03",
+      "claims": [
+        {
+          "claim_id": "S1_usdc_share_first",
+          "slot_id": "S1",
+          "value": "37.47762023427998459020533909639978559585316321717954922141119248338945258705472",
+          "unit": "percent",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20231023T000000Z"
+          ],
+          "dataset_sha256": "23d32fd101e15b878c00cf4218b3c32ea7b9f41cc8494fadafa78d60850457d8",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2023-10-23T00:00:00Z",
+          "query": {
+            "metric": "share_pct",
+            "operation": "last",
+            "start": "2023-10-23T00:00:00Z",
+            "end": "2023-10-23T00:00:00Z",
+            "coin": "USDC"
+          }
+        },
+        {
+          "claim_id": "S2_usdc_max_hourly_change",
+          "slot_id": "S2",
+          "value": "1.10197463904849333381448613170676242069443123226867965438081",
+          "unit": "percentage_points",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20231023T180000Z",
+            "E_UTC_20231023T190000Z",
+            "E_UTC_20231023T200000Z",
+            "E_UTC_20231023T210000Z",
+            "E_UTC_20231023T230000Z",
+            "E_UTC_20231024T000000Z"
+          ],
+          "dataset_sha256": "23d32fd101e15b878c00cf4218b3c32ea7b9f41cc8494fadafa78d60850457d8",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "interval_start": "2023-10-23T20:00:00Z",
+          "interval_end": "2023-10-23T21:00:00Z",
+          "query": {
+            "metric": "share_pct",
+            "operation": "max_hourly_change",
+            "start": "2023-10-23T18:00:00Z",
+            "end": "2023-10-24T00:00:00Z",
+            "coin": "USDC"
+          }
+        }
+      ],
+      "answer": "S1_usdc_share_first: 37.47762023427998459020533909639978559585316321717954922141119248338945258705472 percent\nS2_usdc_max_hourly_change: 1.10197463904849333381448613170676242069443123226867965438081 percentage_points",
+      "withdrawals": [
+        {
+          "claim_id": "S3_continuous_imbalance_peak",
+          "verdict": "UNKNOWN",
+          "reason": "refusal_or_omission"
+        }
+      ]
+    }
+  },
+  {
+    "run_id": "H03_E_3",
+    "model_run_status": "completed",
+    "input_report_sha256": "8677721b2a1e1f6855f60f57bd796fd7360362c27ab7002efcb7210bce826f9f",
+    "baseline_verify_publish_seconds": 0.012021167000057176,
+    "recovery_verify_publish_seconds": 0.007799207996868063,
+    "recovery_records": {
+      "S2_usdc_max_hourly_up": {
+        "status": "recovered",
+        "reason": "strict_subset_evidence_attribution_recovery",
+        "original_evidence_ids": [
+          "E_UTC_20231023T200000Z",
+          "E_UTC_20231023T210000Z"
+        ],
+        "added_evidence_ids": [
+          "E_UTC_20231023T180000Z",
+          "E_UTC_20231023T190000Z",
+          "E_UTC_20231023T230000Z",
+          "E_UTC_20231024T000000Z"
+        ],
+        "recovered_evidence_ids": [
+          "E_UTC_20231023T180000Z",
+          "E_UTC_20231023T190000Z",
+          "E_UTC_20231023T200000Z",
+          "E_UTC_20231023T210000Z",
+          "E_UTC_20231023T230000Z",
+          "E_UTC_20231024T000000Z"
+        ]
+      }
+    },
+    "recovery_publication": {
+      "task_id": "H03",
+      "claims": [
+        {
+          "claim_id": "S1_usdc_share_first",
+          "slot_id": "S1",
+          "value": "37.47762023427998459020533909639978559585316321717954922141119248338945258705472",
+          "unit": "percent",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20231023T000000Z"
+          ],
+          "dataset_sha256": "23d32fd101e15b878c00cf4218b3c32ea7b9f41cc8494fadafa78d60850457d8",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2023-10-23T00:00:00Z",
+          "query": {
+            "metric": "share_pct",
+            "operation": "last",
+            "start": "2023-10-23T00:00:00Z",
+            "end": "2023-10-23T00:00:00Z",
+            "coin": "USDC"
+          }
+        },
+        {
+          "claim_id": "S2_usdc_max_hourly_up",
+          "slot_id": "S2",
+          "value": "1.10197463904849333381448613170676242069443123226867965438081",
+          "unit": "percentage_points",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20231023T180000Z",
+            "E_UTC_20231023T190000Z",
+            "E_UTC_20231023T200000Z",
+            "E_UTC_20231023T210000Z",
+            "E_UTC_20231023T230000Z",
+            "E_UTC_20231024T000000Z"
+          ],
+          "dataset_sha256": "23d32fd101e15b878c00cf4218b3c32ea7b9f41cc8494fadafa78d60850457d8",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "interval_start": "2023-10-23T20:00:00Z",
+          "interval_end": "2023-10-23T21:00:00Z",
+          "query": {
+            "coin": "USDC",
+            "metric": "share_pct",
+            "operation": "max_hourly_change",
+            "start": "2023-10-23T18:00:00Z",
+            "end": "2023-10-24T00:00:00Z"
+          }
+        }
+      ],
+      "answer": "S1_usdc_share_first: 37.47762023427998459020533909639978559585316321717954922141119248338945258705472 percent\nS2_usdc_max_hourly_up: 1.10197463904849333381448613170676242069443123226867965438081 percentage_points",
+      "withdrawals": [
+        {
+          "claim_id": "S3_continuous_peak_refused",
+          "verdict": "UNKNOWN",
+          "reason": "refusal_or_omission"
+        }
+      ]
+    }
+  },
+  {
+    "run_id": "H02_G_2",
+    "model_run_status": "completed",
+    "input_report_sha256": "059f71509828f4276ce61f1d4401b0df323f81c9117f5b8461c4bc4237c0b12b",
+    "baseline_verify_publish_seconds": 0.012817333998100366,
+    "recovery_verify_publish_seconds": 0.008530625003913883,
+    "recovery_records": {
+      "S2": {
+        "status": "rejected",
+        "reason": "original_evidence_not_strict_subset",
+        "original_evidence_ids": [
+          "E_UTC_20231023T22000000Z"
+        ],
+        "unexpected_evidence_ids": [
+          "E_UTC_20231023T22000000Z"
+        ],
+        "expected_evidence_ids": [
+          "E_UTC_20231023T000000Z",
+          "E_UTC_20231023T010000Z",
+          "E_UTC_20231023T020000Z",
+          "E_UTC_20231023T030000Z",
+          "E_UTC_20231023T040000Z",
+          "E_UTC_20231023T050000Z",
+          "E_UTC_20231023T060000Z",
+          "E_UTC_20231023T070000Z",
+          "E_UTC_20231023T080000Z",
+          "E_UTC_20231023T090000Z",
+          "E_UTC_20231023T100000Z",
+          "E_UTC_20231023T110000Z",
+          "E_UTC_20231023T120000Z",
+          "E_UTC_20231023T130000Z",
+          "E_UTC_20231023T140000Z",
+          "E_UTC_20231023T150000Z",
+          "E_UTC_20231023T160000Z",
+          "E_UTC_20231023T170000Z",
+          "E_UTC_20231023T180000Z",
+          "E_UTC_20231023T190000Z",
+          "E_UTC_20231023T200000Z",
+          "E_UTC_20231023T210000Z",
+          "E_UTC_20231023T220000Z",
+          "E_UTC_20231023T230000Z",
+          "E_UTC_20231024T000000Z"
+        ]
+      }
+    },
+    "recovery_publication": {
+      "task_id": "H02",
+      "claims": [
+        {
+          "claim_id": "S1",
+          "slot_id": "S1",
+          "value": "2.73667605264892268349478287623900430371748028403319375657594",
+          "unit": "percentage_points",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20231023T000000Z",
+            "E_UTC_20231024T000000Z"
+          ],
+          "dataset_sha256": "23d32fd101e15b878c00cf4218b3c32ea7b9f41cc8494fadafa78d60850457d8",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "query": {
+            "metric": "share_pct",
+            "operation": "change",
+            "start": "2023-10-23T00:00:00Z",
+            "end": "2023-10-24T00:00:00Z",
+            "coin": "USDC"
+          }
+        }
+      ],
+      "answer": "S1: 2.73667605264892268349478287623900430371748028403319375657594 percentage_points",
+      "withdrawals": [
+        {
+          "claim_id": "S2",
+          "verdict": "UNKNOWN",
+          "reason": "incomplete_attribution",
+          "expected": {
+            "query": {
+              "metric": "imbalance_l1",
+              "operation": "maximum",
+              "start": "2023-10-23T00:00:00Z",
+              "end": "2023-10-24T00:00:00Z"
+            },
+            "value": "0.1542488887882176606371203294185602846065266826029666171229789760507727456115717",
+            "unit": "dimensionless",
+            "sample_count": 25,
+            "evidence_ids": [
+              "E_UTC_20231023T000000Z",
+              "E_UTC_20231023T010000Z",
+              "E_UTC_20231023T020000Z",
+              "E_UTC_20231023T030000Z",
+              "E_UTC_20231023T040000Z",
+              "E_UTC_20231023T050000Z",
+              "E_UTC_20231023T060000Z",
+              "E_UTC_20231023T070000Z",
+              "E_UTC_20231023T080000Z",
+              "E_UTC_20231023T090000Z",
+              "E_UTC_20231023T100000Z",
+              "E_UTC_20231023T110000Z",
+              "E_UTC_20231023T120000Z",
+              "E_UTC_20231023T130000Z",
+              "E_UTC_20231023T140000Z",
+              "E_UTC_20231023T150000Z",
+              "E_UTC_20231023T160000Z",
+              "E_UTC_20231023T170000Z",
+              "E_UTC_20231023T180000Z",
+              "E_UTC_20231023T190000Z",
+              "E_UTC_20231023T200000Z",
+              "E_UTC_20231023T210000Z",
+              "E_UTC_20231023T220000Z",
+              "E_UTC_20231023T230000Z",
+              "E_UTC_20231024T000000Z"
+            ],
+            "blocks": [
+              {
+                "snapshot_id": "UTC_20231023T000000Z",
+                "block_number": 18409265,
+                "block_hash": "0xcb3dd4caadac7d1e48f5050c1ed2b4bf8e09456b9873cbb9b9db59e4045298fb"
+              },
+              {
+                "snapshot_id": "UTC_20231023T010000Z",
+                "block_number": 18409565,
+                "block_hash": "0x85f08822291d746d7542950bb4d21098639cac0e2060695955941f34846aa8f0"
+              },
+              {
+                "snapshot_id": "UTC_20231023T020000Z",
+                "block_number": 18409863,
+                "block_hash": "0xac199fd406d40f68af927885ac60f50725c5ac1eaabe56e4b57eecd2e734ad58"
+              },
+              {
+                "snapshot_id": "UTC_20231023T030000Z",
+                "block_number": 18410162,
+                "block_hash": "0xb533d7c84a82de82a249cfea9e9fcbac1d0e84759449e4e5de01374086ec6a17"
+              },
+              {
+                "snapshot_id": "UTC_20231023T040000Z",
+                "block_number": 18410460,
+                "block_hash": "0x902db4fe4b93235217e99d94148cd5af2cad66ac2c71a071eb1621c351027f17"
+              },
+              {
+                "snapshot_id": "UTC_20231023T050000Z",
+                "block_number": 18410757,
+                "block_hash": "0x77b06b889abea8b1d315a94759b77b61a19a63ae716f49f1e06d0f76f30085ba"
+              },
+              {
+                "snapshot_id": "UTC_20231023T060000Z",
+                "block_number": 18411051,
+                "block_hash": "0xcf5b98f76977c0a2601894d0aba32b415c4deb5fd771bb035b9639e050a2c9dc"
+              },
+              {
+                "snapshot_id": "UTC_20231023T070000Z",
+                "block_number": 18411350,
+                "block_hash": "0x52d322d380e2484ba76ce5a2cc965d574769c40a1f985ffaa54f865f727d6078"
+              },
+              {
+                "snapshot_id": "UTC_20231023T080000Z",
+                "block_number": 18411646,
+                "block_hash": "0x8c0e83a2449e9e8b30864bae62e6aa1a6e22e0392a53508f462e650d94d8345b"
+              },
+              {
+                "snapshot_id": "UTC_20231023T090000Z",
+                "block_number": 18411936,
+                "block_hash": "0x3d4fe25e9d7116984e4d2047c96d4fd439cb47515cd1e7e72e911cee73981361"
+              },
+              {
+                "snapshot_id": "UTC_20231023T100000Z",
+                "block_number": 18412232,
+                "block_hash": "0x6c4dc7215cce94e20a08de786087bc481aaa3e8c65905afb8b8b521e9d44eb17"
+              },
+              {
+                "snapshot_id": "UTC_20231023T110000Z",
+                "block_number": 18412529,
+                "block_hash": "0x77db4c1cea6685d6c850b6e9617b1187fd2e98661dd1be9c8eb86fc905c23e1f"
+              },
+              {
+                "snapshot_id": "UTC_20231023T120000Z",
+                "block_number": 18412828,
+                "block_hash": "0xe70798541c57c8ff60d4dc4597a625a1c9af9b7377e921da3df09970a83520a7"
+              },
+              {
+                "snapshot_id": "UTC_20231023T130000Z",
+                "block_number": 18413126,
+                "block_hash": "0x03dacf1bf09101d8ccbe01ce38e5983e2d9a30f5483f0fd66fcff515ce514a5e"
+              },
+              {
+                "snapshot_id": "UTC_20231023T140000Z",
+                "block_number": 18413422,
+                "block_hash": "0xcbfa4e827f7e16f7504a45abc1ecb8e8eecda1ad272cc0b0b137cedbe9312b3b"
+              },
+              {
+                "snapshot_id": "UTC_20231023T150000Z",
+                "block_number": 18413719,
+                "block_hash": "0x965b380fe7ec172b13d1773b46aba5256f2e2648d8399701a6c25ca08911aad9"
+              },
+              {
+                "snapshot_id": "UTC_20231023T160000Z",
+                "block_number": 18414019,
+                "block_hash": "0xbecd4c3601c4e7ba855ae8f998fb5eca6985ce2f3c26d8d5d25010cde70eba5c"
+              },
+              {
+                "snapshot_id": "UTC_20231023T170000Z",
+                "block_number": 18414317,
+                "block_hash": "0x85ea5e8c91e67720cd31f6da1b386d60e60c4f91134e62d4a0203571a708d5b3"
+              },
+              {
+                "snapshot_id": "UTC_20231023T180000Z",
+                "block_number": 18414614,
+                "block_hash": "0xba2660cdc769349e9a7dc6db5ff17668f7f65edb7459e5e7151b5f4d18b7ec23"
+              },
+              {
+                "snapshot_id": "UTC_20231023T190000Z",
+                "block_number": 18414912,
+                "block_hash": "0xff02143ecd07688d0b092eb25c1675f2e2f892775820e829a21716d33e42c33d"
+              },
+              {
+                "snapshot_id": "UTC_20231023T200000Z",
+                "block_number": 18415211,
+                "block_hash": "0x2d410acfa8264a4b723b951f1b79ed243c202fc909501e045077b42b21225f18"
+              },
+              {
+                "snapshot_id": "UTC_20231023T210000Z",
+                "block_number": 18415510,
+                "block_hash": "0xadbfa1e2d3b0ad3d47689d6aecc0f5d9ca017900bafb60a544a2d3ad84272804"
+              },
+              {
+                "snapshot_id": "UTC_20231023T220000Z",
+                "block_number": 18415810,
+                "block_hash": "0xa2109a9dcf767242066821d9fc5dc6b382c3dbd3e6d21074a8aa84d6e8d98f65"
+              },
+              {
+                "snapshot_id": "UTC_20231023T230000Z",
+                "block_number": 18416107,
+                "block_hash": "0x38dbbd607f884dd8a923dc460f0aa247674a2e959a7f34b21642b6901cde16df"
+              },
+              {
+                "snapshot_id": "UTC_20231024T000000Z",
+                "block_number": 18416406,
+                "block_hash": "0xb32ecdbbbe144d9ddc7d7f3f9142bb54e1b19db72e3661d00cddad15c088855d"
+              }
+            ],
+            "observed_at": "2023-10-23T21:59:59Z",
+            "target_timestamp_utc": "2023-10-23T22:00:00Z",
+            "snapshot_id": "UTC_20231023T220000Z",
+            "block_number": 18415810,
+            "block_hash": "0xa2109a9dcf767242066821d9fc5dc6b382c3dbd3e6d21074a8aa84d6e8d98f65"
+          }
+        },
+        {
+          "claim_id": "S3",
+          "verdict": "FAIL",
+          "reason": "task_query_mismatch"
+        }
+      ]
+    }
+  },
+  {
+    "run_id": "H01_E_3",
+    "model_run_status": "completed",
+    "input_report_sha256": "ad1b671065a1f3e296641e13783d4aa5a936c7e605f3d0c815182ba0923f5fc1",
+    "baseline_verify_publish_seconds": 0.01367933300207369,
+    "recovery_verify_publish_seconds": 0.008383500004129019,
+    "recovery_records": {},
+    "recovery_publication": {
+      "task_id": "H01",
+      "claims": [
+        {
+          "claim_id": "S1_DAI_share",
+          "slot_id": "S1",
+          "value": "39.618516627350289197390565672916427773948699196430056358742863646349771413512293",
+          "unit": "percent",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20231023T020000Z"
+          ],
+          "dataset_sha256": "23d32fd101e15b878c00cf4218b3c32ea7b9f41cc8494fadafa78d60850457d8",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2023-10-23T02:00:00Z",
+          "query": {
+            "metric": "share_pct",
+            "operation": "last",
+            "start": "2023-10-23T02:00:00Z",
+            "end": "2023-10-23T02:00:00Z",
+            "coin": "DAI"
+          }
+        },
+        {
+          "claim_id": "S2_quote_rate",
+          "slot_id": "S2",
+          "value": "0.999565335",
+          "unit": "USDT/USDC",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20231023T020000Z"
+          ],
+          "dataset_sha256": "23d32fd101e15b878c00cf4218b3c32ea7b9f41cc8494fadafa78d60850457d8",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2023-10-23T02:00:00Z",
+          "query": {
+            "metric": "quote_rate",
+            "operation": "last",
+            "start": "2023-10-23T02:00:00Z",
+            "end": "2023-10-23T02:00:00Z",
+            "direction": "USDC_USDT",
+            "size": 1000
+          }
+        },
+        {
+          "claim_id": "S3_size_sens",
+          "slot_id": "S3",
+          "value": "0.01357510062111147541946320097225060330848708353816611697523504053889583915992845",
+          "unit": "basis_points",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20231023T020000Z"
+          ],
+          "dataset_sha256": "23d32fd101e15b878c00cf4218b3c32ea7b9f41cc8494fadafa78d60850457d8",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2023-10-23T02:00:00Z",
+          "query": {
+            "metric": "size_sensitivity_bps",
+            "operation": "last",
+            "start": "2023-10-23T02:00:00Z",
+            "end": "2023-10-23T02:00:00Z",
+            "direction": "USDC_USDT",
+            "size": 100000
+          }
+        }
+      ],
+      "answer": "S1_DAI_share: 39.618516627350289197390565672916427773948699196430056358742863646349771413512293 percent\nS2_quote_rate: 0.999565335 USDT/USDC\nS3_size_sens: 0.01357510062111147541946320097225060330848708353816611697523504053889583915992845 basis_points",
+      "withdrawals": []
+    }
+  },
+  {
+    "run_id": "H03_G_3",
+    "model_run_status": "completed",
+    "input_report_sha256": "0c0e5cb6c1d35a94411898a126bd05b75d45a726191bae2975d091f5076b9f8b",
+    "baseline_verify_publish_seconds": 0.01284204200055683,
+    "recovery_verify_publish_seconds": 0.007758874999126419,
+    "recovery_records": {
+      "S2_maxhourly": {
+        "status": "recovered",
+        "reason": "strict_subset_evidence_attribution_recovery",
+        "original_evidence_ids": [
+          "E_UTC_20231023T200000Z",
+          "E_UTC_20231023T210000Z"
+        ],
+        "added_evidence_ids": [
+          "E_UTC_20231023T180000Z",
+          "E_UTC_20231023T190000Z",
+          "E_UTC_20231023T230000Z",
+          "E_UTC_20231024T000000Z"
+        ],
+        "recovered_evidence_ids": [
+          "E_UTC_20231023T180000Z",
+          "E_UTC_20231023T190000Z",
+          "E_UTC_20231023T200000Z",
+          "E_UTC_20231023T210000Z",
+          "E_UTC_20231023T230000Z",
+          "E_UTC_20231024T000000Z"
+        ]
+      }
+    },
+    "recovery_publication": {
+      "task_id": "H03",
+      "claims": [
+        {
+          "claim_id": "S1_share",
+          "slot_id": "S1",
+          "value": "37.47762023427998459020533909639978559585316321717954922141119248338945258705472",
+          "unit": "percent",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20231023T000000Z"
+          ],
+          "dataset_sha256": "23d32fd101e15b878c00cf4218b3c32ea7b9f41cc8494fadafa78d60850457d8",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2023-10-23T00:00:00Z",
+          "query": {
+            "metric": "share_pct",
+            "operation": "last",
+            "start": "2023-10-23T00:00:00Z",
+            "end": "2023-10-23T00:00:00Z",
+            "coin": "USDC"
+          }
+        },
+        {
+          "claim_id": "S2_maxhourly",
+          "slot_id": "S2",
+          "value": "1.10197463904849333381448613170676242069443123226867965438081",
+          "unit": "percentage_points",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20231023T180000Z",
+            "E_UTC_20231023T190000Z",
+            "E_UTC_20231023T200000Z",
+            "E_UTC_20231023T210000Z",
+            "E_UTC_20231023T230000Z",
+            "E_UTC_20231024T000000Z"
+          ],
+          "dataset_sha256": "23d32fd101e15b878c00cf4218b3c32ea7b9f41cc8494fadafa78d60850457d8",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "interval_start": "2023-10-23T20:00:00Z",
+          "interval_end": "2023-10-23T21:00:00Z",
+          "query": {
+            "metric": "share_pct",
+            "operation": "max_hourly_change",
+            "start": "2023-10-23T18:00:00Z",
+            "end": "2023-10-24T00:00:00Z",
+            "coin": "USDC"
+          }
+        }
+      ],
+      "answer": "S1_share: 37.47762023427998459020533909639978559585316321717954922141119248338945258705472 percent\nS2_maxhourly: 1.10197463904849333381448613170676242069443123226867965438081 percentage_points",
+      "withdrawals": [
+        {
+          "claim_id": "S3_continuous",
+          "verdict": "UNKNOWN",
+          "reason": "refusal_or_omission"
+        }
+      ]
+    }
+  }
+]

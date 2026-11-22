@@ -1,0 +1,3082 @@
+[
+  {
+    "run_id": "H01_G_3",
+    "task_id": "H01",
+    "group": "G",
+    "repetition": 3,
+    "status": "completed",
+    "report": {
+      "task_id": "H01",
+      "answer": "2024-01-11T02:00:00Z 单点快照显示，Curve 3pool 中 DAI 名义占比约 39.17%，池子结构仍以 DAI 相对偏少、USDC/USDT 偏多为主。1000 USDC→USDT 报价率约 0.99968，几乎贴近面值；而 100000 规模相对 1000 的规模敏感度仅约 0.0108 个基点，说明在该时点该方向的深度充足，大额相对小额几乎没有额外滑点。三项均为单点观测，不做跨时点趋势推断。",
+      "claims": [
+        {
+          "claim_id": "S1_DAI_share",
+          "slot_id": "S1",
+          "query": {
+            "coin": "DAI",
+            "metric": "share_pct",
+            "operation": "last",
+            "start": "2024-01-11T02:00:00Z",
+            "end": "2024-01-11T02:00:00Z"
+          },
+          "value": "39.169845376204093944641111039937673244929110780396433989844812088759407579197655",
+          "unit": "percent",
+          "status": "supported",
+          "explanation": "单点快照的 DAI 名义占比，来自池内 ERC20 balanceOf 聚合计算。",
+          "evidence_ids": [
+            "E_UTC_20240111T020000Z"
+          ],
+          "depends_on": [],
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "target_timestamp_utc": "2024-01-11T02:00:00Z"
+        },
+        {
+          "claim_id": "S2_USDC_USDT_1000",
+          "slot_id": "S2",
+          "query": {
+            "direction": "USDC_USDT",
+            "metric": "quote_rate",
+            "operation": "last",
+            "size": 1000,
+            "start": "2024-01-11T02:00:00Z",
+            "end": "2024-01-11T02:00:00Z"
+          },
+          "value": "0.999675549",
+          "unit": "USDT/USDC",
+          "status": "supported",
+          "explanation": "1000 USDC→USDT 单点报价率，接近 1。",
+          "evidence_ids": [
+            "E_UTC_20240111T020000Z"
+          ],
+          "depends_on": [],
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "target_timestamp_utc": "2024-01-11T02:00:00Z"
+        },
+        {
+          "claim_id": "S3_size_sens_100k",
+          "slot_id": "S3",
+          "query": {
+            "direction": "USDC_USDT",
+            "metric": "size_sensitivity_bps",
+            "operation": "last",
+            "size": 100000,
+            "start": "2024-01-11T02:00:00Z",
+            "end": "2024-01-11T02:00:00Z"
+          },
+          "value": "0.010763492225816158278369575287071465624093202663697439297877635696779455791210914",
+          "unit": "basis_points",
+          "status": "supported",
+          "explanation": "100000 相对 1000 USDC→USDT 输入的规模敏感度，单点计算，数值极小表明深度充足。",
+          "evidence_ids": [
+            "E_UTC_20240111T020000Z"
+          ],
+          "depends_on": [],
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "target_timestamp_utc": "2024-01-11T02:00:00Z"
+        }
+      ]
+    },
+    "published": {
+      "task_id": "H01",
+      "claims": [
+        {
+          "claim_id": "S1_DAI_share",
+          "slot_id": "S1",
+          "value": "39.169845376204093944641111039937673244929110780396433989844812088759407579197655",
+          "unit": "percent",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20240111T020000Z"
+          ],
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2024-01-11T02:00:00Z",
+          "query": {
+            "metric": "share_pct",
+            "operation": "last",
+            "start": "2024-01-11T02:00:00Z",
+            "end": "2024-01-11T02:00:00Z",
+            "coin": "DAI"
+          }
+        },
+        {
+          "claim_id": "S2_USDC_USDT_1000",
+          "slot_id": "S2",
+          "value": "0.999675549",
+          "unit": "USDT/USDC",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20240111T020000Z"
+          ],
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2024-01-11T02:00:00Z",
+          "query": {
+            "metric": "quote_rate",
+            "operation": "last",
+            "start": "2024-01-11T02:00:00Z",
+            "end": "2024-01-11T02:00:00Z",
+            "direction": "USDC_USDT",
+            "size": 1000
+          }
+        },
+        {
+          "claim_id": "S3_size_sens_100k",
+          "slot_id": "S3",
+          "value": "0.010763492225816158278369575287071465624093202663697439297877635696779455791210914",
+          "unit": "basis_points",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20240111T020000Z"
+          ],
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2024-01-11T02:00:00Z",
+          "query": {
+            "metric": "size_sensitivity_bps",
+            "operation": "last",
+            "start": "2024-01-11T02:00:00Z",
+            "end": "2024-01-11T02:00:00Z",
+            "direction": "USDC_USDT",
+            "size": 100000
+          }
+        }
+      ],
+      "answer": "S1_DAI_share: 39.169845376204093944641111039937673244929110780396433989844812088759407579197655 percent\nS2_USDC_USDT_1000: 0.999675549 USDT/USDC\nS3_size_sens_100k: 0.010763492225816158278369575287071465624093202663697439297877635696779455791210914 basis_points",
+      "withdrawals": []
+    }
+  },
+  {
+    "run_id": "H01_E_2",
+    "task_id": "H01",
+    "group": "E",
+    "repetition": 2,
+    "status": "completed",
+    "report": {
+      "task_id": "H01",
+      "answer": "在2024-01-11T02:00:00Z（区块18980576），Curve 3pool中DAI名义占比为39.17%，低于三方均等时应有的33.3%附近以外的偏高水平，说明DAI为该时点占比最高的成分。1000 USDC→USDT报价率为0.99968，接近平价但略有折价。10万USDC相对1000输入的规模敏感度仅约0.0108个基点，表明该时点池内流动性充足、小规模与较大规模兑换的价格冲击差异极小。以上为单点观测，不能据此推断日内趋势或其他时段状态。",
+      "claims": [
+        {
+          "claim_id": "S1_claim",
+          "slot_id": "S1",
+          "query": {
+            "coin": "DAI",
+            "end": "2024-01-11T02:00:00Z",
+            "metric": "share_pct",
+            "operation": "last",
+            "start": "2024-01-11T02:00:00Z"
+          },
+          "value": "39.169845376204093944641111039937673244929110780396433989844812088759407579197655",
+          "unit": "percent",
+          "status": "supported",
+          "explanation": "单点快照DAI名义占比，由池内ERC20 balanceOf计算。",
+          "evidence_ids": [
+            "E_UTC_20240111T020000Z"
+          ],
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "target_timestamp_utc": "2024-01-11T02:00:00Z"
+        },
+        {
+          "claim_id": "S2_claim",
+          "slot_id": "S2",
+          "query": {
+            "direction": "USDC_USDT",
+            "end": "2024-01-11T02:00:00Z",
+            "metric": "quote_rate",
+            "operation": "last",
+            "size": 1000,
+            "start": "2024-01-11T02:00:00Z"
+          },
+          "value": "0.999675549",
+          "unit": "USDT/USDC",
+          "status": "supported",
+          "explanation": "1000 USDC兑换USDT的单点报价率，接近平价略折价。",
+          "evidence_ids": [
+            "E_UTC_20240111T020000Z"
+          ],
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "target_timestamp_utc": "2024-01-11T02:00:00Z"
+        },
+        {
+          "claim_id": "S3_claim",
+          "slot_id": "S3",
+          "query": {
+            "direction": "USDC_USDT",
+            "end": "2024-01-11T02:00:00Z",
+            "metric": "size_sensitivity_bps",
+            "operation": "last",
+            "size": 100000,
+            "start": "2024-01-11T02:00:00Z"
+          },
+          "value": "0.010763492225816158278369575287071465624093202663697439297877635696779455791210914",
+          "unit": "basis_points",
+          "status": "supported",
+          "explanation": "10万相对1000 USDC输入的规模敏感度，单位基点，数值极小。",
+          "evidence_ids": [
+            "E_UTC_20240111T020000Z"
+          ],
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "target_timestamp_utc": "2024-01-11T02:00:00Z"
+        }
+      ]
+    },
+    "published": {
+      "task_id": "H01",
+      "claims": [
+        {
+          "claim_id": "S1_claim",
+          "slot_id": "S1",
+          "value": "39.169845376204093944641111039937673244929110780396433989844812088759407579197655",
+          "unit": "percent",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20240111T020000Z"
+          ],
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2024-01-11T02:00:00Z",
+          "query": {
+            "metric": "share_pct",
+            "operation": "last",
+            "start": "2024-01-11T02:00:00Z",
+            "end": "2024-01-11T02:00:00Z",
+            "coin": "DAI"
+          }
+        },
+        {
+          "claim_id": "S2_claim",
+          "slot_id": "S2",
+          "value": "0.999675549",
+          "unit": "USDT/USDC",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20240111T020000Z"
+          ],
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2024-01-11T02:00:00Z",
+          "query": {
+            "metric": "quote_rate",
+            "operation": "last",
+            "start": "2024-01-11T02:00:00Z",
+            "end": "2024-01-11T02:00:00Z",
+            "direction": "USDC_USDT",
+            "size": 1000
+          }
+        },
+        {
+          "claim_id": "S3_claim",
+          "slot_id": "S3",
+          "value": "0.010763492225816158278369575287071465624093202663697439297877635696779455791210914",
+          "unit": "basis_points",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20240111T020000Z"
+          ],
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2024-01-11T02:00:00Z",
+          "query": {
+            "metric": "size_sensitivity_bps",
+            "operation": "last",
+            "start": "2024-01-11T02:00:00Z",
+            "end": "2024-01-11T02:00:00Z",
+            "direction": "USDC_USDT",
+            "size": 100000
+          }
+        }
+      ],
+      "answer": "S1_claim: 39.169845376204093944641111039937673244929110780396433989844812088759407579197655 percent\nS2_claim: 0.999675549 USDT/USDC\nS3_claim: 0.010763492225816158278369575287071465624093202663697439297877635696779455791210914 basis_points",
+      "withdrawals": []
+    }
+  },
+  {
+    "run_id": "H03_E_2",
+    "task_id": "H03",
+    "group": "E",
+    "repetition": 2,
+    "status": "completed",
+    "report": {
+      "task_id": "H03",
+      "answer": "允许证据内首点2024-01-11T00:00:00Z的USDC占比为约35.85%。在允许小时点上，最大单小时USDC占比增幅约7.32个百分点，发生于20:00至21:00Z；该比较未跨越被禁的22:00Z时点。因采样为小时级且22:00Z被排除，连续时间的真实失衡峰值无法由现有小时采样确定，故该连续峰值项拒绝；此为观测边界而非否定失衡存在。",
+      "claims": [
+        {
+          "claim_id": "S1",
+          "slot_id": "S1",
+          "query": {
+            "coin": "USDC",
+            "end": "2024-01-11T00:00:00Z",
+            "metric": "share_pct",
+            "operation": "last",
+            "start": "2024-01-11T00:00:00Z"
+          },
+          "value": "35.853268849038852437548303185899127752200332470422849883098643190607484243556255",
+          "unit": "percent",
+          "status": "supported",
+          "explanation": "允许证据首点USDC占总余额的百分比，直接读取自该快照。",
+          "depends_on": [],
+          "evidence_ids": [
+            "E_UTC_20240111T000000Z"
+          ],
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "target_timestamp_utc": "2024-01-11T00:00:00Z"
+        },
+        {
+          "claim_id": "S2",
+          "slot_id": "S2",
+          "query": {
+            "coin": "USDC",
+            "end": "2024-01-12T00:00:00Z",
+            "metric": "share_pct",
+            "operation": "max_hourly_change",
+            "start": "2024-01-11T18:00:00Z"
+          },
+          "value": "7.31808516364849794104722720998690866796008486915007029822155",
+          "unit": "percentage_points",
+          "status": "supported",
+          "explanation": "允许相邻小时点间USDC占比的最大增幅；区间为20:00至21:00Z，未跨越被禁的22:00Z时点。",
+          "depends_on": [],
+          "evidence_ids": [
+            "E_UTC_20240111T180000Z",
+            "E_UTC_20240111T190000Z",
+            "E_UTC_20240111T200000Z",
+            "E_UTC_20240111T210000Z",
+            "E_UTC_20240111T230000Z",
+            "E_UTC_20240112T000000Z"
+          ],
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "interval_start": "2024-01-11T20:00:00Z",
+          "interval_end": "2024-01-11T21:00:00Z"
+        },
+        {
+          "claim_id": "S3",
+          "slot_id": "S3",
+          "query": {
+            "end": "2024-01-12T00:00:00Z",
+            "metric": "continuous_imbalance_peak",
+            "operation": "maximum",
+            "start": "2024-01-11T00:00:00Z"
+          },
+          "value": null,
+          "unit": "dimensionless",
+          "status": "refused",
+          "explanation": "sampling_resolution_insufficient",
+          "depends_on": [],
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "interval_start": "2024-01-11T00:00:00Z",
+          "interval_end": "2024-01-12T00:00:00Z"
+        }
+      ]
+    },
+    "published": {
+      "task_id": "H03",
+      "claims": [
+        {
+          "claim_id": "S1",
+          "slot_id": "S1",
+          "value": "35.853268849038852437548303185899127752200332470422849883098643190607484243556255",
+          "unit": "percent",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20240111T000000Z"
+          ],
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2024-01-11T00:00:00Z",
+          "query": {
+            "metric": "share_pct",
+            "operation": "last",
+            "start": "2024-01-11T00:00:00Z",
+            "end": "2024-01-11T00:00:00Z",
+            "coin": "USDC"
+          }
+        },
+        {
+          "claim_id": "S2",
+          "slot_id": "S2",
+          "value": "7.31808516364849794104722720998690866796008486915007029822155",
+          "unit": "percentage_points",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20240111T180000Z",
+            "E_UTC_20240111T190000Z",
+            "E_UTC_20240111T200000Z",
+            "E_UTC_20240111T210000Z",
+            "E_UTC_20240111T230000Z",
+            "E_UTC_20240112T000000Z"
+          ],
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "interval_start": "2024-01-11T20:00:00Z",
+          "interval_end": "2024-01-11T21:00:00Z",
+          "query": {
+            "coin": "USDC",
+            "end": "2024-01-12T00:00:00Z",
+            "metric": "share_pct",
+            "operation": "max_hourly_change",
+            "start": "2024-01-11T18:00:00Z"
+          }
+        }
+      ],
+      "answer": "S1: 35.853268849038852437548303185899127752200332470422849883098643190607484243556255 percent\nS2: 7.31808516364849794104722720998690866796008486915007029822155 percentage_points",
+      "withdrawals": [
+        {
+          "claim_id": "S3",
+          "verdict": "UNKNOWN",
+          "reason": "refusal_or_omission"
+        }
+      ]
+    }
+  },
+  {
+    "run_id": "H02_G_1",
+    "task_id": "H02",
+    "group": "G",
+    "repetition": 1,
+    "status": "completed",
+    "report": {
+      "task_id": "H02",
+      "answer": "2024-01-11 全天 USDC 占比上升约 1.011 个百分点，证据来自首末两个整点快照。允许的小时网格取样中，L1 失衡最大值 0.15728 出现在 2024-01-11T18:00:00Z（区块 18985323），该值为整点采样集合内的最大值，并非连续时间上的真实峰值，故更高频的峰位无法由本数据确定。该时点之后一小时（19:00Z）的 100000 USDC→USDT 报价率为 1.00016682319 USDT/USDC。",
+      "claims": [
+        {
+          "claim_id": "S1",
+          "slot_id": "S1",
+          "query": {
+            "coin": "USDC",
+            "end": "2024-01-12T00:00:00Z",
+            "metric": "share_pct",
+            "operation": "change",
+            "start": "2024-01-11T00:00:00Z"
+          },
+          "value": "1.01127412937214197596920421370558603305735211473304736925272",
+          "unit": "percentage_points",
+          "status": "supported",
+          "explanation": "USDC 占比首末快照差值为正 1.0113 个百分点。",
+          "depends_on": [],
+          "evidence_ids": [
+            "E_UTC_20240111T000000Z",
+            "E_UTC_20240112T000000Z"
+          ],
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3"
+        },
+        {
+          "claim_id": "S2",
+          "slot_id": "S2",
+          "query": {
+            "end": "2024-01-12T00:00:00Z",
+            "metric": "imbalance_l1",
+            "operation": "maximum",
+            "start": "2024-01-11T00:00:00Z"
+          },
+          "value": "0.15727650896502482876841290227785095972698868738214118848903857357147249746620554",
+          "unit": "dimensionless",
+          "status": "supported",
+          "explanation": "小时网格取样中最大值，出现在 2024-01-11T18:00:00Z；仅为整点采样集合最大值，非连续时间峰值。",
+          "depends_on": [],
+          "evidence_ids": [
+            "E_UTC_20240111T180000Z"
+          ],
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "target_timestamp_utc": "2024-01-11T18:00:00Z"
+        },
+        {
+          "claim_id": "S3",
+          "slot_id": "S3",
+          "query": {
+            "direction": "USDC_USDT",
+            "end": "2024-01-11T19:00:00Z",
+            "metric": "quote_rate",
+            "operation": "last",
+            "size": 100000,
+            "start": "2024-01-11T19:00:00Z"
+          },
+          "value": "1.00016682319",
+          "unit": "USDT/USDC",
+          "status": "supported",
+          "explanation": "S2 时点后一小时（19:00Z）的 100000 USDC→USDT 报价率。",
+          "depends_on": [
+            "S2"
+          ],
+          "evidence_ids": [
+            "E_UTC_20240111T190000Z"
+          ],
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "target_timestamp_utc": "2024-01-11T19:00:00Z"
+        }
+      ]
+    },
+    "published": {
+      "task_id": "H02",
+      "claims": [
+        {
+          "claim_id": "S1",
+          "slot_id": "S1",
+          "value": "1.01127412937214197596920421370558603305735211473304736925272",
+          "unit": "percentage_points",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20240111T000000Z",
+            "E_UTC_20240112T000000Z"
+          ],
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "query": {
+            "metric": "share_pct",
+            "operation": "change",
+            "start": "2024-01-11T00:00:00Z",
+            "end": "2024-01-12T00:00:00Z",
+            "coin": "USDC"
+          }
+        }
+      ],
+      "answer": "S1: 1.01127412937214197596920421370558603305735211473304736925272 percentage_points",
+      "withdrawals": [
+        {
+          "claim_id": "S2",
+          "verdict": "UNKNOWN",
+          "reason": "incomplete_attribution",
+          "expected": {
+            "query": {
+              "metric": "imbalance_l1",
+              "operation": "maximum",
+              "start": "2024-01-11T00:00:00Z",
+              "end": "2024-01-12T00:00:00Z"
+            },
+            "value": "0.15727650896502482876841290227785095972698868738214118848903857357147249746620554",
+            "unit": "dimensionless",
+            "sample_count": 25,
+            "evidence_ids": [
+              "E_UTC_20240111T000000Z",
+              "E_UTC_20240111T010000Z",
+              "E_UTC_20240111T020000Z",
+              "E_UTC_20240111T030000Z",
+              "E_UTC_20240111T040000Z",
+              "E_UTC_20240111T050000Z",
+              "E_UTC_20240111T060000Z",
+              "E_UTC_20240111T070000Z",
+              "E_UTC_20240111T080000Z",
+              "E_UTC_20240111T090000Z",
+              "E_UTC_20240111T100000Z",
+              "E_UTC_20240111T110000Z",
+              "E_UTC_20240111T120000Z",
+              "E_UTC_20240111T130000Z",
+              "E_UTC_20240111T140000Z",
+              "E_UTC_20240111T150000Z",
+              "E_UTC_20240111T160000Z",
+              "E_UTC_20240111T170000Z",
+              "E_UTC_20240111T180000Z",
+              "E_UTC_20240111T190000Z",
+              "E_UTC_20240111T200000Z",
+              "E_UTC_20240111T210000Z",
+              "E_UTC_20240111T220000Z",
+              "E_UTC_20240111T230000Z",
+              "E_UTC_20240112T000000Z"
+            ],
+            "blocks": [
+              {
+                "snapshot_id": "UTC_20240111T000000Z",
+                "block_number": 18979977,
+                "block_hash": "0x507f1f3dd34cf64f1a1c57dfced9e973449e4d900e8defb51811de38f1d8fbc2"
+              },
+              {
+                "snapshot_id": "UTC_20240111T010000Z",
+                "block_number": 18980276,
+                "block_hash": "0x48cb78b7c63649455d3fd5c0cdcaf11638be2d4dff27a773caf23fa84a53aecf"
+              },
+              {
+                "snapshot_id": "UTC_20240111T020000Z",
+                "block_number": 18980576,
+                "block_hash": "0x8ea7f926d6ef1f243af60be27807fd1175e600fb8cb4aef9f041f28495ac2423"
+              },
+              {
+                "snapshot_id": "UTC_20240111T030000Z",
+                "block_number": 18980875,
+                "block_hash": "0xd7612174123f7fb57148d2587e3411b4ec64429fe7617328d5de068dc4a3341c"
+              },
+              {
+                "snapshot_id": "UTC_20240111T040000Z",
+                "block_number": 18981169,
+                "block_hash": "0x05e607bdd560b2e6294625e83b9fb4a487b8f59d1b63b88592649e7743b98daf"
+              },
+              {
+                "snapshot_id": "UTC_20240111T050000Z",
+                "block_number": 18981469,
+                "block_hash": "0xec8980c36d5304b4ad3153216c34d96a4902601ec4271fd403c946bb0f3c1c18"
+              },
+              {
+                "snapshot_id": "UTC_20240111T060000Z",
+                "block_number": 18981767,
+                "block_hash": "0x79277b108a153fe1f522f0e1662d1c5cb9f6089b7cc90047dd5d6205736056e4"
+              },
+              {
+                "snapshot_id": "UTC_20240111T070000Z",
+                "block_number": 18982062,
+                "block_hash": "0xe6bc62421dd70b40693c7d462eaec928cd787df8af09a7a894e09a2d3a9ff827"
+              },
+              {
+                "snapshot_id": "UTC_20240111T080000Z",
+                "block_number": 18982359,
+                "block_hash": "0xd9c050785c91ef24fc95aed66ba3dca56e3e0912304dc3289372e9fb86c85ba7"
+              },
+              {
+                "snapshot_id": "UTC_20240111T090000Z",
+                "block_number": 18982653,
+                "block_hash": "0xfb43957e3cc5016023cf6ea750b300e8d076948fe61f8878a4adb651d45bf319"
+              },
+              {
+                "snapshot_id": "UTC_20240111T100000Z",
+                "block_number": 18982950,
+                "block_hash": "0xac1b74df6becf88dfeed391402ac4a1f2f8bc54d09d112ce32ba89e3fc795fe7"
+              },
+              {
+                "snapshot_id": "UTC_20240111T110000Z",
+                "block_number": 18983247,
+                "block_hash": "0x92d9e20bba5f5ccac13b5f960c89c375d9cd242527f2792f612a95ac33507c79"
+              },
+              {
+                "snapshot_id": "UTC_20240111T120000Z",
+                "block_number": 18983541,
+                "block_hash": "0x53d419654df60764136afe9ef259aad466461528223fea882490f1e1bdaa2965"
+              },
+              {
+                "snapshot_id": "UTC_20240111T130000Z",
+                "block_number": 18983841,
+                "block_hash": "0x02e7e414435998853943c863a58799833b0981f18421f8e08b65db0c7be84a70"
+              },
+              {
+                "snapshot_id": "UTC_20240111T140000Z",
+                "block_number": 18984138,
+                "block_hash": "0xeae16d18a6929cc153a07608a8b9a0c5d8b2d08e1ccc85aa3b14193f2c8fc79c"
+              },
+              {
+                "snapshot_id": "UTC_20240111T150000Z",
+                "block_number": 18984436,
+                "block_hash": "0xf8f3281ba922f7e714fc965ce8c8b8b90fe021f024cd43e5d8121df30648eb17"
+              },
+              {
+                "snapshot_id": "UTC_20240111T160000Z",
+                "block_number": 18984731,
+                "block_hash": "0xac5623da4c8b906a13f2e6b40c5341cd7d6bf1706c7650139bc59b036ffd3ad1"
+              },
+              {
+                "snapshot_id": "UTC_20240111T170000Z",
+                "block_number": 18985025,
+                "block_hash": "0xeeeeaba074a6292496fa24a7ee546a1debf1422e81415a59e1e969957fad66d0"
+              },
+              {
+                "snapshot_id": "UTC_20240111T180000Z",
+                "block_number": 18985323,
+                "block_hash": "0xd8a9608b74c3af29d5eed17cc80710647efcb87602e6fdeac4b53dd80c2ba890"
+              },
+              {
+                "snapshot_id": "UTC_20240111T190000Z",
+                "block_number": 18985623,
+                "block_hash": "0x5f8b0d23acd77f88181f9873e7a4f516cbda7abcb384ddeeae686f6816bde2f2"
+              },
+              {
+                "snapshot_id": "UTC_20240111T200000Z",
+                "block_number": 18985918,
+                "block_hash": "0x2077bc2e394b30fe05456c0b0731d6dd90272b2ddfc32eaa1532b1f56e78dab8"
+              },
+              {
+                "snapshot_id": "UTC_20240111T210000Z",
+                "block_number": 18986214,
+                "block_hash": "0x9573a73bbb04ca17e120ad72ebcac4e316f37f839313859948efa7f79f38e1e8"
+              },
+              {
+                "snapshot_id": "UTC_20240111T220000Z",
+                "block_number": 18986512,
+                "block_hash": "0x5bcb9631219d5a4ab85c07fca5e2a855beb817f04e47f2ff8f8dfc79ea1501ce"
+              },
+              {
+                "snapshot_id": "UTC_20240111T230000Z",
+                "block_number": 18986809,
+                "block_hash": "0x5cb350e135bd00c81b5781dd03651ee687425de14a9f1ad6fbb6c79b4babde4b"
+              },
+              {
+                "snapshot_id": "UTC_20240112T000000Z",
+                "block_number": 18987103,
+                "block_hash": "0x3daf1b516f1f287baaf7468da9d5337abc2bf44b246cee0ba1a0dca31bbdd7fa"
+              }
+            ],
+            "observed_at": "2024-01-11T17:59:59Z",
+            "target_timestamp_utc": "2024-01-11T18:00:00Z",
+            "snapshot_id": "UTC_20240111T180000Z",
+            "block_number": 18985323,
+            "block_hash": "0xd8a9608b74c3af29d5eed17cc80710647efcb87602e6fdeac4b53dd80c2ba890"
+          }
+        },
+        {
+          "claim_id": "S3",
+          "verdict": "UNKNOWN",
+          "reason": "withdrawn_dependency"
+        }
+      ]
+    }
+  },
+  {
+    "run_id": "H02_G_3",
+    "task_id": "H02",
+    "group": "G",
+    "repetition": 3,
+    "status": "completed",
+    "report": {
+      "task_id": "H02",
+      "answer": "在2024-01-11全天窗口内，USDC占比由初值到末值变化为+1.0113个百分点，显示资金占比小幅上升。按允许的小时网格采样，失衡L1最大值出现在2024-01-11T18:00:00Z，为0.15728，但这是离散小时采样下的观测最大值，并非连续时间上的真实峰值，实际峰值可能被小时采样遗漏。该时点后一小时即19:00Z，100000 USDC→USDT的报价率为1.00016682319 USDT/USDC，略高于平价，说明该规模兑换存在轻微价差。整体看窗口内池子保持相对平衡，仅有小幅占比漂移。",
+      "claims": [
+        {
+          "claim_id": "S1_USDC_share_change",
+          "slot_id": "S1",
+          "query": {
+            "coin": "USDC",
+            "metric": "share_pct",
+            "operation": "change",
+            "start": "2024-01-11T00:00:00Z",
+            "end": "2024-01-12T00:00:00Z"
+          },
+          "value": "1.01127412937214197596920421370558603305735211473304736925272",
+          "unit": "percentage_points",
+          "status": "supported",
+          "explanation": "USDC share percentage change from window start to end.",
+          "depends_on": [],
+          "evidence_ids": [
+            "E_UTC_20240111T000000Z",
+            "E_UTC_20240112T000000Z"
+          ],
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3"
+        },
+        {
+          "claim_id": "S2_imbalance_max",
+          "slot_id": "S2",
+          "query": {
+            "metric": "imbalance_l1",
+            "operation": "maximum",
+            "start": "2024-01-11T00:00:00Z",
+            "end": "2024-01-12T00:00:00Z"
+          },
+          "value": "0.15727650896502482876841290227785095972698868738214118848903857357147249746620554",
+          "unit": "dimensionless",
+          "status": "supported",
+          "explanation": "Maximum imbalance among hourly sampled observations; not a continuous-time maximum.",
+          "depends_on": [],
+          "evidence_ids": [
+            "E_UTC_20240111T000000Z",
+            "E_UTC_20240111T010000Z",
+            "E_UTC_20240111T020000Z",
+            "E_UTC_20240111T030000Z",
+            "E_UTC_20240111T040000Z",
+            "E_UTC_20240111T050000Z",
+            "E_UTC_20240111T060000Z",
+            "E_UTC_20240111T070000Z",
+            "E_UTC_20240111T080000Z",
+            "E_UTC_20240111T090000Z",
+            "E_UTC_20240111T100000Z",
+            "E_UTC_20240111T110000Z",
+            "E_UTC_20240111T120000Z",
+            "E_UTC_20240111T130000Z",
+            "E_UTC_20240111T140000Z",
+            "E_UTC_20240111T150000Z",
+            "E_UTC_20240111T160000Z",
+            "E_UTC_20240111T170000Z",
+            "E_UTC_20240111T180000Z",
+            "E_UTC_20240111T190000Z",
+            "E_UTC_20240111T200000Z",
+            "E_UTC_20240111T210000Z",
+            "E_UTC_20240111T220000Z",
+            "E_UTC_20240111T230000Z",
+            "E_UTC_20240112T000000Z"
+          ],
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "target_timestamp_utc": "2024-01-11T18:00:00Z"
+        },
+        {
+          "claim_id": "S3_quote_after_max",
+          "slot_id": "S3",
+          "query": {
+            "metric": "quote_rate",
+            "operation": "last",
+            "start": "2024-01-11T19:00:00Z",
+            "end": "2024-01-11T19:00:00Z",
+            "direction": "USDC_USDT",
+            "size": 100000
+          },
+          "value": "1.00016682319",
+          "unit": "USDT/USDC",
+          "status": "supported",
+          "explanation": "Quote rate one hour after S2 max imbalance timestamp (18:00Z to 19:00Z).",
+          "depends_on": [
+            "S2"
+          ],
+          "evidence_ids": [
+            "E_UTC_20240111T190000Z"
+          ],
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "target_timestamp_utc": "2024-01-11T19:00:00Z"
+        }
+      ]
+    },
+    "published": {
+      "task_id": "H02",
+      "claims": [
+        {
+          "claim_id": "S1_USDC_share_change",
+          "slot_id": "S1",
+          "value": "1.01127412937214197596920421370558603305735211473304736925272",
+          "unit": "percentage_points",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20240111T000000Z",
+            "E_UTC_20240112T000000Z"
+          ],
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "query": {
+            "metric": "share_pct",
+            "operation": "change",
+            "start": "2024-01-11T00:00:00Z",
+            "end": "2024-01-12T00:00:00Z",
+            "coin": "USDC"
+          }
+        },
+        {
+          "claim_id": "S2_imbalance_max",
+          "slot_id": "S2",
+          "value": "0.15727650896502482876841290227785095972698868738214118848903857357147249746620554",
+          "unit": "dimensionless",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20240111T000000Z",
+            "E_UTC_20240111T010000Z",
+            "E_UTC_20240111T020000Z",
+            "E_UTC_20240111T030000Z",
+            "E_UTC_20240111T040000Z",
+            "E_UTC_20240111T050000Z",
+            "E_UTC_20240111T060000Z",
+            "E_UTC_20240111T070000Z",
+            "E_UTC_20240111T080000Z",
+            "E_UTC_20240111T090000Z",
+            "E_UTC_20240111T100000Z",
+            "E_UTC_20240111T110000Z",
+            "E_UTC_20240111T120000Z",
+            "E_UTC_20240111T130000Z",
+            "E_UTC_20240111T140000Z",
+            "E_UTC_20240111T150000Z",
+            "E_UTC_20240111T160000Z",
+            "E_UTC_20240111T170000Z",
+            "E_UTC_20240111T180000Z",
+            "E_UTC_20240111T190000Z",
+            "E_UTC_20240111T200000Z",
+            "E_UTC_20240111T210000Z",
+            "E_UTC_20240111T220000Z",
+            "E_UTC_20240111T230000Z",
+            "E_UTC_20240112T000000Z"
+          ],
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2024-01-11T18:00:00Z",
+          "query": {
+            "metric": "imbalance_l1",
+            "operation": "maximum",
+            "start": "2024-01-11T00:00:00Z",
+            "end": "2024-01-12T00:00:00Z"
+          }
+        },
+        {
+          "claim_id": "S3_quote_after_max",
+          "slot_id": "S3",
+          "value": "1.00016682319",
+          "unit": "USDT/USDC",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20240111T190000Z"
+          ],
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2024-01-11T19:00:00Z",
+          "query": {
+            "metric": "quote_rate",
+            "operation": "last",
+            "start": "2024-01-11T19:00:00Z",
+            "end": "2024-01-11T19:00:00Z",
+            "direction": "USDC_USDT",
+            "size": 100000
+          }
+        }
+      ],
+      "answer": "S1_USDC_share_change: 1.01127412937214197596920421370558603305735211473304736925272 percentage_points\nS2_imbalance_max: 0.15727650896502482876841290227785095972698868738214118848903857357147249746620554 dimensionless\nS3_quote_after_max: 1.00016682319 USDT/USDC",
+      "withdrawals": []
+    }
+  },
+  {
+    "run_id": "H02_E_1",
+    "task_id": "H02",
+    "group": "E",
+    "repetition": 1,
+    "status": "completed",
+    "report": {
+      "task_id": "H02",
+      "answer": "2024-01-11至01-12窗口内，USDC占比末减初为+1.0113个百分点（percentage_points），显示USDC份额小幅上升。允许的25个整点小时网格上，L1失衡最大值0.15728出现在2024-01-11T18:00Z，这是采样点最大值，非连续时间最大值，受小时采样分辨率限制。该时点后一小时（19:00Z）100000 USDC→USDT报价率为1.00016682319 USDT/USDC，接近平价，提示大额兑换滑点很小；此为观测，不构成对因果或连续路径的推断。",
+      "claims": [
+        {
+          "claim_id": "S1_usdc_share_change",
+          "slot_id": "S1",
+          "query": {
+            "coin": "USDC",
+            "end": "2024-01-12T00:00:00Z",
+            "metric": "share_pct",
+            "operation": "change",
+            "start": "2024-01-11T00:00:00Z"
+          },
+          "value": "1.01127412937214197596920421370558603305735211473304736925272",
+          "unit": "percentage_points",
+          "status": "supported",
+          "explanation": "USDC share_pct end minus start over the window.",
+          "depends_on": [],
+          "evidence_ids": [
+            "E_UTC_20240111T000000Z",
+            "E_UTC_20240112T000000Z"
+          ],
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3"
+        },
+        {
+          "claim_id": "S2_imbalance_peak",
+          "slot_id": "S2",
+          "query": {
+            "end": "2024-01-12T00:00:00Z",
+            "metric": "imbalance_l1",
+            "operation": "maximum",
+            "start": "2024-01-11T00:00:00Z"
+          },
+          "value": "0.15727650896502482876841290227785095972698868738214118848903857357147249746620554",
+          "unit": "dimensionless",
+          "status": "supported",
+          "explanation": "Maximum among 25 hourly sampled target observations, not a continuous-time maximum.",
+          "depends_on": [],
+          "evidence_ids": [
+            "E_UTC_20240111T000000Z",
+            "E_UTC_20240111T010000Z",
+            "E_UTC_20240111T020000Z",
+            "E_UTC_20240111T030000Z",
+            "E_UTC_20240111T040000Z",
+            "E_UTC_20240111T050000Z",
+            "E_UTC_20240111T060000Z",
+            "E_UTC_20240111T070000Z",
+            "E_UTC_20240111T080000Z",
+            "E_UTC_20240111T090000Z",
+            "E_UTC_20240111T100000Z",
+            "E_UTC_20240111T110000Z",
+            "E_UTC_20240111T120000Z",
+            "E_UTC_20240111T130000Z",
+            "E_UTC_20240111T140000Z",
+            "E_UTC_20240111T150000Z",
+            "E_UTC_20240111T160000Z",
+            "E_UTC_20240111T170000Z",
+            "E_UTC_20240111T180000Z",
+            "E_UTC_20240111T190000Z",
+            "E_UTC_20240111T200000Z",
+            "E_UTC_20240111T210000Z",
+            "E_UTC_20240111T220000Z",
+            "E_UTC_20240111T230000Z",
+            "E_UTC_20240112T000000Z"
+          ],
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "target_timestamp_utc": "2024-01-11T18:00:00Z"
+        },
+        {
+          "claim_id": "S3_quote_rate",
+          "slot_id": "S3",
+          "query": {
+            "direction": "USDC_USDT",
+            "end": "2024-01-11T19:00:00Z",
+            "metric": "quote_rate",
+            "operation": "last",
+            "size": 100000,
+            "start": "2024-01-11T19:00:00Z"
+          },
+          "value": "1.00016682319",
+          "unit": "USDT/USDC",
+          "status": "supported",
+          "explanation": "Quote rate one hour after S2 peak timestamp (18:00Z -> 19:00Z) for 100000 USDC->USDT.",
+          "depends_on": [
+            "S2"
+          ],
+          "evidence_ids": [
+            "E_UTC_20240111T190000Z"
+          ],
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "target_timestamp_utc": "2024-01-11T19:00:00Z"
+        }
+      ]
+    },
+    "published": {
+      "task_id": "H02",
+      "claims": [
+        {
+          "claim_id": "S1_usdc_share_change",
+          "slot_id": "S1",
+          "value": "1.01127412937214197596920421370558603305735211473304736925272",
+          "unit": "percentage_points",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20240111T000000Z",
+            "E_UTC_20240112T000000Z"
+          ],
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "query": {
+            "metric": "share_pct",
+            "operation": "change",
+            "start": "2024-01-11T00:00:00Z",
+            "end": "2024-01-12T00:00:00Z",
+            "coin": "USDC"
+          }
+        },
+        {
+          "claim_id": "S2_imbalance_peak",
+          "slot_id": "S2",
+          "value": "0.15727650896502482876841290227785095972698868738214118848903857357147249746620554",
+          "unit": "dimensionless",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20240111T000000Z",
+            "E_UTC_20240111T010000Z",
+            "E_UTC_20240111T020000Z",
+            "E_UTC_20240111T030000Z",
+            "E_UTC_20240111T040000Z",
+            "E_UTC_20240111T050000Z",
+            "E_UTC_20240111T060000Z",
+            "E_UTC_20240111T070000Z",
+            "E_UTC_20240111T080000Z",
+            "E_UTC_20240111T090000Z",
+            "E_UTC_20240111T100000Z",
+            "E_UTC_20240111T110000Z",
+            "E_UTC_20240111T120000Z",
+            "E_UTC_20240111T130000Z",
+            "E_UTC_20240111T140000Z",
+            "E_UTC_20240111T150000Z",
+            "E_UTC_20240111T160000Z",
+            "E_UTC_20240111T170000Z",
+            "E_UTC_20240111T180000Z",
+            "E_UTC_20240111T190000Z",
+            "E_UTC_20240111T200000Z",
+            "E_UTC_20240111T210000Z",
+            "E_UTC_20240111T220000Z",
+            "E_UTC_20240111T230000Z",
+            "E_UTC_20240112T000000Z"
+          ],
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2024-01-11T18:00:00Z",
+          "query": {
+            "metric": "imbalance_l1",
+            "operation": "maximum",
+            "start": "2024-01-11T00:00:00Z",
+            "end": "2024-01-12T00:00:00Z"
+          }
+        },
+        {
+          "claim_id": "S3_quote_rate",
+          "slot_id": "S3",
+          "value": "1.00016682319",
+          "unit": "USDT/USDC",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20240111T190000Z"
+          ],
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2024-01-11T19:00:00Z",
+          "query": {
+            "metric": "quote_rate",
+            "operation": "last",
+            "start": "2024-01-11T19:00:00Z",
+            "end": "2024-01-11T19:00:00Z",
+            "direction": "USDC_USDT",
+            "size": 100000
+          }
+        }
+      ],
+      "answer": "S1_usdc_share_change: 1.01127412937214197596920421370558603305735211473304736925272 percentage_points\nS2_imbalance_peak: 0.15727650896502482876841290227785095972698868738214118848903857357147249746620554 dimensionless\nS3_quote_rate: 1.00016682319 USDT/USDC",
+      "withdrawals": []
+    }
+  },
+  {
+    "run_id": "H03_E_1",
+    "task_id": "H03",
+    "group": "E",
+    "repetition": 1,
+    "status": "completed",
+    "report": {
+      "task_id": "H03",
+      "answer": "允许证据内，2024-01-11T00:00:00Z USDC 占比为35.8533%（E_UTC_20240111T000000Z）。18:00至次日00:00区间因排除22:00时点，最大单小时USDC占比增幅只比较相邻小时点：20:00至21:00增长7.3181个百分点（E_UTC_20240111T200000Z、E_UTC_20240111T210000Z），未跨越被禁时点。连续时间真实失衡峰值无法由小时采样确定，采样分辨率不足（sampling_resolution_insufficient），该峰值仅为解释性推断，非证据确立数值。",
+      "claims": [
+        {
+          "claim_id": "S1_USDC_SHARE_FIRST",
+          "slot_id": "S1",
+          "query": {
+            "coin": "USDC",
+            "end": "2024-01-11T00:00:00Z",
+            "metric": "share_pct",
+            "operation": "last",
+            "start": "2024-01-11T00:00:00Z"
+          },
+          "value": "35.853268849038852437548303185899127752200332470422849883098643190607484243556255",
+          "unit": "percent",
+          "status": "supported",
+          "explanation": "允许首点USDC占比，取2024-01-11T00:00:00Z快照最后值；单点样本。",
+          "depends_on": [],
+          "evidence_ids": [
+            "E_UTC_20240111T000000Z"
+          ],
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "target_timestamp_utc": "2024-01-11T00:00:00Z"
+        },
+        {
+          "claim_id": "S2_USDC_MAX_HOURLY_GAIN",
+          "slot_id": "S2",
+          "query": {
+            "coin": "USDC",
+            "end": "2024-01-12T00:00:00Z",
+            "metric": "share_pct",
+            "operation": "max_hourly_change",
+            "start": "2024-01-11T18:00:00Z"
+          },
+          "value": "7.31808516364849794104722720998690866796008486915007029822155",
+          "unit": "percentage_points",
+          "status": "supported",
+          "explanation": "仅比较相邻允许小时点；最大增幅出现在20:00至21:00，未跨越被禁22:00时点。",
+          "depends_on": [],
+          "evidence_ids": [
+            "E_UTC_20240111T200000Z",
+            "E_UTC_20240111T210000Z"
+          ],
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "interval_start": "2024-01-11T20:00:00Z",
+          "interval_end": "2024-01-11T21:00:00Z"
+        },
+        {
+          "claim_id": "S3_CONTINUOUS_PEAK_REFUSED",
+          "slot_id": "S3",
+          "query": {
+            "metric": "continuous_imbalance_peak",
+            "operation": "maximum",
+            "start": "2024-01-11T00:00:00Z",
+            "end": "2024-01-12T00:00:00Z"
+          },
+          "value": null,
+          "unit": "dimensionless",
+          "status": "refused",
+          "explanation": "sampling_resolution_insufficient",
+          "depends_on": [],
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3"
+        }
+      ]
+    },
+    "published": {
+      "task_id": "H03",
+      "claims": [
+        {
+          "claim_id": "S1_USDC_SHARE_FIRST",
+          "slot_id": "S1",
+          "value": "35.853268849038852437548303185899127752200332470422849883098643190607484243556255",
+          "unit": "percent",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20240111T000000Z"
+          ],
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2024-01-11T00:00:00Z",
+          "query": {
+            "metric": "share_pct",
+            "operation": "last",
+            "start": "2024-01-11T00:00:00Z",
+            "end": "2024-01-11T00:00:00Z",
+            "coin": "USDC"
+          }
+        }
+      ],
+      "answer": "S1_USDC_SHARE_FIRST: 35.853268849038852437548303185899127752200332470422849883098643190607484243556255 percent",
+      "withdrawals": [
+        {
+          "claim_id": "S2_USDC_MAX_HOURLY_GAIN",
+          "verdict": "UNKNOWN",
+          "reason": "incomplete_attribution",
+          "expected": {
+            "query": {
+              "coin": "USDC",
+              "end": "2024-01-12T00:00:00Z",
+              "metric": "share_pct",
+              "operation": "max_hourly_change",
+              "start": "2024-01-11T18:00:00Z"
+            },
+            "value": "7.31808516364849794104722720998690866796008486915007029822155",
+            "unit": "percentage_points",
+            "evidence_ids": [
+              "E_UTC_20240111T180000Z",
+              "E_UTC_20240111T190000Z",
+              "E_UTC_20240111T200000Z",
+              "E_UTC_20240111T210000Z",
+              "E_UTC_20240111T230000Z",
+              "E_UTC_20240112T000000Z"
+            ],
+            "interval_start": "2024-01-11T20:00:00Z",
+            "interval_end": "2024-01-11T21:00:00Z"
+          }
+        },
+        {
+          "claim_id": "S3_CONTINUOUS_PEAK_REFUSED",
+          "verdict": "UNKNOWN",
+          "reason": "refusal_or_omission"
+        }
+      ]
+    }
+  },
+  {
+    "run_id": "H01_G_2",
+    "task_id": "H01",
+    "group": "G",
+    "repetition": 2,
+    "status": "completed",
+    "report": {
+      "task_id": "H01",
+      "answer": "2024-01-11T02:00:00Z 快照（区块18980576，E_UTC_20240111T020000Z）显示 DAI 名义占比为 39.169845%，三者中并非绝对均衡。以 1000 USDC 兑换 USDT 的报价率为 0.999675549，接近平价但略低于1，说明池内 USDC 相对偏多、USDT 相对偏少。将输入放大到 100000 USDC 后，规模敏感度为 0.010763 bps，即大额相对小额仅带来约万分之0.01的额外价格影响，反映该点池内流动性较充足、大额滑点极小。由于本任务仅提供整数余额与报价快照，无法进行连续插值，以上为单点观测结论。",
+      "claims": [
+        {
+          "claim_id": "C1",
+          "slot_id": "S1",
+          "query": {
+            "coin": "DAI",
+            "metric": "share_pct",
+            "operation": "last",
+            "start": "2024-01-11T02:00:00Z",
+            "end": "2024-01-11T02:00:00Z"
+          },
+          "value": "39.169845376204093944641111039937673244929110780396433989844812088759407579197655",
+          "unit": "percent",
+          "status": "supported",
+          "explanation": "DAI 在该快照的有效余额名义占比。",
+          "depends_on": [],
+          "evidence_ids": [
+            "E_UTC_20240111T020000Z"
+          ],
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "target_timestamp_utc": "2024-01-11T02:00:00Z"
+        },
+        {
+          "claim_id": "C2",
+          "slot_id": "S2",
+          "query": {
+            "coin": "USDC",
+            "direction": "USDC_USDT",
+            "metric": "quote_rate",
+            "operation": "last",
+            "size": 1000,
+            "start": "2024-01-11T02:00:00Z",
+            "end": "2024-01-11T02:00:00Z"
+          },
+          "value": "0.999675549",
+          "unit": "USDT/USDC",
+          "status": "supported",
+          "explanation": "1000 USDC 输入兑换 USDT 的报价率，略低于 1。",
+          "depends_on": [],
+          "evidence_ids": [
+            "E_UTC_20240111T020000Z"
+          ],
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "target_timestamp_utc": "2024-01-11T02:00:00Z"
+        },
+        {
+          "claim_id": "C3",
+          "slot_id": "S3",
+          "query": {
+            "coin": "USDC",
+            "direction": "USDC_USDT",
+            "metric": "size_sensitivity_bps",
+            "operation": "last",
+            "size": 100000,
+            "start": "2024-01-11T02:00:00Z",
+            "end": "2024-01-11T02:00:00Z"
+          },
+          "value": "0.010763492225816158278369575287071465624093202663697439297877635696779455791210914",
+          "unit": "basis_points",
+          "status": "supported",
+          "explanation": "100000 相对 1000 USDC 输入的规模敏感度，数值极小。",
+          "depends_on": [],
+          "evidence_ids": [
+            "E_UTC_20240111T020000Z"
+          ],
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "target_timestamp_utc": "2024-01-11T02:00:00Z"
+        }
+      ]
+    },
+    "published": {
+      "task_id": "H01",
+      "claims": [
+        {
+          "claim_id": "C1",
+          "slot_id": "S1",
+          "value": "39.169845376204093944641111039937673244929110780396433989844812088759407579197655",
+          "unit": "percent",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20240111T020000Z"
+          ],
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2024-01-11T02:00:00Z",
+          "query": {
+            "metric": "share_pct",
+            "operation": "last",
+            "start": "2024-01-11T02:00:00Z",
+            "end": "2024-01-11T02:00:00Z",
+            "coin": "DAI"
+          }
+        },
+        {
+          "claim_id": "C2",
+          "slot_id": "S2",
+          "value": "0.999675549",
+          "unit": "USDT/USDC",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20240111T020000Z"
+          ],
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2024-01-11T02:00:00Z",
+          "query": {
+            "metric": "quote_rate",
+            "operation": "last",
+            "start": "2024-01-11T02:00:00Z",
+            "end": "2024-01-11T02:00:00Z",
+            "direction": "USDC_USDT",
+            "size": 1000
+          }
+        },
+        {
+          "claim_id": "C3",
+          "slot_id": "S3",
+          "value": "0.010763492225816158278369575287071465624093202663697439297877635696779455791210914",
+          "unit": "basis_points",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20240111T020000Z"
+          ],
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2024-01-11T02:00:00Z",
+          "query": {
+            "metric": "size_sensitivity_bps",
+            "operation": "last",
+            "start": "2024-01-11T02:00:00Z",
+            "end": "2024-01-11T02:00:00Z",
+            "direction": "USDC_USDT",
+            "size": 100000
+          }
+        }
+      ],
+      "answer": "C1: 39.169845376204093944641111039937673244929110780396433989844812088759407579197655 percent\nC2: 0.999675549 USDT/USDC\nC3: 0.010763492225816158278369575287071465624093202663697439297877635696779455791210914 basis_points",
+      "withdrawals": []
+    }
+  },
+  {
+    "run_id": "H01_G_1",
+    "task_id": "H01",
+    "group": "G",
+    "repetition": 1,
+    "status": "completed",
+    "report": {
+      "task_id": "H01",
+      "answer": "在2024-01-11T02:00:00Z（区块18980576）的三池快照中，DAI名义占比为39.169845%（E_UTC_20240111T020000Z），反映DAI在池内接近四成。1000 USDC兑换USDT的报价率为0.999675549 USDT/USDC，几乎贴近1:1平价。将输入放大到100000 USDC时，相对1000输入的规模敏感度为0.010763 bp，表明该深度下大额与小额报价差异极小，池内USDC/USDT流动性充足、价格稳定。",
+      "claims": [
+        {
+          "claim_id": "S1_dai_share",
+          "slot_id": "S1",
+          "query": {
+            "coin": "DAI",
+            "metric": "share_pct",
+            "operation": "last",
+            "start": "2024-01-11T02:00:00Z",
+            "end": "2024-01-11T02:00:00Z"
+          },
+          "value": "39.169845376204093944641111039937673244929110780396433989844812088759407579197655",
+          "unit": "percent",
+          "status": "supported",
+          "explanation": "单点快照DAI名义占比。",
+          "evidence_ids": [
+            "E_UTC_20240111T020000Z"
+          ],
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "target_timestamp_utc": "2024-01-11T02:00:00Z"
+        },
+        {
+          "claim_id": "S2_quote_rate",
+          "slot_id": "S2",
+          "query": {
+            "direction": "USDC_USDT",
+            "metric": "quote_rate",
+            "operation": "last",
+            "size": 1000,
+            "start": "2024-01-11T02:00:00Z",
+            "end": "2024-01-11T02:00:00Z"
+          },
+          "value": "0.999675549",
+          "unit": "USDT/USDC",
+          "status": "supported",
+          "explanation": "1000 USDC兑换USDT的报价率。",
+          "evidence_ids": [
+            "E_UTC_20240111T020000Z"
+          ],
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "target_timestamp_utc": "2024-01-11T02:00:00Z"
+        },
+        {
+          "claim_id": "S3_size_sens",
+          "slot_id": "S3",
+          "query": {
+            "direction": "USDC_USDT",
+            "metric": "size_sensitivity_bps",
+            "operation": "last",
+            "size": 100000,
+            "start": "2024-01-11T02:00:00Z",
+            "end": "2024-01-11T02:00:00Z"
+          },
+          "value": "0.010763492225816158278369575287071465624093202663697439297877635696779455791210914",
+          "unit": "basis_points",
+          "status": "supported",
+          "explanation": "100000相对1000 USDC输入的规模敏感度。",
+          "evidence_ids": [
+            "E_UTC_20240111T020000Z"
+          ],
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "target_timestamp_utc": "2024-01-11T02:00:00Z"
+        }
+      ]
+    },
+    "published": {
+      "task_id": "H01",
+      "claims": [
+        {
+          "claim_id": "S1_dai_share",
+          "slot_id": "S1",
+          "value": "39.169845376204093944641111039937673244929110780396433989844812088759407579197655",
+          "unit": "percent",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20240111T020000Z"
+          ],
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2024-01-11T02:00:00Z",
+          "query": {
+            "metric": "share_pct",
+            "operation": "last",
+            "start": "2024-01-11T02:00:00Z",
+            "end": "2024-01-11T02:00:00Z",
+            "coin": "DAI"
+          }
+        },
+        {
+          "claim_id": "S2_quote_rate",
+          "slot_id": "S2",
+          "value": "0.999675549",
+          "unit": "USDT/USDC",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20240111T020000Z"
+          ],
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2024-01-11T02:00:00Z",
+          "query": {
+            "metric": "quote_rate",
+            "operation": "last",
+            "start": "2024-01-11T02:00:00Z",
+            "end": "2024-01-11T02:00:00Z",
+            "direction": "USDC_USDT",
+            "size": 1000
+          }
+        },
+        {
+          "claim_id": "S3_size_sens",
+          "slot_id": "S3",
+          "value": "0.010763492225816158278369575287071465624093202663697439297877635696779455791210914",
+          "unit": "basis_points",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20240111T020000Z"
+          ],
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2024-01-11T02:00:00Z",
+          "query": {
+            "metric": "size_sensitivity_bps",
+            "operation": "last",
+            "start": "2024-01-11T02:00:00Z",
+            "end": "2024-01-11T02:00:00Z",
+            "direction": "USDC_USDT",
+            "size": 100000
+          }
+        }
+      ],
+      "answer": "S1_dai_share: 39.169845376204093944641111039937673244929110780396433989844812088759407579197655 percent\nS2_quote_rate: 0.999675549 USDT/USDC\nS3_size_sens: 0.010763492225816158278369575287071465624093202663697439297877635696779455791210914 basis_points",
+      "withdrawals": []
+    }
+  },
+  {
+    "run_id": "H02_E_3",
+    "task_id": "H02",
+    "group": "E",
+    "repetition": 3,
+    "status": "completed",
+    "report": {
+      "task_id": "H02",
+      "answer": "2024-01-11 00:00 至 2024-01-12 00:00（UTC）窗口内，USDC 在 3pool 的占比末值减初值为 +1.0113 个百分点，占比略有回升。按允许的整点小时网格（25 个采样点）计算，L1 失衡在 2024-01-11T18:00Z 达到窗口内采样最大值约 0.1573（无量纲）；该结果仅为离散小时采样的峰值，并非连续时间最大值，分钟级尖峰可能未被捕获。S2 时点后一小时即 2024-01-11T19:00Z，100000 USDC→USDT 的报价率为 1.00016682319 USDT/USDC。以上为观测事实；占比回升与失衡水平的关系不作因果推断。",
+      "claims": [
+        {
+          "claim_id": "C_S1",
+          "slot_id": "S1",
+          "query": {
+            "coin": "USDC",
+            "start": "2024-01-11T00:00:00Z",
+            "end": "2024-01-12T00:00:00Z",
+            "metric": "share_pct",
+            "operation": "change"
+          },
+          "value": "1.01127412937214197596920421370558603305735211473304736925272",
+          "unit": "percentage_points",
+          "status": "supported",
+          "explanation": "USDC 占比末减初，基于窗口起止两个快照。",
+          "depends_on": [],
+          "evidence_ids": [
+            "E_UTC_20240111T000000Z",
+            "E_UTC_20240112T000000Z"
+          ],
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3"
+        },
+        {
+          "claim_id": "C_S2",
+          "slot_id": "S2",
+          "query": {
+            "metric": "imbalance_l1",
+            "operation": "maximum",
+            "start": "2024-01-11T00:00:00Z",
+            "end": "2024-01-12T00:00:00Z"
+          },
+          "value": "0.15727650896502482876841290227785095972698868738214118848903857357147249746620554",
+          "unit": "dimensionless",
+          "status": "supported",
+          "explanation": "允许小时网格内 L1 失衡采样最大值，目标时点 2024-01-11T18:00:00Z；非连续时间最大值。",
+          "depends_on": [],
+          "evidence_ids": [
+            "E_UTC_20240111T000000Z",
+            "E_UTC_20240111T010000Z",
+            "E_UTC_20240111T020000Z",
+            "E_UTC_20240111T030000Z",
+            "E_UTC_20240111T040000Z",
+            "E_UTC_20240111T050000Z",
+            "E_UTC_20240111T060000Z",
+            "E_UTC_20240111T070000Z",
+            "E_UTC_20240111T080000Z",
+            "E_UTC_20240111T090000Z",
+            "E_UTC_20240111T100000Z",
+            "E_UTC_20240111T110000Z",
+            "E_UTC_20240111T120000Z",
+            "E_UTC_20240111T130000Z",
+            "E_UTC_20240111T140000Z",
+            "E_UTC_20240111T150000Z",
+            "E_UTC_20240111T160000Z",
+            "E_UTC_20240111T170000Z",
+            "E_UTC_20240111T180000Z",
+            "E_UTC_20240111T190000Z",
+            "E_UTC_20240111T200000Z",
+            "E_UTC_20240111T210000Z",
+            "E_UTC_20240111T220000Z",
+            "E_UTC_20240111T230000Z",
+            "E_UTC_20240112T000000Z"
+          ],
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "target_timestamp_utc": "2024-01-11T18:00:00Z"
+        },
+        {
+          "claim_id": "C_S3",
+          "slot_id": "S3",
+          "query": {
+            "metric": "quote_rate",
+            "operation": "last",
+            "start": "2024-01-11T19:00:00Z",
+            "end": "2024-01-11T19:00:00Z",
+            "direction": "USDC_USDT",
+            "size": 100000
+          },
+          "value": "1.00016682319",
+          "unit": "USDT/USDC",
+          "status": "supported",
+          "explanation": "S2 时点（18:00Z）后一小时 19:00Z 的 100000 USDC→USDT 报价率。",
+          "depends_on": [
+            "S2"
+          ],
+          "evidence_ids": [
+            "E_UTC_20240111T190000Z"
+          ],
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "target_timestamp_utc": "2024-01-11T19:00:00Z"
+        }
+      ]
+    },
+    "published": {
+      "task_id": "H02",
+      "claims": [
+        {
+          "claim_id": "C_S1",
+          "slot_id": "S1",
+          "value": "1.01127412937214197596920421370558603305735211473304736925272",
+          "unit": "percentage_points",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20240111T000000Z",
+            "E_UTC_20240112T000000Z"
+          ],
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "query": {
+            "metric": "share_pct",
+            "operation": "change",
+            "start": "2024-01-11T00:00:00Z",
+            "end": "2024-01-12T00:00:00Z",
+            "coin": "USDC"
+          }
+        },
+        {
+          "claim_id": "C_S2",
+          "slot_id": "S2",
+          "value": "0.15727650896502482876841290227785095972698868738214118848903857357147249746620554",
+          "unit": "dimensionless",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20240111T000000Z",
+            "E_UTC_20240111T010000Z",
+            "E_UTC_20240111T020000Z",
+            "E_UTC_20240111T030000Z",
+            "E_UTC_20240111T040000Z",
+            "E_UTC_20240111T050000Z",
+            "E_UTC_20240111T060000Z",
+            "E_UTC_20240111T070000Z",
+            "E_UTC_20240111T080000Z",
+            "E_UTC_20240111T090000Z",
+            "E_UTC_20240111T100000Z",
+            "E_UTC_20240111T110000Z",
+            "E_UTC_20240111T120000Z",
+            "E_UTC_20240111T130000Z",
+            "E_UTC_20240111T140000Z",
+            "E_UTC_20240111T150000Z",
+            "E_UTC_20240111T160000Z",
+            "E_UTC_20240111T170000Z",
+            "E_UTC_20240111T180000Z",
+            "E_UTC_20240111T190000Z",
+            "E_UTC_20240111T200000Z",
+            "E_UTC_20240111T210000Z",
+            "E_UTC_20240111T220000Z",
+            "E_UTC_20240111T230000Z",
+            "E_UTC_20240112T000000Z"
+          ],
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2024-01-11T18:00:00Z",
+          "query": {
+            "metric": "imbalance_l1",
+            "operation": "maximum",
+            "start": "2024-01-11T00:00:00Z",
+            "end": "2024-01-12T00:00:00Z"
+          }
+        },
+        {
+          "claim_id": "C_S3",
+          "slot_id": "S3",
+          "value": "1.00016682319",
+          "unit": "USDT/USDC",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20240111T190000Z"
+          ],
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2024-01-11T19:00:00Z",
+          "query": {
+            "metric": "quote_rate",
+            "operation": "last",
+            "start": "2024-01-11T19:00:00Z",
+            "end": "2024-01-11T19:00:00Z",
+            "direction": "USDC_USDT",
+            "size": 100000
+          }
+        }
+      ],
+      "answer": "C_S1: 1.01127412937214197596920421370558603305735211473304736925272 percentage_points\nC_S2: 0.15727650896502482876841290227785095972698868738214118848903857357147249746620554 dimensionless\nC_S3: 1.00016682319 USDT/USDC",
+      "withdrawals": []
+    }
+  },
+  {
+    "run_id": "H03_G_2",
+    "task_id": "H03",
+    "group": "G",
+    "repetition": 2,
+    "status": "completed",
+    "report": {
+      "task_id": "H03",
+      "answer": "允许首点（2024-01-11T00:00:00Z）USDC占比约为35.85%。在允许证据范围内，USDC占比最大相邻小时增幅为7.32个百分点，起于20:00止于21:00，未跨越22:00被禁时点。对于连续时间真实失衡峰值，仅有小时粒度采样，无法确定小时之间的连续峰值，证据不足，故拒绝该组件。",
+      "claims": [
+        {
+          "claim_id": "S1_USDC_share_first",
+          "slot_id": "S1",
+          "query": {
+            "coin": "USDC",
+            "metric": "share_pct",
+            "operation": "last",
+            "start": "2024-01-11T00:00:00Z",
+            "end": "2024-01-11T00:00:00Z"
+          },
+          "value": "35.853268849038852437548303185899127752200332470422849883098643190607484243556255",
+          "unit": "percent",
+          "status": "supported",
+          "explanation": "允许首点USDC占比计算结果来自单点快照。",
+          "depends_on": [],
+          "evidence_ids": [
+            "E_UTC_20240111T000000Z"
+          ],
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "target_timestamp_utc": "2024-01-11T00:00:00Z"
+        },
+        {
+          "claim_id": "S2_USDC_max_hourly_change",
+          "slot_id": "S2",
+          "query": {
+            "coin": "USDC",
+            "metric": "share_pct",
+            "operation": "max_hourly_change",
+            "start": "2024-01-11T18:00:00Z",
+            "end": "2024-01-12T00:00:00Z"
+          },
+          "value": "7.31808516364849794104722720998690866796008486915007029822155",
+          "unit": "percentage_points",
+          "status": "supported",
+          "explanation": "相邻小时点比较得出的最大USDC占比增幅，区间20:00至21:00，未跨越22:00被禁时点。",
+          "depends_on": [],
+          "evidence_ids": [
+            "E_UTC_20240111T180000Z",
+            "E_UTC_20240111T190000Z",
+            "E_UTC_20240111T200000Z",
+            "E_UTC_20240111T210000Z",
+            "E_UTC_20240111T230000Z",
+            "E_UTC_20240112T000000Z"
+          ],
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "interval_start": "2024-01-11T20:00:00Z",
+          "interval_end": "2024-01-11T21:00:00Z"
+        },
+        {
+          "claim_id": "S3_continuous_peak_refused",
+          "slot_id": "S3",
+          "query": {
+            "metric": "continuous_imbalance_peak",
+            "operation": "maximum",
+            "start": "2024-01-11T00:00:00Z",
+            "end": "2024-01-12T00:00:00Z"
+          },
+          "value": null,
+          "unit": "dimensionless",
+          "status": "refused",
+          "explanation": "sampling_resolution_insufficient",
+          "depends_on": [],
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3"
+        }
+      ]
+    },
+    "published": {
+      "task_id": "H03",
+      "claims": [
+        {
+          "claim_id": "S1_USDC_share_first",
+          "slot_id": "S1",
+          "value": "35.853268849038852437548303185899127752200332470422849883098643190607484243556255",
+          "unit": "percent",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20240111T000000Z"
+          ],
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2024-01-11T00:00:00Z",
+          "query": {
+            "metric": "share_pct",
+            "operation": "last",
+            "start": "2024-01-11T00:00:00Z",
+            "end": "2024-01-11T00:00:00Z",
+            "coin": "USDC"
+          }
+        },
+        {
+          "claim_id": "S2_USDC_max_hourly_change",
+          "slot_id": "S2",
+          "value": "7.31808516364849794104722720998690866796008486915007029822155",
+          "unit": "percentage_points",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20240111T180000Z",
+            "E_UTC_20240111T190000Z",
+            "E_UTC_20240111T200000Z",
+            "E_UTC_20240111T210000Z",
+            "E_UTC_20240111T230000Z",
+            "E_UTC_20240112T000000Z"
+          ],
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "interval_start": "2024-01-11T20:00:00Z",
+          "interval_end": "2024-01-11T21:00:00Z",
+          "query": {
+            "coin": "USDC",
+            "metric": "share_pct",
+            "operation": "max_hourly_change",
+            "start": "2024-01-11T18:00:00Z",
+            "end": "2024-01-12T00:00:00Z"
+          }
+        }
+      ],
+      "answer": "S1_USDC_share_first: 35.853268849038852437548303185899127752200332470422849883098643190607484243556255 percent\nS2_USDC_max_hourly_change: 7.31808516364849794104722720998690866796008486915007029822155 percentage_points",
+      "withdrawals": [
+        {
+          "claim_id": "S3_continuous_peak_refused",
+          "verdict": "UNKNOWN",
+          "reason": "refusal_or_omission"
+        }
+      ]
+    }
+  },
+  {
+    "run_id": "H01_E_1",
+    "task_id": "H01",
+    "group": "E",
+    "repetition": 1,
+    "status": "completed",
+    "report": {
+      "task_id": "H01",
+      "answer": "2024-01-11T02:00:00Z 单点快照（区块18980576）显示，DAI 名义占比约 39.17%。1000 USDC→USDT 报价率为 0.999675549 USDT/USDC，略低于平价，反映该方向存在轻微折价。100000 相对 1000 输入的规模敏感度约 0.01076 基点，量化大额相对小额报价的额外滑点影响，数值很小。以上均为单点观测，不能据此判断趋势或连续失衡峰值；因仅有小时级采样，无法刻画分钟级连续失衡峰值。",
+      "claims": [
+        {
+          "claim_id": "H01-S1",
+          "slot_id": "S1",
+          "query": {
+            "metric": "share_pct",
+            "operation": "last",
+            "start": "2024-01-11T02:00:00Z",
+            "end": "2024-01-11T02:00:00Z",
+            "coin": "DAI"
+          },
+          "value": "39.169845376204093944641111039937673244929110780396433989844812088759407579197655",
+          "unit": "percent",
+          "status": "supported",
+          "explanation": "单点快照 DAI 名义占比，区块 18980576。",
+          "depends_on": [],
+          "evidence_ids": [
+            "E_UTC_20240111T020000Z"
+          ],
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "target_timestamp_utc": "2024-01-11T02:00:00Z"
+        },
+        {
+          "claim_id": "H01-S2",
+          "slot_id": "S2",
+          "query": {
+            "metric": "quote_rate",
+            "operation": "last",
+            "start": "2024-01-11T02:00:00Z",
+            "end": "2024-01-11T02:00:00Z",
+            "direction": "USDC_USDT",
+            "size": 1000
+          },
+          "value": "0.999675549",
+          "unit": "USDT/USDC",
+          "status": "supported",
+          "explanation": "1000 USDC→USDT 单点报价率，区块 18980576。",
+          "depends_on": [],
+          "evidence_ids": [
+            "E_UTC_20240111T020000Z"
+          ],
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "target_timestamp_utc": "2024-01-11T02:00:00Z"
+        },
+        {
+          "claim_id": "H01-S3",
+          "slot_id": "S3",
+          "query": {
+            "metric": "size_sensitivity_bps",
+            "operation": "last",
+            "start": "2024-01-11T02:00:00Z",
+            "end": "2024-01-11T02:00:00Z",
+            "direction": "USDC_USDT",
+            "size": 100000
+          },
+          "value": "0.010763492225816158278369575287071465624093202663697439297877635696779455791210914",
+          "unit": "basis_points",
+          "status": "supported",
+          "explanation": "100000 相对 1000 输入的单点规模敏感度，区块 18980576。",
+          "depends_on": [],
+          "evidence_ids": [
+            "E_UTC_20240111T020000Z"
+          ],
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "target_timestamp_utc": "2024-01-11T02:00:00Z"
+        }
+      ]
+    },
+    "published": {
+      "task_id": "H01",
+      "claims": [
+        {
+          "claim_id": "H01-S1",
+          "slot_id": "S1",
+          "value": "39.169845376204093944641111039937673244929110780396433989844812088759407579197655",
+          "unit": "percent",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20240111T020000Z"
+          ],
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2024-01-11T02:00:00Z",
+          "query": {
+            "metric": "share_pct",
+            "operation": "last",
+            "start": "2024-01-11T02:00:00Z",
+            "end": "2024-01-11T02:00:00Z",
+            "coin": "DAI"
+          }
+        },
+        {
+          "claim_id": "H01-S2",
+          "slot_id": "S2",
+          "value": "0.999675549",
+          "unit": "USDT/USDC",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20240111T020000Z"
+          ],
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2024-01-11T02:00:00Z",
+          "query": {
+            "metric": "quote_rate",
+            "operation": "last",
+            "start": "2024-01-11T02:00:00Z",
+            "end": "2024-01-11T02:00:00Z",
+            "direction": "USDC_USDT",
+            "size": 1000
+          }
+        },
+        {
+          "claim_id": "H01-S3",
+          "slot_id": "S3",
+          "value": "0.010763492225816158278369575287071465624093202663697439297877635696779455791210914",
+          "unit": "basis_points",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20240111T020000Z"
+          ],
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2024-01-11T02:00:00Z",
+          "query": {
+            "metric": "size_sensitivity_bps",
+            "operation": "last",
+            "start": "2024-01-11T02:00:00Z",
+            "end": "2024-01-11T02:00:00Z",
+            "direction": "USDC_USDT",
+            "size": 100000
+          }
+        }
+      ],
+      "answer": "H01-S1: 39.169845376204093944641111039937673244929110780396433989844812088759407579197655 percent\nH01-S2: 0.999675549 USDT/USDC\nH01-S3: 0.010763492225816158278369575287071465624093202663697439297877635696779455791210914 basis_points",
+      "withdrawals": []
+    }
+  },
+  {
+    "run_id": "H02_E_2",
+    "task_id": "H02",
+    "group": "E",
+    "repetition": 2,
+    "status": "completed",
+    "report": {
+      "task_id": "H02",
+      "answer": "2024-01-11全天USDC占比上升约1.011个百分点，池子结构缓慢向USDC倾斜。按允许的小时网格（25个整点快照），L1失衡在18:00 UTC达到最大0.1573，此时USDT余额显著高于其他两币，属采样时点最大值而非连续时间峰值。其后一小时（19:00 UTC）10万USDC→USDT报价率为1.00016682 USDT/USDC，略高于1。以上仅为小时级观测，无法刻画小时内峰值。",
+      "claims": [
+        {
+          "claim_id": "S1",
+          "slot_id": "S1",
+          "query": {
+            "metric": "share_pct",
+            "operation": "change",
+            "start": "2024-01-11T00:00:00Z",
+            "end": "2024-01-12T00:00:00Z",
+            "coin": "USDC"
+          },
+          "value": "1.01127412937214197596920421370558603305735211473304736925272",
+          "unit": "percentage_points",
+          "status": "supported",
+          "explanation": "USDC share_pct change over the full window, computed from start and end snapshots.",
+          "depends_on": [],
+          "evidence_ids": [
+            "E_UTC_20240111T000000Z",
+            "E_UTC_20240112T000000Z"
+          ],
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3"
+        },
+        {
+          "claim_id": "S2",
+          "slot_id": "S2",
+          "query": {
+            "metric": "imbalance_l1",
+            "operation": "maximum",
+            "start": "2024-01-11T00:00:00Z",
+            "end": "2024-01-12T00:00:00Z"
+          },
+          "value": "0.15727650896502482876841290227785095972698868738214118848903857357147249746620554",
+          "unit": "dimensionless",
+          "status": "supported",
+          "explanation": "Maximum L1 imbalance among the 25 permitted hourly target observations; not a continuous-time maximum.",
+          "depends_on": [],
+          "evidence_ids": [
+            "E_UTC_20240111T000000Z",
+            "E_UTC_20240111T010000Z",
+            "E_UTC_20240111T020000Z",
+            "E_UTC_20240111T030000Z",
+            "E_UTC_20240111T040000Z",
+            "E_UTC_20240111T050000Z",
+            "E_UTC_20240111T060000Z",
+            "E_UTC_20240111T070000Z",
+            "E_UTC_20240111T080000Z",
+            "E_UTC_20240111T090000Z",
+            "E_UTC_20240111T100000Z",
+            "E_UTC_20240111T110000Z",
+            "E_UTC_20240111T120000Z",
+            "E_UTC_20240111T130000Z",
+            "E_UTC_20240111T140000Z",
+            "E_UTC_20240111T150000Z",
+            "E_UTC_20240111T160000Z",
+            "E_UTC_20240111T170000Z",
+            "E_UTC_20240111T180000Z",
+            "E_UTC_20240111T190000Z",
+            "E_UTC_20240111T200000Z",
+            "E_UTC_20240111T210000Z",
+            "E_UTC_20240111T220000Z",
+            "E_UTC_20240111T230000Z",
+            "E_UTC_20240112T000000Z"
+          ],
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "target_timestamp_utc": "2024-01-11T18:00:00Z"
+        },
+        {
+          "claim_id": "S3",
+          "slot_id": "S3",
+          "query": {
+            "metric": "quote_rate",
+            "operation": "last",
+            "start": "2024-01-11T18:00:00Z",
+            "end": "2024-01-11T19:00:00Z",
+            "direction": "USDC_USDT",
+            "size": 100000
+          },
+          "value": "1.00016682319",
+          "unit": "USDT/USDC",
+          "status": "supported",
+          "explanation": "100000 USDC→USDT quote rate at the hour after the S2 maximum time (19:00 UTC).",
+          "depends_on": [
+            "S2"
+          ],
+          "evidence_ids": [
+            "E_UTC_20240111T190000Z"
+          ],
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "target_timestamp_utc": "2024-01-11T19:00:00Z"
+        }
+      ]
+    },
+    "published": {
+      "task_id": "H02",
+      "claims": [
+        {
+          "claim_id": "S1",
+          "slot_id": "S1",
+          "value": "1.01127412937214197596920421370558603305735211473304736925272",
+          "unit": "percentage_points",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20240111T000000Z",
+            "E_UTC_20240112T000000Z"
+          ],
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "query": {
+            "metric": "share_pct",
+            "operation": "change",
+            "start": "2024-01-11T00:00:00Z",
+            "end": "2024-01-12T00:00:00Z",
+            "coin": "USDC"
+          }
+        },
+        {
+          "claim_id": "S2",
+          "slot_id": "S2",
+          "value": "0.15727650896502482876841290227785095972698868738214118848903857357147249746620554",
+          "unit": "dimensionless",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20240111T000000Z",
+            "E_UTC_20240111T010000Z",
+            "E_UTC_20240111T020000Z",
+            "E_UTC_20240111T030000Z",
+            "E_UTC_20240111T040000Z",
+            "E_UTC_20240111T050000Z",
+            "E_UTC_20240111T060000Z",
+            "E_UTC_20240111T070000Z",
+            "E_UTC_20240111T080000Z",
+            "E_UTC_20240111T090000Z",
+            "E_UTC_20240111T100000Z",
+            "E_UTC_20240111T110000Z",
+            "E_UTC_20240111T120000Z",
+            "E_UTC_20240111T130000Z",
+            "E_UTC_20240111T140000Z",
+            "E_UTC_20240111T150000Z",
+            "E_UTC_20240111T160000Z",
+            "E_UTC_20240111T170000Z",
+            "E_UTC_20240111T180000Z",
+            "E_UTC_20240111T190000Z",
+            "E_UTC_20240111T200000Z",
+            "E_UTC_20240111T210000Z",
+            "E_UTC_20240111T220000Z",
+            "E_UTC_20240111T230000Z",
+            "E_UTC_20240112T000000Z"
+          ],
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2024-01-11T18:00:00Z",
+          "query": {
+            "metric": "imbalance_l1",
+            "operation": "maximum",
+            "start": "2024-01-11T00:00:00Z",
+            "end": "2024-01-12T00:00:00Z"
+          }
+        }
+      ],
+      "answer": "S1: 1.01127412937214197596920421370558603305735211473304736925272 percentage_points\nS2: 0.15727650896502482876841290227785095972698868738214118848903857357147249746620554 dimensionless",
+      "withdrawals": [
+        {
+          "claim_id": "S3",
+          "verdict": "FAIL",
+          "reason": "task_query_mismatch"
+        }
+      ]
+    }
+  },
+  {
+    "run_id": "H03_G_1",
+    "task_id": "H03",
+    "group": "G",
+    "repetition": 1,
+    "status": "completed",
+    "report": {
+      "task_id": "H03",
+      "answer": "允许证据显示 2024-01-11T00:00Z 池内 USDC 占比约 35.8533%。在允许的小时点内，最大单小时 USDC 占比增幅出现在 20:00–21:00Z 区间，为约 7.3181 个百分点；22:00Z 被禁用，因此计算不得跨越该时点，23:00–次日00:00Z 实际为小幅下降。连续时间真实失衡峰值无法由小时采样确定，采样分辨率不足。",
+      "claims": [
+        {
+          "claim_id": "S1_share",
+          "slot_id": "S1",
+          "query": {
+            "coin": "USDC",
+            "end": "2024-01-11T00:00:00Z",
+            "metric": "share_pct",
+            "operation": "last",
+            "start": "2024-01-11T00:00:00Z"
+          },
+          "value": "35.853268849038852437548303185899127752200332470422849883098643190607484243556255",
+          "unit": "percent",
+          "status": "supported",
+          "explanation": "首个允许点 USDC 占比，单快照计算。",
+          "evidence_ids": [
+            "E_UTC_20240111T000000Z"
+          ],
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "target_timestamp_utc": "2024-01-11T00:00:00Z"
+        },
+        {
+          "claim_id": "S2_maxchg",
+          "slot_id": "S2",
+          "query": {
+            "coin": "USDC",
+            "end": "2024-01-12T00:00:00Z",
+            "metric": "share_pct",
+            "operation": "max_hourly_change",
+            "start": "2024-01-11T18:00:00Z"
+          },
+          "value": "7.31808516364849794104722720998690866796008486915007029822155",
+          "unit": "percentage_points",
+          "status": "supported",
+          "explanation": "最大相邻小时增幅位于20:00–21:00Z，不跨越被禁22:00Z点。",
+          "evidence_ids": [
+            "E_UTC_20240111T200000Z",
+            "E_UTC_20240111T210000Z"
+          ],
+          "depends_on": [
+            "S1_share"
+          ],
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "interval_start": "2024-01-11T20:00:00Z",
+          "interval_end": "2024-01-11T21:00:00Z"
+        },
+        {
+          "claim_id": "S3_peak_refuse",
+          "slot_id": "S3",
+          "query": {
+            "end": "2024-01-12T00:00:00Z",
+            "metric": "continuous_imbalance_peak",
+            "operation": "maximum",
+            "start": "2024-01-11T00:00:00Z"
+          },
+          "value": null,
+          "unit": "dimensionless",
+          "status": "refused",
+          "explanation": "sampling_resolution_insufficient",
+          "depends_on": [
+            "S1_share",
+            "S2_maxchg"
+          ],
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "interval_start": "2024-01-11T00:00:00Z",
+          "interval_end": "2024-01-12T00:00:00Z"
+        }
+      ]
+    },
+    "published": {
+      "task_id": "H03",
+      "claims": [
+        {
+          "claim_id": "S1_share",
+          "slot_id": "S1",
+          "value": "35.853268849038852437548303185899127752200332470422849883098643190607484243556255",
+          "unit": "percent",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20240111T000000Z"
+          ],
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2024-01-11T00:00:00Z",
+          "query": {
+            "metric": "share_pct",
+            "operation": "last",
+            "start": "2024-01-11T00:00:00Z",
+            "end": "2024-01-11T00:00:00Z",
+            "coin": "USDC"
+          }
+        }
+      ],
+      "answer": "S1_share: 35.853268849038852437548303185899127752200332470422849883098643190607484243556255 percent",
+      "withdrawals": [
+        {
+          "claim_id": "S2_maxchg",
+          "verdict": "UNKNOWN",
+          "reason": "incomplete_attribution",
+          "expected": {
+            "query": {
+              "coin": "USDC",
+              "end": "2024-01-12T00:00:00Z",
+              "metric": "share_pct",
+              "operation": "max_hourly_change",
+              "start": "2024-01-11T18:00:00Z"
+            },
+            "value": "7.31808516364849794104722720998690866796008486915007029822155",
+            "unit": "percentage_points",
+            "evidence_ids": [
+              "E_UTC_20240111T180000Z",
+              "E_UTC_20240111T190000Z",
+              "E_UTC_20240111T200000Z",
+              "E_UTC_20240111T210000Z",
+              "E_UTC_20240111T230000Z",
+              "E_UTC_20240112T000000Z"
+            ],
+            "interval_start": "2024-01-11T20:00:00Z",
+            "interval_end": "2024-01-11T21:00:00Z"
+          }
+        },
+        {
+          "claim_id": "S3_peak_refuse",
+          "verdict": "UNKNOWN",
+          "reason": "refusal_or_omission"
+        }
+      ]
+    }
+  },
+  {
+    "run_id": "H03_E_3",
+    "task_id": "H03",
+    "group": "E",
+    "repetition": 3,
+    "status": "completed",
+    "report": {
+      "task_id": "H03",
+      "answer": "允许证据显示：2024-01-11T00:00Z USDC占比为35.8533%（E_UTC_20240111T000000Z）。在18:00Z至次日00:00Z区间内，相邻小时采样中最大USDC占比单小时增幅为7.3181个百分点，起于20:00Z、止于21:00Z；因22:00Z为被禁时点，该小时对不跨越禁点，21:00Z后至23:00Z存在采样空档，故未跨空档比较。关于连续时间真实失衡峰值，小时级快照无法确定分钟或秒级极值，只能说明这些采样点之间可能存在的瞬时峰值未被观测。需注意：以上增幅仅基于允许的小时点，不代表连续序列的完整动态。",
+      "claims": [
+        {
+          "claim_id": "S1_USDC_share_last",
+          "slot_id": "S1",
+          "query": {
+            "metric": "share_pct",
+            "operation": "last",
+            "coin": "USDC",
+            "start": "2024-01-11T00:00:00Z",
+            "end": "2024-01-11T00:00:00Z"
+          },
+          "value": "35.853268849038852437548303185899127752200332470422849883098643190607484243556255",
+          "unit": "percent",
+          "status": "supported",
+          "explanation": "允许首点快照的USDC占比，直接由calculate返回。",
+          "depends_on": [],
+          "evidence_ids": [
+            "E_UTC_20240111T000000Z"
+          ],
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "target_timestamp_utc": "2024-01-11T00:00:00Z"
+        },
+        {
+          "claim_id": "S2_USDC_max_hourly_change",
+          "slot_id": "S2",
+          "query": {
+            "metric": "share_pct",
+            "operation": "max_hourly_change",
+            "coin": "USDC",
+            "start": "2024-01-11T18:00:00Z",
+            "end": "2024-01-12T00:00:00Z"
+          },
+          "value": "7.31808516364849794104722720998690866796008486915007029822155",
+          "unit": "percentage_points",
+          "status": "supported",
+          "explanation": "相邻小时点最大USDC占比增幅，区间为20:00Z至21:00Z，未跨越22:00Z被禁时点；21:00Z至23:00Z存在采样空档，未跨空档比较。",
+          "depends_on": [],
+          "evidence_ids": [
+            "E_UTC_20240111T180000Z",
+            "E_UTC_20240111T190000Z",
+            "E_UTC_20240111T200000Z",
+            "E_UTC_20240111T210000Z",
+            "E_UTC_20240111T230000Z",
+            "E_UTC_20240112T000000Z"
+          ],
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "interval_start": "2024-01-11T20:00:00Z",
+          "interval_end": "2024-01-11T21:00:00Z"
+        },
+        {
+          "claim_id": "S3_continuous_peak_refused",
+          "slot_id": "S3",
+          "query": {
+            "metric": "continuous_imbalance_peak",
+            "operation": "maximum",
+            "start": "2024-01-11T00:00:00Z",
+            "end": "2024-01-12T00:00:00Z"
+          },
+          "value": null,
+          "unit": "dimensionless",
+          "status": "refused",
+          "explanation": "sampling_resolution_insufficient",
+          "depends_on": [],
+          "evidence_ids": [],
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3"
+        }
+      ]
+    },
+    "published": {
+      "task_id": "H03",
+      "claims": [
+        {
+          "claim_id": "S1_USDC_share_last",
+          "slot_id": "S1",
+          "value": "35.853268849038852437548303185899127752200332470422849883098643190607484243556255",
+          "unit": "percent",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20240111T000000Z"
+          ],
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2024-01-11T00:00:00Z",
+          "query": {
+            "metric": "share_pct",
+            "operation": "last",
+            "start": "2024-01-11T00:00:00Z",
+            "end": "2024-01-11T00:00:00Z",
+            "coin": "USDC"
+          }
+        },
+        {
+          "claim_id": "S2_USDC_max_hourly_change",
+          "slot_id": "S2",
+          "value": "7.31808516364849794104722720998690866796008486915007029822155",
+          "unit": "percentage_points",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20240111T180000Z",
+            "E_UTC_20240111T190000Z",
+            "E_UTC_20240111T200000Z",
+            "E_UTC_20240111T210000Z",
+            "E_UTC_20240111T230000Z",
+            "E_UTC_20240112T000000Z"
+          ],
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "interval_start": "2024-01-11T20:00:00Z",
+          "interval_end": "2024-01-11T21:00:00Z",
+          "query": {
+            "metric": "share_pct",
+            "operation": "max_hourly_change",
+            "coin": "USDC",
+            "start": "2024-01-11T18:00:00Z",
+            "end": "2024-01-12T00:00:00Z"
+          }
+        }
+      ],
+      "answer": "S1_USDC_share_last: 35.853268849038852437548303185899127752200332470422849883098643190607484243556255 percent\nS2_USDC_max_hourly_change: 7.31808516364849794104722720998690866796008486915007029822155 percentage_points",
+      "withdrawals": [
+        {
+          "claim_id": "S3_continuous_peak_refused",
+          "verdict": "UNKNOWN",
+          "reason": "refusal_or_omission"
+        }
+      ]
+    }
+  },
+  {
+    "run_id": "H02_G_2",
+    "task_id": "H02",
+    "group": "G",
+    "repetition": 2,
+    "status": "completed",
+    "report": {
+      "task_id": "H02",
+      "answer": "在2024-01-11全天窗口内，USDC占比由00:00至次日00:00上升约1.011个百分点，说明资金向USDC倾斜。按允许的小时网格，L1失衡在2024-01-11T18:00Z达到采样最大值约0.1573，为该日最不均衡时点。S2返回时点后一小时（19:00Z）100000 USDC→USDT的最后一笔报价率为1.000167 USDT/USDC，接近平价且略有溢价。需注意失衡峰值为小时采样最大值，非连续时间最大值，小时网格无法刻画分钟级尖峰，故连续失衡峰值不可据此确证。",
+      "claims": [
+        {
+          "claim_id": "S1_share_change",
+          "slot_id": "S1",
+          "query": {
+            "coin": "USDC",
+            "metric": "share_pct",
+            "operation": "change",
+            "start": "2024-01-11T00:00:00Z",
+            "end": "2024-01-12T00:00:00Z"
+          },
+          "value": "1.01127412937214197596920421370558603305735211473304736925272",
+          "unit": "percentage_points",
+          "status": "supported",
+          "explanation": "USDC占比末减初，基于两次快照计算。",
+          "depends_on": [],
+          "evidence_ids": [
+            "E_UTC_20240111T000000Z",
+            "E_UTC_20240112T000000Z"
+          ],
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "interval_start": "2024-01-11T00:00:00Z",
+          "interval_end": "2024-01-12T00:00:00Z"
+        },
+        {
+          "claim_id": "S2_imbalance_max",
+          "slot_id": "S2",
+          "query": {
+            "metric": "imbalance_l1",
+            "operation": "maximum",
+            "start": "2024-01-11T00:00:00Z",
+            "end": "2024-01-12T00:00:00Z"
+          },
+          "value": "0.15727650896502482876841290227785095972698868738214118848903857357147249746620554",
+          "unit": "dimensionless",
+          "status": "supported",
+          "explanation": "允许小时网格的采样L1失衡最大值，目标时点2024-01-11T18:00Z。",
+          "depends_on": [],
+          "evidence_ids": [
+            "E_UTC_20240111T180000Z"
+          ],
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "target_timestamp_utc": "2024-01-11T18:00:00Z"
+        },
+        {
+          "claim_id": "S3_quote_rate",
+          "slot_id": "S3",
+          "query": {
+            "metric": "quote_rate",
+            "operation": "last",
+            "direction": "USDC_USDT",
+            "size": 100000,
+            "start": "2024-01-11T18:00:00Z",
+            "end": "2024-01-11T19:00:00Z"
+          },
+          "value": "1.00016682319",
+          "unit": "USDT/USDC",
+          "status": "supported",
+          "explanation": "S2时点后一小时19:00Z，100000 USDC→USDT最后一笔报价率。",
+          "depends_on": [
+            "S2"
+          ],
+          "evidence_ids": [
+            "E_UTC_20240111T190000Z"
+          ],
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "target_timestamp_utc": "2024-01-11T19:00:00Z"
+        }
+      ]
+    },
+    "published": {
+      "task_id": "H02",
+      "claims": [
+        {
+          "claim_id": "S1_share_change",
+          "slot_id": "S1",
+          "value": "1.01127412937214197596920421370558603305735211473304736925272",
+          "unit": "percentage_points",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20240111T000000Z",
+            "E_UTC_20240112T000000Z"
+          ],
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "query": {
+            "metric": "share_pct",
+            "operation": "change",
+            "start": "2024-01-11T00:00:00Z",
+            "end": "2024-01-12T00:00:00Z",
+            "coin": "USDC"
+          }
+        }
+      ],
+      "answer": "S1_share_change: 1.01127412937214197596920421370558603305735211473304736925272 percentage_points",
+      "withdrawals": [
+        {
+          "claim_id": "S2_imbalance_max",
+          "verdict": "UNKNOWN",
+          "reason": "incomplete_attribution",
+          "expected": {
+            "query": {
+              "metric": "imbalance_l1",
+              "operation": "maximum",
+              "start": "2024-01-11T00:00:00Z",
+              "end": "2024-01-12T00:00:00Z"
+            },
+            "value": "0.15727650896502482876841290227785095972698868738214118848903857357147249746620554",
+            "unit": "dimensionless",
+            "sample_count": 25,
+            "evidence_ids": [
+              "E_UTC_20240111T000000Z",
+              "E_UTC_20240111T010000Z",
+              "E_UTC_20240111T020000Z",
+              "E_UTC_20240111T030000Z",
+              "E_UTC_20240111T040000Z",
+              "E_UTC_20240111T050000Z",
+              "E_UTC_20240111T060000Z",
+              "E_UTC_20240111T070000Z",
+              "E_UTC_20240111T080000Z",
+              "E_UTC_20240111T090000Z",
+              "E_UTC_20240111T100000Z",
+              "E_UTC_20240111T110000Z",
+              "E_UTC_20240111T120000Z",
+              "E_UTC_20240111T130000Z",
+              "E_UTC_20240111T140000Z",
+              "E_UTC_20240111T150000Z",
+              "E_UTC_20240111T160000Z",
+              "E_UTC_20240111T170000Z",
+              "E_UTC_20240111T180000Z",
+              "E_UTC_20240111T190000Z",
+              "E_UTC_20240111T200000Z",
+              "E_UTC_20240111T210000Z",
+              "E_UTC_20240111T220000Z",
+              "E_UTC_20240111T230000Z",
+              "E_UTC_20240112T000000Z"
+            ],
+            "blocks": [
+              {
+                "snapshot_id": "UTC_20240111T000000Z",
+                "block_number": 18979977,
+                "block_hash": "0x507f1f3dd34cf64f1a1c57dfced9e973449e4d900e8defb51811de38f1d8fbc2"
+              },
+              {
+                "snapshot_id": "UTC_20240111T010000Z",
+                "block_number": 18980276,
+                "block_hash": "0x48cb78b7c63649455d3fd5c0cdcaf11638be2d4dff27a773caf23fa84a53aecf"
+              },
+              {
+                "snapshot_id": "UTC_20240111T020000Z",
+                "block_number": 18980576,
+                "block_hash": "0x8ea7f926d6ef1f243af60be27807fd1175e600fb8cb4aef9f041f28495ac2423"
+              },
+              {
+                "snapshot_id": "UTC_20240111T030000Z",
+                "block_number": 18980875,
+                "block_hash": "0xd7612174123f7fb57148d2587e3411b4ec64429fe7617328d5de068dc4a3341c"
+              },
+              {
+                "snapshot_id": "UTC_20240111T040000Z",
+                "block_number": 18981169,
+                "block_hash": "0x05e607bdd560b2e6294625e83b9fb4a487b8f59d1b63b88592649e7743b98daf"
+              },
+              {
+                "snapshot_id": "UTC_20240111T050000Z",
+                "block_number": 18981469,
+                "block_hash": "0xec8980c36d5304b4ad3153216c34d96a4902601ec4271fd403c946bb0f3c1c18"
+              },
+              {
+                "snapshot_id": "UTC_20240111T060000Z",
+                "block_number": 18981767,
+                "block_hash": "0x79277b108a153fe1f522f0e1662d1c5cb9f6089b7cc90047dd5d6205736056e4"
+              },
+              {
+                "snapshot_id": "UTC_20240111T070000Z",
+                "block_number": 18982062,
+                "block_hash": "0xe6bc62421dd70b40693c7d462eaec928cd787df8af09a7a894e09a2d3a9ff827"
+              },
+              {
+                "snapshot_id": "UTC_20240111T080000Z",
+                "block_number": 18982359,
+                "block_hash": "0xd9c050785c91ef24fc95aed66ba3dca56e3e0912304dc3289372e9fb86c85ba7"
+              },
+              {
+                "snapshot_id": "UTC_20240111T090000Z",
+                "block_number": 18982653,
+                "block_hash": "0xfb43957e3cc5016023cf6ea750b300e8d076948fe61f8878a4adb651d45bf319"
+              },
+              {
+                "snapshot_id": "UTC_20240111T100000Z",
+                "block_number": 18982950,
+                "block_hash": "0xac1b74df6becf88dfeed391402ac4a1f2f8bc54d09d112ce32ba89e3fc795fe7"
+              },
+              {
+                "snapshot_id": "UTC_20240111T110000Z",
+                "block_number": 18983247,
+                "block_hash": "0x92d9e20bba5f5ccac13b5f960c89c375d9cd242527f2792f612a95ac33507c79"
+              },
+              {
+                "snapshot_id": "UTC_20240111T120000Z",
+                "block_number": 18983541,
+                "block_hash": "0x53d419654df60764136afe9ef259aad466461528223fea882490f1e1bdaa2965"
+              },
+              {
+                "snapshot_id": "UTC_20240111T130000Z",
+                "block_number": 18983841,
+                "block_hash": "0x02e7e414435998853943c863a58799833b0981f18421f8e08b65db0c7be84a70"
+              },
+              {
+                "snapshot_id": "UTC_20240111T140000Z",
+                "block_number": 18984138,
+                "block_hash": "0xeae16d18a6929cc153a07608a8b9a0c5d8b2d08e1ccc85aa3b14193f2c8fc79c"
+              },
+              {
+                "snapshot_id": "UTC_20240111T150000Z",
+                "block_number": 18984436,
+                "block_hash": "0xf8f3281ba922f7e714fc965ce8c8b8b90fe021f024cd43e5d8121df30648eb17"
+              },
+              {
+                "snapshot_id": "UTC_20240111T160000Z",
+                "block_number": 18984731,
+                "block_hash": "0xac5623da4c8b906a13f2e6b40c5341cd7d6bf1706c7650139bc59b036ffd3ad1"
+              },
+              {
+                "snapshot_id": "UTC_20240111T170000Z",
+                "block_number": 18985025,
+                "block_hash": "0xeeeeaba074a6292496fa24a7ee546a1debf1422e81415a59e1e969957fad66d0"
+              },
+              {
+                "snapshot_id": "UTC_20240111T180000Z",
+                "block_number": 18985323,
+                "block_hash": "0xd8a9608b74c3af29d5eed17cc80710647efcb87602e6fdeac4b53dd80c2ba890"
+              },
+              {
+                "snapshot_id": "UTC_20240111T190000Z",
+                "block_number": 18985623,
+                "block_hash": "0x5f8b0d23acd77f88181f9873e7a4f516cbda7abcb384ddeeae686f6816bde2f2"
+              },
+              {
+                "snapshot_id": "UTC_20240111T200000Z",
+                "block_number": 18985918,
+                "block_hash": "0x2077bc2e394b30fe05456c0b0731d6dd90272b2ddfc32eaa1532b1f56e78dab8"
+              },
+              {
+                "snapshot_id": "UTC_20240111T210000Z",
+                "block_number": 18986214,
+                "block_hash": "0x9573a73bbb04ca17e120ad72ebcac4e316f37f839313859948efa7f79f38e1e8"
+              },
+              {
+                "snapshot_id": "UTC_20240111T220000Z",
+                "block_number": 18986512,
+                "block_hash": "0x5bcb9631219d5a4ab85c07fca5e2a855beb817f04e47f2ff8f8dfc79ea1501ce"
+              },
+              {
+                "snapshot_id": "UTC_20240111T230000Z",
+                "block_number": 18986809,
+                "block_hash": "0x5cb350e135bd00c81b5781dd03651ee687425de14a9f1ad6fbb6c79b4babde4b"
+              },
+              {
+                "snapshot_id": "UTC_20240112T000000Z",
+                "block_number": 18987103,
+                "block_hash": "0x3daf1b516f1f287baaf7468da9d5337abc2bf44b246cee0ba1a0dca31bbdd7fa"
+              }
+            ],
+            "observed_at": "2024-01-11T17:59:59Z",
+            "target_timestamp_utc": "2024-01-11T18:00:00Z",
+            "snapshot_id": "UTC_20240111T180000Z",
+            "block_number": 18985323,
+            "block_hash": "0xd8a9608b74c3af29d5eed17cc80710647efcb87602e6fdeac4b53dd80c2ba890"
+          }
+        },
+        {
+          "claim_id": "S3_quote_rate",
+          "verdict": "FAIL",
+          "reason": "task_query_mismatch"
+        }
+      ]
+    }
+  },
+  {
+    "run_id": "H01_E_3",
+    "task_id": "H01",
+    "group": "E",
+    "repetition": 3,
+    "status": "completed",
+    "report": {
+      "task_id": "H01",
+      "answer": "2024-01-11T02:00:00Z 单点快照（区块18980576）显示：DAI 名义占比约39.17%，池内三种稳定币分布明显不均衡。1000 USDC→USDT 的报价率约0.999676 USDT/USDC，接近平价但略低于1。10万 USDC 相对1000 USDC 输入的规模敏感度约0.0108个基点，说明该规模下额外滑点极小，报价主要由池内轻微失衡驱动而非深度不足。以上均为该时点观测值；受逐小时采样限制，不能据此推断连续失衡峰值或跨时间趋势。",
+      "claims": [
+        {
+          "claim_id": "S1_dai_share",
+          "slot_id": "S1",
+          "query": {
+            "coin": "DAI",
+            "metric": "share_pct",
+            "operation": "last",
+            "start": "2024-01-11T02:00:00Z",
+            "end": "2024-01-11T02:00:00Z"
+          },
+          "value": "39.169845376204093944641111039937673244929110780396433989844812088759407579197655",
+          "unit": "percent",
+          "status": "supported",
+          "explanation": "DAI 名义占比，单点快照。",
+          "depends_on": [],
+          "evidence_ids": [
+            "E_UTC_20240111T020000Z"
+          ],
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "target_timestamp_utc": "2024-01-11T02:00:00Z"
+        },
+        {
+          "claim_id": "S2_quote_rate",
+          "slot_id": "S2",
+          "query": {
+            "direction": "USDC_USDT",
+            "metric": "quote_rate",
+            "operation": "last",
+            "size": 1000,
+            "start": "2024-01-11T02:00:00Z",
+            "end": "2024-01-11T02:00:00Z"
+          },
+          "value": "0.999675549",
+          "unit": "USDT/USDC",
+          "status": "supported",
+          "explanation": "1000 USDC→USDT 报价率。",
+          "depends_on": [],
+          "evidence_ids": [
+            "E_UTC_20240111T020000Z"
+          ],
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "target_timestamp_utc": "2024-01-11T02:00:00Z"
+        },
+        {
+          "claim_id": "S3_size_sens",
+          "slot_id": "S3",
+          "query": {
+            "direction": "USDC_USDT",
+            "metric": "size_sensitivity_bps",
+            "operation": "last",
+            "size": 100000,
+            "start": "2024-01-11T02:00:00Z",
+            "end": "2024-01-11T02:00:00Z"
+          },
+          "value": "0.010763492225816158278369575287071465624093202663697439297877635696779455791210914",
+          "unit": "basis_points",
+          "status": "supported",
+          "explanation": "10万相对1000 USDC 输入的规模敏感度。",
+          "depends_on": [],
+          "evidence_ids": [
+            "E_UTC_20240111T020000Z"
+          ],
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "target_timestamp_utc": "2024-01-11T02:00:00Z"
+        }
+      ]
+    },
+    "published": {
+      "task_id": "H01",
+      "claims": [
+        {
+          "claim_id": "S1_dai_share",
+          "slot_id": "S1",
+          "value": "39.169845376204093944641111039937673244929110780396433989844812088759407579197655",
+          "unit": "percent",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20240111T020000Z"
+          ],
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2024-01-11T02:00:00Z",
+          "query": {
+            "metric": "share_pct",
+            "operation": "last",
+            "start": "2024-01-11T02:00:00Z",
+            "end": "2024-01-11T02:00:00Z",
+            "coin": "DAI"
+          }
+        },
+        {
+          "claim_id": "S2_quote_rate",
+          "slot_id": "S2",
+          "value": "0.999675549",
+          "unit": "USDT/USDC",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20240111T020000Z"
+          ],
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2024-01-11T02:00:00Z",
+          "query": {
+            "metric": "quote_rate",
+            "operation": "last",
+            "start": "2024-01-11T02:00:00Z",
+            "end": "2024-01-11T02:00:00Z",
+            "direction": "USDC_USDT",
+            "size": 1000
+          }
+        },
+        {
+          "claim_id": "S3_size_sens",
+          "slot_id": "S3",
+          "value": "0.010763492225816158278369575287071465624093202663697439297877635696779455791210914",
+          "unit": "basis_points",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20240111T020000Z"
+          ],
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2024-01-11T02:00:00Z",
+          "query": {
+            "metric": "size_sensitivity_bps",
+            "operation": "last",
+            "start": "2024-01-11T02:00:00Z",
+            "end": "2024-01-11T02:00:00Z",
+            "direction": "USDC_USDT",
+            "size": 100000
+          }
+        }
+      ],
+      "answer": "S1_dai_share: 39.169845376204093944641111039937673244929110780396433989844812088759407579197655 percent\nS2_quote_rate: 0.999675549 USDT/USDC\nS3_size_sens: 0.010763492225816158278369575287071465624093202663697439297877635696779455791210914 basis_points",
+      "withdrawals": []
+    }
+  },
+  {
+    "run_id": "H03_G_3",
+    "task_id": "H03",
+    "group": "G",
+    "repetition": 3,
+    "status": "completed",
+    "report": {
+      "task_id": "H03",
+      "answer": "允许首点2024-01-11T00:00:00Z的USDC占比为35.85%。在18:00至次日00:00Z的小时采样中，最大单小时USDC占比增幅出现在20:00至21:00Z之间，为7.32个百分点。需要说明的是，由于证据仅提供小时级采样点，且被禁时点2024-01-11T22:00:00Z不可用，无法确定连续时间上的真实失衡峰值，故对该连续峰值拒绝作答（sampling_resolution_insufficient）。",
+      "claims": [
+        {
+          "claim_id": "H03_S1",
+          "slot_id": "S1",
+          "query": {
+            "coin": "USDC",
+            "end": "2024-01-11T00:00:00Z",
+            "metric": "share_pct",
+            "operation": "last",
+            "start": "2024-01-11T00:00:00Z"
+          },
+          "value": "35.853268849038852437548303185899127752200332470422849883098643190607484243556255",
+          "unit": "percent",
+          "status": "supported",
+          "explanation": "允许首点USDC占比，取自2024-01-11T00:00:00Z快照。",
+          "depends_on": [],
+          "evidence_ids": [
+            "E_UTC_20240111T000000Z"
+          ],
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "target_timestamp_utc": "2024-01-11T00:00:00Z"
+        },
+        {
+          "claim_id": "H03_S2",
+          "slot_id": "S2",
+          "query": {
+            "coin": "USDC",
+            "end": "2024-01-12T00:00:00Z",
+            "metric": "share_pct",
+            "operation": "max_hourly_change",
+            "start": "2024-01-11T18:00:00Z"
+          },
+          "value": "7.31808516364849794104722720998690866796008486915007029822155",
+          "unit": "percentage_points",
+          "status": "supported",
+          "explanation": "相邻小时点20:00至21:00Z的USDC占比最大增幅，跨越被禁时点的相邻点未被比较。",
+          "depends_on": [],
+          "evidence_ids": [
+            "E_UTC_20240111T180000Z",
+            "E_UTC_20240111T190000Z",
+            "E_UTC_20240111T200000Z",
+            "E_UTC_20240111T210000Z",
+            "E_UTC_20240111T230000Z",
+            "E_UTC_20240112T000000Z"
+          ],
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "interval_start": "2024-01-11T20:00:00Z",
+          "interval_end": "2024-01-11T21:00:00Z"
+        },
+        {
+          "claim_id": "H03_S3",
+          "slot_id": "S3",
+          "query": {
+            "end": "2024-01-12T00:00:00Z",
+            "metric": "continuous_imbalance_peak",
+            "operation": "maximum",
+            "start": "2024-01-11T00:00:00Z"
+          },
+          "value": null,
+          "unit": "dimensionless",
+          "status": "refused",
+          "explanation": "sampling_resolution_insufficient",
+          "depends_on": [],
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3"
+        }
+      ]
+    },
+    "published": {
+      "task_id": "H03",
+      "claims": [
+        {
+          "claim_id": "H03_S1",
+          "slot_id": "S1",
+          "value": "35.853268849038852437548303185899127752200332470422849883098643190607484243556255",
+          "unit": "percent",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20240111T000000Z"
+          ],
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "target_timestamp_utc": "2024-01-11T00:00:00Z",
+          "query": {
+            "metric": "share_pct",
+            "operation": "last",
+            "start": "2024-01-11T00:00:00Z",
+            "end": "2024-01-11T00:00:00Z",
+            "coin": "USDC"
+          }
+        },
+        {
+          "claim_id": "H03_S2",
+          "slot_id": "S2",
+          "value": "7.31808516364849794104722720998690866796008486915007029822155",
+          "unit": "percentage_points",
+          "status": "supported",
+          "evidence_ids": [
+            "E_UTC_20240111T180000Z",
+            "E_UTC_20240111T190000Z",
+            "E_UTC_20240111T200000Z",
+            "E_UTC_20240111T210000Z",
+            "E_UTC_20240111T230000Z",
+            "E_UTC_20240112T000000Z"
+          ],
+          "dataset_sha256": "7aa06d0460cbf56d6c984bd9a9751b366c24290cbdcaf446067d1d385b2f17f3",
+          "formula_version": "3pool-erc20-balanceOf-20261102",
+          "interval_start": "2024-01-11T20:00:00Z",
+          "interval_end": "2024-01-11T21:00:00Z",
+          "query": {
+            "coin": "USDC",
+            "end": "2024-01-12T00:00:00Z",
+            "metric": "share_pct",
+            "operation": "max_hourly_change",
+            "start": "2024-01-11T18:00:00Z"
+          }
+        }
+      ],
+      "answer": "H03_S1: 35.853268849038852437548303185899127752200332470422849883098643190607484243556255 percent\nH03_S2: 7.31808516364849794104722720998690866796008486915007029822155 percentage_points",
+      "withdrawals": [
+        {
+          "claim_id": "H03_S3",
+          "verdict": "UNKNOWN",
+          "reason": "refusal_or_omission"
+        }
+      ]
+    }
+  }
+]
