@@ -116,4 +116,4 @@ python3 -B decision_cost/evaluation.py --output "$run_dir/cost-replayed"
 | 三个留出窗口配对重放 | 运行 `python3 -B audit/holdout_validation/replay.py` 与 `alert_metrics.py`，核对 54 份归档报告。 |
 | 扩展新的留出窗口 | 按仓库根目录的 `CONFIRMATION.md` 核对首窗准备流程，以及新窗口需重新配置和冻结的输入。 |
 
-技术报告和勘误位于仓库根目录。历史效果图表集中在 `baseline/audit/effect_metrics/`。新窗口的采集回执位于 `decision_cost/holdout/raw/`。组内人工审核材料沿用原有保管流程。
+最终英文报告为仓库根目录的 `MSBD5017_Final_Project_Report.pdf`（2026-11-22 版）。排版源及重建命令在 `report/`。历史效果图表集中在 `baseline/audit/effect_metrics/`。新窗口的采集回执位于 `decision_cost/holdout/raw/`。组内人工审核材料沿用原有保管流程。
