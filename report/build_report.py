@@ -1,441 +1,498 @@
-"""Build the final report from the frozen Curve 3pool study."""
+"""Build the reader-first MSBD5017 report from public repository archives."""
 from __future__ import annotations
 
 import argparse
 import csv
-from decimal import Decimal
 import json
+from decimal import Decimal
 from pathlib import Path
 
 from reportlab.lib import colors
-from reportlab.lib.enums import TA_LEFT
-from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import ParagraphStyle
-from reportlab.platypus import Flowable, PageBreak, Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
+from reportlab.lib.pagesizes import A4
+from reportlab.platypus import Flowable, PageBreak, Paragraph, Preformatted, SimpleDocTemplate, Spacer, Table, TableStyle
 
-ROOT = Path(__file__).resolve().parents[1]
-parser = argparse.ArgumentParser(description=__doc__)
-parser.add_argument("--output", type=Path, default=ROOT / "MSBD5017_Final_Project_Report.pdf")
-args = parser.parse_args()
-def read_json(path):
-    return json.loads(path.read_text(encoding="utf-8"))
-
-
-decision_replay = read_json(ROOT / "baseline/audit/decision_replay_20261112/results.json")
-recovery_dir = ROOT / "audit/evidence_recovery/results"
-holdout_dir = ROOT / "audit/holdout_validation"
-historical_recovery = read_json(recovery_dir / "recovery_summary.json")
-with (recovery_dir / "decision_cost_comparison.csv").open(encoding="utf-8-sig", newline="") as file:
-    recovery_policies = list(csv.DictReader(file))
-holdout_arms = []
-for event in ("2023-06-15", "2023-10-23", "2024-01-11"):
-    arms = read_json(holdout_dir / event / "summary.json")["arms"]
-    holdout_arms.append((event, arms["baseline"], arms["recovery"]))
-billing = read_json(holdout_dir / "billing-reconciliation.json")
-timing = read_json(holdout_dir / "timing-summary.json")["events"]
-
-INK = colors.HexColor("#17283B")
-MUTED = colors.HexColor("#47586A")
-TEAL = colors.HexColor("#087C78")
-BLUE = colors.HexColor("#385D8A")
-PALE = colors.HexColor("#F1F5F8")
-RULE = colors.HexColor("#CDD9E0")
-W, H = A4
-M = 46
-CW = W - 2 * M - 12
+A4_W, A4_H = A4
+MARGIN = 46
+WIDTH = A4_W - 2 * MARGIN - 12
+NAVY = colors.HexColor("#17283B")
+TEAL = colors.HexColor("#08736E")
+SLATE = colors.HexColor("#45596B")
+PALE = colors.HexColor("#EDF5F4")
+ALT = colors.HexColor("#F2F5F8")
+LINE = colors.HexColor("#CFDAE1")
+WHITE = colors.white
+TITLE = "An Auditable Investigation Agent for Curve 3pool"
+WINDOWS = ("2023-06-15", "2023-10-23", "2024-01-11")
+HOLDOUT = Path("audit/holdout_validation")
+RECOVERY = Path("audit/evidence_recovery/results")
+FORMAL = Path("baseline/experiments/formal_v1/result_summary.json")
+POLICIES = Path("decision_cost/results/policy-summary.csv")
 
 
-def style(name, font="Helvetica", size=10, leading=14.5, color=INK, **kwargs):
-    return ParagraphStyle(name, fontName=font, fontSize=size, leading=leading,
-                          textColor=color, spaceAfter=6, alignment=TA_LEFT, **kwargs)
+def style(name, size, lead, color=NAVY, font="Helvetica", after=6, before=0):
+    return ParagraphStyle(name, fontName=font, fontSize=size, leading=lead,
+                          textColor=color, spaceAfter=after, spaceBefore=before)
 
 
-styles = {
-    "kicker": style("kicker", "Helvetica-Bold", 10.5, 14, TEAL),
-    "title": style("title", "Helvetica-Bold", 30, 33.5),
-    "h1": style("h1", "Helvetica-Bold", 22, 26),
-    "h2": style("h2", "Helvetica-Bold", 12.3, 17, TEAL, spaceBefore=6),
-    "body": style("body", "Helvetica", 10.15, 14.25),
-    "small": style("small", "Helvetica", 8.65, 12, MUTED),
-    "reference": style("reference", "Helvetica", 8.65, 11.5, MUTED),
-    "cell": style("cell", "Helvetica", 9.15, 12.0),
-    "header": style("header", "Helvetica-Bold", 9.15, 12, colors.white),
-    "code": style("code", "Courier", 8.1, 12, INK),
+STYLES = {
+    "kicker": style("kicker", 10, 14, TEAL, "Helvetica-Bold", after=9),
+    "title": style("title", 30, 34, font="Helvetica-Bold", after=10),
+    "h1": style("h1", 24, 28, font="Helvetica-Bold", after=12),
+    "h2": style("h2", 13, 17, TEAL, "Helvetica-Bold", before=8),
+    "body": style("body", 10.6, 15.1),
+    "lead": style("lead", 12.1, 17, after=11),
+    "small": style("small", 9.05, 12.7, SLATE),
+    "caption": style("caption", 8.7, 12.2, SLATE, after=9),
+    "cell": style("cell", 9.35, 12.7, after=0),
+    "head": style("head", 9.35, 12, WHITE, "Helvetica-Bold", after=0),
+    "code": style("code", 8.2, 11.8, SLATE, "Courier"),
+    "card": style("card", 11, 15.5, NAVY, after=0),
 }
-styles["reference"].spaceAfter = 3
-flow = []
 
 
-def p(text, kind="body"):
-    flow.append(Paragraph(text, styles[kind]))
+def read_json(root, path):
+    return json.loads((root / path).read_text(encoding="utf-8"))
 
 
-def h2(text):
-    p(text, "h2")
+def read_rows(root, path):
+    with (root / path).open(encoding="utf-8-sig", newline="") as file:
+        return list(csv.DictReader(file))
 
 
-def section(number, title):
-    p(number, "kicker")
-    p(title, "h1")
-    flow.append(Spacer(1, 5))
+def elapsed(seconds):
+    mins, secs = divmod(int(seconds), 60)
+    return f"{mins} min {secs:02d} s"
 
 
-def tab(header, rows, widths):
-    data = [[Paragraph(text, styles["header"]) for text in header]]
-    data.extend([[Paragraph(text, styles["cell"]) for text in row] for row in rows])
-    table = Table(data, colWidths=widths, repeatRows=1, hAlign="LEFT")
-    table.setStyle(TableStyle([
-        ("BACKGROUND", (0, 0), (-1, 0), TEAL),
-        ("ROWBACKGROUNDS", (0, 1), (-1, -1), [colors.white, PALE]),
-        ("LINEBELOW", (0, -1), (-1, -1), 0.5, RULE),
-        ("VALIGN", (0, 0), (-1, -1), "TOP"),
-        ("LEFTPADDING", (0, 0), (-1, -1), 8),
-        ("RIGHTPADDING", (0, 0), (-1, -1), 8),
-        ("TOPPADDING", (0, 0), (-1, -1), 6),
-        ("BOTTOMPADDING", (0, 0), (-1, -1), 6),
-    ]))
-    flow.extend([Spacer(1, 3), table, Spacer(1, 8)])
+def pair(a, b):
+    return f"{a} to {b}"
 
 
-class CoverageChart(Flowable):
+class Workflow(Flowable):
+    """Draw a static vector flowchart with a separate evidence recovery branch."""
+
     def __init__(self):
         super().__init__()
-        self.width = CW
-        self.height = 170
+        self.width = WIDTH
+        self.height = 272
 
     def draw(self):
         c = self.canv
-        x0 = 165
-        bar = 284
-        c.setFillColor(MUTED)
-        c.setFont("Helvetica", 8)
-        for i in range(5):
-            x = x0 + i * bar / 4
-            c.setStrokeColor(RULE)
-            c.setLineWidth(0.5)
-            c.line(x, 30, x, 151)
-            c.drawCentredString(x, 17, f"{i*25}%")
-        for y, label, num, fill in [
-            (140, "G / raw correct", 40, BLUE), (122, "G / reproducible correct", 34, BLUE),
-            (104, "G / published correct", 31, BLUE), (82, "E / raw correct", 45, TEAL),
-            (64, "E / reproducible correct", 43, TEAL), (46, "E / published correct", 42, TEAL),
-        ]:
-            c.setFont("Helvetica", 9)
-            c.setFillColor(INK)
-            c.drawString(0, y-1, label)
-            c.setFillColor(fill)
-            c.roundRect(x0, y-3, bar * num / 48, 8, 2, stroke=0, fill=1)
-            c.setFillColor(INK)
-            c.drawString(x0 + bar * num / 48 + 5, y-1, f"{num}/48")
+        # The first three stages are shared. Two branches rejoin at the decision.
+        self._arrow(c, 246, 227, 246, 215)
+        self._arrow(c, 246, 181, 246, 169)
+        c.setStrokeColor(TEAL)
+        c.setLineWidth(1)
+        c.line(246, 131, 246, 123)
+        c.line(112, 123, 380, 123)
+        self._arrow(c, 112, 123, 112, 96)
+        self._arrow(c, 380, 123, 380, 96)
+        self._arrow(c, 112, 57, 112, 47)
+        self._arrow(c, 380, 57, 380, 47)
+        self._node(c, 138, 227, 216, 34, "1  Pin blocks and capture two sources",
+                   "Store raw balances, quotes, units and block IDs")
+        self._node(c, 138, 181, 216, 34, "2  Generate structured claims",
+                   "Give each claim a query, value and evidence IDs")
+        self._node(c, 138, 131, 216, 38, "3  Recompute the original claim",
+                   "Match query, value, unit and evidence scope")
+        self._node(c, 9, 57, 219, 39, "4A  Full verification",
+                   "Check both sources and publish passing claims")
+        self._node(c, 262, 57, 219, 39, "4B  Full verification with recovery",
+                   "Fill eligible citation gaps and rerun the full gate", accented=True)
+        self._node(c, 94, 8, 303, 39, "5  Act on the checked publication",
+                   "Use a supported decision or refer it for human review")
+        c.setFont("Helvetica", 8.2)
+        c.setFillColor(TEAL)
+        c.drawString(122, 105, "Baseline path")
+        c.drawRightString(370, 105, "Only eligible citation gaps are repaired")
+
+    @staticmethod
+    def _node(c, x, y, w, h, header, sub, accented=False):
+        c.setFillColor(PALE if accented else ALT)
+        c.setStrokeColor(TEAL if accented else LINE)
+        c.setLineWidth(0.7)
+        c.roundRect(x, y, w, h, 5, stroke=1, fill=1)
+        c.setFillColor(TEAL if accented else NAVY)
+        c.setFont("Helvetica-Bold", 9.0)
+        c.drawString(x + 8, y + h - 13, header)
+        c.setFillColor(SLATE)
+        c.setFont("Helvetica", 8.15)
+        c.drawString(x + 8, y + h - 25, sub)
+
+    @staticmethod
+    def _arrow(c, x1, y1, x2, y2):
+        c.setStrokeColor(TEAL)
+        c.setLineWidth(1)
+        c.line(x1, y1, x2, y2)
+        if x1 == x2:
+            c.line(x2, y2, x2 - 2.6, y2 + 4)
+            c.line(x2, y2, x2 + 2.6, y2 + 4)
+        else:
+            direction = 4 if x2 < x1 else -4
+            c.line(x2, y2, x2 + direction, y2 + 2.6)
+            c.line(x2, y2, x2 + direction, y2 - 2.6)
 
 
-# Page 1
-p("MSBD 5017  /  TRADE 2  /  FINAL PROJECT", "kicker")
-flow.append(Spacer(1, 14))
-p("Independently Verifiable Stablecoin Liquidity Investigation Agent", "title")
-p("Evidence-grounded investigation and independent replay of Ethereum Curve 3pool")
-p("WANG Hanyang &nbsp;&nbsp; HE Yuequn &nbsp;&nbsp; WU Yuxuan", "h2")
-p("23 November 2026 | Revised final report", "small")
-flow.append(Spacer(1, 17))
-h2("Abstract")
-p("This study tests whether evidence guidance and independent recomputation improve stablecoin investigation reports. We froze 51 block-pinned snapshots covering two Ethereum Curve 3pool windows and defined six tasks with 18 required components. Sixteen were answerable. We compared a deterministic template with ordinary and evidence-guided agents using the same DeepSeek Flash model, task data, tool access and budget limits.")
-p("Across 18 scheduled runs per model condition, the ordinary agent achieved reproducible correct coverage of 34/48 (70.8%) and the evidence-guided agent achieved 43/48 (89.6%). Verification withheld six nonconforming structured numeric submissions, one with an incorrect value and five with incorrect query bounds or fields. Published correct coverage was 31/48 and 42/48, respectively. On a separate 32-case test, the second-source verifier rejected 10 of 12 injected faults and returned UNKNOWN on the other two.")
-p("Across three held-out windows, evidence recovery reduced manual referrals from 12 to 3 over 54 paired decisions and increased correctly published claims from 120 to 132. Neither path made an observed automatic error. The six reference negatives for concentration alerts all came from one window and produced no false alerts. Recovery required no additional model calls and added about 3.8 ms of median local verification time per report in the two newer windows. [20]")
-h2("Research questions")
-p("<b>Generation.</b> Does evidence guidance change raw correctness, reproducibility or model usage under matched settings?")
-p("<b>Verification.</b> Which claims survive a fixed verification and withdrawal rule, and how much correct coverage is lost?")
-p("<b>Source retrieval.</b> What does a second archive interface add over independent arithmetic using the original snapshot?")
-h2("Investigation workflow")
-tab(["01 / Acquire", "02 / Generate", "03 / Recompute", "04 / Publish"], [[
-    "Resolve blocks at UTC targets and store raw responses.",
-    "Emit required answer slots, citations and a tool trace.",
-    "Check original-source and second-source evidence separately.",
-    "Retain PASS claims and record each withdrawal and reason."
-]], [CW/4]*4)
-p("The historical evidence package also includes a local-chain digest registration demonstration. [1, 2, 3]", "small")
-flow.append(PageBreak())
+def build(root, output, edition):
+    formal = read_json(root, FORMAL)
+    groups = formal["by_group"]
+    policies = {r["policy"]: r for r in read_rows(root, POLICIES)}
+    recovery = read_json(root, RECOVERY / "recovery_summary.json")
+    recovered_formal = recovery["formal_36_runs"]["totals"]
+    replay = recovery["decision_replay_36"]
+    fault = recovery["fault_safety_gates"]
+    alert = read_json(root, HOLDOUT / "alert-metrics.json")
+    billing = read_json(root, HOLDOUT / "billing-reconciliation.json")
+    human = read_json(root, HOLDOUT / "human-timing-observed.json")
+    timing = read_json(root, HOLDOUT / "timing-summary.json")
+    summaries = {day: read_json(root, HOLDOUT / day / "summary.json") for day in WINDOWS}
+    n_cases = sum(x["arms"]["baseline"]["cases"] for x in summaries.values())
+    arms = ("baseline", "recovery")
+    totals = {a: {field: sum(x["arms"][a][field] for x in summaries.values())
+                  for field in ("to_human", "published_correct_claims", "auto_error")}
+              for a in arms}
+    refs = pair(*(totals[a]["to_human"] for a in arms))
+    pubs = pair(*(totals[a]["published_correct_claims"] for a in arms))
+    money = f'{Decimal(billing["recorded_charge"]):.8f}'
+    recorded = human["observations"]
+    minutes = elapsed(sum(x["seconds"] for x in recorded))
+    timing_rows = list(timing["events"].values())
+    t1, t2 = (f'{x["median_incremental_wall_ms"]:.2f}' for x in timing_rows)
+    g, e = (f'{groups[k]["reproducible_correct"]}/{groups[k]["answerable"]}' for k in ("G", "E"))
+    jdate = WINDOWS[0]
+    example = next(r for r in read_json(root, HOLDOUT / jdate / "recovery-trace.json")
+                   if r["run_id"] == "H02_G_1")
+    peak = next(c for c in example["recovery_publication"]["claims"] if c["slot_id"] == "S2")
+    quote = next(c for c in example["recovery_publication"]["claims"] if c["slot_id"] == "S3")
+    recovered_ids = example["recovery_records"]["S2"]["recovered_evidence_ids"]
+    peak_hour, quote_hour = (c["target_timestamp_utc"][11:16] for c in (peak, quote))
+    flow = []
 
-# Page 2
-section("01 / STUDY DESIGN", "Data and frozen benchmark")
-p("The Ethereum Curve 3pool holds DAI, USDC and USDT. Nominal balances use the tokens' ERC-20 balanceOf(pool) values. Each target maps to a block whose timestamp is at or before the target and whose next block is later. The logs preserve target and observed times, block identities, request parameters and raw responses. The primary archive used Alchemy and the comparison archive used dRPC. The source check establishes agreement across those interfaces for the captured observations. Their upstream infrastructure is unverified. [2]")
-tab(["Window and UTC sampling", "Snapshots", "Tasks"], [
-    ["USDC depeg context, 10 Mar 2023 00:00 to 11 Mar 00:00 inclusive, plus 11 Mar 01:00 for the dependent quote", "26", "R01-R03"],
-    ["FTX context, 9 Nov 2022 00:00 to 10 Nov 00:00 inclusive. The dependent quote falls inside this grid.", "25", "R04-R06"],
-], [CW-130, 66, 64])
-h2("Deterministic metrics")
-p("Normalize each integer balance by dividing by 10 raised to its decimals. A token's share is its fraction of the three normalized balances. The share change is the final percentage minus the initial percentage. The quote rate is normalized output divided by input. Size sensitivity is the signed difference between the 1,000-input rate and the 100,000-input rate, divided by the 1,000-input rate and multiplied by 10,000. Imbalance is half the sum of the absolute differences between each share fraction and one third. [2]")
-tab(["Task family", "Required components", "Boundary"], [
-    ["R01 / R04", "DAI share, 1,000 USDC-to-USDT quote rate, and relative size sensitivity", "Fixed hour, direction and units"],
-    ["R02 / R05", "USDC share change, sampled maximum imbalance, and quote one hour after the returned maximum", "Maximum over allowed grid points"],
-    ["R03 / R06", "First-hour USDC share, largest allowed one-hour increase, and whether continuous peak is identifiable", "Increases checked from 18:00 to 00:00 UTC, skipping the excluded 22:00 point"],
-], [80, 259, CW-339])
-h2("Controls and denominator")
-p("T is a single deterministic report per task. G and E each ran six tasks three times in a recorded randomized order. E adds requirements for precise citations, checks on units and times, and limits on interpretation. The comparison evaluates this prompt as a whole. The 16 answerable slots contribute 48 opportunities to each model arm, including failed runs. Each complete task set also has two non-answerable slots. [2, 3]")
-p("The ten exploratory rounds found a contrast in citation replayability and no clear difference in unsupported statements on the local pilot model. Those observations informed the choice of reproducible correct coverage before the formal G/E freeze. The metric rewards correct answers with complete attribution, which E explicitly requests. We also report raw correctness and the descriptive prose audit. [3, 8, 10]", "small")
-p("The freeze used a team-attested consolidated reference workbook with two calculation paths. It matched 18 components and 51 snapshots. Reviewer names, dates and signatures are absent from that workbook. The attestation records that independent dual review was unverified. Page 5 describes the post-freeze checks. [2, 4, 12]", "small")
-flow.append(PageBreak())
+    def p(content, kind="body"):
+        flow.append(Paragraph(content, STYLES[kind]))
 
-# Page 3
-section("02 / FORMAL EXPERIMENT", "Correct coverage and cost")
-p("Correct coverage requires the correct value, unit, time and query for the frozen slot. Reproducible correct coverage also requires a V1 PASS, including the exact evidence ID set, formula version and dataset digest. Publication uses the original model draws and the same denominator. [3, 6]")
-flow.append(CoverageChart())
-tab(["Measure", "T template", "G ordinary", "E evidence"], [
-    ["Scheduled runs / reports submitted", "6 / 6", "18 / 16", "18 / 18"],
-    ["Correct coverage, raw", "16/16 (100.0%)", "40/48 (83.3%)", "45/48 (93.8%)"],
-    ["Reproducible correct coverage, raw", "16/16 (100.0%)", "34/48 (70.8%)", "43/48 (89.6%)"],
-    ["Correct coverage after publication", "N/A", "31/48 (64.6%)", "42/48 (87.5%)"],
-    ["Withdrawn numeric items: value / query errors", "0 / 0", "1 / 2", "0 / 3"],
-    ["Correct raw answers lost on publication", "N/A", "9/40 (22.5%)", "3/45 (6.7%)"],
-    ["Over-refusals on answerable slots", "0/16", "0/48", "0/48"],
-    ["Refusals passing the exact-reason check", "2/2", "0/6", "0/6"],
-    ["Model calls / logged tokens", "0 / 0", "63 / 104,166", "70 / 129,007"],
-], [CW-266, 83, 92, 91])
-p("G's two stops omitted five answerable slots and one non-answerable slot. Across all 18 pairs, the reproducible gap was 18.75 percentage points. In the 16 pairs where both arms completed, raw correctness tied at 40/43, while reproducible correctness was 34/43 for G and 39/43 for E, a gap of 11.63 points. The completed-pair result describes that subset. [3, 14]", "small")
-p("The frozen refusal scorer required the literal reason code. The prompt asked for a specific reason in words. By meaning, G gave five valid refusals across six scheduled non-answerable slots, with one omitted at a budget stop. E gave six valid refusals across six slots. [3, 8]", "small")
-h2("Matched limits and actual use")
-p("Client admission used the same ceilings of 48,000 input, 12,000 output and 60,000 total tokens, with 10 calls and 2,048 output tokens per call. All 133 provider receipts were within the reserved bounds. Archived generation wall times totaled 191.602 s for G and 234.587 s for E. [3, 11]")
-p("Five offline batches recorded medians of 0.216 s for V1, 0.283 s for V2 and 0.002 s for in-memory publication. A separate replay measured a 0.901 s median from saved input loading through checked publication. Prose review and adjudication took seven person-hours. Live billing and total labor for the historical development study remain unavailable. Section 08 reports separate holdout billing and timing. [11, 13, 15]", "small")
-flow.append(PageBreak())
+    def section(kicker, title):
+        p(kicker, "kicker")
+        p(title, "h1")
 
-# Page 4
-section("03 / INDEPENDENT VERIFICATION", "Where the checks succeed and fail")
-p("V1 recomputes claims using the frozen primary archive. V2 checks the allowed observations and block identities against a second RPC capture and applies the same verifier arithmetic. Both use arithmetic separate from the agent's calculation and check units, scope, evidence and numerical tolerance before publication. [5, 6]")
-tab(["Case set", "Cases", "V1 PASS / FAIL / UNKNOWN", "V2 PASS / FAIL / UNKNOWN"], [
-    ["Injected errors", "12", "5 / 7 / 0", "0 / 10 / 2"],
-    ["Clean twins", "12", "12 / 0 / 0", "12 / 0 / 0"],
-    ["Legitimate refusal scenarios", "4", "0 / 0 / 4", "0 / 0 / 4"],
-    ["Missing secondary source", "2", "2 / 0 / 0", "0 / 0 / 2"],
-    ["Unresolved source conflict", "2", "2 / 0 / 0", "0 / 0 / 2"],
-], [165, 51, (CW-216)/2, (CW-216)/2])
-p("V2 rejected 10/12 injected faults. The three additional detections involved block identity. The other two injected faults returned UNKNOWN because source evidence was missing. Both layers accepted all 12 clean twins. The design schedules 136 case or record checks across V1 and V2, including the two empty model records in both layers. This count is separate from claim verdicts and RPC traffic. [5]")
-h2("Verification and withdrawal")
-p("The captures agree on the bound fields, and V2 changed none of the 102 formal claim verdicts. Totals were 34 PASS, 3 FAIL and 11 UNKNOWN for G and 43 PASS, 2 FAIL and 9 UNKNOWN for E. Of the 12 correct claims withheld, eight had incomplete attribution and four depended on a withdrawn claim. The publisher constructs a new answer from surviving fields. The experiment measures structured withdrawals. [3, 5, 6]")
-p("Correcting the slot-to-claim mapping restored three G and four E items. The corrected replay records UNKNOWN for source-conflict cases U3 and U4 and supersedes the original fault summary for those cases. The formal outcomes are unchanged by that correction. The archive retains the original reports and verdict records. [3, 5, 6]")
-h2("Evidence integrity on a local chain")
-p("The local Ganache demonstration registers the evidence manifest digest and reads it back. It rejects duplicate registration and produces a different, unregistered digest for a modified manifest. The saved receipt has chain ID 1337 and block number 2. Checking covered artifacts requires comparing their bytes with the manifest hashes. The arithmetic is checked by the separate verifier. [7]")
-h2("Independent arithmetic before publication")
-p("Across both windows, V1 and V2 accepted six controls and rejected six reports with injected denominator, token-decimal or extrema errors. With the same error injected into both verifiers, all six matching wrong reports originally passed and were published. The added exact-fraction check withheld all six and two quotes tied to erroneous peak times, while retaining all six controls. The check covers balance shares, changes and sampled imbalance maxima. Quote arithmetic continues under V2. [17]")
-flow.append(PageBreak())
+    def table(headers, rows, widths):
+        values = [[Paragraph(x, STYLES["head"]) for x in headers]]
+        values.extend([Paragraph(str(x), STYLES["cell"]) for x in row] for row in rows)
+        t = Table(values, colWidths=widths, repeatRows=1, hAlign="LEFT")
+        t.setStyle(TableStyle([
+            ("BACKGROUND", (0, 0), (-1, 0), TEAL),
+            ("ROWBACKGROUNDS", (0, 1), (-1, -1), [WHITE, ALT]),
+            ("VALIGN", (0, 0), (-1, -1), "TOP"),
+            ("TOPPADDING", (0, 0), (-1, -1), 7),
+            ("BOTTOMPADDING", (0, 0), (-1, -1), 7),
+            ("LEFTPADDING", (0, 0), (-1, -1), 8),
+            ("RIGHTPADDING", (0, 0), (-1, -1), 8),
+            ("LINEBELOW", (0, -1), (-1, -1), 0.6, LINE),
+        ]))
+        flow.extend((Spacer(1, 3), t, Spacer(1, 8)))
 
-# Page 5
-section("04 / INTERPRETATION", "What the evidence supports")
-h2("Prose evidence audit")
-p("Of the 42 scheduled records, 34 contained model prose. Six template stubs and two G budget stops sit outside the prose denominators. Two sets of annotations cover all 34 reports. He Yuequn confirmed the reconciliation workbook on 10 November 2026. Its fixed-component judgments match the frozen-data review. [8, 13]")
-tab(["Prose evidence measure", "G ordinary", "E evidence"], [
-    ["Numerical bundles matching frozen data", "42/43", "48/48"],
-    ["Numerical bundles with incomplete original citations", "6/43", "2/48"],
-    ["Supported scope-limited refusals observed", "5/5", "6/6"],
-], [CW-160, 80, 80])
-p("The two reviews contain 123 and 120 annotations. Claim counts differ in 19/34 reports. The team holds 62 reconciliation and explanation rows and a 143-unit follow-up packet. Common-list agreement and unsupported-claim rates are pending. A separate rule-based initial audit found at least one unsupported assertion in 11/16 G reports and 6/18 E reports. [8, 13, 15]", "small")
-h2("A worked example")
-p("For R02, the allowed endpoint snapshots put USDC at 29.679648% and 48.100138% of the pool's nominal balances. The difference is +18.420491 percentage points. The sampled maximum imbalance is 0.277696115 at 11 March 2023 00:00 UTC. The 100,000 USDC-to-USDT quote rate at the required following hour is 0.9897830738 USDT/USDC. The frozen packet identifies endpoint blocks 16794061 and 16801143. [2, 8]")
-p("P41 reports a decrease of about 18.42 percentage points in both the structured item and the prose. Both verifiers reject the sign error, and the item is withheld. The endpoint balances show a share increase. Attributing that change to capital flows, solvency or a specific mechanism requires additional evidence. [2, 3, 8]")
-h2("Reference checks received after the freeze")
-p("WANG Hanyang (A) matched 18/18 components. WU Yuxuan (B) matched 17/18 after converting three proportions to percentages. The combined workbook includes A's formulas and saved results. The timing of B's access to A's work remains unverified. [12]", "small")
-p("For R06/S2, B recorded 1.11692608956 percentage points. He Yuequn adjudicated the discrepancy on 9 November 2026 and accepted A's value of 1.16926089569553 percentage points, which matches the frozen reference used for formal scoring. The workbook preserves the original entries. The separate review record documents the decision. Review isolation remains unverified. [12]", "small")
-h2("Scope of the findings")
-p("Scheduled reproducible coverage was 15/24 versus 22/24 in the USDC window and 19/24 versus 21/24 in the FTX window, for G and E respectively. The gap was larger in the USDC window under both counting rules. This historical comparison covers one pool and six tasks with repeated runs. Its second-source results apply to the recorded interfaces and scripted faults. [2, 3, 5, 14]")
-flow.append(PageBreak())
+    def card(content):
+        t = Table([[Paragraph(content, STYLES["card"])]], colWidths=[WIDTH])
+        t.setStyle(TableStyle([
+            ("BACKGROUND", (0, 0), (0, 0), PALE),
+            ("LINEBEFORE", (0, 0), (0, 0), 3, TEAL),
+            ("LEFTPADDING", (0, 0), (0, 0), 12),
+            ("RIGHTPADDING", (0, 0), (0, 0), 12),
+            ("TOPPADDING", (0, 0), (0, 0), 9),
+            ("BOTTOMPADDING", (0, 0), (0, 0), 9),
+        ]))
+        flow.extend((t, Spacer(1, 8)))
 
-# Page 6
-section("05 / PRACTICAL EVALUATION", "Historical decision replay")
-h2("Research decisions from the same reports")
-p("We applied three rules to archived reports before and after verification. The rules labelled net USDC share direction, selected the sampled peak hour and escalated eligible hourly share increases of at least 1 percentage point. Recomputing from the two matching frozen datasets yielded the same benchmark actions. Missing or withdrawn inputs went to review. All 36 scheduled decisions include the one affected by a budget stop. [16]")
-research = decision_replay["research"]
-research_rows = []
-for key, label in (("share_direction", "Label direction"), ("peak_follow_up_hour", "Select follow-up hour"),
-                   ("concentration_alert", "Flag concentration rise"), (None, "All scheduled decisions")):
-    summary = research["overall"] if key is None else research["by_rule"][key]
-    triplets = [" / ".join(str(summary[mode][result]) for result in ("correct", "wrong", "deferred"))
-                for mode in ("raw", "verified")]
-    research_rows.append([label, *triplets])
-tab(["Research action", "Raw correct / wrong / review", "Verified correct / wrong / review"],
-    research_rows, [145, 167, CW-312])
-p("Verification caught the wrong decreasing label in R02 and sent nine additional decisions to review. Eight of the referrals involved correct actions with incomplete citations, including five peak-hour choices. Review time and eventual resolutions were outside the scope of the replay. [16]")
-h2("Screening a 100,000 USDC-to-USDT quote")
-p("At 50 historical hourly blocks we screened a hypothetical order using either 100 times the 1,000 USDC quote or the archived quote for the full order size. The rule accepted quoted output at or above the stated minimum. The two source datasets agree at each block. [16]")
-quote = decision_replay["quote_screen"]
-quote_rows = [[str(row["haircut_bps"]), f'{Decimal(row["floor_usdt"]):,.0f}',
-               f'{row["proxy_eligible"]} / {row["size_matched_eligible"]}',
-               f'{row["false_eligibility_count"] + row["missed_eligibility_count"]}/{row["snapshots"]}']
-              for row in quote["overall"]]
-tab(["Haircut, bps", "Min. output, USDT", "Proxy / size-matched eligible", "Decisions changed"],
-    quote_rows, [88, 120, 167, CW-375])
-error = quote["quote_error"]
-largest = error["largest_absolute_error_case"]
-p(f'The proxy overestimated output at all 50 blocks. The median gap was {error["median_absolute_error_usdt"]} USDT and the maximum was {largest["extrapolation_error_usdt"]} USDT at block {largest["block_number"]:,}. For that block, the output floor would have to be above {Decimal(largest["size_matched_output_usdt"]):,.6f} and at or below {Decimal(largest["extrapolated_output_usdt"]):,.6f} USDT to change the action. The five illustrated floors produced the same decisions. [16]')
-p("This quote screen covers one pool, one trade direction and two historical stress windows. The quote screen compares block-pinned quotes and excludes fills, gas, transaction ordering and returns. The research actions are rule-based replays of repeated model outputs. [16]", "small")
-flow.append(PageBreak())
+    def new_page(kicker, title):
+        flow.append(PageBreak())
+        section(kicker, title)
 
-# Intervention costs and risk routing
-section("06 / INTERVENTION COST", "When to verify or refer")
-p("We replayed six routing policies over the same 36 historical decisions. Direct release uses the available raw action. Full verification checks every case. The fixed-risk rule and learned policies choose release, verification or human review by minimizing expected cost. Their inputs are available before verification, including decision type, citation count and whether the report supplies a dataset hash and formula version. [18]")
-p("The learned policies left one historical event out at a time, keeping its repeated runs together. The two neural policies use a tabular autoencoder. One trains only the classification head, while the other also tunes the last encoder layer. [18]")
-h2("Default scenario on 36 scheduled decisions")
-labels = {
-    "raw": "Direct release",
-    "verified": "Full verification",
-    "rule": "Fixed-risk rule",
-    "logistic": "Logistic regression",
-    "frozen_head": "Frozen encoder + head",
-    "tuned_encoder": "Last layer + head",
-    "verified_recovered": "Full verification + recovery",
-}
-tab(["Policy", "Human referrals", "Automatic errors", "Units per decision"], [
-    [labels[row["policy"]], str(row["to_human"]), str(row["auto_error"]), f'{float(row["average_cost"]):.2f}']
-    for row in recovery_policies if row["policy"] in labels
-], [CW-248, 81, 81, 86])
-p("The default scenario assigns five minutes per referral, one cost unit per minute, 0.2 units per verification, and a 2% residual review error probability. The modeled losses are 100 units for a direction error, 15 for a follow-up hour error, 200 for a missed concentration alert, and 40 for a false alert. These parameters are illustrative. [18]")
-h2("Break-even loss relative to direct release")
-break_no = historical_recovery["decision_replay_36"]["break_even_raw_to_verified"]
-break_yes = historical_recovery["decision_replay_36"]["break_even_raw_to_verified_recovered"]
-tab(["Publication policy", "Perfect review", "2% residual review error"], [
-    [label, f'{record["break_even_avoided_loss_perfect_review"]:.1f}', f'{record["break_even_avoided_loss_configured_review"]:.1f}']
-    for label, record in (("Full verification", break_no), ("Full verification + recovery", break_yes))
-], [CW-235, 105, 130])
-p("Full verification blocked the one wrong automatic action, while sending nine more cases to review than direct release. Recovery resolved eight baseline referrals as correct automatic decisions. Under the default assumptions, the fixed-risk rule and logistic regression had lower average costs than the two neural variants. One observed error among 35 automatic releases gives limited evidence about their ranking in other events. [18, 19]", "small")
-flow.append(PageBreak())
+    p("MSBD 5017  /  TRADE 2  /  FINAL PROJECT", "kicker")
+    p(TITLE, "title")
+    p("WANG Hanyang &nbsp;&nbsp; HE Yuequn &nbsp;&nbsp; WU Yuxuan", "small")
+    p(edition, "small")
+    flow.append(Spacer(1, 10))
+    p("<b>The problem.</b> Curve 3pool is an Ethereum pool for exchanging DAI, USDC and USDT. "
+      "A model can identify when the pool looked most imbalanced. If it picks the wrong hour, "
+      "an analyst checking the next-hour quote will inspect the wrong block.", "lead")
+    p("<b>What we built.</b> An investigation agent that produces claims tied to specific blocks, "
+      "a publication gate that recomputes the claims, and a decision workflow that can send uncertain cases to a reviewer.")
+    p("<b>What changed after feedback.</b> We separated verification from generation, fixed the scoring "
+      "denominator and checked references. We also evaluated when risk justifies human intervention "
+      "and whether a lightweight decision model or limited post-training improves that choice.")
+    p("Three findings", "h2")
+    card(f"<b>1. Evidence guidance improved reproducible coverage.</b> Of the scheduled answer slots, "
+         f"{g} were correct and reproducible with the ordinary prompt and {e} with evidence guidance.")
+    card(f"<b>2. Evidence recovery reduced referrals for human review.</b> Across {n_cases} paired decisions "
+         f"in three held-out windows, referrals fell from {refs} and correct published claims rose "
+         f"from {pubs}. We observed zero automatic decision errors in both paths.")
+    card(f"<b>3. The simpler decision policies did better in this cost scenario.</b> The fixed rule "
+         f"and logistic regression averaged about {float(policies['rule']['average_cost']):.2f} units per decision. "
+         f"Both neural variants averaged about {float(policies['tuned_encoder']['average_cost']):.2f}.")
+    p("The results cover one pool and a small number of events. Repeated runs within an event "
+      "share the same market evidence.", "small")
 
-# Evidence recovery and small-sample bounds
-section("07 / EVIDENCE RECOVERY", "Recover correct claims safely")
-p("Some correct window-level answers cited only part of the required evidence. The recovery step completes deterministic citations and runs the second-source and independent publication checks again. It preserves the original model report and logs each added evidence ID. [19]")
-h2("Conditions for recovery")
-for line in [
-    "1. Replaying the claim returns UNKNOWN with the reason <i>incomplete_attribution</i>.",
-    "2. The claim's dataset hash matches the bound primary dataset.",
-    "3. The formula version matches the frozen study version.",
-    "4. The expected evidence set is nonempty.",
-    "5. The original evidence is a nonempty strict subset of the expected evidence.",
-    "6. The recovered copy passes V2, independent exact-fraction arithmetic where applicable, and task dependency checks.",
-]:
-    p(line, "small")
-h2("Historical replay and fault controls")
-summary = historical_recovery["formal_36_runs"]
-tab(["Metric", "Full verification", "With recovery"], [
-    ["G: correct published coverage", f'{summary["by_group"]["G"]["baseline_published_correct"]}/48',
-     f'{summary["by_group"]["G"]["recovered_published_correct"]}/48'],
-    ["E: correct published coverage", f'{summary["by_group"]["E"]["baseline_published_correct"]}/48',
-     f'{summary["by_group"]["E"]["recovered_published_correct"]}/48'],
-    ["Historical decisions referred", "10/36", "2/36"],
-], [CW-225, 110, 115])
-p("Of the 102 emitted structured claims, 12 correct claims had been withheld. Recovery restored all 12: eight by completing citations and four by restoring their dependencies. In the separate 90-case fault audit, none of the 56 non-clean cases was falsely accepted and all 34 clean controls were retained. [19]")
-h2("Error bounds and risk stress test")
-p("Four historical policies each recorded zero errors across 11 automatic concentration decisions. Under an independent-trial assumption, the one-sided 95% Clopper-Pearson upper bound is 23.84%. The Jeffreys posterior upper bound is 15.69%. The uniform Beta posterior has a mean of 7.69% and a one-sided 95% upper bound of 22.09%. The decisions come from only two events with repeated runs, so these bounds are nominal. [19]")
-p("Using 7.69%, 15.69% or 23.84% instead of the default 5% high-risk probability raised the unrecovered rule's average scenario cost from 0.65 to 1.46. In those same stress scenarios, the recovered rule averaged 0.71 and full verification with recovery averaged 0.78. These are scenario results. [19]", "small")
-flow.append(PageBreak())
+    new_page("01 / SYSTEM", "From a block to a decision")
+    p("At each UTC target, we record an Ethereum block and the three token balances, then preserve "
+      "the query inputs and quotes needed to replay the calculation. Alchemy and dRPC provide two "
+      "recorded views of the same chain. We verify agreement on the bound fields.")
+    flow.append(Workflow())
+    p("<b>Figure 1.</b> Both holdout paths use the same model reports. The highlighted branch adds "
+      "deterministic citation recovery before the full gate. Both branches withhold claims that fail "
+      "source, arithmetic or dependency checks. Other withdrawals "
+      "continue to the decision stage without a published claim.", "caption")
+    p("A real replay: select the peak hour, then check the quote", "h2")
+    p(f"On {jdate}, report H02_G_1 found the correct sampled maximum at <b>{peak_hour} UTC</b> "
+      f"but cited only the winning hour. Establishing a maximum required all {len(recovered_ids)} allowed "
+      "hourly observations. Full verification withheld the claim and the dependent next-hour quote, "
+      "so the follow-up decision went to a reviewer.")
+    p(f"The recovery pass completed the citation set on a copy of the report and repeated the checks. "
+      f"It restored the peak and the {quote_hour} UTC quote of "
+      f"<b>{Decimal(quote['value']):.6f} USDT per USDC</b> for a 100,000 USDC input. "
+      "The decision then used the correct follow-up hour automatically.")
+    p("<b>What the hash proves.</b> The local chain demo recorded and retrieved the evidence manifest "
+      "digest. It checks package integrity. Numerical correctness still depends on source checks and recomputation.")
+    p("Trace: audit/holdout_validation/2023-06-15/recovery-trace.json, run H02_G_1. "
+      "Integrity demo: baseline/contracts/anchor.mjs and baseline/results/current_chain/anchor.json.", "small")
 
-# Held-out paired confirmation
-section("08 / HELD-OUT CONFIRMATION", "Three windows and measured use")
-p("Each held-out window used 26 hourly targets from Alchemy and dRPC. The two human reference reviews agreed with dual-source recomputation on all nine items in each window without adjudication. Each window scheduled 18 DeepSeek Flash reports across G and E. Seven first-window runs initially returned HTTP 402 and were retried, and the 11 successful original reports were retained. Both publication paths processed the same 54 completed reports. [20]")
-h2("Paired decision outcomes")
-tab(["Window", "Decisions", "Referrals", "Correct claims", "Auto. errors"], [
-    [event, "18", f'{base["to_human"]} to {rec["to_human"]}',
-     f'{base["published_correct_claims"]} to {rec["published_correct_claims"]}',
-     f'{base["auto_error"]} to {rec["auto_error"]}']
-    for event, base, rec in holdout_arms
-] + [[ "<b>Total</b>", "<b>54</b>", "<b>12 to 3</b>", "<b>120 to 132</b>", "<b>0 to 0</b>"]],
-    [111, 74, 93, 109, CW-387])
-p("The frozen scenario total decreased from 98.90 to 36.40 cost units. The scenario applies assumed labor and error costs. The resource measurements below use their original units. [20]", "small")
-h2("Concentration alerts")
-p("Both paths issued 0 false alerts in 6 reference-negative decisions, and neither referred any of those decisions. All six were repeated runs of one task on 15 June 2023. The other two windows had no reference negatives, so their false-positive rates are undefined. In those two windows, correct automatic alerts increased from 8 of 12 to 12 of 12 and positive referrals fell from four to zero. These observations do not establish deployment error rates. [20]")
-h2("Measured resources")
-tab(["Resource", "Observed result"], [
-    ["API billing", f'CNY {Decimal(billing["recorded_charge"]):.8f} for all three windows. The two newer windows added '
-     f'CNY {Decimal(billing["two_new_windows_incremental_charge_cny"]):.8f}. Recovery made no additional model calls.'],
-    ["Human review", "Two June cases took 6 min 48 s and 8 min 18 s, totaling 15 min 06 s. Both reviews were correct. These observed minutes apply only to those cases."],
-    ["Local verification", f'The median paired overhead was {timing["holdout_20231023"]["median_incremental_wall_ms"]:.2f} ms in October '
-     f'and {timing["holdout_20240111"]["median_incremental_wall_ms"]:.2f} ms in January across 540 interleaved pairs.'],
-], [112, CW-112])
-p("The platform export matches the local count of 211 requests with usage and all three token categories. Seven requests had no reported usage. We report measured API charges, human time and local verification time separately. [20]", "small")
-flow.append(PageBreak())
+    new_page("02 / COURSE FEEDBACK", "How feedback changed the design")
+    p("The written proposal feedback asked us to measure error reduction alongside correct coverage "
+      "and make verification independent in the implementation. Later, the professor asked us to "
+      "price human intervention and try faster decision models with limited post-training.")
+    table(["Feedback", "Engineering response", "Validation in this report"], [
+        ["Independent checking should catch shared errors.",
+         "Check a second RPC capture and run separate exact-fraction arithmetic on eligible balance metrics.",
+         "Shared fault injection and matched clean controls, below."],
+        ["A verifier can look good by answering less. Compare fairly and check the answer key.",
+         "Fix required slots and budget limits. Score correctness, citations, omissions and refusals separately.",
+         "Scheduled G/E coverage and human reference provenance, below."],
+        ["Choose when to intervene by weighing risk and cost.",
+         "Compare release, verification and human review with an explicit loss model.",
+         "Historical routing comparison, Section 03."],
+        ["Try fast decisions and modest post-training.",
+         "Compare a fixed rule, logistic regression and two small encoder variants.",
+         "Leave-one-event-out evaluation, Section 03."],
+    ], [132, 192, WIDTH-324])
+    p("<b>Table 1.</b> The first two rows summarize written proposal feedback. "
+      "The last two summarize the professor's later suggestions.", "caption")
+    p("Fair comparison on the frozen historical tasks", "h2")
+    p("The development benchmark uses six tasks over the November 2022 FTX and March 2023 USDC "
+      "windows, with 51 recorded hourly snapshots in total.", "small")
+    table(["Measure", "Ordinary prompt (G)", "Evidence guidance (E)"], [
+        ["Reports submitted / scheduled", *(f'{groups[k]["successful_submissions"]}/{groups[k]["scheduled_runs"]}' for k in ("G", "E"))],
+        ["Correct, before publication", *(f'{groups[k]["correct"]}/{groups[k]["answerable"]}' for k in ("G", "E"))],
+        ["Correct and reproducible", g, e],
+        ["Correct after guarded publication", *(f'{groups[k]["published_correct"]}/{groups[k]["answerable"]}' for k in ("G", "E"))],
+    ], [WIDTH-205, 101, 104])
+    p("<b>Table 2.</b> Both prompts used the same DeepSeek Flash model, six tasks, tools, archived "
+      "evidence and budget ceilings. Sixteen answerable slots repeated three times give 48 opportunities per arm. "
+      "G's two budget stops remain in that denominator. On the 16 matched completed pairs, raw correctness "
+      "was 40/43 for each arm and reproducible correctness was 34/43 versus 39/43.", "caption")
+    p("<b>Reference provenance.</b> The historical freeze used a consolidated human reference workbook. "
+      "Reviewer isolation at freeze was unverified. In each later holdout window, two human reference "
+      "reviews agreed with both-source recomputation on all nine items without adjudication.")
+    p("<b>Shared-error test.</b> When V1 and V2 shared the injected error, all six wrong claims passed. "
+      "Independent publication arithmetic withheld all six and retained all six clean controls. "
+      "The extra arithmetic covers selected balance metrics; quotes remain subject to V2.", "small")
+    p("Evidence: baseline/experiments/formal_v1/result_summary.json and "
+      "baseline/audit/arithmetic_faults/README.md.", "small")
+
+    new_page("03 / INTERVENTION", "When should a person step in?")
+    p("The professor asked us to include the cost of human safeguards. We compare leaving a report "
+      "to drive a decision, verifying the evidence first, and referring it for human review. "
+      "A low predicted loss can justify direct release. A severe potential miss can justify "
+      "verification or referral even when accuracy looks high, and both interventions take resources.")
+    p("The fixed-rule and learned policies minimize expected scenario cost using inputs available before "
+      "verification. The two controls use a fixed approach: release available raw actions or verify every case. "
+      "The same 36 historical decisions cover share direction, peak follow-up hour and concentration alerts.")
+    p("Does a lightweight learned model help?", "h2")
+    p("We evaluated logistic regression, a frozen tabular encoder with a trained head, and a variant that "
+      "also tunes the final encoder layer. Each learned policy is evaluated on one historical event using "
+      "the other event for training. Repeated runs from the same event stay together.")
+    labels = (
+        ("raw", "Direct release"), ("verified", "Full verification"), ("rule", "Fixed risk and cost rule"),
+        ("logistic", "Logistic regression"), ("frozen_head", "Frozen encoder + trained head"),
+        ("tuned_encoder", "Last encoder layer + trained head"),
+    )
+    table(["Policy", "Human referrals", "Automatic errors", "Cost / decision"], [
+        [label, r["to_human"], r["auto_error"], f'{float(r["average_cost"]):.2f}']
+        for key, label in labels for r in (policies[key],)
+    ], [WIDTH-247, 82, 82, 83])
+    p("<b>Table 3.</b> Counts refer to 36 scheduled historical decisions. Average costs are hypothetical "
+      "units. The default scenario assumes 5 minutes per review at 1 unit/min, 0.2 units per verification and "
+      "2% residual human error. A missed concentration alert costs 200 units; a false alert costs 40.", "caption")
+    p("<b>What we learned.</b> The fixed rule and logistic regression tied at the displayed precision. "
+      "Both neural variants referred two more cases and cost more under the frozen assumptions. "
+      "This replay provides no evidence of a cost advantage from final-layer tuning.")
+    p("Full verification blocked the one observed wrong raw action but added nine referrals. "
+      "It breaks even against raw release when the avoided loss exceeds "
+      f'{replay["break_even_raw_to_verified"]["break_even_avoided_loss_perfect_review"]:.1f} scenario units with perfect review, or '
+      f'{replay["break_even_raw_to_verified"]["break_even_avoided_loss_configured_review"]:.1f} with residual review error. '
+      "The ranking depends on those assumptions.", "small")
+    p("Implementation and inputs: decision_cost/evaluation.py, decision_cost/models.py and decision_cost/scenario.json.", "small")
+
+    new_page("04 / EVIDENCE RECOVERY", "Fewer referrals on the same reports")
+    p("While inspecting the historical withdrawals, we found correct answers that cited only part "
+      "of the required time window. Our follow-up improvement completes the exact missing citations "
+      "only when a claim already matches the recomputed value and units and supplies a valid subset. "
+      "The recovered copy must pass the second-source check, applicable independent arithmetic, and dependencies.")
+    table(["Test stage", "What it measured", "Observed outcome"], [
+        ["Historical replay", "Recovery on the archived 36 scheduled model runs.",
+         f'{recovered_formal["total_recovered_correct"]} correct claims restored '
+         f'({recovered_formal["direct_attribution_recoveries"]} direct, '
+         f'{recovered_formal["cascade_dependency_recoveries"]} from dependencies).'],
+        ["Fault injection", "Whether the recovery path would release a non-clean case.",
+         f'{fault["total_fault_false_accepts"]} false accepts across 56 non-clean cases; 34 clean controls kept.'],
+        ["Held-out comparison", "Both paths process the same model reports in each window.",
+         f'{n_cases} paired decisions; results by window below.'],
+    ], [112, 189, WIDTH-301])
+    p("Three-window confirmation", "h2")
+    rows = []
+    for day, result in summaries.items():
+        base, rec = (result["arms"][a] for a in arms)
+        rows.append([day, base["cases"], pair(base["to_human"], rec["to_human"]),
+                     pair(base["auto_error"], rec["auto_error"]),
+                     pair(base["published_correct_claims"], rec["published_correct_claims"])])
+    rows.append(["<b>Total</b>", n_cases, refs, pair(*(totals[a]["auto_error"] for a in arms)), pubs])
+    table(["Window", "Paired decisions", "Referrals", "Auto. errors", "Correct claims"], rows,
+          [102, 90, 92, 89, WIDTH-373])
+    p("<b>Table 4.</b> Values show full verification followed by full verification with recovery. "
+      "Each window has 18 decisions, derived from three task templates, two prompts and three repetitions. "
+      "Correct claims are counted separately since a report can contain multiple claims.", "caption")
+    p("Concentration alerts", "h2")
+    neg = alert["by_window"][jdate]["baseline"]
+    ap = alert["pooled_decision_counts"]
+    p(f"For both paths, the observed false-positive rate was <b>{neg['false_positives']}/"
+      f"{neg['reference_no_alert']}</b>, with no negative referrals. All six reference negatives came from one "
+      "task repeated in the June window. The two newer windows have no reference negatives, so their "
+      f"false-positive rates are undefined. Across their 12 reference alerts, correct automatic alerts rose "
+      f"from {ap['baseline']['true_positives']} to {ap['recovery']['true_positives']}.")
+    p("Initially, seven June runs received HTTP 402. Retrying those seven yielded complete reports, "
+      "and the original eleven successful reports were retained. Both paths used the resulting identical archive.", "small")
+    p("Evidence: audit/evidence_recovery/results/ and audit/holdout_validation/.", "small")
+
+    new_page("05 / MEASURED RESOURCES", "What the system actually used")
+    p("The same model outputs feed both publication paths. Recovery therefore adds local verification work "
+      "without additional model calls. We keep billed API charges, observed reviewer time and processing "
+      "time in their original units.")
+    table(["Resource", "Recorded result", "Measurement scope"], [
+        ["DeepSeek billing", f"<b>CNY {money}</b> for the three holdouts. Recovery added zero model requests.",
+         f'The export matches {billing["provider_usage"]["request_count"]} requests with reported usage. '
+         f'{billing["requests_without_reported_usage"]} failed requests had no reported token count.'],
+        ["Manual review", f'<b>{minutes}</b> across two correct reviews '
+         f'({elapsed(recorded[0]["seconds"])} and {elapsed(recorded[1]["seconds"])}).',
+         "Two baseline referrals in the June window. These durations are not applied to the other windows."],
+        ["Local verification", f"<b>+{t1} ms</b> in October and <b>+{t2} ms</b> in January, "
+         "median paired wall time per report.",
+         f'{sum(x["pairs"] for x in timing_rows)} interleaved pairs from {timing["rounds"]} timed rounds '
+         "on the two newer windows. Excludes model generation and human review."],
+    ], [102, 190, WIDTH-292])
+    p("<b>Table 5.</b> Billing is an observed platform charge for data collection. The two verification "
+      "paths reuse that same collection. Human time is not converted to currency because a labor rate is unavailable.", "caption")
+    p("How far the results generalize", "h2")
+    p("Three held-out windows provide more evidence than one, but all use the same pool, three task types "
+      "and one model. Repeated cases sharing an event should not be treated as independent events. "
+      "The negative alert sample is especially narrow, and zero observed errors does not establish zero risk.")
+    p("The benchmark measures rule-based research decisions and block-pinned quotes. It does not measure "
+      "live trades, fills, gas, returns, or actual net savings. The historical scenario shows how a decision could "
+      "change as review costs and error losses vary.")
+    p("Recorded inputs: audit/holdout_validation/billing-reconciliation.json, "
+      "human-timing-observed.json and timing-summary.json in the same directory.", "small")
+
+    new_page("06 / REPRODUCIBILITY", "Trace each result to its evidence")
+    p("Use the checked-in archives for an offline replay. The two holdout commands below reconstruct "
+      "publication from the saved reports and recalculate alert outcomes from the saved decision tables.")
+    table(["Finding", "Inputs and results", "Check from repository root"], [
+        ["Historical reproducible coverage and shared arithmetic errors",
+         "baseline/experiments/formal_v1/result_summary.json; baseline/audit/arithmetic_faults/",
+         "Commands 1 and 2"],
+        ["Six historical routing policies",
+         "decision_cost/scenario.json; decision_cost/results/policy-summary.csv",
+         "Command 3"],
+        ["Recovery and fault cases",
+         "audit/evidence_recovery/results/",
+         "Command 4"],
+        ["Three-window decisions and alert statistics",
+         "audit/holdout_validation/ (dated decisions.csv, runs.json, alert-metrics.json)",
+         "Commands 5 and 6"],
+        ["Measured billing, reviewer time and verification time",
+         "audit/holdout_validation/ (billing-reconciliation.json, human-timing-observed.json, timing-summary.json)",
+         "Inspect the reconciled evidence files"],
+    ], [122, 252, WIDTH-374])
+    p("Offline commands", "h2")
+    p("Install decision_cost/requirements.txt for the historical cost and recovery scripts. "
+      "Copy the block into a shell from the repository root. The first line creates a temporary directory. "
+      "The six commands then follow in the order listed above.", "small")
+    commands = (
+        'run_dir="$(mktemp -d)"',
+        '(cd baseline && python3 -B -m curve_audit replay)',
+        '(cd baseline && python3 -B audit/arithmetic_faults/replay_publication_guard.py .)',
+        'python3 -B decision_cost/evaluation.py --output "$run_dir/cost"',
+        'python3 -B audit/evidence_recovery/run_all.py --output "$run_dir/recovery"',
+        'python3 -B audit/holdout_validation/replay.py',
+        'python3 -B audit/holdout_validation/alert_metrics.py \\',
+        '    audit/holdout_validation "$run_dir/alerts.json"',
+    )
+    flow.append(Preformatted("\n".join(commands), STYLES["code"]))
+    p("Compare the alert output with audit/holdout_validation/alert-metrics.json. "
+      "Reproducing the archived results needs no model or RPC key. Running a new window requires "
+      "fresh source captures, a frozen schedule and human reference review.", "small")
+
+    new_page("APPENDIX / TECHNICAL NOTES", "Definitions, safeguards and sensitivity")
+    p("What counts as reproducible?", "h2")
+    p("A claim must match the frozen value, unit, time and query. Reproducibility also requires "
+      "the expected evidence IDs, dataset digest and formula version. A reported maximum is a maximum "
+      "over allowed hourly samples; a continuous-time maximum is not identified by that grid.")
+    n_template = formal["template"]["reproducible_correct"]
+    p(f"The deterministic template reproduced all {n_template} answerable components without a model call. "
+      "It establishes what the computation can produce from the frozen evidence.", "small")
+    p("Recovery eligibility", "h2")
+    p("Recover only the reason incomplete_attribution. Require the bound dataset digest and correct "
+      "formula version, a nonempty expected set, and a nonempty original set that is a strict subset. "
+      "Repeat the checks and record the new IDs on a copied report. Failed or uncertain dependencies "
+      "remain withheld.")
+    p("Stress tests and uncertainty", "h2")
+    p("The separate recovery fault audit used 32 frozen cases, 18 shared-arithmetic cases and 40 extension "
+      "cases. The 90 total include 34 clean controls. Its zero false accepts is an observation on scripted cases.")
+    p("For four historical policies, each had 0/11 observed errors on automatic concentration decisions. "
+      "Nominal one-sided 95% upper bounds are 23.84% (Clopper-Pearson) and 15.69% (Jeffreys). "
+      "The uniform Beta posterior mean is 7.69%, with a 22.09% one-sided upper bound. "
+      "Two development events supply these repeated decisions, so the bounds rely on an unverified "
+      "independence assumption. They concern historical automatic decision errors, which differ from the "
+      "holdout false-positive rate among reference negatives.")
+    p("Replacing the default 5% high-risk error assumption with 7.69%, 15.69% or 23.84% raised the "
+      "unrecovered rule from 0.65 to 1.46 average scenario units. With recovery, the rule averaged "
+      "0.71 and full verification averaged 0.78 under the same three assumptions. "
+      "These are sensitivity comparisons under specified assumptions.", "small")
+    p("Preserved historical scope", "h2")
+    p("The historical quote screen compared a scaled small quote with the size-matched quote "
+      "at 50 frozen blocks. The proxy overestimated output at all 50, but eligibility agreed at "
+      "the five thresholds tested. See baseline/audit/decision_replay_20261112/results.json. "
+      "The original report and its clarifications remain traceable in the repository history and REPORT_ERRATA.md.", "small")
+    p(f'Historical freeze SHA-256:<br/><font name="Courier" size="8.2">{formal["freeze_sha256"]}</font>', "small")
+
+    def footer(c, doc):
+        c.setTitle(TITLE)
+        c.setAuthor("WANG Hanyang, HE Yuequn, WU Yuxuan")
+        c.setStrokeColor(LINE)
+        c.setLineWidth(0.6)
+        c.line(MARGIN, 38, A4_W-MARGIN, 38)
+        c.setFillColor(SLATE)
+        c.setFont("Helvetica", 8.3)
+        c.drawString(MARGIN, 24, "MSBD 5017  /  CURVE 3POOL")
+        c.drawRightString(A4_W-MARGIN, 24, str(doc.page))
+
+    output.parent.mkdir(parents=True, exist_ok=True)
+    SimpleDocTemplate(str(output), pagesize=A4, leftMargin=MARGIN, rightMargin=MARGIN,
+                      topMargin=44, bottomMargin=53, invariant=True).build(
+                          flow, onFirstPage=footer, onLaterPages=footer)
 
 
-section("09 / ENGINEERING IMPROVEMENTS", "How we acted on feedback")
-p("The proposal review asked us to show that independent checks improve correctness without losing answer coverage, and to distinguish evidence integrity from factual verification. Later feedback from the professor asked us to account for the cost of human intervention and test whether a lightweight decision model or limited post-training would help. We translated these suggestions into engineering changes and evaluated each one separately. [1, 18-20]")
-tab(["Feedback and implemented change", "What the evidence shows"], [
-    ["<b>Separate calculation and source checks.</b> We bound the same hourly targets to two recorded RPC captures, checked matching block identities and raw data, and added a separate exact-fraction calculation for selected balance metrics before publication.",
-     "A shared arithmetic fault could pass both V1 and V2. The extra publication check withheld all six injected shared-error cases and retained all six matching controls. [5, 6, 17]"],
-    ["<b>Measure coverage and audit the references.</b> We fixed required answer slots and evidence, counted omissions and refusals separately, and compared G and E with the same tasks, model, tools and budget ceilings.",
-     "Scheduled reproducible coverage was 34/48 for G and 43/48 for E. Both reviewers' reference answers in each of the three later windows agreed with dual-source recomputation on all nine items. [2-4, 14, 20]"],
-    ["<b>Separate evidence integrity from correctness.</b> We recorded block and query details for replay, and tested evidence-digest registration independently of the publication checks.",
-     "The local chain demo verified registration and retrieval of the manifest digest. The verifier separately checked source agreement and calculations. [2, 5-7]"],
-    ["<b>Compare intervention costs by risk.</b> We priced release, verification and human referral under explicit assumptions, including a higher loss for missing a concentration alert than for issuing a false alert.",
-     "On 36 historical decisions, the fixed rule and logistic regression both referred 2 cases and averaged 0.65 scenario units per decision. We report observed API charges and review times separately. [18, 20]"],
-    ["<b>Test lightweight post-training.</b> We compared logistic regression with a frozen encoder plus a trained head and a model that also tunes the final encoder layer. We held out one historical event at a time.",
-     "The two neural variants each averaged 1.18 scenario units per decision. Those variants offered no cost advantage over the simpler policies in this replay. [18]"],
-], [CW*0.53, CW*0.47])
-h2("A follow-up improvement from the error audit")
-p("We traced part of the manual workload to correct claims with incomplete citations. We added deterministic evidence recovery followed by the same publication checks. On the same 54 saved reports, referrals fell from 12 to 3 and correct releases increased from 120 to 132. Neither path made an observed automatic error. The negative alert decisions came from repetitions in one window. [19, 20]")
-flow.append(PageBreak())
-
-section("10 / REPRODUCIBILITY", "Replay the archived evidence")
-h2("Historical study commands from baseline/")
-tab(["Action", "Command"], [
-    ["Replay deterministic data and verification", "<font name='Courier'>python3 -B docs/reproduce_current.py</font>"],
-    ["Check saved formal V1, V2 and publication outcomes", "<font name='Courier'>python3 -B -m curve_audit replay</font>"],
-    ["Replay the 32 frozen fault cases", "<font name='Courier'>python3 -B docs/replay_formal_faults.py .</font>"],
-    ["Replay research and quote-screening decisions", "<font name='Courier' size='8.3'>python3 -B audit/decision_replay_20261112/replay.py .</font>"],
-    ["Check packaged file hashes", "<font name='Courier'>python3 -B docs/verify_delivery.py .</font>"],
-    ["Run the Python test suite", "<font name='Courier'>python3 -B -m unittest discover -s tests -v</font>"],
-], [199, CW-199])
-p("Python 3.10 or later supports offline replay of the historical archive. The packaged code matches 25 of 31 freeze-time module hashes. Six revisions and one added arithmetic module are documented in docs/code_provenance.json. Formal replay checks archived inputs and outputs. The archive also contains the freeze-time sources. [2, 3, 5, 15]")
-h2("Extended replay commands from the repository root")
-p("Install decision_cost/requirements.txt for the cost and recovery audits. Replace each output path with a fresh location when rerunning. The three-window replay checks publication on saved model reports. The alert script recomputes statistics from archived decision tables. [18, 19, 20]", "small")
-p("python3 -B decision_cost/evaluation.py --output /tmp/5017-cost", "code")
-p("python3 -B audit/evidence_recovery/run_all.py --output /tmp/5017-recovery", "code")
-p("python3 -B audit/holdout_validation/replay.py", "code")
-p("python3 -B audit/holdout_validation/alert_metrics.py<br/>"
-  "&nbsp;&nbsp;audit/holdout_validation /tmp/5017-alerts.json", "code")
-p("Run the last command on one line. Compare the resulting JSON with audit/holdout_validation/alert-metrics.json. Preparing a new window requires new source captures, reference review and a freeze. The saved-report replay is entirely offline.", "small")
-h2("Development optimization after the formal run")
-p("The compact read-window response preserves raw balances, quotes and block identifiers. Three recorded budget stops passed a counterfactual pre-dispatch admission check with the smaller payload. In two nine-run development samples using the same tasks and budget, completed submissions rose from 8/9 to 9/9 and measured token use fell from 66,475 to 62,078. The samples used different model draws and the improvement is reported separately from the formal comparison. [9]")
-flow.append(PageBreak())
-section("11 / EVIDENCE INDEX", "Supporting records and scope")
-p("Paths [2]-[17] refer to baseline/ in the public repository unless the file is a root document. [18]-[20] point to the extensions at the repository root.", "small")
-for line in [
-    "[1] Course Trade 2 scope and instructor proposal feedback, 14 October 2026.",
-    "[2] results/current_preparation/{binding, dataset, secondary_dataset, tasks}.json and data/current_study/ source records.",
-    "[3] experiments/formal_v1/{freeze, result_summary, publication_replay}.json and saved raw report traces.",
-    "[4] results/current_preparation/reference_review/review_attestation.json and consolidated workbook.",
-    "[5] experiments/formal_v1/verifier_replay_20261105.json, corrected 32-case fault replay.",
-    "[6] curve_audit/current_verify.py and curve_audit/verification.py.",
-    "[7] contracts/anchor.mjs and results/current_chain/anchor.json.",
-    "[8] experiments/formal_v1/prose_review_input.json and audit/{prose_audit_summary, prose_audit_rows}.json.",
-    "[9] results/optimization_20261105/{summary, budget_replay}.json.",
-    "[10] references/trial-report-20261102.md, exploratory trial and metric selection rationale.",
-    "[11] audit/RESOURCE_USE.md and audit/resource_use_20261109.json, recorded usage and packaged replay timings.",
-    "[12] audit/reference_review_20261109/REVIEW.md, post-freeze reference review and evidence limits.",
-    "[13] audit/prose_review_20261110/REVIEW.md, human review and reconciliation provenance.",
-    "[14] audit/FORMAL_SENSITIVITY.md and audit/compare_run_sets.py, scheduled and completed-pair results.",
-    "[15] README.md, LIMITATIONS.md, REPORT_ERRATA.md and docs/code_provenance.json.",
-    "[16] audit/decision_replay_20261112/, historical decision replay.",
-    "[17] audit/arithmetic_faults/README.md, commands and results for both arithmetic fault replays.",
-    "[18] decision_cost/results/policy-summary.csv, diagnostics.json and scenario.json (under decision_cost/).",
-    "[19] audit/evidence_recovery/results/ and audit/evidence_recovery/README.md, recovery, fault and risk tests.",
-    "[20] audit/holdout_validation/RESULTS.md and its per-window decisions, alert metrics, billing and timing records.",
-]:
-    p(line, "reference")
-h2("Scope across the study")
-p("The benchmark covers one liquidity pool. The 54 held-out decisions come from three windows with repeated runs, and reference negatives for concentration alerts occur in just one window. The benchmark supports comparison of the observed release and referral outcomes. It does not estimate cross-event error rates or provide evidence of live fills, trading returns or monetized labor savings.")
-p("Historical freeze SHA-256 &nbsp; <font name='Courier' size='8.2'>ec66a6aaf06a0a37eeff5e74bbda6e68a866be00617a00a9413087679e7cd220</font>", "small")
-
-
-def footer(c, doc):
-    c.saveState()
-    c.setTitle("Independently Verifiable Stablecoin Liquidity Investigation Agent")
-    c.setAuthor("WANG Hanyang, HE Yuequn, WU Yuxuan")
-    c.setStrokeColor(RULE)
-    c.setLineWidth(0.55)
-    c.line(M, 39, W-M, 39)
-    c.setFont("Helvetica", 8.5)
-    c.setFillColor(MUTED)
-    c.drawString(M, 25, "MSBD 5017  /  TRADE 2  /  CURVE 3POOL")
-    c.drawRightString(W-M, 25, str(doc.page))
-    c.restoreState()
-
-
-args.output.parent.mkdir(parents=True, exist_ok=True)
-doc = SimpleDocTemplate(str(args.output), pagesize=A4, leftMargin=M, rightMargin=M,
-                        topMargin=43, bottomMargin=50, invariant=True, title="Independently Verifiable Stablecoin Liquidity Investigation Agent")
-doc.build(flow, onFirstPage=footer, onLaterPages=footer)
-print(args.output)
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--repo", type=Path, default=Path(__file__).resolve().parents[1])
+    parser.add_argument("--output", type=Path)
+    parser.add_argument("--edition", default="Final report | 23 November 2026")
+    opts = parser.parse_args()
+    build(opts.repo, opts.output or opts.repo / "MSBD5017_Final_Project_Report.pdf", opts.edition)
