@@ -22,6 +22,18 @@ Curve 3pool 是以太坊上用于交换 DAI、USDC 和 USDT 的稳定币流动�
 | 决策成本 | 直接采用、全量核验，以及由规则或轻量模型选择介入动作 | 36 次历史研究判断、6 种策略 | 默认成本情景下，风险成本规则和逻辑回归都转人工 **2 次**，观察到 **0 次**自动错误，平均成本约 **0.65 单位／次**。 |
 | 证据补齐与留出验证 | 全量独立算术核验（#4）与叠加确定性补齐证据（#4 + #5） | 3 个留出窗口、54 次模型运行与 54 项决策 | 转人工从 **12/54** 降至 **3/54**，正确发布从 **120** 增至 **132**，均未观察到自动误放；三窗口 DeepSeek 实付 **¥0.3407**，2023-06-15 两项实测人工复核 **15 分 06 秒**。 |
 
+## 仓库导航
+
+| 想找什么 | 位置 |
+| --- | --- |
+| 最终英文报告 | 根目录的 `MSBD5017_Final_Project_Report.pdf` |
+| 报告源码、构建方式和数字核对清单 | `report/` |
+| 基线代码、冻结数据、历史报告和图表 | `baseline/`，图表在 `baseline/audit/effect_metrics/figures/` |
+| 风险策略、轻量模型和成本图 | `decision_cost/`，结果在 `decision_cost/results/` |
+| 证据补齐、故障测试和三个留出窗口 | `audit/evidence_recovery/` 和 `audit/holdout_validation/` |
+| 历史实验重建和新窗口输入准备 | `study/`，历史资源台账在 `results/resource-use.json` |
+| 新窗口指南、局限、交接和原始审阅表 | `docs/`，两份审阅表在 `docs/review/` |
+
 ## 1. 方法一 · 让每条结论可复算
 
 1. **固定题目和证据。** 选用 2022 年 11 月 FTX 事件和 2023 年 3 月 USDC 脱锚两个历史窗口。Alchemy 和 dRPC 各提供 51 个快照。记录区块号、区块哈希、原始代币余额和带有输入规模的合约报价。固定题目、可用时点和参考答案。两道题的子任务还检验小时采样能否支持对连续时间峰值的判断。
@@ -79,14 +91,7 @@ Curve 3pool 是以太坊上用于交换 DAI、USDC 和 USDT 的稳定币流动�
 
 三个留出窗口的 DeepSeek 实际扣费为 **¥0.34073796**，证据补齐不需要再次调用模型。2023-06-15 两项人工复核实测合计 **15 分 06 秒**；两个新窗口每份报告的本机核验耗时中位增量约 **3.8 毫秒**。人工时间、平台扣费和计算开销分别报告，不换算实际净节省。
 
-从仓库根目录离线运行以下命令，可重放 54 份报告的两条发布路径、重算告警统计，并复现历史 36 次运行的补证、小样本置信上界与贝叶斯可信上界审计。逐项结果、故障安全闸门（90 个案例 0 错放）和计时口径分别收录于 `audit/holdout_validation/RESULTS.md` 与 `audit/evidence_recovery/README.md`。
-
-```sh
-python3 -B audit/holdout_validation/replay.py
-python3 -B audit/holdout_validation/alert_metrics.py audit/holdout_validation /tmp/5017-alert-metrics.json
-python3 -B audit/evidence_recovery/run_all.py --output /tmp/5017-recovery-check
-python3 -B -m unittest discover -s audit/evidence_recovery -p "test_*.py" -v
-```
+逐项结果、计时口径和故障测试（90 个案例，0 错放）分别见 `audit/holdout_validation/RESULTS.md` 和 `audit/evidence_recovery/README.md`。离线复现命令见下文。
 
 ## 3. 怎么读图
 
@@ -104,7 +109,12 @@ python3 -B -m unittest discover -s audit/evidence_recovery -p "test_*.py" -v
 run_dir="$(mktemp -d)"
 python3 -B baseline/docs/verify_delivery.py baseline
 python3 -m pip install -r decision_cost/requirements.txt
+(cd baseline && python3 -B -m curve_audit replay)
 python3 -B decision_cost/evaluation.py --output "$run_dir/cost-replayed"
+python3 -B audit/evidence_recovery/run_all.py --output "$run_dir/evidence-recovery"
+python3 -B audit/holdout_validation/replay.py
+python3 -B audit/holdout_validation/alert_metrics.py \
+  audit/holdout_validation "$run_dir/alerts.json"
 ```
 
 | 想复现什么 | 命令或输出 |
@@ -112,8 +122,7 @@ python3 -B decision_cost/evaluation.py --output "$run_dir/cost-replayed"
 | 成本汇总与三张图 | 查看 `cost-replayed/policy-summary.csv`、`cost-replayed/policy-trace.csv` 和同目录的 SVG 文件。 |
 | 核对正式存档 | 在 `baseline/` 中运行 `python3 -B -m curve_audit replay`。 |
 | 重建效果指标表 | 在 `baseline/` 中运行 `python3 -B audit/effect_metrics/build.py --metrics-only --output "$run_dir/effect-metrics"`。 |
-| 证据补齐与统计上界 | 运行 `python3 -B audit/evidence_recovery/run_all.py --output "$run_dir/evidence-recovery"` 与同目录 12 项单测。 |
-| 三个留出窗口配对重放 | 运行 `python3 -B audit/holdout_validation/replay.py` 与 `alert_metrics.py`，核对 54 份归档报告。 |
-| 扩展新的留出窗口 | 按仓库根目录的 `CONFIRMATION.md` 核对首窗准备流程，以及新窗口需重新配置和冻结的输入。 |
-
-最终英文报告为仓库根目录的 `MSBD5017_Final_Project_Report.pdf`（2026-11-23 版）。报告第 02 和 03 节说明如何把课程反馈落实为工程改进，并给出相应的实验结果。排版源码、重建命令和数字核对清单在 `report/`。历史效果图表集中在 `baseline/audit/effect_metrics/`。新窗口的采集回执位于 `decision_cost/holdout/raw/`。组内人工审核材料沿用原有保管流程。
+| 证据补齐与统计上界 | 查看 `evidence-recovery/` 中的恢复汇总、成本对照和统计上界。单测命令为 `python3 -B -m unittest discover -s audit/evidence_recovery -p 'test_*.py'`。 |
+| 三个留出窗口配对重放 | 回放会核对 54 份归档报告。将生成的 `alerts.json` 与 `audit/holdout_validation/alert-metrics.json` 对照。 |
+| 扩展新的留出窗口 | 见 `docs/CONFIRMATION.md` 的首窗示例和冻结步骤。 |
+| 重建最终报告 | 见 `report/README.md`。报告第 02 和 03 节说明课程反馈如何落实为工程改进。 |

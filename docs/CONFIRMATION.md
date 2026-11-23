@@ -1,6 +1,6 @@
 # 新窗口确认与复用流程
 
-> **当前状态（2026-11-22 更新）**：首轮确认窗口（`2023-06-15`）及后续两个新增留出窗口（`2023-10-23`、`2024-01-11`）均已完成双来源核对、每窗两份人工参考复核均与双源复算一致（无需仲裁），共完成 54 次正式模型运行。完整配对发布结果、实际平台扣费（¥0.34073796）、人工复核计时与离线重放脚本见 [`audit/holdout_validation/RESULTS.md`](audit/holdout_validation/RESULTS.md) 和 `python3 -B audit/holdout_validation/replay.py`。当前 `decision_cost/confirmation.py` 已接入与主项目一致的独立算术发布守卫（`publish_verified`）及 `RunLedger` 分阶段计时与 token 台账。
+> **当前状态（2026-11-22 更新）**：首轮确认窗口（`2023-06-15`）及后续两个新增留出窗口（`2023-10-23`、`2024-01-11`）均已完成双来源核对、每窗两份人工参考复核均与双源复算一致（无需仲裁），共完成 54 次正式模型运行。完整配对发布结果、实际平台扣费（¥0.34073796）、人工复核计时与离线重放脚本见 [`audit/holdout_validation/RESULTS.md`](../audit/holdout_validation/RESULTS.md) 和 `python3 -B audit/holdout_validation/replay.py`。当前 `decision_cost/confirmation.py` 已接入与主项目一致的独立算术发布守卫（`publish_verified`）及 `RunLedger` 分阶段计时与 token 台账。
 
 以下命令用于首个确认窗口（2023-06-15 00:00 至 06-16 00:00 UTC）。公开的 `prepare_window.py` 命令行使用首窗的日期和事件 ID。新增窗口需先采集两套数据，按新日期生成题目和参考、重新冻结输入及运行清单，再进行人工参考复核和模型调用。三个已完成窗口的公开离线脚本使用保存的报告和标准化数据。两来源各有 26 个小时目标（含追问需用的后一小时），原始回执和补录保存在 `decision_cost/holdout/raw/`，两个来源的区块、余额和报价已通过逐项核对。
 

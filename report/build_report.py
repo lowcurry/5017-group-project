@@ -469,7 +469,7 @@ def build(root, output, edition):
     p("The historical quote screen compared a scaled small quote with the size-matched quote "
       "at 50 frozen blocks. The proxy overestimated output at all 50, but eligibility agreed at "
       "the five thresholds tested. See baseline/audit/decision_replay_20261112/results.json. "
-      "The original report and its clarifications remain traceable in the repository history and REPORT_ERRATA.md.", "small")
+      "See baseline/REPORT_ERRATA.md for clarifications to the original baseline report.", "small")
     p(f'Historical freeze SHA-256:<br/><font name="Courier" size="8.2">{formal["freeze_sha256"]}</font>', "small")
 
     def footer(c, doc):

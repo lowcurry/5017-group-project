@@ -23,6 +23,6 @@ python3 -B decision_cost/evaluation.py --output /tmp/5017-cost-replayed
 python3 -B -m unittest discover -s decision_cost -p "test_*.py" -v
 ```
 
-可更改情景参数并用 `--scenario /path/to/scenario.json` 重跑。存在实测人工记录时，可以用 `--reviews /path/to/timing.csv` 载入，生成的空白模板在本地回放的输出目录。风险评分计时与其货币折算可随机器和负载变化。独立窗口的实测归档重放见 `audit/holdout_validation/replay.py`，复用流程见仓库根目录的 `CONFIRMATION.md`。
+可更改情景参数并用 `--scenario /path/to/scenario.json` 重跑。存在实测人工记录时，可以用 `--reviews /path/to/timing.csv` 载入，生成的空白模板在本地回放的输出目录。风险评分计时与其货币折算可随机器和负载变化。独立窗口的实测归档重放见 `audit/holdout_validation/replay.py`，复用流程见[新窗口复用指南](../docs/CONFIRMATION.md)。
 
 [成本分解](results/cost.svg) · [人工介入与错误](results/workload.svg) · [敏感性矩阵](results/sensitivity.svg) · [主结果 CSV](results/policy-summary.csv)
