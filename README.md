@@ -125,4 +125,4 @@ python3 -B audit/holdout_validation/alert_metrics.py \
 | 证据补齐与统计上界 | 查看 `evidence-recovery/` 中的恢复汇总、成本对照和统计上界。单测命令为 `python3 -B -m unittest discover -s audit/evidence_recovery -p 'test_*.py'`。 |
 | 三个留出窗口配对重放 | 回放会核对 54 份归档报告。将生成的 `alerts.json` 与 `audit/holdout_validation/alert-metrics.json` 对照。 |
 | 扩展新的留出窗口 | 见 `docs/CONFIRMATION.md` 的首窗示例和冻结步骤。 |
-| 重建最终报告 | 见 `report/README.md`。报告第 02 和 03 节说明课程反馈如何落实为工程改进。 |
+| 重建最终报告 | 见 `report/README.md`。第 01 节给出初版核验的结果和代价，第 02 和 04 节说明如何验证课程反馈所推动的改进，第 05 节报告证据补齐的配对结果。 |
