@@ -135,7 +135,7 @@ flow.append(Spacer(1, 14))
 p("Independently Verifiable Stablecoin Liquidity Investigation Agent", "title")
 p("Evidence-grounded investigation and independent replay of Ethereum Curve 3pool")
 p("WANG Hanyang &nbsp;&nbsp; HE Yuequn &nbsp;&nbsp; WU Yuxuan", "h2")
-p("22 November 2026 | Revised final report", "small")
+p("23 November 2026 | Revised final report", "small")
 flow.append(Spacer(1, 17))
 h2("Abstract")
 p("This study tests whether evidence guidance and independent recomputation improve stablecoin investigation reports. We froze 51 block-pinned snapshots covering two Ethereum Curve 3pool windows and defined six tasks with 18 required components. Sixteen were answerable. We compared a deterministic template with ordinary and evidence-guided agents using the same DeepSeek Flash model, task data, tool access and budget limits.")
@@ -350,7 +350,25 @@ p("The platform export matches the local count of 211 requests with usage and al
 flow.append(PageBreak())
 
 
-section("09 / REPRODUCIBILITY", "Replay the archived evidence")
+section("09 / ENGINEERING IMPROVEMENTS", "How we acted on feedback")
+p("The proposal review asked us to show that independent checks improve correctness without losing answer coverage, and to distinguish evidence integrity from factual verification. Later feedback from the professor asked us to account for the cost of human intervention and test whether a lightweight decision model or limited post-training would help. We translated these suggestions into engineering changes and evaluated each one separately. [1, 18-20]")
+tab(["Feedback and implemented change", "What the evidence shows"], [
+    ["<b>Separate calculation and source checks.</b> We bound the same hourly targets to two recorded RPC captures, checked matching block identities and raw data, and added a separate exact-fraction calculation for selected balance metrics before publication.",
+     "A shared arithmetic fault could pass both V1 and V2. The extra publication check withheld all six injected shared-error cases and retained all six matching controls. [5, 6, 17]"],
+    ["<b>Measure coverage and audit the references.</b> We fixed required answer slots and evidence, counted omissions and refusals separately, and compared G and E with the same tasks, model, tools and budget ceilings.",
+     "Scheduled reproducible coverage was 34/48 for G and 43/48 for E. Both reviewers' reference answers in each of the three later windows agreed with dual-source recomputation on all nine items. [2-4, 14, 20]"],
+    ["<b>Separate evidence integrity from correctness.</b> We recorded block and query details for replay, and tested evidence-digest registration independently of the publication checks.",
+     "The local chain demo verified registration and retrieval of the manifest digest. The verifier separately checked source agreement and calculations. [2, 5-7]"],
+    ["<b>Compare intervention costs by risk.</b> We priced release, verification and human referral under explicit assumptions, including a higher loss for missing a concentration alert than for issuing a false alert.",
+     "On 36 historical decisions, the fixed rule and logistic regression both referred 2 cases and averaged 0.65 scenario units per decision. We report observed API charges and review times separately. [18, 20]"],
+    ["<b>Test lightweight post-training.</b> We compared logistic regression with a frozen encoder plus a trained head and a model that also tunes the final encoder layer. We held out one historical event at a time.",
+     "The two neural variants each averaged 1.18 scenario units per decision. Those variants offered no cost advantage over the simpler policies in this replay. [18]"],
+], [CW*0.53, CW*0.47])
+h2("A follow-up improvement from the error audit")
+p("We traced part of the manual workload to correct claims with incomplete citations. We added deterministic evidence recovery followed by the same publication checks. On the same 54 saved reports, referrals fell from 12 to 3 and correct releases increased from 120 to 132. Neither path made an observed automatic error. The negative alert decisions came from repetitions in one window. [19, 20]")
+flow.append(PageBreak())
+
+section("10 / REPRODUCIBILITY", "Replay the archived evidence")
 h2("Historical study commands from baseline/")
 tab(["Action", "Command"], [
     ["Replay deterministic data and verification", "<font name='Courier'>python3 -B docs/reproduce_current.py</font>"],
@@ -372,7 +390,7 @@ p("Run the last command on one line. Compare the resulting JSON with audit/holdo
 h2("Development optimization after the formal run")
 p("The compact read-window response preserves raw balances, quotes and block identifiers. Three recorded budget stops passed a counterfactual pre-dispatch admission check with the smaller payload. In two nine-run development samples using the same tasks and budget, completed submissions rose from 8/9 to 9/9 and measured token use fell from 66,475 to 62,078. The samples used different model draws and the improvement is reported separately from the formal comparison. [9]")
 flow.append(PageBreak())
-section("10 / EVIDENCE INDEX", "Supporting records and scope")
+section("11 / EVIDENCE INDEX", "Supporting records and scope")
 p("Paths [2]-[17] refer to baseline/ in the public repository unless the file is a root document. [18]-[20] point to the extensions at the repository root.", "small")
 for line in [
     "[1] Course Trade 2 scope and instructor proposal feedback, 14 October 2026.",
