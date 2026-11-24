@@ -76,37 +76,38 @@ class Workflow(Flowable):
     def __init__(self):
         super().__init__()
         self.width = WIDTH
-        self.height = 272
+        self.height = 320
 
     def draw(self):
         c = self.canv
-        # The first three stages are shared. Two branches rejoin at the decision.
-        self._arrow(c, 246, 227, 246, 215)
-        self._arrow(c, 246, 181, 246, 169)
+        # Both paths start with the same claims and rejoin at publication.
+        self._arrow(c, 246, 276, 246, 264)
+        self._arrow(c, 246, 230, 246, 218)
         c.setStrokeColor(TEAL)
         c.setLineWidth(1)
-        c.line(246, 131, 246, 123)
-        c.line(112, 123, 380, 123)
-        self._arrow(c, 112, 123, 112, 96)
-        self._arrow(c, 380, 123, 380, 96)
-        self._arrow(c, 112, 57, 112, 47)
-        self._arrow(c, 380, 57, 380, 47)
-        self._node(c, 138, 227, 216, 34, "1  Record two sources at fixed blocks",
+        c.line(246, 181, 246, 171)
+        c.line(119, 171, 372, 171)
+        self._arrow(c, 119, 171, 119, 157)
+        self._arrow(c, 372, 171, 372, 157)
+        c.line(119, 119, 119, 110)
+        c.line(372, 119, 372, 110)
+        c.line(119, 110, 372, 110)
+        self._arrow(c, 246, 110, 246, 100)
+        self._arrow(c, 246, 62, 246, 46)
+        self._node(c, 113, 276, 266, 34, "1  Record two sources at fixed blocks",
                    "Store raw balances, quotes, units and block IDs")
-        self._node(c, 138, 181, 216, 34, "2  Generate structured claims",
-                   "Give each claim a query, value and evidence IDs")
-        self._node(c, 138, 131, 216, 38, "3  Recompute the claim",
-                   "Check the value, unit and cited observations")
-        self._node(c, 9, 57, 219, 39, "4A  Full verification",
-                   "Check both sources and publish passing claims")
-        self._node(c, 262, 57, 219, 39, "4B  Full verification with recovery",
-                   "Complete eligible citations and verify again", accented=True)
-        self._node(c, 94, 8, 303, 39, "5  Use the claim or refer the decision",
+        self._node(c, 113, 230, 266, 34, "2  Generate claims",
+                   "Record each query, value, unit and evidence IDs")
+        self._node(c, 113, 181, 266, 37, "3  Recompute claims independently",
+                   "Check the result and the scope of its evidence")
+        self._node(c, 9, 119, 220, 38, "4A  Verify the original report",
+                   "Check source agreement, arithmetic and dependencies")
+        self._node(c, 262, 119, 220, 38, "4B  Complete eligible citations",
+                   "Add missing citations to a copy and verify again", accented=True)
+        self._node(c, 94, 62, 304, 38, "5  Publish or withhold each claim",
+                   "Publish only claims that pass all required checks")
+        self._node(c, 94, 8, 304, 38, "6  Use the verified claim or refer the decision",
                    "Refer to a reviewer if a required claim is withheld")
-        c.setFont("Helvetica", 8.2)
-        c.setFillColor(TEAL)
-        c.drawString(122, 105, "Verification only")
-        c.drawRightString(370, 105, "Verification with evidence recovery")
 
     @staticmethod
     def _node(c, x, y, w, h, header, sub, accented=False):
@@ -139,6 +140,7 @@ def build(root, output, edition):
     formal = read_json(root, FORMAL)
     groups = formal["by_group"]
     policies = {r["policy"]: r for r in read_rows(root, POLICIES)}
+    scenario = read_json(root, Path("decision_cost/scenario.json"))
     historical = read_json(root, HISTORICAL)["research"]["overall"]
     recovery = read_json(root, RECOVERY / "recovery_summary.json")
     recovered_formal = recovery["formal_36_runs"]["totals"]
@@ -217,12 +219,12 @@ def build(root, output, edition):
     flow.append(Spacer(1, 10))
     p("Curve 3pool is an Ethereum liquidity pool for DAI, USDC and USDT. If a report picks the "
       "wrong hour of peak imbalance, the analyst checks the next-hour quote at the wrong block. "
-      "We built an agent whose balance and quote claims can be traced to recorded blocks and "
-      "checked independently.", "lead")
+      "The agent ties balance and quote claims to recorded blocks. A separate verifier recomputes "
+      "those claims before publication. The system refers decisions to a reviewer when a required "
+      "claim is withheld.", "lead")
     p("In the first historical replay, requiring verification prevented "
       f"{historical['wrong_sent_to_review']} automatic error and added "
-      f"{historical['additional_reviews']} human referrals across {historical['decisions']} decisions. "
-      "This trade-off made it important to measure both the errors caught and the correct decisions delayed.")
+      f"{historical['additional_reviews']} human referrals across {historical['decisions']} decisions.")
     p("Course feedback shaped the independent checks and the benchmark. The professor later asked us "
       "to weigh error losses against review costs and test lightweight decision models. Our review of "
       "withheld claims led to a separate improvement that completes missing evidence citations.")
@@ -236,8 +238,6 @@ def build(root, output, edition):
     card(f"<b>Last-layer tuning did not lower the estimated cost.</b> In the default historical scenario, "
          f"the fixed rule and logistic regression each averaged {float(policies['rule']['average_cost']):.2f} "
          f"units per decision. Both neural variants averaged {float(policies['tuned_encoder']['average_cost']):.2f}.")
-    p("The experiments cover one pool and one model. Repetitions within an event share the same market evidence.",
-      "small")
 
 
     new_page("01 / EARLY RESULTS", "Early verification caught one error and added nine referrals")
@@ -313,9 +313,8 @@ def build(root, output, edition):
       "agree on the fields used in the calculation. It recomputes each claim and checks the evidence "
       "needed to support its scope.")
     flow.append(Workflow())
-    p("<b>Figure 1.</b> The two paths start from the same saved reports. Both check source agreement, "
-      "arithmetic and claim dependencies. The path on the right fills eligible gaps and repeats "
-      "the full check. Section 04 separately evaluates when to invoke verification.", "caption")
+    p("<b>Figure 1.</b> Both paths process the same saved reports. The recovery path adds eligible "
+      "citations and repeats verification. Section 04 evaluates when to invoke verification.", "caption")
     p("Why one citation could not establish the peak", "h2")
     p(f"On {jdate}, report H02_G_1 picked the correct sampled peak at <b>{peak_hour} UTC</b> "
       f"but cited only that hour. A maximum requires checking all {len(recovered_ids)} eligible hourly "
@@ -334,11 +333,11 @@ def build(root, output, edition):
 
     new_page("04 / INTERVENTION", "When is verification worth the cost?")
     p("The professor asked us to weigh the loss from a wrong decision against the cost of intervening. "
-      "A low expected loss can justify using a result as it stands. A potentially costly miss can justify "
-      "checking sooner or involving a reviewer. Both checks and reviews consume resources.")
-    p("We replayed the 36 historical decisions from Table 1. The controls either use available model outputs "
-      "or verify every case. The other policies choose among those actions and immediate referral using "
-      "task type and evidence fields available before verification.")
+      "We replayed the 36 decisions from Table 1. The controls either use available model output or verify every case.")
+    p("The fixed rule estimates error risk by task type. The learned policies also use evidence fields available "
+      "before verification. These policies choose the action with the lowest expected cost. Direct use costs the "
+      "probability of error times its loss. Verification adds the cost of checking, expected referrals and remaining "
+      "errors. Human review costs the reviewer's time plus the expected loss from errors that survive review.")
     p("Do lightweight models improve the choice?", "h2")
     p("We tested logistic regression, a frozen tabular encoder with a trained classification head, and "
       "an encoder with its final layer and head tuned together. Each learned policy trained on one "
@@ -352,9 +351,12 @@ def build(root, output, edition):
         [label, r["to_human"], r["auto_error"], f'{float(r["average_cost"]):.2f}']
         for key, label in labels for r in (policies[key],)
     ], [WIDTH-247, 82, 82, 83])
-    p("<b>Table 4.</b> All policies faced 36 scheduled decisions. Costs are scenario units. The default "
-      "assumes five minutes per human review at one unit per minute, 0.2 units per verification "
-      "and a 2% chance of error after review. A missed concentration alert costs 200 units, and a false alert costs 40.",
+    p("<b>Table 4.</b> Referrals and automatic errors are outcomes from the 36-decision replay. Costs use "
+      "scenario units. The default assigns five minutes per review at one unit per minute, 0.2 units per "
+      "verification and a 2% residual review error rate. A missed concentration alert costs 200 units "
+      "and a false alert costs 40. When choosing an action, the policy assumes "
+      f'{scenario["verification_referral_probability"]:.0%} of verified cases go to review and '
+      f'{scenario["verification_fraction_errors_missed"]:.0%} of the direct-use error loss remains after verification.',
       "caption")
     p("The fixed rule and logistic regression each referred two cases. Both neural variants referred four. "
       "None of the four policies made an observed automatic error. The modeled cost difference reflects "
@@ -380,6 +382,7 @@ def build(root, output, edition):
         ["Fault checks and controls", "56 cases that should be withheld and 34 clean controls",
          f'{fault["total_fault_false_accepts"]} false accepts. All 34 clean controls passed.'],
     ], [122, 164, WIDTH-286])
+    p("<b>Table 5.</b> Historical claim recovery and scripted fault checks.", "caption")
     original_reviews = replay["baseline_decision_counts"]["deferred"]
     recovered_reviews = replay["recovered_decision_counts"]["deferred"]
     p(f"On the same {historical['decisions']} historical decisions as Table 1, recovery reduced referrals from "
@@ -394,7 +397,7 @@ def build(root, output, edition):
     rows.append(["<b>Total</b>", n_cases, refs, pair(*(totals[a]["auto_error"] for a in arms)), pubs])
     table(["Window", "Paired decisions", "Referrals", "Automatic errors", "Correct claims published"], rows,
           [102, 82, 83, 90, WIDTH-357])
-    p("<b>Table 5.</b> Each pair compares verification alone with verification plus recovery on the same "
+    p("<b>Table 6.</b> Each pair compares verification alone with verification plus recovery on the same "
       "saved report. Each window has 18 decisions (three tasks, two prompts, three repetitions). "
       "One report can contain multiple claims.", "caption")
     p("False alerts and correct automatic alerts", "h2")
@@ -425,7 +428,7 @@ def build(root, output, edition):
          f'{sum(x["pairs"] for x in timing_rows)} paired measurements across {timing["rounds"]} timed rounds. '
          "The timer covers local verification and publication."],
     ], [102, 190, WIDTH-292])
-    p("<b>Table 6.</b> Both paths reuse the same billed collection. The two observed reviews have no assigned "
+    p("<b>Table 7.</b> Both paths reuse the same billed collection. The two observed reviews have no assigned "
       "labor rate, so we report minutes and do not estimate realized net savings.", "caption")
     p("What the results can support", "h2")
     p("The study covers one pool, three types of research decisions and one report-generating model. "
@@ -459,6 +462,7 @@ def build(root, output, edition):
          "audit/holdout_validation/ (billing-reconciliation.json, human-timing-observed.json, timing-summary.json)",
          "Inspect the reconciled evidence files"],
     ], [122, 252, WIDTH-374])
+    p("<b>Table 8.</b> Archived results and the checks that reproduce them.", "caption")
     p("Offline commands", "h2")
     p("Install decision_cost/requirements.txt for the historical cost and recovery scripts. "
       "Copy the block into a shell from the repository root. The first line creates a temporary directory. "
@@ -485,8 +489,7 @@ def build(root, output, edition):
       "and time. It must also name the required evidence IDs, dataset digest and formula version. "
       "A peak refers to the sampled hours. A peak between observations remains unknown.")
     n_template = formal["template"]["reproducible_correct"]
-    p(f"The deterministic template reproduced all {n_template} answerable components without a model call. "
-      "It establishes what the computation can produce from the frozen evidence.", "small")
+    p(f"The deterministic template reproduced all {n_template} answerable components without a model call.", "small")
     p("Recovery eligibility", "h2")
     p("The verifier must return incomplete_attribution, with the query, value and unit already "
       "matching the recorded calculation. The claim must use the bound dataset digest and formula version "
@@ -502,8 +505,7 @@ def build(root, output, edition):
       "rate uses only reference negatives as its denominator.")
     p("Replacing the default 5% high-risk error assumption with 7.69%, 15.69% or 23.84% raised the "
       "unrecovered rule from 0.65 to 1.46 average scenario units. With recovery, the rule averaged "
-      "0.71 and full verification averaged 0.78 under the same three assumptions. "
-      "These are sensitivity comparisons under specified assumptions.", "small")
+      "0.71 and full verification averaged 0.78 under the same three assumptions.", "small")
     p("What the historical quote test measured", "h2")
     p("The historical quote screen compared a scaled small quote with the size-matched quote "
       "at 50 frozen blocks. The proxy overestimated output at all 50, but eligibility agreed at "
@@ -532,6 +534,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repo", type=Path, default=Path(__file__).resolve().parents[1])
     parser.add_argument("--output", type=Path)
-    parser.add_argument("--edition", default="Final report | 23 November 2026")
+    parser.add_argument("--edition", default="Final report | 24 November 2026")
     opts = parser.parse_args()
     build(opts.repo, opts.output or opts.repo / "MSBD5017_Final_Project_Report.pdf", opts.edition)
