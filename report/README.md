@@ -12,3 +12,6 @@ Use `--output /path/to/report.pdf` to build a separate copy. The build reads the
 checked-in historical decision replay, recovery results and holdout summaries and
 requires no model credentials or network access. See `NUMERICAL_CHECKLIST.md`
 for the archived inputs behind the report’s headline numbers.
+
+The market sources on page 2 are dated, linked observations. Later changes to the
+public dashboards do not change the numbers in this edition.

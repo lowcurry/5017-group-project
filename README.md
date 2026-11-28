@@ -125,4 +125,16 @@ python3 -B audit/holdout_validation/alert_metrics.py \
 | 证据补齐与统计上界 | 查看 `evidence-recovery/` 中的恢复汇总、成本对照和统计上界。单测命令为 `python3 -B -m unittest discover -s audit/evidence_recovery -p 'test_*.py'`。 |
 | 三个留出窗口配对重放 | 回放会核对 54 份归档报告。将生成的 `alerts.json` 与 `audit/holdout_validation/alert-metrics.json` 对照。 |
 | 扩展新的留出窗口 | 见 `docs/CONFIRMATION.md` 的首窗示例和冻结步骤。 |
-| 重建最终报告 | 见 `report/README.md`。第 01 节给出初版核验的结果和代价，第 02 和 04 节说明如何验证课程反馈所推动的改进，第 05 节报告证据补齐的配对结果。 |
+| 重建最终报告 | 见 `report/README.md`。第 I 节是摘要与成员贡献，第 II 节讨论使用者、市场与试点，第 III 节列出中期基线、风险成本策略和留出实验，第 V 节和附录 A 给出复现入口。 |
+
+### 本地合约的编译、部署与测试
+
+单独复制一份基线目录运行这个演示，保留原始存档供完整性核对。使用独立安装的 Node.js 和 pnpm（本次验证使用 Node.js 24 和 pnpm 11），在仓库根目录运行以下命令。首次安装需要联网，部署和测试在本地内存链进行。
+
+```sh
+chain_dir="$(mktemp -d)"
+cp -R baseline "$chain_dir/baseline"
+(cd "$chain_dir/baseline" && pnpm install --frozen-lockfile --ignore-scripts && pnpm run anchor && pnpm run test:contract)
+```
+
+`anchor` 编译 EvidenceRegistry、部署到本地链、登记存档哈希并读回记录。成功时输出 `PASS` 和新回执路径。合约测试检查能写入新回执，并保护已存在的文件。重跑三个留出窗口只需在仓库根目录运行 `python3 -B audit/holdout_validation/replay.py`；每个日期应显示 `18 paired publications reproduced`。
